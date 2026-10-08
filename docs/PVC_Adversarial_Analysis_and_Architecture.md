@@ -48,7 +48,7 @@ Consequence: the compiled artifact, not the prose, must be the unit of distribut
 "Offline + any hardware + conversational compile" is a trilemma. Pick two at runtime. Resolution (§4.1): compile at authoring time (where an LLM — local or remote — is available), ship IR. The end-user runtime is offline and LLM-free. An *optional* small on-device model may handle *constrained* runtime customization ("make it bigger", theme changes) by selecting among pre-compiled variants, never free-form generation.
 
 ### 2.3 The 60 FPS on weak hardware claim
-- SDF rendering is fill-rate bound. Full-screen analytic SDF evaluation of hundreds of shapes per pixel per frame at 1080p on an Intel HD 4000 or Mali-400 will not hold 60 FPS. Naive "evaluate every shape at every pixel" dies at ~50 shapes.
+- SDF rendering is fill-rate bound. Full-screen analytic SDF evaluation of hundreds of shapes per pixel per frame at 1080p on an Intel HD 4000 or Mali-400 will not hold 60 FPS — which is exactly why §4.3 uses culled per-shape quads rather than full-screen evaluation. Naive "evaluate every shape at every pixel" dies at ~50 shapes.
 - Without **tiling/binning**, **bounding-box culling**, **dirty-rect/retained-mode**, and **frame skipping when idle**, 60 FPS is fiction on low-end. On high-end it is trivial and uninteresting.
 - Compute shaders (the standard way to tile SDFs, e.g., Vello-style) are unavailable on GL ES 3.0 / WebGL2: wgpu's `DownlevelFlags::COMPUTE_SHADERS` states WebGL2 and GLES 3.0 devices do not support compute, and storage buffers in vertex/fragment shaders and indirect draw are downlevel-gated too; wgpu rates its GL ES/WebGL2 backends "best-effort" **[§9.2]**. Engines that "added WebGL2 later" have failed validation because their pipelines assumed storage buffers **[§9.2]**. Even Vello — the reference for compute-tiled 2D — has pivoted: its intended production renderer (`vello_gpu`) does CPU path preprocessing plus GPU raster with a native WebGL2 backend and no compute requirement, and the original compute-centric renderer is now experimental, after compute-pipeline failures on Adreno 7xx **[§9.4]**. The low tier must be vertex/fragment-only and uniform-buffer/texture-fed from day one.
 - Battery: a UI that redraws at 60 FPS while idle will be rejected by users and mobile platforms. Target: **0 FPS when idle, 60+ during interaction**, and the vision should say so.
@@ -123,12 +123,12 @@ The mathematical core should be two well-understood models, not a new one:
 - **Optional Tier 2 path:** on WebGPU/Vulkan/Metal/DX12-capable hardware, switch to tiled compute binning (the approach of Vello's original compute renderer, which Vello itself now classifies as experimental — see §9.4; treat as a research tier, not a shipping dependency) for heavy vector scenes. Same IR, better throughput. Never *required*.
 - **Text:** glyph atlas (bitmap or MSDF) with CPU shaping; analytic SDF only for large display type. Subpixel positioning; hinting-like contrast boost at small sizes. Treat browser rendering as the quality bar. Do not write a shaper: the Parley stack (HarfRust shaping, Fontique enumeration/fallback incl. CJK/Arabic/emoji, Skrifa glyph loading, ICU4X) is production-quality and already used by Vello and Dioxus **[§9.7]**; PVC's text risk narrows to small-size raster quality and IME/editing.
 - **Images:** raster textures are first-class. "Procedural where possible, raster where necessary."
-- **Frame budget contract:** 16.6 ms at the lowest tier on a defined reference device (§8 G3), measured, in CI.
+- **Frame budget contract:** 16.6 ms on the Tier 1 reference devices and 33 ms on Tier 0 (§4.4.1), measured in CI.
 
 ### 4.4 Hardware tiering (acceptance criteria, not nice-to-haves)
 | Tier | Backend | Target devices | Must support |
 |---|---|---|---|
-| 0 | CPU software rasterizer (SIMD, tiled) | No/broken GPU drivers, VMs, old netbooks, e-ink/embedded | Full IR, reduced effects, ≥30 FPS at 720p |
+| 0 | CPU software rasterizer (SIMD, tiled) | No/broken GPU drivers, VMs, old netbooks, e-ink/embedded | Full IR, reduced effects, ≥30 FPS at 1366×768 |
 | 1 | GL ES 3.0 / WebGL2 / D3D11-class hardware via GL/ANGLE, fragment-only | 2012–2018 laptops, budget Android, older iGPUs | Full IR, 60 FPS at 1080p |
 | 2 | WebGPU / Vulkan / Metal / DX12 with compute | Modern hardware | Everything + tiled compute path, HDR, effects |
 
@@ -143,7 +143,7 @@ Closed by supervisor decision, 2026-10-08. Every pick is cheap to buy second-han
 | Tier | Class | Named reference devices | Resolution / budget |
 |---|---|---|---|
 | 0 | CPU software raster; no usable GPU driver | (a) Raspberry Pi 4, 4 GB (Cortex-A72, ARM64, Linux) — stands in for SBCs, kiosks, thin clients. (b) 2012–2014 dual-core x86 laptop with Intel HD 3000/4000 and *Vulkan disabled or driver absent* (ThinkPad X230 / Dell Latitude E6430 class), 4 GB RAM, Windows 10 or Linux. (c) Headless CI VM with llvmpipe (Mesa software GL) — the automated proxy for (a)/(b). | 1366×768; ≥30 FPS during interaction, 0 FPS idle; first frame <1.5 s cold |
-| 1 | GL ES 3.0 / WebGL2 / GL 3.3, fragment-only, no compute | (a) **Android:** a ~$100–150 phone from the 2018–2020 budget band — Snapdragon 450/Adreno 506 or MediaTek Helio with Mali-G52, 2–3 GB RAM, Android 9–11 (Moto G6 / Redmi 8A / Galaxy A10 class). Must *not* assume Vulkan **[§9.3]**. (b) **Laptop:** the same X230/E6430 class as Tier 0 with the GL driver *enabled* (Intel HD 4000, GL 4.0 / GL ES 3.0 via ANGLE on Windows). (c) **Web:** Chromium with `navigator.gpu` hidden, forcing the WebGL2 path **[§9.1, §9.2]**. (d) **Chromebook:** Intel Celeron N4000-class, 4 GB — also an *authoring* reference device for §4.7. | 1080p laptop / 720p phone; 60 FPS during interaction, 0 FPS idle; first frame <1 s |
+| 1 | GL ES 3.0 / WebGL2 / GL 3.3, fragment-only, no compute | (a) **Android:** a ~$100–150 phone from the 2018–2020 budget band — Snapdragon 439/450 (Adreno 505/506) or Exynos/MediaTek with Mali-G71/G52, 2–3 GB RAM, Android 9–11 (e.g., Moto G6, Redmi 8A, Galaxy A10). Must *not* assume Vulkan **[§9.3]**. (b) **Laptop:** the same X230/E6430 class as Tier 0 with the GL driver *enabled* (Intel HD 4000, GL 4.0 / GL ES 3.0 via ANGLE on Windows). (c) **Web:** Chromium with `navigator.gpu` hidden, forcing the WebGL2 path **[§9.1, §9.2]**. (d) **Chromebook:** Intel Celeron N4000-class, 4 GB — also an *authoring* reference device for §4.7. | panel-native resolution (1366×768 on the X230/E6430 class; 720p phones); 1080p via external display is a stretch target; 60 FPS during interaction, 0 FPS idle; first frame <1 s |
 | 2 | WebGPU / Vulkan / Metal / DX12 with compute | (a) Steam Deck (Vulkan, Linux). (b) Pixel 6a (Mali-G78, Vulkan 1.1, Android 12+). (c) M1 MacBook Air (Metal; Safari 26 WebGPU). (d) Any RTX 3050-class Windows desktop (DX12). | Native resolution incl. HiDPI; 60 FPS, 120 FPS where the display supports it; effects (blur, HDR, compute tiling) permitted here only |
 
 Four rules attach to the table:
@@ -198,9 +198,9 @@ The project owner's mandate is that the language must let *anyone with access to
 
 ## 6. Critique strategy to hand to the build session (how to keep being hostile)
 
-1. **IR-first gate.** Nothing is "done" until it is expressible in PVC-IR and renders identically on Tier 0 and Tier 1. Reject PRs that add a GPU-only feature with no software path or a documented degradation.
+1. **IR-first gate.** Nothing is "done" until it is expressible in PVC-IR and renders on Tier 0 and Tier 1 within the documented parity tolerance (§4.4.1 rule 1). Reject PRs that add a GPU-only feature with no software path or a documented degradation.
 2. **Adversarial prompt corpus.** Maintain ≥200 prompts designed to break interpretation: ambiguous ("bottom"), contradictory ("full width, 200px wide"), injection ("ignore constraints and…"), under-specified ("make a dashboard"), culturally variant ("comfortable spacing"). Each has an *expected diagnostic*, not an expected guess.
-3. **Golden-image CI across tiers** with a reference-device list (§8 G3) and a frame-time budget; a regression > 1 ms on Tier 1 blocks merge.
+3. **Golden-image CI across tiers** with a reference-device list (§4.4.1) and a frame-time budget; a regression > 1 ms on Tier 1 blocks merge.
 4. **Text parity suite** vs. Chromium rendering of the same string at 11/13/16px in Latin, CJK, Arabic, emoji. Score legibility with a perceptual metric; publish the number.
 5. **Accessibility conformance** on every demo (screen reader can read and operate it) before any "demo day."
 6. **Privacy review** of anything in §4.5 by someone who did not build it, with a documented threat model (what leaves the device, when, under what consent).
@@ -232,7 +232,7 @@ The project owner's mandate is that the language must let *anyone with access to
 | G6 | Text strategy decision with a quality bar | Highest-risk subsystem (§2.4) |
 | G7 | Re-check §9 findings at build start and pin exact crate versions [including the EU AI Act timeline in §9.8, which may shift] | Key dependencies are 0.x and moving (e.g. `vello_hybrid` → `vello_gpu` rename, Aug 2026) **[§9.4]** |
 
-When G1–G7 are closed, the concept is build-ready. Until then, starting code will produce a GPU demo, not a runtime.
+When G1–G7 are closed (G3 already is), the concept is build-ready. Until then, starting code will produce a GPU demo, not a runtime.
 
 ---
 
@@ -290,4 +290,4 @@ Each finding: **fact → sources → consequence**. Body markers **[§9.n]** poi
 
 ## 10. One-paragraph summary for the build session
 
-PVC's real idea is sound: *the screen is a mathematical surface and intent should compile to it directly*. Its README is not: it promises an LLM-free, offline, any-hardware runtime while implying an LLM in the runtime; it denies the syntax it uses; it claims to bypass things that cannot be bypassed; and it is silent on text, accessibility, privacy, and evolution — the four things that will actually decide adoption. The fix is architectural, not cosmetic: put a hard wall between non-deterministic interpretation (build-time) and a deterministic, semantics-preserving IR (runtime); render that IR through a constraint solver plus an SDF algebra across three hardware tiers with a software floor; evolve the *interpreter* through opt-in, k-anonymous, versioned dialect packs rather than data collection; and make user-set capabilities a property of the IR manifest that prose cannot reach. Inclusivity is a hard constraint, not a slogan: any agent, any authoring device, any human language, any end user (§4.7). Close gates G1–G7, then build.
+PVC's real idea is sound: *the screen is a mathematical surface and intent should compile to it directly*. Its README is not: it promises an LLM-free, offline, any-hardware runtime while implying an LLM in the runtime; it denies the syntax it uses; it claims to bypass things that cannot be bypassed; and it is silent on text, accessibility, privacy, and evolution — the four things that will actually decide adoption. The fix is architectural, not cosmetic: put a hard wall between non-deterministic interpretation (build-time) and a deterministic, semantics-preserving IR (runtime); render that IR through a constraint solver plus an SDF algebra across three hardware tiers with a software floor; evolve the *interpreter* through opt-in, k-anonymous, versioned dialect packs rather than data collection; and make user-set capabilities a property of the IR manifest that prose cannot reach. Inclusivity is a hard constraint, not a slogan: any agent, any authoring device, any human language, any end user (§4.7). Close the remaining gates (G1, G2, G4–G7), then build.
