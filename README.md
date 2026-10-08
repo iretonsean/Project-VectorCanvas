@@ -112,7 +112,7 @@ effect connect_user uses net.main
 </div>
 ```
 
-**What this does and does not show.** Earlier versions of this README claimed "~600 tokens" for the HTML and "~65" for the PVC request, and "up to 90%" savings. Measured, those figures are 185 and 107 tokens. The fair comparison is between what the *agent* writes in each case: 118 against 185, about 36% fewer, for one hand-picked card. That is a single data point, not a result. It leaves out the context an agent needs in order to know PVC, which counts *against* PVC. The real answer will come from the benchmark in [G2](docs/G2_Benchmark_Corpus.md).
+**What this does and does not show.** Earlier versions of this README claimed "~600 tokens" for the HTML and "~65" for the PVC request, and "up to 90%" savings. Measured, the HTML is 185 tokens. The *original README's* request text was 107 tokens. That request described a slightly different card ("Designer" rather than "Product Designer", and no body text given), so it was replaced by the corrected request above, which is 110 tokens. The fair comparison is between what the *agent* writes in each case: 118 against 185, about 36% fewer, for one hand-picked card. That is a single data point, not a result. It leaves out the context an agent needs in order to know PVC, which counts *against* PVC. The real answer will come from the benchmark in [G2](docs/G2_Benchmark_Corpus.md).
 
 ## Non-goals
 
