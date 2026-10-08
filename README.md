@@ -1,42 +1,103 @@
 # Project VectorCanvas (PVC)
 
-**A hardware-accelerated, AI-native programming language designed explicitly for generative AI agent workflows. Project VectorCanvas completely bypasses legacy, text-heavy code frameworks (HTML, CSS, JavaScript, React) by compiling pure conversational semantic intent directly into WebGPU/WGSL matrix math. High-performance, cross-platform layouts at 60+ FPS, optimized for maximal token efficiency.**
+> **Status: vision, pre-implementation.** No PVC code exists yet. This repository holds the project's vision and the conceptual documents that must hold up under criticism before any building starts. Everything below is **planned** unless it is explicitly marked **measured**.
 
-PVC fundamentally redefines software architecture for the era of Large Language Models (LLMs). By treating the user's screen as a raw mathematical canvas, it bridges the gap between fluid AI-generated concepts and native, bare-metal hardware execution.
+**What PVC is meant to be:** a way for AI agents to build digital products with fewer tokens, which then run on virtually any machine. You describe what you want in conversation with any coding agent, local or cloud. The agent compiles that intent into a small, checkable program called **PVC-IR**. A lightweight runtime draws that program directly on the GPU, or on the CPU when there is no usable GPU, with no browser engine or UI toolkit in between.
 
----
+The owner's vision, in plain language:
 
-## ⚡ The Core Philosophy
+> *"AI agents build any digital product with fewer tokens on virtually any machine that can use local or cloud AI agents."*
 
-Traditional programming languages are built for humans to read and write sequentially, making them incredibly token-inefficient for AI coding agents and heavy for hardware to process. PVC changes the paradigm:
-
-*   **Engineered for LLM Agents:** A zero-boilerplate, semantic execution environment that strips out endless brackets, tag closures, and complex framework dependencies. It dramatically maximizes LLM context windows, slashes API costs, and completely eliminates syntax hallucinations.
-*   **Bypasses the Abstraction Layer:** Eliminates operating system window managers, browser DOM layout engines, and intermediate UI rendering packages. 
-*   **Accessible to Anyone:** Because the compiler natively parses natural, conversational design intent, any user or AI model can construct a complete cross-platform application using fluid descriptions alone.
+The first release targets **products with a user interface**, because that is where today's stacks spend the most tokens and where drawing directly to the screen pays off. The design leaves room for other product classes later. *UI first, not UI only.*
 
 ---
 
-## 🛠 Features & Architecture
+## How it is meant to work
 
-### 1. Zero-Dependency Cross-Platform Engine
-PVC targets low-level graphics hardware and web standards (**WebGPU/WGSL**). It runs natively across the entire digital ecosystem by bypassing operating-system-specific UI constraints and utilizing native backend wrappers:
-*   **Desktop:** Native windowing via Vulkan (Linux), DirectX 12 (Windows), and Metal (macOS).
-*   **Web:** Instantly targets browser-based WebGPU canvases in Chrome, Safari, and Firefox.
-*   **Mobile & Embedded:** Renders directly on physical screen layers without slow app-store wrapper kits.
+```
+ Your intent (conversation, any language)   ← you + any coding agent, on any device
+        │  Stage A — interpretation: the agent writes PVC-IR, the validator checks it
+        ▼
+ PVC-IR (deterministic, typed, versioned, signed)   ← this is the program
+        │  Stage B — resolution: layout solve, hardware-tier selection
+        ▼
+ Pixels on the end user's device                     ← offline, no AI model involved
+```
 
-### 2. 100% Offline & Local Execution
-Applications built with PVC require **zero internet access** for end-users. 
-*   **Local Compiler:** The runtime is a highly optimized, self-contained binary written in Rust/C that handles compilation instantly on the client machine.
-*   **Procedural Rendering:** No heavy JPEG, PNG, or 3D asset downloads. Complex user interfaces, fluid simulations, and visual effects are drawn on the fly by the local GPU using **Signed Distance Fields (SDFs)** and pure physics formulas.
+The key rule is a **hard wall** between Stage A and Stage B. AI interpretation happens only while the app is being *built*. The app your users run contains **no language model**. It renders the same way every time, works offline, and runs on weak hardware. Details: [`docs/PVC_Adversarial_Analysis_and_Architecture.md`](docs/PVC_Adversarial_Analysis_and_Architecture.md) §4.1.
 
-### 3. Hyper-Dense Token Efficiency
-Achieves up to a **90% reduction in token consumption** compared to traditional HTML/Tailwind/JS stacks, collapsing multi-line layout files into microsecond-compiling natural text blocks.
+## Core ideas (planned)
 
----
+- **Built for AI agents, checked by a validator.** The agent writes a compact form of PVC-IR. The **validator** expands it, checks it and returns structured, machine-fixable diagnostics, so even a small model can repair its own mistakes. The validator, not any particular model, decides what is correct. PVC catches *parse-level* and *structural* errors outright. It **does not** eliminate semantic mistakes such as a wrong colour or a misread "bottom". It surfaces them as diagnostics instead of guessing silently. ([G4 spec](docs/G4_PVC_IR_v0_Spec.md) §9)
+- **No UI toolkit, no DOM layout.** PVC owns everything inside its window or canvas. On the web it draws into a canvas and uses hidden page elements only to expose accessibility information and to receive text input, because browsers offer no other way to do either for canvas content. It still needs a window (or a browser canvas, or a thin native host on mobile) from the operating system. Nothing can present pixels without one.
+- **A single binary with no UI-framework dependency, not "zero dependencies".** The runtime is planned to build on established open-source libraries for GPU access (wgpu), rasterisation (Vello), text (Parley/HarfRust) and accessibility (AccessKit). Current versions are pinned in [G7](docs/G7_Dependency_Pins_and_Findings_Recheck.md).
+- **Fewer tokens is the goal, and it will be measured, not asserted.** The figure that counts is **total tokens across every turn until the result is correct**, including fixes and the context the agent needs to know PVC. The benchmark is defined in [G2](docs/G2_Benchmark_Corpus.md). Until it runs, PVC makes no reduction claim beyond the single measured example below.
+- **Offline for end users, always. Offline for authors, optionally.** End-user apps never need the internet unless the app itself declares a network capability. Authors may use a cloud agent or a local model, whichever they have.
+- **Shapes drawn from math first, images where they are needed.** Interfaces are drawn mainly from signed distance fields (SDFs). Photos, logos and emoji are ordinary raster images, and text uses a proper text engine ([G6](docs/G6_Text_Strategy.md)).
+- **Inclusive by design.** These are four testable constraints, not slogans:
+  1. **Any agent.** It works with any general-purpose coding agent. No special PVC model is required.
+  2. **Any authoring device.** You can author from a phone, a Chromebook or a library PC through a browser. No local GPU, Rust toolchain or local model is needed.
+  3. **Any language.** You can describe your app in any human language your agent understands. Diagnostics are localisable codes, not English-only messages.
+  4. **Any end user.** Accessibility (screen readers, keyboard, text scaling) and a software-rendering fallback for machines without a usable GPU are release-blocking, not optional.
+- **Permissions you set, that no AI can talk its way past.** An app must declare what it may touch (network hosts, files, camera, clipboard...). The user grants or narrows those permissions, and the runtime enforces them mechanically.
 
-## 📐 The Compilation Paradigm
+## Where it is meant to run (planned)
 
-### The Legacy Way (HTML + Tailwind CSS ~600 tokens)
+| Hardware tier | What it uses | Examples of reference devices |
+|---|---|---|
+| Tier 0 | CPU-only software rendering | Raspberry Pi 4; 2012–2014 laptops with no usable GPU driver |
+| Tier 1 | GL ES 3.0 / WebGL2-class GPUs, no compute shaders | Budget Android phones from 2018–2020 (Android 9–11); older laptops; Chromebooks; browsers without WebGPU |
+| Tier 2 | WebGPU / Vulkan / Metal / DirectX 12 | Current phones, laptops and desktops |
+
+- **Web:** WebGPU where the browser has it, otherwise WebGL2. WebGPU is not yet available everywhere: by industry estimates about 30% of users still need the WebGL2 path (analysis §9.1).
+- **iOS:** distributed through the App Store like any other app, using a minimal native host that presents PVC's GPU surface.
+- **Android:** a thin native host. Vulkan is **not** assumed.
+- **Desktop:** Windows, macOS and Linux, including machines without Vulkan or DirectX 12.
+
+Full device list and frame budgets: analysis §4.4.1.
+
+## Example: one profile card, three ways
+
+This is an illustration, not a benchmark. Token counts are **measured** with OpenAI's `tiktoken`, `o200k_base` encoding ([G7 S.4](docs/G7_Dependency_Pins_and_Findings_Recheck.md)).
+
+**What you might say to your agent (English, 110 tokens):**
+```text
+Canvas {
+  Create a dark slate profile card, 320px wide with a soft border.
+  Inside, align a blue circular avatar with the initials "JD" next to the name "Jane Doe" (bold, 14px) and the title "Product Designer" (muted, 12px).
+  Add a light gray paragraph with the text "Building the future of spatial computing via GPU pipelines."
+  Put a full-width teal button at the bottom labeled "Connect" that triggers the 'connect_user' state function on tap.
+}
+```
+
+**The same request in Spanish (144 tokens):**
+```text
+Canvas {
+  Crea una tarjeta de perfil oscura en tono pizarra, de 320px de ancho y con un borde suave.
+  Dentro, coloca un avatar circular azul con las iniciales "JD" junto al nombre "Jane Doe" (negrita, 14px) y el cargo "Diseñadora de producto" (atenuado, 12px).
+  Añade un párrafo en gris claro con el texto "Construyendo el futuro de la computación espacial con canalizaciones de GPU."
+  Abajo, un botón turquesa a todo lo ancho con la etiqueta "Conectar" que, al tocarlo, active la función de estado 'connect_user'.
+}
+```
+Both requests produce the **same PVC-IR structure**. Only the strings table differs: Spanish labels in one, English in the other. The Spanish request costs more tokens (144 against 110) because this tokenizer splits Spanish into more pieces than English. That is a property of the tokenizer, not of the request. PVC's benchmark therefore compares stacks *within* each language and never treats the difference as a user's fault.
+
+The request format is a *hybrid*: a thin structure (`Canvas { }`, named handlers such as `'connect_user'`) holds natural-language content. This is intentional.
+
+**What the agent writes: compact PVC-IR (illustrative syntax, 118 tokens):**
+```text
+pvc 0.1 use std@0.1 theme dark
+card w=320 border=soft pad=lg gap=md {
+  row gap=sm align=center {
+    avatar "JD" size=40 fill=blue
+    col { text "Jane Doe" bold size=14; text "Product Designer" muted size=12 }
+  }
+  text "Building the future of spatial computing via GPU pipelines." body size=14
+  button "Connect" w=fill fill=teal on.press=connect_user
+}
+effect connect_user uses net.main
+```
+
+**What an agent would write today: HTML + Tailwind CSS (185 tokens):**
 ```html
 <div class="max-w-sm rounded-xl bg-gray-900 border border-gray-800 p-6 flex flex-col gap-4">
   <div class="flex items-center gap-3">
@@ -51,39 +112,40 @@ Achieves up to a **90% reduction in token consumption** compared to traditional 
 </div>
 ```
 
-### The PVC Conversational Paradigm (~65 tokens)
-```text
-Canvas {
-  Create a dark slate profile card, 320px wide with a soft border. 
-  Inside, align a blue circular status avatar containing the initials "JD" next to the name "Jane Doe" (bold, 14px) and title "Designer" (muted, 12px).
-  Add a text block with light gray body text explaining our spatial computing goals.
-  Put a full-width teal button at the bottom labeled "Connect" that triggers the 'connect_user' state function on tap.
-}
-```
+**What this does and does not show.** Earlier versions of this README claimed "~600 tokens" for the HTML and "~65" for the PVC request, and "up to 90%" savings. Measured, those figures are 185 and 107 tokens. The fair comparison is between what the *agent* writes in each case: 118 against 185, about 36% fewer, for one hand-picked card. That is a single data point, not a result. It leaves out the context an agent needs in order to know PVC, which counts *against* PVC. The real answer will come from the benchmark in [G2](docs/G2_Benchmark_Corpus.md).
 
----
+## Non-goals
 
-## 🚀 Getting Started
+- **No AI model in the apps you ship.** Interpretation happens only at build time.
+- **No replacing the browser.** PVC targets applications, not web documents or hypertext.
+- **No custom language model.** PVC works with existing agents and invests in the IR, the validator and examples.
+- **No author-written shaders in the first version.** They would break the cross-device guarantees and the permission sandbox.
+- **No non-UI products (backend services, CLIs, pipelines) in release one**, and no 3D, physics or game features until the GL ES 3.0 / WebGL2 tier renders real apps. These are planned as extensions that sit behind the same validator.
+- **No visual editor, cloud service or marketplace** until the core works.
+- **No collecting your prompts.** Any learning from usage is opt-in and local-first, and shares only abstract, anonymised patterns ([G5](docs/G5_Privacy_and_Evolution_Threat_Model.md)).
 
-### 1. Installation (Prerequisites)
-To run or develop with the PVC runtime, ensure you have the following installed locally on your machine:
-*   **Rust Toolchain:** (MSRV 1.75+) to compile the native client wrapper.
-*   **Modern Graphics Drivers:** A system supporting Vulkan (Linux), DirectX 12 (Windows), or Metal (macOS).
+## Project documents
 
-### 2. Running a Local Sandbox
-Clone the repository and run the engine locally using an offline conversational source file:
-```bash
-git clone https://github.com/yourusername/project-vectorcanvas.git
-cd project-vectorcanvas
-cargo run --bin pvc-runtime -- path/to/your/app.pvc
-```
+| Document | What it settles |
+|---|---|
+| [Adversarial analysis & architecture](docs/PVC_Adversarial_Analysis_and_Architecture.md) | The critique of the original pitch, the architecture, and the readiness gates |
+| [G2 — Benchmark corpus & token metric](docs/G2_Benchmark_Corpus.md) | How "fewer tokens" will be measured honestly |
+| [G4 — PVC-IR v0 conceptual spec](docs/G4_PVC_IR_v0_Spec.md) | What the program format must express and guarantee |
+| [G5 — Privacy & evolution threat model](docs/G5_Privacy_and_Evolution_Threat_Model.md) | How the language can improve without surveillance |
+| [G6 — Text strategy](docs/G6_Text_Strategy.md) | How text is shaped, drawn and edited, and the quality bar it must meet |
+| [G7 — Dependency pins](docs/G7_Dependency_Pins_and_Findings_Recheck.md) | Current versions of key libraries, and facts re-checked |
 
-### 3. Contributing
-We welcome contributions from systems engineers, prompt architects, and product leads alike! 
-*   **Prompt Engineers:** Help optimize the conversational semantic processing engine and map fluid inputs to deterministic structures.
-*   **Systems Engineers:** Check out our open issues to optimize the WGSL shader pipelines, improve client-side hit-testing matrix performance, or expand native window event integrations.
+## Getting started
 
-Please read our `CONTRIBUTING.md` guide before submitting a pull request.
+There is nothing to install or run yet. When there is, there will be two separate paths:
 
-## 📄 License
-This project is open-source and available under the [MIT License](LICENSE).
+- **Author with PVC (planned).** For people building apps. You will need any coding agent, local or cloud, and a web browser. The validator and preview are planned to run in a browser tab or as a small standalone tool. No GPU, Rust toolchain or local model will be required.
+- **Build PVC itself (planned).** For people developing the runtime. You will need a Rust toolchain at or above the minimum version set by PVC's pinned dependencies (currently 1.89, per [G7](docs/G7_Dependency_Pins_and_Findings_Recheck.md)). A modern GPU is **not** required, because the CPU-only tier is a first-class target.
+
+## Contributing
+
+The most valuable contribution right now is criticism. Read the documents above and attack them: find a claim that is wrong, unsourced or inconsistent. See [`CONTRIBUTING.md`](CONTRIBUTING.md).
+
+## License
+
+MIT. See [`LICENSE`](LICENSE).
