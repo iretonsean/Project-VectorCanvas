@@ -120,7 +120,7 @@ The mathematical core should be two well-understood models, not a new one:
 ### 4.3 Rendering strategy that actually hits 60 FPS on weak hardware
 - **Retained mode, damage-tracked.** Redraw only dirty tiles; 0 FPS at idle.
 - **Culled per-shape quads, not full-screen SDF.** Each node draws a bounding quad; the fragment shader evaluates only that node's SDF (plus clip). This is fragment-only, so it runs on GL ES 3.0 / WebGL2 / D3D11-class hardware via GL/ANGLE with no compute. Overdraw is bounded by UI depth (~3–6), not shape count.
-- **Optional Tier-2 path:** on WebGPU/Vulkan/Metal/DX12-capable hardware, switch to tiled compute binning (the approach of Vello's original compute renderer, which Vello itself now classifies as experimental — see §9.4; treat as a research tier, not a shipping dependency) for heavy vector scenes. Same IR, better throughput. Never *required*.
+- **Optional Tier 2 path:** on WebGPU/Vulkan/Metal/DX12-capable hardware, switch to tiled compute binning (the approach of Vello's original compute renderer, which Vello itself now classifies as experimental — see §9.4; treat as a research tier, not a shipping dependency) for heavy vector scenes. Same IR, better throughput. Never *required*.
 - **Text:** glyph atlas (bitmap or MSDF) with CPU shaping; analytic SDF only for large display type. Subpixel positioning; hinting-like contrast boost at small sizes. Treat browser rendering as the quality bar. Do not write a shaper: the Parley stack (HarfRust shaping, Fontique enumeration/fallback incl. CJK/Arabic/emoji, Skrifa glyph loading, ICU4X) is production-quality and already used by Vello and Dioxus **[§9.7]**; PVC's text risk narrows to small-size raster quality and IME/editing.
 - **Images:** raster textures are first-class. "Procedural where possible, raster where necessary."
 - **Frame budget contract:** 16.6 ms at the lowest tier on a defined reference device (§8 G3), measured, in CI.
@@ -164,7 +164,7 @@ Goal: the *interpreter* (Stage A) gets better from many developers' use; the *IR
 **Scope creep (reject or defer):**
 - Fluid simulations / physics / 3D as core (README feature 2). Defer to shader-node plugins.
 - Building a custom LLM. Use existing models behind a stable interface; invest in the IR and the corpus.
-- A visual editor, cloud service, marketplace. Not until Tier-1 renders real apps.
+- A visual editor, cloud service, marketplace. Not until Tier 1 renders real apps.
 - Replacing the browser. PVC targets *apps*, not documents/hypertext.
 
 ---
