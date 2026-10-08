@@ -12,7 +12,7 @@
 |---|---|
 | Is the vision coherent as written? | **No.** The README conflates three different products (a token-efficient *language*, a *GPU renderer*, and a *natural-language compiler*) and makes at least six claims that are false, unfalsifiable, or self-contradictory (§1). |
 | Is the underlying ambition achievable? | **Yes, if reframed.** "Compile conversational intent to pixels" is achievable *only* if the LLM is moved out of the runtime hot path and the system is built around a small, deterministic, hardware-tiered intermediate representation (§4). |
-| Ready to begin building? | **Not yet.** Confidence in the *reframed* concept: ~85% — renderer tiering, text stack, and a11y bridge all have verified production prior art (§9). Confidence in the README as written: <20%. Gating items to reach ≥90% are in §8. |
+| Ready to begin building? | **Not yet.** Confidence in the *reframed* concept: ~85% — renderer tiering, text stack, and a11y bridge all have verified production prior art (§9). Confidence in the README as written: <20%. Gating items to reach ≥90% are in §8; **G3 is closed (§4.4.1)** but does not move the number — G4 (IR spec on paper) and G6 (text strategy) remain the large unknowns. |
 
 ---
 
@@ -31,7 +31,7 @@ Each row cites the artifact, states the problem, severity (**Critical / High / M
 | 1.7 | "Renders directly on physical screen layers without slow app-store wrapper kits" (*Mobile*) | iOS does not permit this. Any iOS app ships through the App Store (or TestFlight/enterprise) and must present via UIKit/SwiftUI-hosted `CAMetalLayer`. Android requires an `Activity`/`SurfaceView`. | **High** | "Renders into a single native GPU surface; the host shell is a few hundred lines." |
 | 1.8 | "Modern Graphics Drivers: Vulkan / DX12 / Metal" as *prerequisite* | Directly contradicts the mandate that PVC "work on virtually any hardware… weaker machines." Many devices in circulation have GL ES 3.0 / D3D11-class hardware via GL/ANGLE / no Vulkan: Google reports only 85% of active Android devices support Vulkan, and Flutter's Impeller still *deliberately* falls back to GL ES below API 29, without usable Vulkan, and on a large population of ES 3.1-capable GPUs (Adreno 650 and older, Huawei Maleoon, early Samsung Xclipse, older PowerVR) **[§9.3]**. WebGPU in browsers is still uneven: default-on in Chrome/Edge desktop and Android 12+, Firefox 141 (Windows) / 145 (Apple-silicon macOS), and Safari 26 only on the 26-series OS releases; still behind flags on Firefox Linux/Android, Intel Macs, and Chromium on Linux — roughly 70% global coverage, ~30% needing WebGL2 **[§9.1]**. README's "Instantly targets browser-based WebGPU canvases in Chrome, Safari, and Firefox" (*Web*) is true only for current desktop OS versions. | **Critical** | Mandate a **tiered backend** with software rasterizer floor (§4.4). |
 | 1.9 | "Procedural Rendering: No heavy JPEG, PNG… drawn… using SDFs and pure physics formulas" | Absolutist. Users need photos, logos, icons, emoji, CJK text. SDF-only cannot represent a photograph. SDF text for CJK/Arabic/complex scripts at small sizes is an unsolved-quality problem versus glyph atlases. | **High** | SDF as *primary* primitive, with raster image and glyph-atlas paths as first-class fallbacks. |
-| 1.10 | `cargo run --bin pvc-runtime -- path/to/your/app.pvc`, `examples/test_dashboard.pvc`, `cargo test`, `LICENSE` | None exist. The repo contains two markdown files. README describes a non-existent product in present tense. `Contributing.md` is referenced as `CONTRIBUTING.md` (case mismatch; breaks on case-sensitive filesystems and GitHub's auto-link). | **Medium** | Mark README as "Vision — pre-implementation". Add LICENSE. Rename file. |
+| 1.10 | `cargo run --bin pvc-runtime -- path/to/your/app.pvc`, `examples/test_dashboard.pvc`, `cargo test`, `LICENSE` | None exist. The repo contains two markdown files. README describes a non-existent product in present tense. `Contributing.md` is referenced as `CONTRIBUTING.md` (case mismatch; breaks on case-sensitive filesystems and GitHub's auto-link). | **Medium** | Mark README as "Vision — pre-implementation". Add LICENSE. Rename file. Split any install instructions into "Build PVC itself (Rust toolchain)" and "Author with PVC (any agent + browser)" (§4.7). |
 | 1.11 | Nothing in the vision about **accessibility**, **text input/IME**, **internationalization**, **privacy**, **security sandbox**, or **evolution of the language** | The user's mandate explicitly requires self-healing/evolution, personal-data protection, and user-set runtime boundaries. The vision doc is silent. Owning the whole surface also means owning screen-reader support that the DOM gives for free. | **Critical** | Add as first-class vision pillars (§2.4 for text, IME and i18n; §2.5 for accessibility; §4.5 for privacy and evolution; §4.6 for runtime boundaries). |
 
 **Pattern:** the README is a *pitch*, not a spec. It is internally inconsistent about what the "language" is and silent on the single hardest problem (where inference runs). Any build that starts from it verbatim will drift immediately.
@@ -136,6 +136,23 @@ Same IR, same output modulo documented effect downgrades. Tier chosen at startup
 
 **Sizing.** Tier 1 is not a long-tail courtesy. On the web, roughly 30% of users still need a WebGL2 path **[§9.1]**. On Android, ~15% of active devices lack Vulkan, all pre-Android-10 devices are outside the Vulkan mandate, and Flutter still routes a large ES 3.1-capable population to GL ES by design **[§9.3]**. The desktop picture (Steam: DX12-capable GPUs >91%) describes gaming PCs only and overstates the general population **[§9.3]**. The leading GPU-2D project independently concluded fragment-only-with-WebGL2 is the right production default **[§9.4]**. Tier 1 is therefore the production path; Tier 2 compute is an optimisation; and cross-tier golden-image parity testing is mandatory — Flutter has shipped real Vulkan→GLES fallback rendering bugs **[§9.3]**. On Windows, Tier 1 reaches DX11-only GPUs through wgpu's GL backend (WGL, or ANGLE-over-D3D11); there is no native D3D11 path in wgpu, which is a build-time decision to record.
 
+#### 4.4.1 Reference devices (G3 resolved)
+
+Closed by supervisor decision, 2026-10-08. Every pick is cheap to buy second-hand or already common in the installed base, so CI runs on real hardware rather than emulation. CI must run on at least one device per row.
+
+| Tier | Class | Named reference devices | Resolution / budget |
+|---|---|---|---|
+| 0 | CPU software raster; no usable GPU driver | (a) Raspberry Pi 4, 4 GB (Cortex-A72, ARM64, Linux) — stands in for SBCs, kiosks, thin clients. (b) 2012–2014 dual-core x86 laptop with Intel HD 3000/4000 and *Vulkan disabled or driver absent* (ThinkPad X230 / Dell Latitude E6430 class), 4 GB RAM, Windows 10 or Linux. (c) Headless CI VM with llvmpipe (Mesa software GL) — the automated proxy for (a)/(b). | 1366×768; ≥30 FPS during interaction, 0 FPS idle; first frame <1.5 s cold |
+| 1 | GL ES 3.0 / WebGL2 / GL 3.3, fragment-only, no compute | (a) **Android:** a ~$100–150 phone from the 2018–2020 budget band — Snapdragon 450/Adreno 506 or MediaTek Helio with Mali-G52, 2–3 GB RAM, Android 9–11 (Moto G6 / Redmi 8A / Galaxy A10 class). Must *not* assume Vulkan **[§9.3]**. (b) **Laptop:** the same X230/E6430 class as Tier 0 with the GL driver *enabled* (Intel HD 4000, GL 4.0 / GL ES 3.0 via ANGLE on Windows). (c) **Web:** Chromium with `navigator.gpu` hidden, forcing the WebGL2 path **[§9.1, §9.2]**. (d) **Chromebook:** Intel Celeron N4000-class, 4 GB — also an *authoring* reference device for §4.7. | 1080p laptop / 720p phone; 60 FPS during interaction, 0 FPS idle; first frame <1 s |
+| 2 | WebGPU / Vulkan / Metal / DX12 with compute | (a) Steam Deck (Vulkan, Linux). (b) Pixel 6a (Mali-G78, Vulkan 1.1, Android 12+). (c) M1 MacBook Air (Metal; Safari 26 WebGPU). (d) Any RTX 3050-class Windows desktop (DX12). | Native resolution incl. HiDPI; 60 FPS, 120 FPS where the display supports it; effects (blur, HDR, compute tiling) permitted here only |
+
+Four rules attach to the table:
+
+1. **"Done" means rendered on the floor.** A feature is done only when it renders on Tier 0 (c) in CI and on at least one physical Tier 1 device, with golden-image parity to Tier 2 within a documented tolerance (§6 item 3; the Flutter Vulkan→GLES fallback bugs in §9.3 are the cautionary precedent).
+2. **Budgets are measured on interaction frames** — pointer move, scroll, text entry — because idle must be 0 FPS (§2.3).
+3. **Devices do not roll off for convenience.** The list is re-validated at each major IR version. A device leaves only when its installed base is demonstrably negligible *and* the owner's inclusivity mandate (§4.7) is re-confirmed — never for engineering convenience.
+4. **Memory ceiling on Tier 0/1:** the runtime plus a reference app must fit in 150 MB RSS, so it runs beside a browser on a 2–4 GB device.
+
 ### 4.5 Self-healing & evolution without surveillance
 Goal: the *interpreter* (Stage A) gets better from many developers' use; the *IR and runtime* stay stable.
 
@@ -150,6 +167,15 @@ Goal: the *interpreter* (Stage A) gets better from many developers' use; the *IR
 - Any optional on-device assistant model (Tier 2 devices only) can only *select among pre-compiled IR variants* or *adjust constraint priorities within authored bounds* — it has no effect-emission ability.
 - Boundaries are themselves a readable file the user owns; apps cannot write it.
 
+### 4.7 Inclusivity constraints
+The project owner's mandate is that the language must let *anyone with access to a coding AI agent* use it. Treated as a slogan, that is the next unmeasurable README claim. Treated as a constraint, it has four testable parts, each of which closes off a lazy design path.
+
+1. **Any agent, not a PVC agent.** Stage A (intent → PVC-IR) must be achievable by any general-purpose coding agent, hosted or local, given only (a) the PVC-IR schema, (b) a published few-shot dialect pack (§4.5), and (c) the IR validator exposed as a tool. A bespoke, PVC-trained model must never be required. The interpreter is therefore a *contract* — schema, validator, examples — and the validator, not the model, is the source of truth. A weak model plus a strict validator beats a strong model with none: the validator turns a model's mistakes into structured diagnostics the agent can repair, instead of silently shipped wrong apps.
+2. **Any authoring device.** The author may be on a phone, a Chromebook, or a library PC driving a hosted agent in a browser. The minimum authoring path is therefore: the agent produces PVC-IR text; the validator runs anywhere (WASM in a browser tab, or a native binary under 10 MB); the preview renders on Tier 0/1. No local GPU, no Rust toolchain, and no local LLM may be required to author. The `cargo run` instructions in the README are a *build-PVC* path — for developers of PVC — not an *author-with-PVC* path, and the README must say so (§1.10). The Tier 1 Chromebook (§4.4.1) is the reference authoring device.
+3. **Any language.** The prose source is not English-only: Stage A accepts any natural language the agent understands, PVC-IR is language-neutral, and dialect packs are per-language and community-contributed. Diagnostics are emitted as structured codes with localisable messages, never as English-only prose. The README's Jane Doe card example should be shown in at least one non-English language, so the claim is visible rather than asserted.
+4. **Any end user.** The end user of a PVC app is also "anyone". The accessibility tree (§2.5, §9.6) and Tier 0 software rendering are therefore release-blocking, not optional.
+
+
 ---
 
 ## 5. Legitimate pivots vs. scope creep (for the orchestrator)
@@ -160,6 +186,7 @@ Goal: the *interpreter* (Stage A) gets better from many developers' use; the *IR
 - From "SDF-only" to "SDF-first."
 - From "tokens" to "intent fidelity" as the headline metric.
 - From "zero-dependency" to "single-binary, no UI framework."
+- From "inclusive" as a slogan to **inclusivity as a design constraint**: any agent, any authoring device, any human language, any end user (§4.7).
 
 **Scope creep (reject or defer):**
 - Fluid simulations / physics / 3D as core (README feature 2). Defer to shader-node plugins.
@@ -185,7 +212,7 @@ Goal: the *interpreter* (Stage A) gets better from many developers' use; the *IR
 ## 7. Open questions for the orchestrator (ask, don't assume)
 
 1. Where does Stage A interpretation run in the *reference* developer workflow — developer's local model, a hosted model, or either behind one interface? (Affects "offline" messaging for *developers* vs. *end-users*.)
-2. What is the lowest-end *named* device PVC must ship on? Without a concrete device the "any hardware" mandate cannot be tested.
+2. ~~What is the lowest-end *named* device PVC must ship on?~~ **Resolved (supervisor decision 2026-10-08):** see §4.4.1.
 3. Is iOS a launch target? It constrains distribution claims (§1.7) and GPU API (Metal only, no WebGPU outside Safari).
 4. Is "language evolution" meant to change *what prose is accepted* (interpreter), *what the IR can express* (language), or both? §4.5 assumes interpreter-only by default.
 5. Who governs dialect packs — a foundation, the repo maintainers, or per-organization forks?
@@ -199,7 +226,7 @@ Goal: the *interpreter* (Stage A) gets better from many developers' use; the *IR
 |---|---|---|
 | G1 | README rewritten as a *vision + non-goals* document consistent with §1 corrections; LICENSE added; `CONTRIBUTING.md` renamed | Build session will otherwise inherit contradictions |
 | G2 | Token/intent-fidelity benchmark corpus defined (≥50 UIs across layout-heavy and logic-heavy) with a named tokenizer | Replaces the unmeasured 90% claim |
-| G3 | Reference-device list for Tiers 0/1/2 with frame budgets | Makes "any hardware" testable |
+| G3 | Reference-device list for Tiers 0/1/2 with frame budgets — **Closed** — see §4.4.1 | Makes "any hardware" testable |
 | G4 | PVC-IR v0 spec on paper: constraint vocabulary, SDF algebra, behavior model, semantic roles, capability manifest | The hard wall (§4.1) must be concrete before code |
 | G5 | Privacy & evolution threat model (§4.5) reviewed | Mandated by the user; irreversible if wrong |
 | G6 | Text strategy decision with a quality bar | Highest-risk subsystem (§2.4) |
@@ -263,4 +290,4 @@ Each finding: **fact → sources → consequence**. Body markers **[§9.n]** poi
 
 ## 10. One-paragraph summary for the build session
 
-PVC's real idea is sound: *the screen is a mathematical surface and intent should compile to it directly*. Its README is not: it promises an LLM-free, offline, any-hardware runtime while implying an LLM in the runtime; it denies the syntax it uses; it claims to bypass things that cannot be bypassed; and it is silent on text, accessibility, privacy, and evolution — the four things that will actually decide adoption. The fix is architectural, not cosmetic: put a hard wall between non-deterministic interpretation (build-time) and a deterministic, semantics-preserving IR (runtime); render that IR through a constraint solver plus an SDF algebra across three hardware tiers with a software floor; evolve the *interpreter* through opt-in, k-anonymous, versioned dialect packs rather than data collection; and make user-set capabilities a property of the IR manifest that prose cannot reach. Close gates G1–G7, then build.
+PVC's real idea is sound: *the screen is a mathematical surface and intent should compile to it directly*. Its README is not: it promises an LLM-free, offline, any-hardware runtime while implying an LLM in the runtime; it denies the syntax it uses; it claims to bypass things that cannot be bypassed; and it is silent on text, accessibility, privacy, and evolution — the four things that will actually decide adoption. The fix is architectural, not cosmetic: put a hard wall between non-deterministic interpretation (build-time) and a deterministic, semantics-preserving IR (runtime); render that IR through a constraint solver plus an SDF algebra across three hardware tiers with a software floor; evolve the *interpreter* through opt-in, k-anonymous, versioned dialect packs rather than data collection; and make user-set capabilities a property of the IR manifest that prose cannot reach. Inclusivity is a hard constraint, not a slogan: any agent, any authoring device, any human language, any end user (§4.7). Close gates G1–G7, then build.
