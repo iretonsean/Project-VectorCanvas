@@ -81,7 +81,7 @@ When the output is wrong, what does the developer look at? If the answer is "re-
 | Rank | Risk | Why it will happen | Guardrail |
 |---|---|---|---|
 | 1 | Building an LLM into the end-user runtime | README implies it; it's the "cool demo" | IR-first architecture; LLM is a *compiler front-end* only |
-| 2 | Targeting only Vulkan/DX12/Metal/WebGPU | Fastest path with `wgpu` | Tier-0 software rasterizer and GL ES 3.0 tier are acceptance criteria from day one |
+| 2 | Targeting only Vulkan/DX12/Metal/WebGPU | Fastest path with `wgpu` | Tier 0 software rasterizer and GL ES 3.0 tier are acceptance criteria from day one |
 | 3 | Treating text as "just another SDF" | SDF everything is elegant on slides | Text subsystem is a separate work-stream with legibility benchmarks vs. browser |
 | 4 | Dropping semantics after compile → no accessibility | Easier to emit draw lists | IR retains semantic roles; a11y tree is a *required* backend output |
 | 5 | "Evolution" implemented as telemetry upload | Simplest form | Privacy architecture (§4.5) approved before any data leaves a device |
@@ -142,12 +142,12 @@ Goal: the *interpreter* (Stage A) gets better from many developers' use; the *IR
 - **Local idiom ledger.** Each developer's machine records `(prose-fragment → IR-fragment, accepted/corrected)` pairs *locally*. "Self-healing" = when a developer corrects an interpretation, the correction becomes a local few-shot example applied to future compiles. The language learns *you* first.
 - **Shared evolution via abstract patterns, not content.** Opt-in only. What is shared: *de-identified, generalized* mappings ("`<ADJ-soft> border` → `stroke width 1, alpha 0.15`"), after (a) literal strings, identifiers, numbers tied to content are replaced with typed placeholders, (b) a local filter removes anything that looks like PII/secrets, (c) **k-anonymity threshold**: a pattern is published to the shared "dialect pack" only once ≥k independent contributors produced it, (d) differential-privacy noise on counts. Dialect packs are versioned, signed, inspectable, and pinned by projects — so a compile is reproducible against a *specific* dialect version.
 - **Governance:** dialect packs are proposals reviewed like any open-source change; no automatic model fine-tuning on user data. Evolution is to the *mapping tables and few-shot corpora*, not to end-user binaries.
-- **Reversibility:** every project pins `pvc-ir` version + dialect-pack version. Evolution never silently changes a shipped app.
+- **Reversibility:** every project pins PVC-IR version + dialect pack version. Evolution never silently changes a shipped app.
 
 ### 4.6 Runtime boundaries the user can set — and that the LLM cannot talk its way past
 - Capabilities (network, filesystem paths, camera, mic, clipboard, notifications, GPU tier, frame-rate cap, max memory) are **declared in the IR manifest** and **granted at install/first-run** by the user.
 - The runtime enforces capabilities at the effect dispatcher; there is no API path around it. Prose cannot request a capability at runtime because prose does not exist at runtime (§4.1).
-- Any optional on-device assistant model (Tier-2 devices only) can only *select among pre-compiled IR variants* or *adjust constraint priorities within authored bounds* — it has no effect-emission ability.
+- Any optional on-device assistant model (Tier 2 devices only) can only *select among pre-compiled IR variants* or *adjust constraint priorities within authored bounds* — it has no effect-emission ability.
 - Boundaries are themselves a readable file the user owns; apps cannot write it.
 
 ---
@@ -184,7 +184,7 @@ Goal: the *interpreter* (Stage A) gets better from many developers' use; the *IR
 
 ## 7. Open questions for the orchestrator (ask, don't assume)
 
-1. Where does Stage-A interpretation run in the *reference* developer workflow — developer's local model, a hosted model, or either behind one interface? (Affects "offline" messaging for *developers* vs. *end-users*.)
+1. Where does Stage A interpretation run in the *reference* developer workflow — developer's local model, a hosted model, or either behind one interface? (Affects "offline" messaging for *developers* vs. *end-users*.)
 2. What is the lowest-end *named* device PVC must ship on? Without a concrete device the "any hardware" mandate cannot be tested.
 3. Is iOS a launch target? It constrains distribution claims (§1.7) and GPU API (Metal only, no WebGPU outside Safari).
 4. Is "language evolution" meant to change *what prose is accepted* (interpreter), *what the IR can express* (language), or both? §4.5 assumes interpreter-only by default.
@@ -236,7 +236,7 @@ Each finding: **fact → sources → consequence**. Body markers **[§9.n]** poi
 ### 9.5 On-device CPU-only inference (2026)
 - **Fact:** sub-2B models run at 18–36 tok/s on an ordinary i5 laptop; 3–4B at 7–10 tok/s; 7–8B at 3–4 tok/s. A CEUR paper measures Llama-3.2-1B at ≈120 tok/s on a Sapphire Rapids Xeon and ≈25 tok/s on a 2013 Ivy Bridge Xeon E5-2695 v2. Generation is memory-bandwidth-bound; Q4_K_M is the practical quantization floor; BitNet ternary models run at roughly the same speed at ¼ the memory for <1 GB deployments.
 - **Sources:** localaimaster.com (via itsfoss, May 2026); insiderllm.com; ceur-ws.org/Vol-4164/paper11.pdf; promptquorum.com.
-- **Consequence:** a developer edit loop with a local 1–4B model is viable on 2018+ laptops (1–few-second compiles, *estimate*). A runtime LLM for end users on weak phones is not viable. The hard wall (§4.1) stands; any optional Tier-2 runtime assistant should be ≤2B / BitNet-class and selection-only (§1.6, §4.6).
+- **Consequence:** a developer edit loop with a local 1–4B model is viable on 2018+ laptops (1–few-second compiles, *estimate*). A runtime LLM for end users on weak phones is not viable. The hard wall (§4.1) stands; any optional Tier 2 runtime assistant should be ≤2B / BitNet-class and selection-only (§1.6, §4.6).
 
 ### 9.6 Accessibility infrastructure (AccessKit)
 - **Fact:** Chromium-derived schema; adapters for Windows (UIA), macOS (NSAccessibility), iOS (UIAccessibility), Android, Unix (AT-SPI via zbus), and a web adapter for applications that render their own UI to a canvas; winit adapter; C and Python bindings; default-on in egui/eframe. Push-based incremental tree updates; suits retained or immediate mode given stable node IDs. Actively developed (July 2026); lead developer presented at RustWeek 2026.
