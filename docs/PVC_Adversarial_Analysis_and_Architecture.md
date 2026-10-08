@@ -129,7 +129,7 @@ The mathematical core should be two well-understood models, not a new one:
 | Tier | Backend | Target devices | Must support |
 |---|---|---|---|
 | 0 | CPU software rasterizer (SIMD, tiled) | No/broken GPU drivers, VMs, old netbooks, e-ink/embedded | Full IR, reduced effects, ≥30 FPS at 1366×768 |
-| 1 | GL ES 3.0 / WebGL2 / D3D11-class hardware via GL/ANGLE, fragment-only | 2012–2018 laptops, budget Android, older iGPUs | Full IR, 60 FPS at 1080p |
+| 1 | GL ES 3.0 / WebGL2 / D3D11-class hardware via GL/ANGLE, fragment-only | 2012–2018 laptops, budget Android, older iGPUs | Full IR, 60 FPS at panel-native resolution (1080p stretch) |
 | 2 | WebGPU / Vulkan / Metal / DX12 with compute | Modern hardware | Everything + tiled compute path, HDR, effects |
 
 Same IR, same output modulo documented effect downgrades. Tier chosen at startup by capability probe; user can force a lower tier (boundary setting).
