@@ -86,7 +86,7 @@ When the output is wrong, what does the developer look at? If the answer is "re-
 | 4 | Dropping semantics after compile → no accessibility | Easier to emit draw lists | IR retains semantic roles; a11y tree is a *required* backend output |
 | 5 | "Evolution" implemented as telemetry upload | Simplest form | Privacy architecture (§4.5) approved before any data leaves a device |
 | 6 | Chasing the 90% token number from a single example | It's in the README | Keep token efficiency as a headline metric, but measure it as total-tokens-to-correct-result alongside intent fidelity (G2) |
-| 7 | Scope creep into 3D/physics/games ("fluid simulations" in README) | Shader toys are fun | UI first; simulations only as pluggable shader nodes behind the same IR |
+| 7 | Building 3D/physics/game extensions before Tier 1 renders real apps (README feature 2) | Shader toys are fun | UI first, not UI only: extensions arrive as new node kinds behind the same validator and capability model, after Tier 1 ships |
 
 ---
 
