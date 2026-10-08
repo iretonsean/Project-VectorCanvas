@@ -2,7 +2,7 @@
 
 **Role of this document:** hostile validator + visionary systems architect. No code, no file trees. Output is a critique strategy and a conceptual model to be handed to the build session.
 **Vision source of record:** `README.md` in `Project-VectorCanvas` (commit `a19d690`). Secondary: `Contributing.md`. These are the only artifacts in the repo; no PRD, charter, or roadmap exists. Every citation below of the form *README §…* refers to that file.
-**Evidence limitation (disclosed):** web search/fetch were blocked in this session (no allowed hosts). Claims about the 2026 state of WebGPU, drivers, and on-device models are therefore from training knowledge and are tagged **[VERIFY]**. Section 9 lists them as mandatory research tasks for the next session. Nothing here should be treated as confirmed against October-2026 sources.
+**Evidence basis:** repo artifacts plus live web research performed 2026-10-08 (sources listed in §9). Where a claim rests on an external fact, the inline marker **[§9.n]** points to the verified finding. Where a number is an engineering estimate rather than a sourced fact, it is labelled *estimate*.
 
 ---
 
@@ -12,7 +12,7 @@
 |---|---|
 | Is the vision coherent as written? | **No.** The README conflates three different products (a token-efficient *language*, a *GPU renderer*, and a *natural-language compiler*) and makes at least six claims that are false, unfalsifiable, or self-contradictory (§1). |
 | Is the underlying ambition achievable? | **Yes, if reframed.** "Compile conversational intent to pixels" is achievable *only* if the LLM is moved out of the runtime hot path and the system is built around a small, deterministic, hardware-tiered intermediate representation (§4). |
-| Ready to begin building? | **Not yet.** Confidence in the *reframed* concept: ~75%. Confidence in the README as written: <20%. Gating items to reach ≥90% are in §8. |
+| Ready to begin building? | **Not yet.** Confidence in the *reframed* concept: ~85% — renderer tiering, text stack, and a11y bridge all have verified production prior art (§9). Confidence in the README as written: <20%. Gating items to reach ≥90% are in §8. |
 
 ---
 
@@ -27,9 +27,9 @@ Each row cites the artifact, states the problem, severity (**Critical / High / M
 | 1.3 | "Zero-Dependency Cross-Platform Engine" | The same section lists Vulkan/DX12/Metal/WebGPU backends and *Contributing.md* names the `wgpu` crate. `wgpu` is a large dependency tree. "Zero-dependency" is a marketing hallucination. | **Medium** | "Zero *UI-framework* dependency; single native binary." |
 | 1.4 | "Achieves up to a 90% reduction in token consumption" | Unmeasured. The README's own example is one cherry-picked card. Natural language gets *less* efficient as precision requirements rise (try specifying a data grid with 14 columns, sort state, sticky headers, and virtualization in prose). No benchmark corpus, no tokenizer named. | **High** | Remove the number until a benchmark suite exists (§8 item G2). Realistic hypothesis: 30–70% on layout-heavy UIs, near-zero or negative on logic-heavy ones. |
 | 1.5 | "PVC does not use traditional token frameworks, bracket structures, or verbose syntax wrappers" (*Contributing §3*) | The README's own example is `Canvas { … }` — a bracket structure. Also "fluid descriptions alone" is contradicted by `'connect_user' state function` — a symbolic identifier. | **Medium** | Admit the truth: PVC is a *hybrid* — a thin structural skeleton with natural-language leaves. That is the right design; stop denying it. |
-| 1.6 | "100% Offline & Local… The runtime… handles compilation instantly" | If compilation means *interpreting natural language*, it requires a language model on the end-user's device. "Instantly" and "any hardware" are incompatible with running even a 1B-parameter model per edit on a 2015 laptop or a $100 Android phone **[VERIFY current on-device inference costs]**. The README never says where the LLM lives. This is the central unresolved question of the whole project. | **Critical** | Decide: intent interpretation is a **build-time** step (author's machine or an agent) producing a deterministic artifact; the **end-user runtime contains no LLM**. See §4.1. |
+| 1.6 | "100% Offline & Local… The runtime… handles compilation instantly" | If compilation means *interpreting natural language*, it requires a language model on the end-user's device. "Instantly" and "any hardware" are incompatible with running even a 1B-parameter model per edit on a 2015 laptop or a $100 Android phone. Measured 2026 CPU-only numbers: sub-2B models run at 18–36 tok/s on an ordinary i5 laptop, 3–4B at 7–10 tok/s, 7–8B at 3–4 tok/s; generation is memory-bandwidth-bound, with Q4_K_M as the practical quantization floor **[§9.5]**. Emitting a few hundred IR tokens is therefore seconds, not "instantly," even on a decent laptop — and on a weak phone it is not viable at all. The README never says where the LLM lives. This is the central unresolved question of the whole project. | **Critical** | Decide: intent interpretation is a **build-time** step (author's machine or an agent) producing a deterministic artifact; the **end-user runtime contains no LLM**. See §4.1. |
 | 1.7 | "Renders directly on physical screen layers without slow app-store wrapper kits" (*Mobile*) | iOS does not permit this. Any iOS app ships through the App Store (or TestFlight/enterprise) and must present via UIKit/SwiftUI-hosted `CAMetalLayer`. Android requires an `Activity`/`SurfaceView`. | **High** | "Renders into a single native GPU surface; the host shell is a few hundred lines." |
-| 1.8 | "Modern Graphics Drivers: Vulkan / DX12 / Metal" as *prerequisite* | Directly contradicts the mandate that PVC "work on virtually any hardware… weaker machines." Many devices in circulation have GL ES 3.0 / D3D11 / no Vulkan **[VERIFY share]**. WebGPU in browsers is still uneven (Firefox/Safari/Android timelines) **[VERIFY Oct 2026 status]**. | **Critical** | Mandate a **tiered backend** with software rasterizer floor (§4.4). |
+| 1.8 | "Modern Graphics Drivers: Vulkan / DX12 / Metal" as *prerequisite* | Directly contradicts the mandate that PVC "work on virtually any hardware… weaker machines." Many devices in circulation have GL ES 3.0 / D3D11 / no Vulkan: Google reports only 85% of active Android devices support Vulkan, and Flutter's Impeller still *deliberately* falls back to GL ES below API 29, without usable Vulkan, and on a large population of ES 3.1-capable GPUs (Adreno 650 and older, Huawei Maleoon, early Samsung Xclipse, older PowerVR) **[§9.3]**. WebGPU in browsers is still uneven: default-on in Chrome/Edge desktop and Android 12+, Firefox 141 (Windows) / 145 (Apple-silicon macOS), and Safari 26 only on the 26-series OS releases; still behind flags on Firefox Linux/Android, Intel Macs, and Chromium on Linux — roughly 70% global coverage, ~30% needing WebGL2 **[§9.1]**. README's "Instantly targets browser-based WebGPU canvases in Chrome, Safari, and Firefox" (*Web*) is true only for current desktop OS versions. | **Critical** | Mandate a **tiered backend** with software rasterizer floor (§4.4). |
 | 1.9 | "Procedural Rendering: No heavy JPEG, PNG… drawn… using SDFs and pure physics formulas" | Absolutist. Users need photos, logos, icons, emoji, CJK text. SDF-only cannot represent a photograph. SDF text for CJK/Arabic/complex scripts at small sizes is an unsolved-quality problem versus glyph atlases. | **High** | SDF as *primary* primitive, with raster image and glyph-atlas paths as first-class fallbacks. |
 | 1.10 | `cargo run --bin pvc-runtime -- path/to/your/app.pvc`, `examples/test_dashboard.pvc`, `cargo test`, `LICENSE` | None exist. The repo contains two markdown files. README describes a non-existent product in present tense. `Contributing.md` is referenced as `CONTRIBUTING.md` (case mismatch; breaks on case-sensitive filesystems and GitHub's auto-link). | **Medium** | Mark README as "Vision — pre-implementation". Add LICENSE. Rename file. |
 | 1.11 | Nothing in the vision about **accessibility**, **text input/IME**, **internationalization**, **privacy**, **security sandbox**, or **evolution of the language** | The user's mandate explicitly requires self-healing/evolution, personal-data protection, and user-set runtime boundaries. The vision doc is silent. Owning the whole surface also means owning screen-reader support that the DOM gives for free. | **Critical** | Add as first-class vision pillars (§4.5, §4.6, §5). |
@@ -50,14 +50,14 @@ Consequence: the compiled artifact, not the prose, must be the unit of distribut
 ### 2.3 The 60 FPS on weak hardware claim
 - SDF rendering is fill-rate bound. Full-screen analytic SDF evaluation of hundreds of shapes per pixel per frame at 1080p on an Intel HD 4000 or Mali-400 will not hold 60 FPS. Naive "evaluate every shape at every pixel" dies at ~50 shapes.
 - Without **tiling/binning**, **bounding-box culling**, **dirty-rect/retained-mode**, and **frame skipping when idle**, 60 FPS is fiction on low-end. On high-end it is trivial and uninteresting.
-- Compute shaders (the standard way to tile SDFs, e.g., Vello-style) are unavailable on GL ES 3.0 / WebGL2 **[VERIFY wgpu GL backend limits]**. The low tier must be vertex/fragment-only.
+- Compute shaders (the standard way to tile SDFs, e.g., Vello-style) are unavailable on GL ES 3.0 / WebGL2: wgpu's `DownlevelFlags::COMPUTE_SHADERS` states WebGL2 and GLES 3.0 devices do not support compute, and storage buffers in vertex/fragment shaders and indirect draw are downlevel-gated too; wgpu rates its GL ES/WebGL2 backends "best-effort" **[§9.2]**. Engines that "added WebGL2 later" have failed validation because their pipelines assumed storage buffers **[§9.2]**. Even Vello — the reference for compute-tiled 2D — has pivoted: its intended production renderer (`vello_gpu`) does CPU path preprocessing plus GPU raster with a native WebGL2 backend and no compute requirement, and the original compute-centric renderer is now experimental, after compute-pipeline failures on Adreno 7xx **[§9.4]**. The low tier must be vertex/fragment-only and uniform-buffer/texture-fed from day one.
 - Battery: a UI that redraws at 60 FPS while idle will be rejected by users and mobile platforms. Target: **0 FPS when idle, 60+ during interaction**, and the vision should say so.
 
 ### 2.4 Text is the real boss fight
 "Text-heavy UI stacks" is the enemy in the pitch, yet 80% of every UI is text. PVC must do shaping (HarfBuzz-class: ligatures, bidi, CJK, Indic), line breaking (UAX #14), hinting-equivalent legibility at 11px, emoji (color bitmaps), IME composition, selection, clipboard. SDF glyphs are blurry at small sizes and large at atlas size for CJK. **If text quality is worse than a browser, nobody adopts the runtime regardless of token savings.**
 
 ### 2.5 Accessibility is non-negotiable and non-free
-The DOM gives screen readers a semantic tree. A raw GPU surface gives them nothing. Legally (ADA/EAA/Section 508) and ethically, PVC must emit a platform accessibility tree (AccessKit-style bridge to UIA/AT-SPI/NSAccessibility/ARIA) **[VERIFY AccessKit maturity]**. Ironically, the *semantic intent* that PVC compiles from is the best accessibility source any framework has ever had — if preserved in the IR rather than discarded at compile time.
+The DOM gives screen readers a semantic tree. A raw GPU surface gives them nothing. Legally (ADA/EAA/Section 508) and ethically, PVC must emit a platform accessibility tree. This is not hypothetical: the European Accessibility Act has been enforceable in all 27 member states since 28 June 2025, applies extraterritorially to non-EU sellers, exempts only micro-enterprises, and is already producing court orders (Carrefour, June 2026, six-month deadline under daily penalties) **[§9.8]** — a framework without an a11y tree is unusable for commercial EU products. The bridge exists: AccessKit ships adapters for Windows (UIA), macOS (NSAccessibility), iOS (UIAccessibility), Android, Unix (AT-SPI), and a web adapter explicitly for canvas-rendered UIs, with push-based incremental tree updates, and is default-on in egui **[§9.6]**. So this is a requirement, not a research risk. Ironically, the *semantic intent* that PVC compiles from is the best accessibility source any framework has ever had — if preserved in the IR rather than discarded at compile time.
 
 ### 2.6 Token-efficiency is the wrong north star
 Tokens are cheap and getting cheaper; *correctness per token* is what matters. A 65-token prompt that produces the wrong app costs more than a 600-token spec that produces the right one. Measure **intent-fidelity** (does the result match what was meant?) and **round-trips to correct**, not raw tokens.
@@ -121,7 +121,7 @@ The mathematical core should be two well-understood models, not a new one:
 - **Retained mode, damage-tracked.** Redraw only dirty tiles; 0 FPS at idle.
 - **Culled per-shape quads, not full-screen SDF.** Each node draws a bounding quad; the fragment shader evaluates only that node's SDF (plus clip). This is fragment-only, so it runs on GL ES 3.0 / WebGL2 / D3D11 with no compute. Overdraw is bounded by UI depth (~3–6), not shape count.
 - **Optional Tier-2 path:** on WebGPU/Vulkan/Metal/DX12-capable hardware, switch to tiled compute binning (Vello-class) for heavy vector scenes. Same IR, better throughput. Never *required*.
-- **Text:** glyph atlas (bitmap or MSDF) with CPU shaping; analytic SDF only for large display type. Subpixel positioning; hinting-like contrast boost at small sizes. Treat browser rendering as the quality bar.
+- **Text:** glyph atlas (bitmap or MSDF) with CPU shaping; analytic SDF only for large display type. Subpixel positioning; hinting-like contrast boost at small sizes. Treat browser rendering as the quality bar. Do not write a shaper: the Parley stack (HarfRust shaping, Fontique enumeration/fallback incl. CJK/Arabic/emoji, Skrifa glyph loading, ICU4X) is production-quality and already used by Vello and Dioxus **[§9.7]**; PVC's text risk narrows to small-size raster quality and IME/editing.
 - **Images:** raster textures are first-class. "Procedural where possible, raster where necessary."
 - **Frame budget contract:** 16.6 ms at the lowest tier on a defined reference device (§8 G3), measured, in CI.
 
@@ -132,7 +132,9 @@ The mathematical core should be two well-understood models, not a new one:
 | 1 | GL ES 3.0 / WebGL2 / D3D11 fragment-only | 2012–2018 laptops, budget Android, older iGPUs | Full IR, 60 FPS at 1080p |
 | 2 | WebGPU / Vulkan / Metal / DX12 with compute | Modern hardware | Everything + tiled compute path, HDR, effects |
 
-Same IR, same output modulo documented effect downgrades. Tier chosen at startup by capability probe; user can force a lower tier (boundary setting). **[VERIFY: 2026 device-share by tier to size the Tier-1 investment.]**
+Same IR, same output modulo documented effect downgrades. Tier chosen at startup by capability probe; user can force a lower tier (boundary setting).
+
+**Sizing.** Tier 1 is not a long-tail courtesy. On the web, roughly 30% of users still need a WebGL2 path **[§9.1]**. On Android, ~15% of active devices lack Vulkan, all pre-Android-10 devices are outside the Vulkan mandate, and Flutter still routes a large ES 3.1-capable population to GL ES by design **[§9.3]**. The desktop picture (Steam: DX12-capable GPUs >91%) describes gaming PCs only and overstates the general population **[§9.3]**. The leading GPU-2D project independently concluded fragment-only-with-WebGL2 is the right production default **[§9.4]**. Tier 1 is therefore the production path; Tier 2 compute is an optimisation; and cross-tier golden-image parity testing is mandatory — Flutter has shipped real Vulkan→GLES fallback rendering bugs **[§9.3]**.
 
 ### 4.5 Self-healing & evolution without surveillance
 Goal: the *interpreter* (Stage A) gets better from many developers' use; the *IR and runtime* stay stable.
@@ -201,24 +203,60 @@ Goal: the *interpreter* (Stage A) gets better from many developers' use; the *IR
 | G4 | PVC-IR v0 spec on paper: constraint vocabulary, SDF algebra, behavior model, semantic roles, capability manifest | The hard wall (§4.1) must be concrete before code |
 | G5 | Privacy & evolution threat model (§4.5) reviewed | Mandated by the user; irreversible if wrong |
 | G6 | Text strategy decision with a quality bar | Highest-risk subsystem (§2.4) |
-| G7 | **[VERIFY]** items in §9 resolved against October-2026 sources | This session could not reach the web |
+| G7 | Re-check §9 findings at build start and pin exact crate versions | Key dependencies are 0.x and moving (e.g. `vello_hybrid` → `vello_gpu` rename, Aug 2026) **[§9.4]** |
 
 When G1–G7 are closed, the concept is build-ready. Until then, starting code will produce a GPU demo, not a runtime.
 
 ---
 
-## 9. Mandatory research list (unverifiable in this session — web access was blocked)
+## 9. Verified findings (web research, 2026-10-08) — what changed in the analysis
 
-The build session must check these before architectural lock-in:
-1. WebGPU shipping status and default-on state in Firefox, Safari (macOS/iOS), Chrome on Android; WGSL feature parity (Oct 2026).
-2. `wgpu` GL ES 3.0 / WebGL2 backend: compute availability, known limitations, maintenance status; alternatives for Tier 1.
-3. Market share of devices lacking Vulkan 1.1 / D3D12 / Metal 2 (Steam HW survey, Android distribution dashboard, StatCounter) to size Tier 0/1.
-4. State of GPU 2D vector renderers (Vello and peers): maturity, licensing, fallback story, text quality.
-5. On-device small-model inference cost (≤3B params) on CPU-only 2016-class hardware: tokens/s, memory, cold start — to decide if *any* Stage-A work is viable on low-end developer machines.
-6. AccessKit (or equivalent) coverage across Windows/macOS/Linux/Android/Web for a custom-rendered a11y tree.
-7. Text shaping/layout crates (HarfBuzz bindings, pure-Rust shapers) and MSDF/glyph-atlas quality findings for CJK at small sizes.
-8. Regulatory posture: EU Accessibility Act enforcement (2025+) and AI Act obligations relevant to a shared-learning interpreter.
-9. Prior art to avoid reinventing: Flutter/Impeller (owns-the-surface precedent, a11y bridge), Slint, Makepad, egui, Iced, Dear ImGui; Apple Auto Layout/Cassowary; Figma's rendering stack; any 2025–26 "intent-to-UI" systems.
+Each finding: **fact → sources → consequence**. Body markers **[§9.n]** point here. Versions and percentages are as of the research date; G7 requires re-checking them at build start.
+
+### 9.1 WebGPU browser status
+- **Fact:** Chrome/Edge default-on since v113 (2023); Android 12+ since Chrome 121 on Qualcomm/ARM GPUs. Firefox default-on in 141 (Windows) and 145 (Apple-silicon macOS). Safari 26 on macOS Tahoe 26 / iOS 26 / iPadOS 26 / visionOS 26. Firefox on Linux/Android and on Intel Macs still behind flags (Mozilla targets 2026); Chromium on Linux still behind `enable-unsafe-webgpu`. Industry estimates put global coverage at ~70%, leaving ~30% needing a WebGL2 fallback.
+- **Sources:** gpuweb Implementation-Status wiki (rev. 2 Oct 2026); web.dev, "WebGPU is now supported in major browsers"; webgpu.com news; byteiota 2026 survey.
+- **Consequence:** README's "Instantly targets browser-based WebGPU canvases in Chrome, Safari, and Firefox" is true only for current desktop OS versions. Tier 1 (WebGL2) is mandatory (§1.8, §4.4).
+
+### 9.2 wgpu downlevel limits
+- **Fact:** `DownlevelFlags::COMPUTE_SHADERS` — "WebGL2, and GLES3.0 devices do not support compute." Storage buffers in fragment/vertex shaders, indirect draw, and some texture usages are also downlevel-gated. GL ES 3.0+/WebGL2 are "best-effort" in wgpu's support matrix; GL on macOS/iOS requires ANGLE. Real-world: flui #1048 and effectcraft #69 show engines claiming WebGL2 fallback failing validation because their pipelines assumed storage buffers.
+- **Sources:** docs.rs, wgpu `DownlevelFlags`; gfx-rs/wgpu README; the issues above.
+- **Consequence:** Tier 1 must be uniform-buffer/texture-fed and fragment-only from day one. "Add WebGL later" fails (§2.3).
+
+### 9.3 Hardware share & platform policy
+- **Fact:** Steam (Sept 2026): Windows 11 ≈75%, DX12-capable GPUs >91% — gaming-PC population only. Android: Vulkan 1.1 required for 64-bit devices launching with Android 10+; 1.3 for Android 13+ launches; 1.4 for Android 16+ launches. Google: 85% of active Android devices support Vulkan; GL ES is moving onto ANGLE-over-Vulkan (optional on Android 15+, manifest preference on 17+). Flutter Impeller still ships automatic GL ES fallback below API 29 or without usable Vulkan; Flutter's 2026 compute plan (flutter #188474) says Android deliberately falls back to GLES on a large population of ES 3.1-capable devices (Adreno 650 and older, Huawei Maleoon, early Samsung Xclipse, older PowerVR). Fallback bugs are real: flutter #179268 (gradients wrong after Vulkan→GLES fallback on PowerVR, Android 10).
+- **Sources:** store.steampowered.com/hwsurvey; source.android.com Vulkan docs; developer.android.com Vulkan overview; docs.flutter.dev/perf/impeller; flutter issues above.
+- **Consequence:** README's hard Vulkan/DX12/Metal prerequisite excludes ~15% of active Android plus all pre-Android-10 devices, contradicting the "weaker machines" mandate. Cross-tier golden-image parity testing is necessary — Flutter needed it (§1.8, §4.4, §6 item 3).
+
+### 9.4 2D GPU renderer state of the art (Vello)
+- **Fact:** Vello ships three renderers: `vello_cpu` (SIMD + multithreaded, "most mature", for software/no-GPU); `vello_gpu` (CPU path preprocessing + GPU raster; native WebGL2 backend and a wgpu backend without requiring compute shaders; the intended primary production renderer); and the original compute-centric `vello`, now under `research/` as experimental. `vello_hybrid` was renamed `vello_gpu` at 0.1.0 on 2026-08-26; APIs are 0.x. Compute-path failures on Adreno 7xx (8 pipelines fail to build) motivated the shift. MSRV 1.89.
+- **Sources:** github.com/linebender/vello README; cuelight #293.
+- **Consequence:** the leading GPU-2D team concluded compute-first is the wrong default. For PVC: fragment-only Tier 1 is the production path; compute Tier 2 is an optimisation. Build-vs-buy: PVC's SDF algebra can sit on a Vello-class raster backend (§2.3, §4.3, §4.4, G7).
+
+### 9.5 On-device CPU-only inference (2026)
+- **Fact:** sub-2B models run at 18–36 tok/s on an ordinary i5 laptop; 3–4B at 7–10 tok/s; 7–8B at 3–4 tok/s. A CEUR paper measures Llama-3.2-1B at ≈120 tok/s on a Sapphire Rapids Xeon and ≈25 tok/s on a 2013 Ivy Bridge Xeon E5-2695 v2. Generation is memory-bandwidth-bound; Q4_K_M is the practical quantization floor; BitNet ternary models run at roughly the same speed at ¼ the memory for <1 GB deployments.
+- **Sources:** localaimaster.com (via itsfoss, May 2026); insiderllm.com; ceur-ws.org/Vol-4164/paper11.pdf; promptquorum.com.
+- **Consequence:** a developer edit loop with a local 1–4B model is viable on 2018+ laptops (1–few-second compiles, *estimate*). A runtime LLM for end users on weak phones is not viable. The hard wall (§4.1) stands; any optional Tier-2 runtime assistant should be ≤2B / BitNet-class and selection-only (§1.6, §4.6).
+
+### 9.6 Accessibility infrastructure (AccessKit)
+- **Fact:** Chromium-derived schema; adapters for Windows (UIA), macOS (NSAccessibility), iOS (UIAccessibility), Android, Unix (AT-SPI via zbus), and a web adapter for applications that render their own UI to a canvas; winit adapter; C and Python bindings; default-on in egui/eframe. Push-based incremental tree updates; suits retained or immediate mode given stable node IDs. Actively developed (July 2026); lead developer presented at RustWeek 2026.
+- **Sources:** github.com/AccessKit/accesskit; accesskit.dev; lib.rs/crates/accesskit; 2026.rustweek.org/talks/matt.
+- **Consequence:** the a11y gap is closable without research; PVC-IR semantic roles (§4.2 item 4) map ~1:1 onto AccessKit roles. A requirement, not a risk (§2.5).
+
+### 9.7 Text stack (Parley)
+- **Fact:** Parley (rich-text layout) depends on HarfRust (production shaping, a HarfBuzz port), Fontique (font enumeration and fallback incl. CJK/Arabic/emoji), Skrifa (glyph loading), and ICU4X. NLnet-funded; MSRV 1.88; used by Vello's `glifo` and by Dioxus.
+- **Sources:** github.com/linebender/parley; nlnet.nl/project/Parley; crates.io/parley.
+- **Consequence:** shaping, fallback, and bidi are a solved dependency; PVC's text risk narrows to small-size raster quality and IME/editing (§2.4, §4.3, G6).
+
+### 9.8 Regulation (EAA)
+- **Fact:** Directive (EU) 2019/882 enforceable in all 27 member states since 28 June 2025; extraterritorial to non-EU sellers; EN 301 549 v4.1.1 (WCAG 2.2) published Sept 2025; first lawsuits in France Nov 2025; Carrefour ordered in June 2026 to make its site and app accessible within six months under daily penalties; Sweden, the Netherlands, and Germany enforcing; exemption only for micro-enterprises (<10 staff and <€2M). EU AI Act high-risk obligations began Aug 2025.
+- **Sources:** levelaccess.com EAA overview; dwt.com; raftlabs.com; freemius.com.
+- **Consequence:** any PVC-built app sold in the EU inherits a legal accessibility obligation; a framework without an a11y tree is unusable for commercial EU products (§2.5, §6 item 5).
+
+### 9.9 Prior art confirmed
+- **Fact:** Flutter/Impeller (owns-the-surface, precompiled shaders, Vulkan→GL fallback), Vello (three-tier renderer), AccessKit, Parley/HarfRust, Cassowary (Apple Auto Layout).
+- **Sources:** as cited in §9.3, §9.4, §9.6, §9.7 (Cassowary/Auto Layout: established prior art, no new source in this pass).
+- **Consequence:** each is precedent for one layer of §4; none compiles natural-language intent — that is PVC's novel contribution.
 
 ---
 
