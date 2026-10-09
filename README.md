@@ -11,6 +11,8 @@
 > - The confidence figures in the analysis (§0, §8.1) have **not** been revised. No measurement yet supports a change.
 > - Scope note: beyond the two prototype specimens (L01, F01), the only code built is headless validator coverage for the 15 pilot specimens, with no rendering (Supervisor decision D-2). The matching headless runtime probe was not built.
 
+**First milestone (M1):** cut the tokens an AI agent spends to build an app by **50%** against the same agent using a language of its own choice. Not met yet: on small apps a PVC session costs more today. Definition and plan: [`docs/session3/PLAN.md`](docs/session3/PLAN.md).
+
 **What PVC is meant to be:** a way for AI agents to build digital products with fewer tokens, from virtually any machine that can use a local or cloud AI model. You describe what you want in conversation with any coding agent, local or cloud. Where the finished app runs is the developer's decision, not PVC's. The agent compiles that intent into a small, checkable program called **PVC-IR**. A lightweight runtime draws that program directly on the GPU, or on the CPU when there is no usable GPU, with no browser engine or UI toolkit in between.
 
 The owner's vision, in plain language:
