@@ -1,0 +1,6 @@
+{
+  "name": "pvc-test",
+  "version": "0.1.0",
+  "description": "Runs the PVC owner A/B test (PVC agent vs control agent, judged by an evaluator agent) and shows the results in a pane.",
+  "types": "./types/index.d.ts"
+}

@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "note": "Owner A/B test, 2026-10-09. Each test sends the same description to the PVC agent and the control agent. The evaluator judges each result against the checklist only. Checklists were written before any agent ran.",
+  "tests": [
+    {
+      "id": "T1",
+      "title": "Hello + Save button",
+      "level": 1,
+      "pvc_renders": true,
+      "description": "A page with one heading \"Hello\" and one button labelled \"Save\".",
+      "checklist": [
+        {"id": "T1.1", "text": "A heading with the exact text \"Hello\" is present, and it is marked as a heading (not only large text)."},
+        {"id": "T1.2", "text": "A button with the exact label \"Save\" is present, and it is a real button (focusable and pressable), not only styled text."},
+        {"id": "T1.3", "text": "The page contains no other visible content beyond the heading and the button (layout boxes and background are allowed)."}
+      ]
+    },
+    {
+      "id": "T2",
+      "title": "Profile card",
+      "level": 1,
+      "pvc_renders": true,
+      "description": "Profile card: avatar with initials, name, job title, one-sentence bio, full-width \"Connect\" button. The avatar shows the initials \"JD\", the name is \"Jane Doe\", the job title is \"Product Designer\", the bio is \"Building the future of spatial computing via GPU pipelines.\" and the button label is \"Connect\".",
+      "checklist": [
+        {"id": "T2.1", "text": "The name is bold and larger than the job title."},
+        {"id": "T2.2", "text": "The avatar is circular and is to the left of the name."},
+        {"id": "T2.3", "text": "The \"Connect\" button spans the full width of the card's content area."},
+        {"id": "T2.4", "text": "All five strings are present exactly: \"JD\", \"Jane Doe\", \"Product Designer\", \"Building the future of spatial computing via GPU pipelines.\", \"Connect\"."}
+      ]
+    },
+    {
+      "id": "T3",
+      "title": "Counter",
+      "level": 2,
+      "pvc_renders": true,
+      "description": "A counter: a number that starts at 0, a button \"+\" that adds 1 and a button \"-\" that subtracts 1. The number never goes below 0. Each button has an accessible name: \"Increase\" for \"+\" and \"Decrease\" for \"-\".",
+      "checklist": [
+        {"id": "T3.1", "text": "The number shows 0 when the app starts."},
+        {"id": "T3.2", "text": "Pressing \"+\" adds exactly 1 to the number shown."},
+        {"id": "T3.3", "text": "Pressing \"-\" subtracts exactly 1 when the number is above 0."},
+        {"id": "T3.4", "text": "The number can never go below 0 (pressing \"-\" at 0 has no effect, or the button is disabled at 0)."},
+        {"id": "T3.5", "text": "The two buttons have the accessible names \"Increase\" and \"Decrease\"."}
+      ]
+    },
+    {
+      "id": "T4",
+      "title": "Sign-up form",
+      "level": 2,
+      "pvc_renders": true,
+      "description": "Sign-up form: name, email, password with show/hide toggle, accept-terms checkbox, submit disabled until valid. Valid means: the name is not empty, the email is a valid email address, the password has at least 8 characters, and the terms checkbox is checked. When the email field holds text that is not a valid email address, show an error message for that field. After a valid submit, show the text \"Account created\".",
+      "checklist": [
+        {"id": "T4.1", "text": "The submit button is disabled until all four conditions hold, and enabled when they all hold."},
+        {"id": "T4.2", "text": "An invalid email shows an error message for the email field; an empty, untouched email field shows no error."},
+        {"id": "T4.3", "text": "The show/hide control toggles the password between masked and visible, and has an accessible name."},
+        {"id": "T4.4", "text": "The email error is announced to assistive technology (for example a live region, role status/alert, or an error link from the field)."},
+        {"id": "T4.5", "text": "Every field, the checkbox and the buttons have an accessible name."},
+        {"id": "T4.6", "text": "A valid submit shows the text \"Account created\"."}
+      ]
+    },
+    {
+      "id": "T5",
+      "title": "Wizard with skip",
+      "level": 3,
+      "pvc_renders": false,
+      "description": "Wizard whose step 3 is skipped when the user answers \"no\" in step 2. A four-step wizard. Exactly one heading is visible at a time and it starts with \"Step N\" (N = 1 to 4), for example \"Step 2: Pet\". Every step has a \"Next\" button (on step 4 it may be named \"Finish\") and every step except the first has a \"Back\" button. Step 2 asks \"Do you have a pet?\" with two radio buttons named \"Yes\" and \"No\". Step 3 (\"Step 3: Pet name\") has a text field and is skipped when the answer to step 2 is \"No\". Step 4 is a summary. \"Back\" always returns to the step the user actually came from.",
+      "checklist": [
+        {"id": "T5.1", "text": "Exactly one heading starting with \"Step N\" is visible at a time."},
+        {"id": "T5.2", "text": "Answer \"Yes\" in step 2, then Next: step 3 is shown."},
+        {"id": "T5.3", "text": "Answer \"No\" in step 2, then Next: step 4 is shown and step 3 is skipped."},
+        {"id": "T5.4", "text": "From step 4 after answering \"No\", Back returns to step 2; after answering \"Yes\", Back returns to step 3."},
+        {"id": "T5.5", "text": "Step 2 has two radio buttons named \"Yes\" and \"No\" in one group; step 1 has no Back button."}
+      ]
+    },
+    {
+      "id": "T6",
+      "title": "Dashboard shell",
+      "level": 4,
+      "pvc_renders": false,
+      "description": "Dashboard shell: top bar with search and avatar, 4 KPI tiles in a row, two panels below. The top bar has a search field whose accessible name contains \"Search\" and an avatar. Each of the four KPI tiles is a visually distinct box (fill, border or shadow) showing a label and one number (for example \"1,284\", \"92%\", \"$4.2k\", \"37\"). The two panels below the tiles are visually distinct boxes with a title. On screens 768 px wide or narrower the tiles form a 2 by 2 grid. No external resources are available.",
+      "checklist": [
+        {"id": "T6.1", "text": "At 1280 px wide the four tiles are in one row; at 768 px or narrower they form a 2 by 2 grid."},
+        {"id": "T6.2", "text": "The search field is reachable by keyboard and its accessible name contains \"Search\"."},
+        {"id": "T6.3", "text": "The two panels have equal height."},
+        {"id": "T6.4", "text": "Each tile is a visually distinct box with a label and one number."},
+        {"id": "T6.5", "text": "The top bar contains an avatar; each panel has a title."}
+      ]
+    }
+  ]
+}

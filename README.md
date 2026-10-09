@@ -148,7 +148,15 @@ effect connect_user uses net.main
 
 ## Getting started
 
-There is nothing to install or run yet. When there is, there will be two separate paths:
+**Compare PVC with a control agent.** The owner A/B test runs a PVC agent and a control agent on the same small apps, and an evaluator agent judges both. Install the mod in Claude Code, started in this repository's folder:
+
+```
+/plugin install pvc-test --marketplace iretonsean/Project-VectorCanvas
+```
+
+Then type `/pvc-test`. Details: [`pilot/owner-test/README.md`](pilot/owner-test/README.md).
+
+The rest is planned. There will be two separate paths:
 
 - **Author with PVC (planned).** For people building apps. You will need any coding agent, local or cloud, and a web browser. The validator and preview are planned to run in a browser tab or as a small standalone tool. No GPU, Rust toolchain or local model will be required.
 - **Build PVC itself (planned).** For people developing the runtime. You will need a Rust toolchain at or above the minimum version set by PVC's pinned dependencies (currently 1.89, per [G7](docs/G7_Dependency_Pins_and_Findings_Recheck.md)). A GPU is **not** required: the CPU renderer is enough to build and test the runtime.
