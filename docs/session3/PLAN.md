@@ -1,13 +1,25 @@
 # Session 3 plan: cut PVC's fixed cost per session
 
-**Status:** approved by the owner, 2026-10-09. Work has not started.
+**Status:** approved by the owner, 2026-10-09; goal amended by the owner the same day (milestone M1, §1). Work has not started.
 **Executed by:** one focused agent, step by step, with a commit and a measurement after each step.
 
-## 1. Goal
+## 1. Goal: milestone M1
 
-A PVC session must cost no more tokens than the control session for the same small app, with the same model, and keep the checklist pass rate.
+**Owner decision, 2026-10-09:** cutting the token cost of building apps with AI models is the highest priority of the project. The first milestone of the language is a 50% cut.
 
-This is the token thesis (analysis §2.6, G2) on the smallest apps, where PVC is weakest. If PVC cannot match the control on small apps, its savings on large apps must pay for a fixed loss on every small one.
+**M1, exact definition:**
+- **What is compared:** a PVC session against a control session for the same app, the same description, the same model and the same effort level (`pilot/owner-test/`).
+- **What is counted:** *language tokens*: the session's total tokens minus the coding tool's own base prompt, which is the same for both agents. Measured as: total tokens − (model requests × base tokens per request). The base per request is measured with an empty session that uses the same tool, version and flags (step 2).
+- **The bar:** the median, over T1–T6, of (PVC language tokens ÷ control language tokens) is **0.50 or less**. Each test runs at least 3 times per agent; the median of the 3 runs is used for each test.
+- **Quality:** PVC's checklist pass rate is not lower than the control's (the G2 rule: no more than 5 percentage points lower).
+
+**Also reported in every result, but not part of the bar (owner decision):**
+- total session tokens, as the tool reports them;
+- final code size in o200k_base tokens.
+
+**How far away M1 is (estimate):** in the one Sonnet T3 run of §2, the first request cost about 6.8k tokens of tool base and prompt. With that as the base per request, PVC used about 15k language tokens and the control about 3k: PVC is about **5 times** the control, so M1 needs about a **10-times** cut on small apps. Larger apps are expected to be easier, because the control's code grows faster than PVC's (*estimate*). Step 2 replaces this estimate with a measurement.
+
+This plan takes the first steps toward M1: it removes the fixed costs that PVC adds to every session. If M1 is not met at step 7, the result says by how much, and the owner decides the next work.
 
 ## 2. Measured starting point
 
@@ -62,9 +74,11 @@ Each step ends with a commit and a run of T1–T4. Steps 1 and 2 come first beca
 
 ### Step 2. Measure a baseline with variance
 
-**Change:** run T1–T4 three times each, with Sonnet and the default effort level, and with the fair harness from step 1.
+**Change:**
+- Add the M1 measure to `pilot/owner-test/run.py`: count model requests per session, measure the tool's base tokens per request with an empty session (same tool, version and flags), and report language tokens beside total tokens and code tokens in every result file and in `tests-run/INDEX.md`.
+- Run T1–T6 three times each, with Sonnet and the default effort level, and with the fair harness from step 1.
 
-**Done when:** `tests-run/` holds 24 sessions (12 per agent) and `docs/session3/BASELINE.md` gives the median and range of total tokens per test and agent. One run per test is not enough to compare.
+**Done when:** `tests-run/` holds 36 sessions (18 per agent) and `docs/session3/BASELINE.md` gives, per test and agent, the median and range of language tokens, total tokens and code tokens, and the M1 ratio. One run per test is not enough to compare.
 
 ### Step 3. One check, one request
 
@@ -103,7 +117,7 @@ Each step ends with a commit and a run of T1–T4. Steps 1 and 2 come first beca
 
 ### Step 7. Measure again and report
 
-**Change:** repeat the step-2 runs with the final setup. Write `docs/session3/RESULT.md`: the median and range per test and agent, before and after, each step's share of the saving, and whether the goal in §1 is met.
+**Change:** repeat the step-2 runs with the final setup. Write `docs/session3/RESULT.md`: the median and range per test and agent, before and after, each step's share of the saving, and whether M1 (§1) is met, and if not, by how much.
 
 **Done when:** RESULT.md exists, the README states only what was measured, and the analysis §8.1 gets a dated note. The confidence figure changes only if the result supports a change.
 

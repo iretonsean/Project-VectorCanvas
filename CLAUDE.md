@@ -6,6 +6,10 @@ Read this file, then `HANDOFF.md`, before you change anything.
 
 PVC is a language for AI agents to write apps with fewer tokens. An agent (cloud or local) writes PVC-IR; the validator checks it; a small runtime draws it with no browser engine or UI toolkit. No AI model runs inside a finished app.
 
+## Highest priority
+
+**Cut the token cost of building apps with AI models.** First milestone (M1): a PVC session uses at most 50% of the *language tokens* of a control session (any language the agent picks) for the same app and model; median over the owner tests T1–T6, 3 runs each; pass rate not lower. Language tokens = session total minus the coding tool's own base prompt. Total tokens and code tokens are reported beside it. Exact definition: `docs/session3/PLAN.md` §1. Judge every piece of work by what it does to this number.
+
 ## Owner decisions (do not reopen them without the owner)
 
 1. **The developer chooses the devices an app runs on. PVC does not.** "Virtually any machine" means the machine the developer *writes* on: any machine that can reach a local or cloud AI model. Hardware tiers are targets a developer can select, not language requirements or release gates (analysis §4.4). Do not plan work that makes PVC "run on old machines" as a goal of the language. An earlier multi-agent session drifted into this. It was a mistake.

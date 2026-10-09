@@ -17,6 +17,8 @@
 
 **Session 3 summary (2026-10-09, merged to `main` in #1):** the device rescope was applied; the owner A/B test (`pilot/owner-test/`), the `pvc-test` mod (`mods/pvc-test/`) and `tests-run/` were added; specimen paths were fixed (89 tests pass). Findings, check-run numbers and tooling traps: [`docs/session3/NOTES.md`](docs/session3/NOTES.md). Rules for agents: [`CLAUDE.md`](CLAUDE.md).
 
+**Highest priority (owner, 2026-10-09):** cut token cost. Milestone M1 = PVC at most 50% of the control's language tokens, median of T1–T6 (`docs/session3/PLAN.md` §1).
+
 **Next work (Session 3):** [`docs/session3/PLAN.md`](docs/session3/PLAN.md): cut PVC's fixed cost per session. Approved by the owner 2026-10-09; work has not started. Later phases: runtime gaps, developer toolchain, language reference.
 
 **Read first:**
