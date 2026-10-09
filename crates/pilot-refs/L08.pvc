@@ -1,0 +1,22 @@
+// L08 reference
+pvc 0.1 use std@0.1 theme light
+fonts std
+cap open-url.main urls=["https://example.com/"]
+surface {
+  card w=440 {
+    row gap=md {
+      col w=64 align=center pad=sm fill=blue radius=md {
+        text "OCT" bold size=12 color=ink-light
+        text "12" bold size=28 color=ink-light
+      }
+      col gap=xs w=fill {
+        text "Open Source Meetup" bold size=18 heading=2
+        row gap=xs align=center {
+          shape circle w=12 h=12 fill=accent decorative
+          text "Pier 9, San Francisco" muted size=13
+        }
+        link "Add to calendar" href="https://example.com/calendar"
+      }
+    }
+  }
+}

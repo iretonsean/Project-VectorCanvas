@@ -1,0 +1,25 @@
+pvc-native: artifact verified, canonical sha256 d151961570fe5e7cf8b6f69326d539ea95c28250e2e5bff2f558febd33e1b01c
+libEGL warning: DRI3 error: Could not get DRI3 device
+libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+pvc-native: winit Ime::Disabled
+pvc-native: winit Ime::Enabled
+pvc-native: winit Ime::Disabled
+pvc-native: winit Ime::Enabled
+pvc-native: winit Ime::Disabled
+pvc-native: winit Ime::Enabled
+pvc-native: winit Ime::Disabled
+pvc-native: winit Ime::Enabled
+pvc-native: winit Ime::Disabled
+pvc-native: winit Ime::Enabled
+pvc-native: winit Ime::Disabled
+pvc-native: winit Ime::Enabled
+pvc-native: winit Ime::Disabled
+pvc-native: winit Ime::Enabled
+pvc-native: winit Ime::Disabled
+pvc-native: winit Ime::Enabled
+pvc-native: winit Ime::Disabled
+pvc-native: winit Ime::Enabled
+pvc-native: winit Ime::Disabled
+pvc-native: winit Ime::Enabled
+pvc-native: winit Ime::Disabled
+pvc-native: winit Ime::Enabled

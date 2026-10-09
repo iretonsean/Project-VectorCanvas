@@ -1,0 +1,11 @@
+# hard-wall check, pvc-native, 2026-10-09T01:42:20Z
+cargo tree -e normal --target x86_64-unknown-linux-gnu  (full: logs/cargo_tree_native_normal.txt, 630 lines)
+## crate-name match for http/net/LLM clients (reqwest|hyper|ureq|curl|openai|llm|tokio|isahc|surf|attohttpc|native-tls|rustls|openssl|socket2|h2|async-net|tungstenite):
+(none)
+## own source grep (pvc-native/src) for net/LLM identifiers:
+(none)
+## present, NOT HTTP/LLM clients, but socket-capable: async-io/polling/zbus (accesskit_unix → D-Bus over a unix socket for AT-SPI)
+accesskit_unix v0.24.0
+async-io v2.6.0
+polling v3.11.0
+zbus v5.19.0

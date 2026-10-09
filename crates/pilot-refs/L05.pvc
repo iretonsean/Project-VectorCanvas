@@ -1,0 +1,16 @@
+// L05 reference
+pvc 0.1 use std@0.1 theme light
+fonts std
+surface {
+  col w=640 gap=md {
+    text "Why small teams ship calmer" bold size=28 heading=1
+    text "By Jane Doe, October 9" muted size=14
+    text "Small teams talk less and decide faster. Every extra person adds a channel of communication. Past a certain size the meetings start to outnumber the decisions." role=paragraph size=16 body
+    text "The cure is not fewer people but smaller scopes. Give each group a result it can finish alone. Then the handoffs mostly disappear." role=paragraph size=16 body
+    col pad=md border=normal radius=md { text "A team that can finish alone rarely needs to meet." bold size=20 }
+    text "Writing things down helps more than anyone expects. A short note replaces a long call. It also leaves a record for the person who joins next month." role=paragraph size=16 body
+    text "Tools matter less than habits. A simple board that everyone updates beats a clever one that nobody trusts. Pick one and stay with it for a quarter." role=paragraph size=16 body
+    text "Release small and release often. Each release teaches something that planning cannot. The fear of shipping shrinks with every try." role=paragraph size=16 body
+    text "Finally, protect quiet time. Deep work needs hours, not minutes. Calendars should show that time as busy, because it is." role=paragraph size=16 body
+  }
+}

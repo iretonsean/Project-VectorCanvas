@@ -1,0 +1,30 @@
+[package]
+name = "pvc-native"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+name = "pvc_native"
+path = "src/lib.rs"
+
+[[bin]]
+name = "pvc-native"
+path = "src/main.rs"
+
+[dependencies]
+# --- G7 pins, exact (features narrowed: GL backend only, X11 only) ---
+wgpu = { version = "=30.0.1", default-features = false, features = ["std", "wgsl", "gles"] }
+accesskit = "=0.25.1"
+accesskit_winit = { version = "=0.34.1", default-features = false, features = ["accesskit_unix", "async-io", "rwh_06"] }
+winit = { version = "=0.30.13", default-features = false, features = ["x11", "rwh_06"] }
+
+pvc-runtime = { path = "../../crates/pvc-runtime", features = ["gl", "cpu"] }
+vello_cpu = "=0.3.0"
+pvc-ir = { path = "../../crates/pvc-ir" } # integration: was /workspace/dev_work/dev-ir/pvc-ir (live)
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 4
+debug = false

@@ -1,0 +1,1 @@
+Image-free feature grid: 6 features with icon, title and text in a 3×2 grid, 1 column on phones Each of the six features has an icon (an inline vector icon or an emoji; no image files), a short title that is a heading, and one sentence of text. A section heading above the grid, if present, is a different heading level from the feature titles.

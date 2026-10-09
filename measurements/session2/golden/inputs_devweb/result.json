@@ -1,0 +1,33 @@
+{
+ "pass": true,
+ "summary": {
+  "L01_idle": {
+   "dl_fingerprint": "b994a6ad8ddc2a4d",
+   "width": 1366,
+   "height": 768,
+   "png": "L01_idle.png",
+   "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+  },
+  "F01_empty": {
+   "dl_fingerprint": "f6d4df23c91c2a0a",
+   "width": 1366,
+   "height": 768,
+   "png": "F01_empty.png",
+   "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+  },
+  "F01_error": {
+   "dl_fingerprint": "998a20309f9e47ee",
+   "width": 1366,
+   "height": 768,
+   "png": "F01_error.png",
+   "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+  },
+  "F01_zhCN_preedit": {
+   "dl_fingerprint": "c73f51692b17c27f",
+   "width": 1366,
+   "height": 768,
+   "png": "F01_zhCN_preedit.png",
+   "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+  }
+ }
+}

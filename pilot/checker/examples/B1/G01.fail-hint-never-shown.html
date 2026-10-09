@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Notes</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="[overflow-wrap:anywhere] bg-white text-slate-900 p-4">
+<main class="max-w-md mx-auto">
+  <h1 class="text-2xl font-bold mb-4">Notes</h1>
+  <button id="add" class="bg-blue-700 text-white rounded px-3 py-1">Add note</button>
+  <ul id="list" class="my-4 flex flex-col gap-2"></ul>
+  <div id="hint" class="rounded border border-slate-400 bg-slate-100 p-3">
+    <p>No notes yet. Add your first note.</p>
+    <button id="dismiss" class="mt-2 border border-slate-700 rounded px-3 py-1">Dismiss</button>
+  </div>
+</main>
+<script>
+  let notes = [], n = 0, dismissed = false;
+  const list = document.getElementById('list'), hint = document.getElementById('hint');
+  function render() {
+    list.innerHTML = '';
+    for (const x of notes) {
+      const li = document.createElement('li'); li.className = 'flex items-center gap-2';
+      const sp = document.createElement('span'); sp.textContent = x.label;
+      const b = document.createElement('button'); b.textContent = 'Remove'; b.className = 'border border-slate-700 rounded px-2 py-0.5';
+      b.setAttribute('aria-label', 'Remove ' + x.label);
+      b.onclick = () => { notes = notes.filter(y => y.id !== x.id); render(); };
+      li.append(sp, b); list.append(li);
+    }
+    hint.hidden = true;
+  }
+  document.getElementById('add').onclick = () => { n++; notes.push({ id: n, label: 'Note ' + n }); render(); };
+  document.getElementById('dismiss').onclick = () => { dismissed = true; render(); };
+  render();
+</script>
+</body>
+</html>

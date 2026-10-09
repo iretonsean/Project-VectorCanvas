@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Layout</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-slate-900 flex flex-col">
+<header class="bg-slate-800 text-white p-4 flex items-center gap-3">
+  <button id="menu-btn" aria-expanded="false" aria-controls="site-nav" class="lg:hidden border border-white rounded px-3 py-1">Menu</button>
+  <span class="text-xl font-bold">Acme</span>
+</header>
+<div class="flex-1 flex flex-col lg:flex-row">
+  <nav id="site-nav" aria-label="Main" class="hidden lg:block lg:w-48 bg-slate-100 p-4">
+    <ul class="flex flex-col gap-2">
+      <li><a class="text-blue-800 underline" href="#a">Home</a></li>
+      <li><a class="text-blue-800 underline" href="#b">Docs</a></li>
+      <li><a class="text-blue-800 underline" href="#c">Contact</a></li>
+    </ul>
+  </nav>
+  <main class="flex-1 p-4">
+    <h1 class="text-2xl font-bold mb-2">Welcome</h1>
+    <p>This is a short page. It has a heading and a couple of sentences.</p>
+  </main>
+  <aside aria-label="Related" class="hidden lg:block lg:w-56 bg-slate-100 p-4">
+    <h2 class="font-semibold mb-2">Related</h2>
+    <ul class="flex flex-col gap-2"><li><a class="text-blue-800 underline" href="#d">Guide</a></li><li><a class="text-blue-800 underline" href="#e">FAQ</a></li></ul>
+  </aside>
+</div>
+<footer class="bg-slate-800 text-white p-4 text-sm">Copyright Acme</footer>
+<script>
+  const b = document.getElementById('menu-btn'), n = document.getElementById('site-nav');
+  b.addEventListener('click', () => { const open = n.classList.toggle('hidden') === false; b.setAttribute('aria-expanded', String(open)); });
+</script>
+</body>
+</html>

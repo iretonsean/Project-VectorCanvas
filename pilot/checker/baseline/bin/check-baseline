@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+// usage: check-baseline <B1|B2> <ID> <file-or-dir> [--verbose] [--json] [--only ID,ID]
+import { checkBaseline, formatVerdict } from '../check.mjs';
+const a = process.argv.slice(2);
+const flags = new Set(a.filter(x => x.startsWith('--')));
+const pos = a.filter(x => !x.startsWith('--'));
+const oi = a.indexOf('--only'); const only = oi >= 0 ? a[oi + 1].split(',') : null;
+const posf = pos.filter(x => x !== (oi >= 0 ? a[oi + 1] : null));
+const [stack, id, file] = posf;
+if (!['B1', 'B2'].includes(stack) || !id || !file) { console.error('usage: check-baseline <B1|B2> <ID> <file-or-dir> [--verbose] [--json] [--only IDs]'); process.exit(2); }
+try {
+  const out = await checkBaseline(stack, id, file, { only });
+  const v = formatVerdict(out, { verbose: flags.has('--verbose') });
+  if (flags.has('--json')) { const { spec, ...rest } = out; console.log(JSON.stringify({ ...rest, pass: v.pass, failedIds: v.failedIds }, null, 1)); }
+  else console.log(v.text);
+  process.exit(v.pass ? 0 : 1);
+} catch (e) { console.error('CHECKER ERROR: ' + (e.stack || e)); process.exit(2); }

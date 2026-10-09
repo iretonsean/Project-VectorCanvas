@@ -1,0 +1,99 @@
+{
+ "pass": true,
+ "label": "browser IME composition pipeline driven via CDP; no OS IME engine involved",
+ "summary": {
+  "label": "browser IME composition pipeline driven via CDP; no OS IME engine involved",
+  "ink": {
+   "diffPx": 307,
+   "stepsDiffer": true
+  },
+  "checks": [
+   "PASS runtime in composing state at every preedit step, committed value still empty",
+   "PASS preedit drawn on the canvas (pixel diff of field region, before vs nihao)",
+   "PASS preedit text differs between steps (canvas redrawn each step)",
+   "PASS commit landed in runtime state",
+   "PASS preedit cleared after commit",
+   "PASS commit visible in AX tree (textbox \"姓名\" value)"
+  ],
+  "steps": [
+   {
+    "preedit_sent": "n",
+    "runtime_composing": true,
+    "runtime_value": "",
+    "runtime_name": "",
+    "dom_value": "n"
+   },
+   {
+    "preedit_sent": "ni",
+    "runtime_composing": true,
+    "runtime_value": "",
+    "runtime_name": "",
+    "dom_value": "ni"
+   },
+   {
+    "preedit_sent": "nih",
+    "runtime_composing": true,
+    "runtime_value": "",
+    "runtime_name": "",
+    "dom_value": "nih"
+   },
+   {
+    "preedit_sent": "niha",
+    "runtime_composing": true,
+    "runtime_value": "",
+    "runtime_name": "",
+    "dom_value": "niha"
+   },
+   {
+    "preedit_sent": "nihao",
+    "runtime_composing": true,
+    "runtime_value": "",
+    "runtime_name": "",
+    "dom_value": "nihao"
+   }
+  ],
+  "final_state": {
+   "engine": "pvc_runtime",
+   "raw": "email=Text(\"\")\nname=Text(\"你好\")\npassword=Text(\"\")\nshow_pw=Bool(false)\nstatus=Enum(\"editing\")\nterms=Bool(false)\nderived valid=Bool(false)\nfocus=surface0/form0/field0/input\n",
+   "focused_input": {
+    "value": "你好",
+    "composing": false,
+    "selection": [
+     2,
+     2
+    ]
+   },
+   "email": "",
+   "name": "你好",
+   "password": "",
+   "show_pw": false,
+   "status": "Enum(\"editing\")",
+   "terms": false,
+   "derived.valid": false,
+   "focus": "surface0/form0/field0/input"
+  },
+  "ax_value": "你好",
+  "dom_events": [
+   "compositionstart:",
+   "compositionupdate:n",
+   "beforeinput:n",
+   "input:n",
+   "compositionupdate:ni",
+   "beforeinput:ni",
+   "input:ni",
+   "compositionupdate:nih",
+   "beforeinput:nih",
+   "input:nih",
+   "compositionupdate:niha",
+   "beforeinput:niha",
+   "input:niha",
+   "compositionupdate:nihao",
+   "beforeinput:nihao",
+   "input:nihao",
+   "compositionupdate:你好",
+   "beforeinput:你好",
+   "input:你好",
+   "compositionend:你好"
+  ]
+ }
+}

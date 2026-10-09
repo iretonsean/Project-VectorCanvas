@@ -1,0 +1,9 @@
+date_utc=2026-10-09T00:32:38Z
+loadavg=8.47 2.60 1.66 18/301 11575
+fc-match:  antialias: True(w); hintstyle: 1(i)(w); rgba: 1(i)(w);
+4437e33de6a494c0a5a9aa2ab52442fe18f0659511f40e40996a53fd6b2abd25  /workspace/dev_work/dev-measure/measurements/session2/text-bar/corpus.json
+ae7b7855e115a5966d8b1b3f80f254ccc117ec86f9965e202ee2940453837280  /workspace/dev_work/dev-render/pvc-runtime/fonts/DejaVuSans.ttf
+5c1247acef7f2b8522a31742c76d6adcb5569bacc0be7ceaa4dc39dd252ce895  /workspace/dev_work/dev-render/pvc-runtime/fonts/DejaVuSans-Bold.ttf
+6ead94f36c0f9423a88356f5a58b2b1b8180a3ff553ecab2f7a816990b306c60  /workspace/dev_work/dev-render/pvc-runtime/fonts/NotoSansCJKsc-Regular.otf
+dev-render src tree sha256 (cat of src/*.rs):
+dd5ff8cf2bd5fe41d685262d4c6badb7eb314f8981838f32f038409cf836fb00  -

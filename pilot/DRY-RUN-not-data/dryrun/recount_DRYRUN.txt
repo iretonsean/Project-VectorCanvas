@@ -1,0 +1,13 @@
+== S4__D00__B1   [DRY-RUN — not data]   outcome=pass turns=2 pass_turn=2
+   1 request tokens ............ 15
+   2 context tokens ............ 120 x 2 turns = 240   (uncached)
+   3 agent output tokens ....... 211   per turn [105, 106]
+   4 tool tokens ............... 14
+   5 repair-feedback tokens .... 38
+   T_primary (P, uncached) ..... 518
+   T_primary cached-at-zero .... 278
+   T_history (H, uncached) ..... 638   cached-at-zero 398
+   output-only ................. 211
+   secondary (model tokenizer, same accounting): S_primary 540  cached0 298  S_history 669; raw usage prompt+completion 712
+   framing tokens (joiner/BPE-boundary, reported, not in T): 0
+   recount matches every stored o200k count: OK

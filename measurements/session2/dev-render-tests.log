@@ -1,0 +1,15 @@
+     Running unittests src/lib.rs (/workspace/cargo-target/release/deps/pvc_runtime-c0e2d94e050c7ac6)
+test fonts::tests::no_system_fonts ... ok
+test fonts::tests::bundle_hashes_match ... ok
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+     Running tests/f01_trace.rs (/workspace/cargo-target/release/deps/f01_trace-cb016aeaa3e99261)
+test f01_incremental_updates_are_small_and_idle_is_silent ... ok
+test f01_zh_cn_ime_preedit_and_commit ... ok
+test f01_four_checklist_items ... ok
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+     Running tests/specimens.rs (/workspace/cargo-target/release/deps/specimens-2f07fdede1302127)
+test unsigned_or_tampered_is_refused ... ok
+test l01_layout_and_idle ... ok
+test f01_renders_all_states ... ok
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s

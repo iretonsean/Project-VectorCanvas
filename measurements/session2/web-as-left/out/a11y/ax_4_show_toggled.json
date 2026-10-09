@@ -1,0 +1,258 @@
+[
+ {
+  "depth": 0,
+  "role": "RootWebArea",
+  "name": "PVC web host (Session 2, A5)",
+  "props": {
+   "focusable": true,
+   "focused": true,
+   "url": "http://127.0.0.1:38407/index.html?scenario=a11y&variant=raf&mirror=on&specimen=F01&locale=en"
+  }
+ },
+ {
+  "depth": 1,
+  "role": "generic",
+  "name": "",
+  "props": {}
+ },
+ {
+  "depth": 2,
+  "role": "generic",
+  "name": "Sign up",
+  "props": {}
+ },
+ {
+  "depth": 3,
+  "role": "form",
+  "name": "Sign up",
+  "props": {}
+ },
+ {
+  "depth": 4,
+  "role": "heading",
+  "name": "Create your account",
+  "props": {
+   "level": 1
+  }
+ },
+ {
+  "depth": 5,
+  "role": "StaticText",
+  "name": "Create your account",
+  "props": {}
+ },
+ {
+  "depth": 6,
+  "role": "InlineTextBox",
+  "name": "Create your account",
+  "props": {}
+ },
+ {
+  "depth": 4,
+  "role": "generic",
+  "name": "",
+  "props": {}
+ },
+ {
+  "depth": 5,
+  "role": "StaticText",
+  "name": "Name",
+  "props": {}
+ },
+ {
+  "depth": 6,
+  "role": "InlineTextBox",
+  "name": "Name",
+  "props": {}
+ },
+ {
+  "depth": 4,
+  "role": "textbox",
+  "name": "Name",
+  "value": "Ada",
+  "props": {
+   "invalid": "false",
+   "focusable": true,
+   "editable": "plaintext",
+   "settable": true,
+   "multiline": false,
+   "readonly": false,
+   "required": true
+  }
+ },
+ {
+  "depth": 5,
+  "role": "generic",
+  "name": "",
+  "props": {
+   "editable": "plaintext"
+  }
+ },
+ {
+  "depth": 6,
+  "role": "StaticText",
+  "name": "Ada",
+  "props": {
+   "editable": "plaintext"
+  }
+ },
+ {
+  "depth": 7,
+  "role": "InlineTextBox",
+  "name": "Ada",
+  "props": {
+   "editable": "plaintext"
+  }
+ },
+ {
+  "depth": 4,
+  "role": "generic",
+  "name": "",
+  "props": {}
+ },
+ {
+  "depth": 5,
+  "role": "StaticText",
+  "name": "Email",
+  "props": {}
+ },
+ {
+  "depth": 6,
+  "role": "InlineTextBox",
+  "name": "Email",
+  "props": {}
+ },
+ {
+  "depth": 4,
+  "role": "textbox",
+  "name": "Email",
+  "value": "ada@example.com",
+  "props": {
+   "invalid": "false",
+   "focusable": true,
+   "editable": "plaintext",
+   "settable": true,
+   "multiline": false,
+   "readonly": false,
+   "required": true
+  }
+ },
+ {
+  "depth": 5,
+  "role": "generic",
+  "name": "",
+  "props": {
+   "editable": "plaintext"
+  }
+ },
+ {
+  "depth": 6,
+  "role": "StaticText",
+  "name": "ada@example.com",
+  "props": {
+   "editable": "plaintext"
+  }
+ },
+ {
+  "depth": 7,
+  "role": "InlineTextBox",
+  "name": "ada@example.com",
+  "props": {
+   "editable": "plaintext"
+  }
+ },
+ {
+  "depth": 4,
+  "role": "generic",
+  "name": "",
+  "props": {}
+ },
+ {
+  "depth": 5,
+  "role": "StaticText",
+  "name": "Password",
+  "props": {}
+ },
+ {
+  "depth": 6,
+  "role": "InlineTextBox",
+  "name": "Password",
+  "props": {}
+ },
+ {
+  "depth": 4,
+  "role": "textbox",
+  "name": "Password",
+  "value": "•••••••",
+  "props": {
+   "invalid": "false",
+   "focusable": true,
+   "editable": "plaintext",
+   "settable": true,
+   "multiline": false,
+   "readonly": false,
+   "required": true
+  }
+ },
+ {
+  "depth": 5,
+  "role": "generic",
+  "name": "",
+  "props": {
+   "editable": "plaintext"
+  }
+ },
+ {
+  "depth": 6,
+  "role": "StaticText",
+  "name": "•••••••",
+  "props": {
+   "editable": "plaintext"
+  }
+ },
+ {
+  "depth": 7,
+  "role": "InlineTextBox",
+  "name": "•••••••",
+  "props": {
+   "editable": "plaintext"
+  }
+ },
+ {
+  "depth": 4,
+  "role": "button",
+  "name": "Hide password",
+  "props": {
+   "focusable": true,
+   "focused": true,
+   "pressed": "true"
+  }
+ },
+ {
+  "depth": 4,
+  "role": "checkbox",
+  "name": "I accept the terms",
+  "props": {
+   "focusable": true,
+   "checked": "true"
+  }
+ },
+ {
+  "depth": 4,
+  "role": "button",
+  "name": "Create account",
+  "props": {
+   "focusable": true
+  }
+ },
+ {
+  "depth": 4,
+  "role": "alert",
+  "name": "",
+  "props": {
+   "live": "polite",
+   "atomic": true,
+   "relevant": "additions text"
+  }
+ }
+]

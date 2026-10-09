@@ -1,0 +1,1 @@
+Profile card: avatar with initials, name, job title, one-sentence bio, full-width "Connect" button The avatar shows the initials "JD", the name is "Jane Doe", the job title is "Product Designer", the bio is "Building the future of spatial computing via GPU pipelines." and the button label is "Connect".

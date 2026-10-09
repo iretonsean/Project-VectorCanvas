@@ -1,0 +1,1 @@
+Holy-grail layout: header, left nav, main content, right sidebar, footer; sidebars collapse on tablets The left navigation has at least three links, the right sidebar has a short list of related links, and the main content is short (one heading and two or three sentences) so the page is shorter than the screen. No external resources are available.

@@ -1,0 +1,33 @@
+// G02 reference
+pvc 0.1 use std@0.1 theme light
+fonts std
+state {
+  tasks: list(title:text, done:bool) max=50
+  draft: text
+  filter: enum(all, active, done) = all
+}
+derive left = count(tasks, not it.done)
+surface {
+  col w=480 gap=md {
+    text "To-do" bold size=24 heading=1
+    row gap=sm align=end w=fill {
+      field "New task" bind=draft
+      button "Add" on.press={ when not is-empty(draft); append tasks { title = draft, done = false }; draft = "" }
+    }
+    row gap=sm {
+      button "All" fill=none on.press={ filter = all }
+      button "Active" fill=none on.press={ filter = active }
+      button "Done" fill=none on.press={ filter = done }
+    }
+    view tasks as=t gap=sm where=(filter == all or (filter == active and not t.done) or (filter == done and t.done)) {
+      row gap=sm align=center {
+        checkbox name="Done" bind=t.done
+        text value=(t.title) w=fill
+        button "Delete" on.press={ remove t }
+      }
+    }
+    text @left.many n=(left) show=(left != 1)
+    text "1 item left" show=(left == 1)
+  }
+}
+strings en { left.many "{n} items left" }

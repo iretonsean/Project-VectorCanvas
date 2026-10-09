@@ -1,0 +1,142 @@
+[
+ {
+  "t": "compositionstart",
+  "data": "",
+  "inputType": null,
+  "composing": null,
+  "value": ""
+ },
+ {
+  "t": "compositionupdate",
+  "data": "n",
+  "inputType": null,
+  "composing": null,
+  "value": ""
+ },
+ {
+  "t": "beforeinput",
+  "data": "n",
+  "inputType": "insertCompositionText",
+  "composing": true,
+  "value": ""
+ },
+ {
+  "t": "input",
+  "data": "n",
+  "inputType": "insertCompositionText",
+  "composing": true,
+  "value": "n"
+ },
+ {
+  "t": "compositionupdate",
+  "data": "ni",
+  "inputType": null,
+  "composing": null,
+  "value": "n"
+ },
+ {
+  "t": "beforeinput",
+  "data": "ni",
+  "inputType": "insertCompositionText",
+  "composing": true,
+  "value": "n"
+ },
+ {
+  "t": "input",
+  "data": "ni",
+  "inputType": "insertCompositionText",
+  "composing": true,
+  "value": "ni"
+ },
+ {
+  "t": "compositionupdate",
+  "data": "nih",
+  "inputType": null,
+  "composing": null,
+  "value": "ni"
+ },
+ {
+  "t": "beforeinput",
+  "data": "nih",
+  "inputType": "insertCompositionText",
+  "composing": true,
+  "value": "ni"
+ },
+ {
+  "t": "input",
+  "data": "nih",
+  "inputType": "insertCompositionText",
+  "composing": true,
+  "value": "nih"
+ },
+ {
+  "t": "compositionupdate",
+  "data": "niha",
+  "inputType": null,
+  "composing": null,
+  "value": "nih"
+ },
+ {
+  "t": "beforeinput",
+  "data": "niha",
+  "inputType": "insertCompositionText",
+  "composing": true,
+  "value": "nih"
+ },
+ {
+  "t": "input",
+  "data": "niha",
+  "inputType": "insertCompositionText",
+  "composing": true,
+  "value": "niha"
+ },
+ {
+  "t": "compositionupdate",
+  "data": "nihao",
+  "inputType": null,
+  "composing": null,
+  "value": "niha"
+ },
+ {
+  "t": "beforeinput",
+  "data": "nihao",
+  "inputType": "insertCompositionText",
+  "composing": true,
+  "value": "niha"
+ },
+ {
+  "t": "input",
+  "data": "nihao",
+  "inputType": "insertCompositionText",
+  "composing": true,
+  "value": "nihao"
+ },
+ {
+  "t": "compositionupdate",
+  "data": "你好",
+  "inputType": null,
+  "composing": null,
+  "value": "nihao"
+ },
+ {
+  "t": "beforeinput",
+  "data": "你好",
+  "inputType": "insertCompositionText",
+  "composing": true,
+  "value": "nihao"
+ },
+ {
+  "t": "input",
+  "data": "你好",
+  "inputType": "insertCompositionText",
+  "composing": true,
+  "value": "你好"
+ },
+ {
+  "t": "compositionend",
+  "data": "你好",
+  "inputType": null,
+  "composing": null,
+  "value": "你好"
+ }
+]

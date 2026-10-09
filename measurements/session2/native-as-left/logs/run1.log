@@ -1,0 +1,4 @@
+pvc-native: WARNING placeholder runtime, signature NOT verified (verified=false)
+libEGL warning: DRI3 error: Could not get DRI3 device
+libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+pvc-native: winit Ime::Disabled

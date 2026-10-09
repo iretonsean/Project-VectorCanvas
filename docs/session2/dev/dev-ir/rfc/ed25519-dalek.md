@@ -1,0 +1,6 @@
+# RFC note: `ed25519-dalek =2.2.0` (pvc-ir)
+
+**What:** pure-Rust Ed25519 (RustCrypto/dalek-cryptography) signing and verification. **Version:** exactly `=2.2.0` (resolves with `curve25519-dalek 4.1.3`, `ed25519 2.2.3`, `signature 2.2.0`, `subtle 2.6.1`, `zeroize 1.9.1`). **Pre-approved** by D-10.
+**Why nothing pinned covers it:** the G7 table has no signature primitive; G4 §10 rule 4 / §11 require a signature check on load that makes a tampered manifest fail, and the Supervisor brief for A1 names Ed25519.
+**What it pulls in:** `curve25519-dalek`(+ build-time proc-macro `curve25519-dalek-derive`, which uses `syn`/`quote`), `digest`, `cpufeatures`, `subtle`, `zeroize`, `ed25519`, `signature`. Default features only (`std`, `fast`, `zeroize`): **no `rand_core`, no `getrandom`, no `serde`** (signing uses `SigningKey::from_bytes` from a fixed seed; the runtime only verifies). Builds for `x86_64-unknown-linux-gnu` and `wasm32-unknown-unknown` (checked: `evidence/d1-wasm.txt`).
+**Hard-wall check:** `cargo tree -e normal` for both targets contains no HTTP/socket/LLM/async-runtime crate (`evidence/hardwall-scan.txt`). The crate does no I/O. Verification uses `verify_strict` (rejects small-order/non-canonical signatures).

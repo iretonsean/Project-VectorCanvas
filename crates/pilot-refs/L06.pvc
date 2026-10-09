@@ -1,0 +1,32 @@
+// L06 reference
+pvc 0.1 use std@0.1 theme light
+fonts std
+state { display_name: text; two_factor: bool; email_on: bool = true; push_on: bool; dark: bool; compact: bool }
+surface {
+  col w=560 gap=lg {
+    text "Settings" bold size=24 heading=1
+    col gap=sm {
+      text "Account" bold size=18 heading=2
+      row align=center gap=md { text @name.label w=fill; text-input name=@name.label bind=display_name w=200 }
+      row align=center gap=md { text @tfa.label w=fill; switch name=@tfa.label bind=two_factor }
+    }
+    col gap=sm {
+      text "Notifications" bold size=18 heading=2
+      row align=center gap=md { text @email.label w=fill; switch name=@email.label bind=email_on }
+      row align=center gap=md { text @push.label w=fill; switch name=@push.label bind=push_on }
+    }
+    col gap=sm {
+      text "Appearance" bold size=18 heading=2
+      row align=center gap=md { text @dark.label w=fill; switch name=@dark.label bind=dark }
+      row align=center gap=md { text @compact.label w=fill; switch name=@compact.label bind=compact }
+    }
+  }
+}
+strings en {
+  name.label "Display name"
+  tfa.label "Two-factor sign-in"
+  email.label "Email notifications"
+  push.label "Push notifications"
+  dark.label "Dark mode"
+  compact.label "Compact layout"
+}

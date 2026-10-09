@@ -1,0 +1,6 @@
+#!/usr/bin/env node
+// usage: baseline-tool <html-validate|tsc|axe> <B1|B2> <file-or-dir>
+import { TOOLS } from '../tools.mjs';
+const [tool, stack, file] = process.argv.slice(2);
+if (!TOOLS[tool] || !['B1', 'B2'].includes(stack) || !file) { console.error('usage: baseline-tool <html-validate|tsc|axe> <B1|B2> <file-or-dir>'); process.exit(2); }
+try { console.log(await TOOLS[tool](stack, file)); } catch (e) { console.error('TOOL ERROR: ' + (e.stack || e)); process.exit(2); }

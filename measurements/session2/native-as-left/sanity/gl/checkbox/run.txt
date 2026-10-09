@@ -1,0 +1,7 @@
+2026-10-09T01:22:49Z
+cmd: /workspace/cargo-target/release/pvc-native /workspace/dev_work/dev-ir/specimens/F01.pvca --locale en --renderer gl
+scenario: checkbox
+loadavg: 0.61 1.93 3.00 1/211 31610
+DISPLAY=:77 XMODIFIERS=@im=fcitx DBUS=unix:path=/tmp/dbus-zcies9ieCx,guid=362704361e2ae4ef27cfbb1b6ac841e7
+VmHWM_before_term: VmHWM: 139748 kB;VmRSS: 139748 kB;
+host_exit=0

@@ -1,0 +1,6 @@
+# Hard-wall scan of pvc-ir, 2026-10-09T00:59:57Z (re-run after Part 2)
+## forbidden crate names in dependency trees (expect no matches)
+no matches
+## forbidden identifiers in pvc-ir src + Cargo.toml (expect no matches)
+no matches
+## direct dependencies: ed25519-dalek =2.2.0, sha2 =0.10.9, icu_normalizer =2.3.0 (unchanged by Part 2)

@@ -1,0 +1,7 @@
+2026-10-09T00:39:24Z
+cmd: /workspace/cargo-target/debug/pvc-native /workspace/dev_work/dev-ir/specimens/F01.pvca --locale en
+scenario: a11y
+loadavg: 8.12 9.88 6.03 5/241 3842
+DISPLAY=:77 XMODIFIERS=@im=fcitx DBUS=unix:path=/tmp/dbus-OsFc5kpCBW,guid=0d4606bc5ceb86060e7258d06ac837ba
+VmHWM_before_term: VmHWM: 161620 kB;VmRSS: 161620 kB;
+host_exit=0

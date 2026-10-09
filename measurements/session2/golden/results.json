@@ -1,0 +1,143 @@
+{
+ "meta": {
+  "date": "2026-10-09T01:13:16.308005Z",
+  "bound": {
+   "mean": 0.005,
+   "p99.9": 0.05,
+   "max": 0.25
+  },
+  "flip_evaluator": "1.7",
+  "loadavg": "9.53 7.26 4.53 1/210 14898",
+  "tolerance_sha256": "0e6f1c8aaae1ba07df9c83a39c82d7ae3234c276bed87ef0534b00578356f6f7"
+ },
+ "results": {
+  "L01_idle|gl-llvmpipe": {
+   "mean": 0.0001263166341232136,
+   "p99.9": 0.018657390028238297,
+   "max": 0.03235705569386482,
+   "pixels_not_identical": 3069,
+   "max_channel_abs_diff": 2,
+   "pixels_total": 1049088,
+   "pass": true,
+   "flip_params": {
+    "ppd": 67.02064514160156,
+    "startExposure": Infinity,
+    "stopExposure": Infinity,
+    "numExposures": -1,
+    "tonemapper": "aces"
+   }
+  },
+  "L01_idle|web-webgl2": {
+   "mean": 0.00010975235636578873,
+   "p99.9": 0.01782342977821827,
+   "max": 0.03006916306912899,
+   "pixels_not_identical": 2440,
+   "max_channel_abs_diff": 1,
+   "pixels_total": 1049088,
+   "pass": true,
+   "flip_params": {
+    "ppd": 67.02064514160156,
+    "startExposure": Infinity,
+    "stopExposure": Infinity,
+    "numExposures": -1,
+    "tonemapper": "aces"
+   }
+  },
+  "F01_empty|gl-llvmpipe": {
+   "mean": 0.00036537356209009886,
+   "p99.9": 0.052919767796993256,
+   "max": 0.05585983768105507,
+   "pixels_not_identical": 7129,
+   "max_channel_abs_diff": 1,
+   "pixels_total": 1049088,
+   "pass": false,
+   "flip_params": {
+    "ppd": 67.02064514160156,
+    "startExposure": Infinity,
+    "stopExposure": Infinity,
+    "numExposures": -1,
+    "tonemapper": "aces"
+   }
+  },
+  "F01_empty|web-webgl2": {
+   "mean": 0.0003627814003266394,
+   "p99.9": 0.053286708891391754,
+   "max": 0.055461566895246506,
+   "pixels_not_identical": 7044,
+   "max_channel_abs_diff": 1,
+   "pixels_total": 1049088,
+   "pass": false,
+   "flip_params": {
+    "ppd": 67.02064514160156,
+    "startExposure": Infinity,
+    "stopExposure": Infinity,
+    "numExposures": -1,
+    "tonemapper": "aces"
+   }
+  },
+  "F01_error|gl-llvmpipe": {
+   "mean": 0.000420882977778092,
+   "p99.9": 0.05326283350586891,
+   "max": 0.05554011091589928,
+   "pixels_not_identical": 8512,
+   "max_channel_abs_diff": 1,
+   "pixels_total": 1049088,
+   "pass": false,
+   "flip_params": {
+    "ppd": 67.02064514160156,
+    "startExposure": Infinity,
+    "stopExposure": Infinity,
+    "numExposures": -1,
+    "tonemapper": "aces"
+   }
+  },
+  "F01_error|web-webgl2": {
+   "mean": 0.00040792193613015115,
+   "p99.9": 0.05326218903064728,
+   "max": 0.055470991879701614,
+   "pixels_not_identical": 8425,
+   "max_channel_abs_diff": 1,
+   "pixels_total": 1049088,
+   "pass": false,
+   "flip_params": {
+    "ppd": 67.02064514160156,
+    "startExposure": Infinity,
+    "stopExposure": Infinity,
+    "numExposures": -1,
+    "tonemapper": "aces"
+   }
+  },
+  "F01_zh_preedit|gl-llvmpipe": {
+   "mean": 0.0003353348292876035,
+   "p99.9": 0.0525524839758873,
+   "max": 0.05585983768105507,
+   "pixels_not_identical": 6791,
+   "max_channel_abs_diff": 1,
+   "pixels_total": 1049088,
+   "pass": false,
+   "flip_params": {
+    "ppd": 67.02064514160156,
+    "startExposure": Infinity,
+    "stopExposure": Infinity,
+    "numExposures": -1,
+    "tonemapper": "aces"
+   }
+  },
+  "F01_zh_preedit|web-webgl2": {
+   "mean": 0.00031942350324243307,
+   "p99.9": 0.05274641513824463,
+   "max": 0.05545981973409653,
+   "pixels_not_identical": 6722,
+   "max_channel_abs_diff": 1,
+   "pixels_total": 1049088,
+   "pass": false,
+   "flip_params": {
+    "ppd": 67.02064514160156,
+    "startExposure": Infinity,
+    "stopExposure": Infinity,
+    "numExposures": -1,
+    "tonemapper": "aces"
+   }
+  }
+ }
+}

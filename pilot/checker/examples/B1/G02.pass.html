@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Todo</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="[overflow-wrap:anywhere] bg-white text-slate-900 p-4">
+<main class="max-w-md mx-auto">
+  <h1 class="text-2xl font-bold mb-4">To-do</h1>
+  <form id="f" class="flex gap-2 mb-4">
+    <label for="new" class="sr-only">New task</label>
+    <input id="new" class="flex-1 min-w-0 border border-slate-500 rounded px-2 py-1" placeholder="New task">
+    <button class="bg-blue-700 text-white rounded px-3 py-1">Add</button>
+  </form>
+  <div class="flex gap-2 mb-2">
+    <button data-f="All" class="border border-slate-700 rounded px-2 py-1">All</button>
+    <button data-f="Active" class="border border-slate-700 rounded px-2 py-1">Active</button>
+    <button data-f="Done" class="border border-slate-700 rounded px-2 py-1">Done</button>
+  </div>
+  <ul id="list" class="flex flex-col gap-1"></ul>
+  <p id="count" class="mt-3 text-slate-700"></p>
+</main>
+<script>
+  let tasks = [], id = 0, filter = 'All';
+  const list = document.getElementById('list'), count = document.getElementById('count');
+  function render() {
+    list.innerHTML = '';
+    for (const t of tasks) {
+      if (filter === 'Active' && t.done) continue; if (filter === 'Done' && !t.done) continue;
+      const li = document.createElement('li'); li.className = 'flex items-center gap-2';
+      const lab = document.createElement('label'); lab.className = 'flex items-center gap-2 flex-1';
+      const cb = document.createElement('input'); cb.type = 'checkbox'; cb.checked = t.done; cb.onchange = () => { t.done = cb.checked; render(); };
+      const sp = document.createElement('span'); sp.textContent = t.text; lab.append(cb, sp);
+      const d = document.createElement('button'); d.textContent = 'Delete'; d.className = 'border border-slate-700 rounded px-2 py-0.5';
+      d.setAttribute('aria-label', 'Delete ' + t.text);
+      d.onclick = () => { tasks = tasks.filter(x => x !== t); render(); };
+      li.append(lab, d); list.append(li);
+    }
+    const left = tasks.filter(t => !t.done).length;
+    count.textContent = left + (left === 1 ? ' item left' : ' items left');
+    document.querySelectorAll('[data-f]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.f === filter)));
+  }
+  document.getElementById('f').onsubmit = e => { e.preventDefault(); const i = document.getElementById('new'); if (i.value.trim()) { tasks.push({ id: ++id, text: i.value.trim(), done: false }); i.value = ''; render(); } };
+  document.querySelectorAll('[data-f]').forEach(b => b.onclick = () => { filter = b.dataset.f; render(); });
+  render();
+</script>
+</body>
+</html>

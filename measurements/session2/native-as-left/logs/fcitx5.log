@@ -1,0 +1,56 @@
+I2026-10-09 01:25:30.561618 instance.cpp:1346] Override Enabled Addons: {}
+I2026-10-09 01:25:30.561646 instance.cpp:1347] Override Disabled Addons: {kimpanel, virtualkeyboard, waylandim, wayland}
+I2026-10-09 01:25:30.566156 xcbconnection.cpp:189] Connecting to X11 display, display name::77.
+I2026-10-09 01:25:30.566429 addonmanager.cpp:195] Loaded addon xcb
+I2026-10-09 01:25:30.567580 addonmanager.cpp:195] Loaded addon quickphrase
+I2026-10-09 01:25:30.567709 addonmanager.cpp:195] Loaded addon imselector
+I2026-10-09 01:25:30.571145 addonmanager.cpp:195] Loaded addon keyboard
+I2026-10-09 01:25:30.571690 addonmanager.cpp:195] Loaded addon clipboard
+I2026-10-09 01:25:30.571833 addonmanager.cpp:195] Loaded addon unicode
+I2026-10-09 01:25:30.572242 addonmanager.cpp:195] Loaded addon pinyinhelper
+I2026-10-09 01:25:30.573083 addonmanager.cpp:195] Loaded addon dbus
+I2026-10-09 01:25:30.573475 addonmanager.cpp:195] Loaded addon dbusfrontend
+I2026-10-09 01:25:30.575937 addonmanager.cpp:195] Loaded addon fcitx4frontend
+I2026-10-09 01:25:30.576533 addonmanager.cpp:195] Loaded addon ibusfrontend
+I2026-10-09 01:25:30.576956 addonmanager.cpp:195] Loaded addon xim
+I2026-10-09 01:25:30.604440 inputmethodmanager.cpp:190] Found 737 input method(s) in addon keyboard
+I2026-10-09 01:25:30.632676 classicui.cpp:66] Created classicui for x11 display::77
+I2026-10-09 01:25:30.632694 addonmanager.cpp:195] Loaded addon classicui
+I2026-10-09 01:25:30.633039 addonmanager.cpp:195] Loaded addon notificationitem
+I2026-10-09 01:25:30.633356 addonmanager.cpp:195] Loaded addon notifications
+E2026-10-09 01:25:30.636431 portalsettingmonitor.cpp:115] DBus call error: org.freedesktop.DBus.Error.ServiceUnknown The name org.freedesktop.portal.Desktop was not provided by any .service files
+I2026-10-09 01:25:31.838802 addonmanager.cpp:195] Loaded addon punctuation
+I2026-10-09 01:25:32.035408 addonmanager.cpp:195] Loaded addon pinyin
+=========================
+Fcitx 5.1.7 -- Get Signal No.: 15
+Date: try "date -d @1791509155" if you are using GNU date ***
+ProcessID: 23085
+fcitx5(+0x11994)[0x55cc24655994]
+/lib/x86_64-linux-gnu/libc.so.6(+0x45330)[0x7f550b645330]
+/lib/x86_64-linux-gnu/libc.so.6(epoll_wait+0x52)[0x7f550b72a2d2]
+/lib/x86_64-linux-gnu/libsystemd.so.0(sd_event_wait+0x17c)[0x7f550bd5197c]
+/lib/x86_64-linux-gnu/libsystemd.so.0(sd_event_run+0x14b)[0x7f550bd5303b]
+/lib/x86_64-linux-gnu/libsystemd.so.0(sd_event_loop+0x5f)[0x7f550bd531cf]
+/lib/x86_64-linux-gnu/libFcitx5Utils.so.2(_ZN5fcitx9EventLoop4execEv+0x15)[0x7f550beb4c45]
+/lib/x86_64-linux-gnu/libFcitx5Core.so.7(_ZN5fcitx8Instance4execEv+0x61)[0x7f550bf7ea21]
+fcitx5(+0xff71)[0x55cc24653f71]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x7f550b62a1ca]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x7f550b62a28b]
+fcitx5(+0x113e5)[0x55cc246553e5]
+I2026-10-09 01:25:55.085958 addonmanager.cpp:298] Unloading addon pinyin
+I2026-10-09 01:25:55.086551 addonmanager.cpp:298] Unloading addon punctuation
+I2026-10-09 01:25:55.086685 addonmanager.cpp:298] Unloading addon notifications
+I2026-10-09 01:25:55.086713 addonmanager.cpp:298] Unloading addon notificationitem
+I2026-10-09 01:25:55.086743 addonmanager.cpp:298] Unloading addon classicui
+I2026-10-09 01:25:55.087522 addonmanager.cpp:298] Unloading addon xim
+I2026-10-09 01:25:55.087605 addonmanager.cpp:298] Unloading addon ibusfrontend
+I2026-10-09 01:25:55.088342 addonmanager.cpp:298] Unloading addon fcitx4frontend
+I2026-10-09 01:25:55.088592 addonmanager.cpp:298] Unloading addon dbusfrontend
+I2026-10-09 01:25:55.088621 addonmanager.cpp:298] Unloading addon dbus
+I2026-10-09 01:25:55.088657 addonmanager.cpp:298] Unloading addon pinyinhelper
+I2026-10-09 01:25:55.088673 addonmanager.cpp:298] Unloading addon unicode
+I2026-10-09 01:25:55.088691 addonmanager.cpp:298] Unloading addon clipboard
+I2026-10-09 01:25:55.088713 addonmanager.cpp:298] Unloading addon keyboard
+I2026-10-09 01:25:55.088825 addonmanager.cpp:298] Unloading addon imselector
+I2026-10-09 01:25:55.088838 addonmanager.cpp:298] Unloading addon quickphrase
+I2026-10-09 01:25:55.088968 addonmanager.cpp:298] Unloading addon xcb

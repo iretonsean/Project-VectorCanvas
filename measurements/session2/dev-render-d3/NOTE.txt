@@ -1,0 +1,1 @@
+specimens: L01.pvca b86a4f74… F01.pvca 88dfb47c… (live dev-ir, re-signed with bundle hashes); runtime source built against /workspace/dev_work/dev-ir/pvc-ir (live)

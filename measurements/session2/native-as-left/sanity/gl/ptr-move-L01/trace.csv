@@ -1,0 +1,2 @@
+frame_idx,t_ns,scenario,event,update_ms,layout_ms,scene_ms,a11y_ms,mirror_ms,render_ms,total_ms,completion_ms,n_events
+0,1791509031848907784,ptr-move,init,0.000,0.371,0.014,0.064,,59.995,119.865,119.916,0

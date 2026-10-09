@@ -1,0 +1,1 @@
+A page with one heading "Hello" and one button labelled "Save".

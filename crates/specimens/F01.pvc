@@ -1,0 +1,58 @@
+// F01 — sign-up form (G2 §5 F01): name, email, password with show/hide toggle, accept-terms
+// checkbox, submit disabled until valid. en + zh-CN strings tables.
+pvc 0.1 use std@0.1 theme light
+locales en zh-CN
+fonts std
+
+state {
+  name: text = ""
+  email: text = ""
+  password: text = ""
+  show_pw: bool = false
+  terms: bool = false
+  status: enum(editing, done) = editing
+}
+derive valid = not is-empty(name) and is-email(email) and length(password) >= 8 and terms
+
+form @signup.title w=360 on.submit={ when valid; status = done } {
+  text @signup.title bold size=20 heading=1
+  field @name.label bind=name required help=@name.help
+  field @email.label bind=email kind=email required help=@email.help \
+        error=@email.error error-when=(not is-empty(email) and not is-email(email))
+  password-field @password.label bind=password required toggle=show_pw toggle-name=@password.toggle \
+        help=@password.help error=@password.error error-when=(not is-empty(password) and length(password) < 8)
+  checkbox @terms.label bind=terms
+  button @submit.label submit disabled=(not valid)
+  text @done.msg show=(status == done) role=status live=polite
+}
+
+strings en {
+  signup.title "Create account"
+  name.label "Full name"
+  name.help "Your first and last name"
+  email.label "Email"
+  email.help "Used to sign in"
+  email.error "Enter a valid email address, like name@example.com"
+  password.label "Password"
+  password.help "At least 8 characters"
+  password.error "Password must be at least 8 characters"
+  password.toggle "Show password"
+  terms.label "I accept the terms of service"
+  submit.label "Sign up"
+  done.msg "Account created"
+}
+strings zh-CN {
+  signup.title "创建账户"
+  name.label "姓名"
+  name.help "请输入您的姓和名"
+  email.label "电子邮箱"
+  email.help "用于登录"
+  email.error "请输入有效的电子邮箱地址，例如 name@example.com"
+  password.label "密码"
+  password.help "至少 8 个字符"
+  password.error "密码至少需要 8 个字符"
+  password.toggle "显示密码"
+  terms.label "我接受服务条款"
+  submit.label "注册"
+  done.msg "账户已创建"
+}

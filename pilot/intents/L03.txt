@@ -1,0 +1,1 @@
+Landing hero: big headline, sub-headline, two buttons (primary and secondary), illustration on the right that moves below text on narrow screens No image files or network resources are available: draw the illustration with inline vector shapes or styled boxes (at least 160 px wide on desktop). The hero has one headline, one sub-headline and exactly two buttons.

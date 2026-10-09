@@ -1,0 +1,5 @@
+L01_idle b994a6ad8ddc2a4d ops=10
+F01_empty f6d4df23c91c2a0a ops=28
+F01_error 998a20309f9e47ee ops=32
+F01_zh_preedit c8e533200dc49212 ops=35
+gl adapter: AdapterInfo { name: "llvmpipe (LLVM 20.1.2, 256 bits)", vendor: 65541, device: 0, device_type: Cpu, device_pci_bus_id: "", driver: "", driver_info: "4.5 (Core Profile) Mesa 25.2.8-0ubuntu0.24.04.2", backend: Gl, subgroup_min_size: 4, subgroup_max_size: 128, transient_saves_memory: None, limit_bucket: None }

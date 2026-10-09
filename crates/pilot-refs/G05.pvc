@@ -1,0 +1,49 @@
+// G05 reference
+pvc 0.1 use std@0.1 theme light
+fonts std
+state {
+  step: enum(s1, s2, s3, s4) = s1
+  pet: enum(unset, yes, no) = unset
+  pet_name: text
+}
+surface {
+  col w=420 gap=md {
+    slot on=step {
+      case s1 {
+        text "Step 1: Welcome" bold size=22 heading=1
+        text "A few quick questions."
+        button "Next" on.press={ step = s2 }
+      }
+      case s2 {
+        text "Step 2: Pet" bold size=22 heading=1
+        text "Do you have a pet?"
+        col role=radio-group name="Do you have a pet?" gap=xs {
+          radio "Yes" bind=pet value=yes
+          radio "No" bind=pet value=no
+        }
+        row gap=sm {
+          button "Back" fill=none on.press={ step = s1 }
+          button "Next" on.press={ when pet == yes; step = s3 } on.press={ when pet != yes; step = s4 }
+        }
+      }
+      case s3 {
+        text "Step 3: Pet name" bold size=22 heading=1
+        field "Pet name" bind=pet_name
+        row gap=sm {
+          button "Back" fill=none on.press={ step = s2 }
+          button "Next" on.press={ step = s4 }
+        }
+      }
+      case s4 {
+        text "Step 4: Summary" bold size=22 heading=1
+        text @pet.summary n=(pet_name) show=(pet == yes)
+        text "No pet." show=(pet != yes)
+        row gap=sm {
+          button "Back" fill=none on.press={ when pet == yes; step = s3 } on.press={ when pet != yes; step = s2 }
+          button "Finish" on.press={ step = s1; pet = unset; pet_name = "" }
+        }
+      }
+    }
+  }
+}
+strings en { pet.summary "Your pet is called {n}." }

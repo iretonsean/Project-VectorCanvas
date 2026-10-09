@@ -1,0 +1,13 @@
+{
+ "pass": true,
+ "summary": {
+  "clicks": 100,
+  "final_show": false,
+  "first_flips": [
+   true,
+   false,
+   true
+  ],
+  "frames": 101
+ }
+}

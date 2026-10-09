@@ -1,0 +1,17 @@
+# o200k_base (tiktoken 0.14.0) token counts of the hand-written pilot reference programs (comments stripped). NOT agent output; reference only.
+L01 146
+L02 321
+L03 130
+L04 298
+L05 329
+L06 348
+L07 265
+L08 177
+L09 418
+L10 297
+G01 198
+G02 319
+G03 345
+G04 472
+G05 462
+sum 4525

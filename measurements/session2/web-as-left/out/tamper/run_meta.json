@@ -1,0 +1,28 @@
+{
+ "host_label": "host=container-xeon4 path=chromium141-webgl2-swiftshader",
+ "labels": [
+  "general constraint solve excluded (D-4): layout is the direct sugar solver",
+  "NOT a Tier 1 device result; no phone or Chromebook was measured",
+  "WebGL2 here is ANGLE->SwiftShader (CPU emulation), not a GPU"
+ ],
+ "scenario": "tamper",
+ "openOpts": {
+  "scenario": "tamper",
+  "variant": "raf",
+  "mirror": "on",
+  "dsf": 1,
+  "specimen": "F01",
+  "locale": "en",
+  "artifact": "F01.tampered",
+  "allowError": true
+ },
+ "cmd": "/opt/node22/bin/node /workspace/dev_work/dev-web/tests/run.mjs tamper",
+ "date": "2026-10-09T01:00:14.855Z",
+ "loadavg": "6.58 2.97 1.14 4/219 2623",
+ "console": [
+  "error: PVC boot failed: Runtime::from_signed: Ir(\"signature verification failed: refusing to load\")",
+  "warning: [GroupMarkerNotSet(crbug.com/242999)!:A0702000A43C0000]Automatic fallback to software WebGL has been deprecated. Please use the --enable-unsafe-swiftshader (about:flags#enable-unsafe-swiftshader) flag to opt in to lower security guarantees for trusted content.",
+  "warning: [.WebGL-0x48400138e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+ ],
+ "goto_to_ready_ms": 314
+}

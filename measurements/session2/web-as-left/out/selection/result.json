@@ -1,0 +1,47 @@
+{
+ "pass": true,
+ "summary": {
+  "ctrlA": {
+   "runtime": [
+    0,
+    12
+   ],
+   "dom": [
+    0,
+    12
+   ]
+  },
+  "left": {
+   "runtime": [
+    0,
+    0
+   ],
+   "dom": [
+    0,
+    0
+   ]
+  },
+  "shiftLeft": {
+   "runtime": [
+    0,
+    0
+   ],
+   "dom": [
+    0,
+    0
+   ]
+  },
+  "dblclick": {
+   "runtime": [
+    4,
+    12
+   ],
+   "dom": [
+    4,
+    12
+   ]
+  },
+  "afterTabs": "I accept the terms of service",
+  "afterOneMoreTab": "Full name"
+ }
+}

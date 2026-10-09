@@ -1,0 +1,7 @@
+email=Text("")
+name=Text("")
+password=Text("")
+show_pw=Bool(false)
+status=Enum("editing")
+terms=Bool(false)
+derived valid=Bool(false)

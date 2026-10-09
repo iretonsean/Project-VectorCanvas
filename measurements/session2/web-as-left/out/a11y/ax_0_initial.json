@@ -1,0 +1,299 @@
+[
+ {
+  "depth": 0,
+  "role": "RootWebArea",
+  "name": "PVC web host (Session 2, A5)",
+  "props": {
+   "focusable": true,
+   "focused": true,
+   "url": "http://127.0.0.1:37557/index.html?scenario=a11y&variant=raf&mirror=on&specimen=F01&locale=en"
+  }
+ },
+ {
+  "depth": 1,
+  "role": "generic",
+  "name": "",
+  "props": {}
+ },
+ {
+  "depth": 2,
+  "role": "generic",
+  "name": "",
+  "props": {}
+ },
+ {
+  "depth": 3,
+  "role": "form",
+  "name": "Create account",
+  "props": {}
+ },
+ {
+  "depth": 4,
+  "role": "heading",
+  "name": "Create account",
+  "props": {
+   "level": 1
+  }
+ },
+ {
+  "depth": 4,
+  "role": "generic",
+  "name": "",
+  "props": {}
+ },
+ {
+  "depth": 5,
+  "role": "generic",
+  "name": "",
+  "props": {}
+ },
+ {
+  "depth": 6,
+  "role": "StaticText",
+  "name": "Full name",
+  "props": {}
+ },
+ {
+  "depth": 7,
+  "role": "InlineTextBox",
+  "name": "Full name",
+  "props": {}
+ },
+ {
+  "depth": 5,
+  "role": "textbox",
+  "name": "Full name",
+  "description": "Your first and last name",
+  "props": {
+   "invalid": "false",
+   "focusable": true,
+   "editable": "plaintext",
+   "settable": true,
+   "multiline": false,
+   "readonly": false,
+   "required": true,
+   "describedby": "pvc-n1592938092350952380"
+  }
+ },
+ {
+  "depth": 6,
+  "role": "generic",
+  "name": "",
+  "props": {
+   "editable": "plaintext"
+  }
+ },
+ {
+  "depth": 5,
+  "role": "generic",
+  "name": "",
+  "props": {}
+ },
+ {
+  "depth": 6,
+  "role": "StaticText",
+  "name": "Your first and last name",
+  "props": {}
+ },
+ {
+  "depth": 7,
+  "role": "InlineTextBox",
+  "name": "Your first and last name",
+  "props": {}
+ },
+ {
+  "depth": 4,
+  "role": "generic",
+  "name": "",
+  "props": {}
+ },
+ {
+  "depth": 5,
+  "role": "generic",
+  "name": "",
+  "props": {}
+ },
+ {
+  "depth": 6,
+  "role": "StaticText",
+  "name": "Email",
+  "props": {}
+ },
+ {
+  "depth": 7,
+  "role": "InlineTextBox",
+  "name": "Email",
+  "props": {}
+ },
+ {
+  "depth": 5,
+  "role": "textbox",
+  "name": "Email",
+  "description": "Used to sign in",
+  "props": {
+   "invalid": "false",
+   "focusable": true,
+   "editable": "plaintext",
+   "settable": true,
+   "multiline": false,
+   "readonly": false,
+   "required": true,
+   "describedby": "pvc-n8917286103951514953"
+  }
+ },
+ {
+  "depth": 6,
+  "role": "generic",
+  "name": "",
+  "props": {
+   "editable": "plaintext"
+  }
+ },
+ {
+  "depth": 5,
+  "role": "generic",
+  "name": "",
+  "props": {}
+ },
+ {
+  "depth": 6,
+  "role": "StaticText",
+  "name": "Used to sign in",
+  "props": {}
+ },
+ {
+  "depth": 7,
+  "role": "InlineTextBox",
+  "name": "Used to sign in",
+  "props": {}
+ },
+ {
+  "depth": 5,
+  "role": "status",
+  "name": "",
+  "props": {
+   "live": "polite",
+   "atomic": true,
+   "relevant": "additions text"
+  }
+ },
+ {
+  "depth": 4,
+  "role": "generic",
+  "name": "",
+  "props": {}
+ },
+ {
+  "depth": 5,
+  "role": "generic",
+  "name": "",
+  "props": {}
+ },
+ {
+  "depth": 6,
+  "role": "StaticText",
+  "name": "Password",
+  "props": {}
+ },
+ {
+  "depth": 7,
+  "role": "InlineTextBox",
+  "name": "Password",
+  "props": {}
+ },
+ {
+  "depth": 5,
+  "role": "generic",
+  "name": "",
+  "props": {}
+ },
+ {
+  "depth": 6,
+  "role": "textbox",
+  "name": "Password",
+  "description": "At least 8 characters",
+  "props": {
+   "invalid": "false",
+   "focusable": true,
+   "editable": "plaintext",
+   "settable": true,
+   "multiline": false,
+   "readonly": false,
+   "required": true,
+   "describedby": "pvc-n262028868338970432"
+  }
+ },
+ {
+  "depth": 7,
+  "role": "generic",
+  "name": "",
+  "props": {
+   "editable": "plaintext"
+  }
+ },
+ {
+  "depth": 6,
+  "role": "button",
+  "name": "Show password",
+  "props": {
+   "focusable": true,
+   "pressed": "false"
+  }
+ },
+ {
+  "depth": 5,
+  "role": "generic",
+  "name": "",
+  "props": {}
+ },
+ {
+  "depth": 6,
+  "role": "StaticText",
+  "name": "At least 8 characters",
+  "props": {}
+ },
+ {
+  "depth": 7,
+  "role": "InlineTextBox",
+  "name": "At least 8 characters",
+  "props": {}
+ },
+ {
+  "depth": 5,
+  "role": "status",
+  "name": "",
+  "props": {
+   "live": "polite",
+   "atomic": true,
+   "relevant": "additions text"
+  }
+ },
+ {
+  "depth": 4,
+  "role": "checkbox",
+  "name": "I accept the terms of service",
+  "props": {
+   "focusable": true,
+   "checked": "false"
+  }
+ },
+ {
+  "depth": 4,
+  "role": "button",
+  "name": "Sign up",
+  "props": {
+   "disabled": true,
+   "focusable": true
+  }
+ },
+ {
+  "depth": 4,
+  "role": "status",
+  "name": "",
+  "props": {
+   "live": "polite",
+   "atomic": true,
+   "relevant": "additions text"
+  }
+ }
+]

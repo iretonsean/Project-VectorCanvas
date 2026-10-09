@@ -1,0 +1,3 @@
+{"args":[],"version":"WebGL 2.0 (OpenGL ES 3.0 Chromium)","webgl2":true,"gpu":"undefined","renderer":"ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)","maxTex":8192}
+{"args":["--use-angle=swiftshader","--enable-unsafe-swiftshader"],"version":"WebGL 2.0 (OpenGL ES 3.0 Chromium)","webgl2":true,"gpu":"undefined","renderer":"ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)","maxTex":8192}
+{"args":["--use-gl=angle","--use-angle=swiftshader-webgl"],"version":"WebGL 2.0 (OpenGL ES 3.0 Chromium)","webgl2":true,"gpu":"undefined","renderer":"ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)","maxTex":8192}

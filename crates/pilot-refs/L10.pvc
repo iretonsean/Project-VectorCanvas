@@ -1,0 +1,14 @@
+// L10 reference
+pvc 0.1 use std@0.1 theme light
+fonts std
+surface gap=lg {
+  text "Everything you need" bold size=28 heading=1
+  grid cols=3 gap=lg w=fill md.cols=1 {
+    col gap=xs { shape circle w=28 h=28 fill=accent decorative; text "Fast" bold size=18 heading=2; text "Pages load in a blink." }
+    col gap=xs { shape circle w=28 h=28 fill=blue decorative; text "Secure" bold size=18 heading=2; text "Your data stays on your device." }
+    col gap=xs { shape rounded w=28 h=28 fill=accent decorative; text "Simple" bold size=18 heading=2; text "One screen, one clear action." }
+    col gap=xs { shape rounded w=28 h=28 fill=blue decorative; text "Private" bold size=18 heading=2; text "No tracking, no ads." }
+    col gap=xs { shape circle w=28 h=28 fill=accent decorative; text "Open" bold size=18 heading=2; text "Everything can be inspected." }
+    col gap=xs { shape rect w=28 h=28 fill=blue decorative; text "Reliable" bold size=18 heading=2; text "Works the same offline." }
+  }
+}

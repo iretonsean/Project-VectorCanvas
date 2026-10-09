@@ -1,0 +1,15 @@
+[package]
+name = "pvc_text"
+version = "0.0.1"
+edition = "2021"
+publish = false
+description = "dev-measure A8 tool: renders corpus.json through dev-render's pvc_runtime text API (read-only path dep) for the G6 text bar. Tooling only; not a shipped crate."
+
+[dependencies]
+pvc-runtime = { path = "/workspace/dev_work/dev-render/pvc-runtime", features = ["cpu"] }
+parley = { version = "=0.11.1", default-features = false, features = ["std"] }
+serde_json = "1"
+png = "0.18"
+
+[profile.release]
+opt-level = 3

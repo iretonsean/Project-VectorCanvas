@@ -1,0 +1,23 @@
+[package]
+name = "pvc-ir"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.89"
+publish = false
+
+[lib]
+name = "pvc_ir"
+path = "src/lib.rs"
+
+[dependencies]
+ed25519-dalek = "=2.2.0"
+sha2 = "=0.10.9"
+icu_normalizer = "=2.3.0"
+
+[[bin]]
+name = "pvc-validate"
+path = "src/bin/pvc-validate.rs"
+
+[[bin]]
+name = "pvc-compile"
+path = "src/bin/pvc-compile.rs"

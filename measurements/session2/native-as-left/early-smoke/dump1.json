@@ -1,0 +1,265 @@
+[
+ {
+  "depth": 0,
+  "role": "application",
+  "name": "pvc-native",
+  "description": "",
+  "states": [],
+  "interfaces": [
+   "Accessible"
+  ],
+  "attrs": {},
+  "relations": []
+ },
+ {
+  "depth": 1,
+  "role": "frame",
+  "name": "Sign up",
+  "description": "",
+  "states": [
+   "atspi_enabled",
+   "atspi_focusable",
+   "atspi_sensitive",
+   "atspi_showing",
+   "atspi_visible"
+  ],
+  "interfaces": [
+   "Accessible",
+   "Component"
+  ],
+  "attrs": {},
+  "extents": [
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "relations": []
+ },
+ {
+  "depth": 2,
+  "role": "form",
+  "name": "Sign-up form",
+  "description": "",
+  "states": [
+   "atspi_enabled",
+   "atspi_sensitive",
+   "atspi_showing",
+   "atspi_visible"
+  ],
+  "interfaces": [
+   "Accessible"
+  ],
+  "attrs": {},
+  "relations": []
+ },
+ {
+  "depth": 3,
+  "role": "heading",
+  "name": "Create account",
+  "description": "",
+  "states": [
+   "atspi_enabled",
+   "atspi_sensitive",
+   "atspi_showing",
+   "atspi_visible"
+  ],
+  "interfaces": [
+   "Accessible"
+  ],
+  "attrs": {},
+  "relations": []
+ },
+ {
+  "depth": 3,
+  "role": "entry",
+  "name": "Name",
+  "description": "",
+  "states": [
+   "atspi_editable",
+   "atspi_enabled",
+   "atspi_focusable",
+   "atspi_required",
+   "atspi_selectable_text",
+   "atspi_sensitive",
+   "atspi_showing",
+   "atspi_single_line",
+   "atspi_visible"
+  ],
+  "interfaces": [
+   "Accessible",
+   "Component",
+   "EditableText",
+   "Text"
+  ],
+  "attrs": {},
+  "text": "",
+  "caret": 0,
+  "extents": [
+   473,
+   150,
+   420,
+   40
+  ],
+  "relations": []
+ },
+ {
+  "depth": 3,
+  "role": "entry",
+  "name": "Email",
+  "description": "",
+  "states": [
+   "atspi_editable",
+   "atspi_enabled",
+   "atspi_focusable",
+   "atspi_required",
+   "atspi_selectable_text",
+   "atspi_sensitive",
+   "atspi_showing",
+   "atspi_single_line",
+   "atspi_visible"
+  ],
+  "interfaces": [
+   "Accessible",
+   "Component",
+   "EditableText",
+   "Text"
+  ],
+  "attrs": {},
+  "text": "",
+  "caret": 0,
+  "extents": [
+   473,
+   210,
+   420,
+   40
+  ],
+  "relations": []
+ },
+ {
+  "depth": 3,
+  "role": "password text",
+  "name": "Password",
+  "description": "",
+  "states": [
+   "atspi_editable",
+   "atspi_enabled",
+   "atspi_focusable",
+   "atspi_required",
+   "atspi_selectable_text",
+   "atspi_sensitive",
+   "atspi_showing",
+   "atspi_single_line",
+   "atspi_visible"
+  ],
+  "interfaces": [
+   "Accessible",
+   "Component",
+   "EditableText",
+   "Text"
+  ],
+  "attrs": {},
+  "text": "",
+  "caret": 0,
+  "extents": [
+   473,
+   270,
+   330,
+   40
+  ],
+  "relations": []
+ },
+ {
+  "depth": 3,
+  "role": "push button",
+  "name": "Show password",
+  "description": "",
+  "states": [
+   "atspi_enabled",
+   "atspi_focusable",
+   "atspi_sensitive",
+   "atspi_showing",
+   "atspi_visible"
+  ],
+  "interfaces": [
+   "Accessible",
+   "Action",
+   "Component"
+  ],
+  "attrs": {},
+  "extents": [
+   813,
+   270,
+   80,
+   40
+  ],
+  "actions": [
+   "click"
+  ],
+  "relations": [
+   [
+    "atspi_controller_for",
+    [
+     "Password"
+    ]
+   ]
+  ]
+ },
+ {
+  "depth": 3,
+  "role": "check box",
+  "name": "I accept the terms",
+  "description": "",
+  "states": [
+   "atspi_checkable",
+   "atspi_enabled",
+   "atspi_focusable",
+   "atspi_sensitive",
+   "atspi_showing",
+   "atspi_visible"
+  ],
+  "interfaces": [
+   "Accessible",
+   "Action",
+   "Component"
+  ],
+  "attrs": {},
+  "extents": [
+   473,
+   330,
+   24,
+   24
+  ],
+  "actions": [
+   "click"
+  ],
+  "relations": []
+ },
+ {
+  "depth": 3,
+  "role": "push button",
+  "name": "Create account",
+  "description": "",
+  "states": [
+   "atspi_focusable",
+   "atspi_showing",
+   "atspi_visible"
+  ],
+  "interfaces": [
+   "Accessible",
+   "Action",
+   "Component"
+  ],
+  "attrs": {},
+  "extents": [
+   473,
+   380,
+   420,
+   44
+  ],
+  "actions": [
+   "click"
+  ],
+  "relations": []
+ }
+]

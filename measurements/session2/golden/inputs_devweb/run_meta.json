@@ -1,0 +1,27 @@
+{
+ "host_label": "host=container-xeon4 path=chromium141-webgl2-swiftshader",
+ "labels": [
+  "general constraint solve excluded (D-4): layout is the direct sugar solver",
+  "NOT a Tier 1 device result; no phone or Chromebook was measured",
+  "WebGL2 here is ANGLE->SwiftShader (CPU emulation), not a GPU"
+ ],
+ "scenario": "golden",
+ "openOpts": {
+  "scenario": "golden",
+  "variant": "raf",
+  "mirror": "on",
+  "dsf": 1,
+  "specimen": "F01",
+  "locale": "en"
+ },
+ "cmd": "/opt/node22/bin/node /workspace/dev_work/dev-web/tests/run.mjs golden --out /workspace/dev_work/dev-render/measurements/golden/inputs_devweb",
+ "date": "2026-10-09T01:15:28.990Z",
+ "loadavg": "4.09 5.70 4.31 1/224 7314",
+ "console": [
+  "warning: pvc_runtime load warning: manifest font ui (b76b0433203017ca80401b2ee0dd69350349871c4b19d504c34dbdd80541690a) is not in the runtime bundle; bundled stack used",
+  "warning: pvc_runtime load warning: manifest font ui (faa5f3656a78b2e2d450d27fe8382c778bc2b6bb5ea29c986664a6a435056ceb) is not in the runtime bundle; bundled stack used",
+  "warning: [GroupMarkerNotSet(crbug.com/242999)!:A07020004C3F0000]Automatic fallback to software WebGL has been deprecated. Please use the --enable-unsafe-swiftshader (about:flags#enable-unsafe-swiftshader) flag to opt in to lower security guarantees for trusted content.",
+  "warning: [.WebGL-0x257400130e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+ ],
+ "goto_to_ready_ms": 549
+}

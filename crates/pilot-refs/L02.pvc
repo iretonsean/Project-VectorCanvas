@@ -1,0 +1,27 @@
+// L02 reference (hand-written; reference only, never shown to the agent)
+pvc 0.1 use std@0.1 theme light
+fonts std
+surface gap=lg {
+  text "Pricing" bold size=28 heading=1
+  grid cols=3 gap=lg w=fill md.cols=1 {
+    card gap=md {
+      text "Free" bold size=18 heading=2
+      text "$0" bold size=28
+      list gap=xs { item { text "1 project" }; item { text "Community support" }; item { text "Basic analytics" }; item { text "500 MB storage" } }
+      button "Choose Free" w=fill on.press={ }
+    }
+    card gap=md border=strong {
+      text "Most popular" muted size=12
+      text "Pro" bold size=18 heading=2
+      text "$12" bold size=28
+      list gap=xs { item { text "10 projects" }; item { text "Email support" }; item { text "Advanced analytics" }; item { text "50 GB storage" } }
+      button "Choose Pro" w=fill on.press={ }
+    }
+    card gap=md {
+      text "Team" bold size=18 heading=2
+      text "$29" bold size=28
+      list gap=xs { item { text "Unlimited projects" }; item { text "Priority support" }; item { text "Team dashboards" }; item { text "1 TB storage" } }
+      button "Choose Team" w=fill on.press={ }
+    }
+  }
+}

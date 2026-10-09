@@ -1,0 +1,317 @@
+[
+ {
+  "depth": 0,
+  "role": "RootWebArea",
+  "name": "PVC web host (Session 2, A5)",
+  "props": {
+   "focusable": true,
+   "focused": true,
+   "url": "http://127.0.0.1:44979/index.html?scenario=ime&variant=raf&mirror=on&specimen=F01&locale=zh-CN"
+  }
+ },
+ {
+  "depth": 1,
+  "role": "generic",
+  "name": "",
+  "props": {}
+ },
+ {
+  "depth": 2,
+  "role": "generic",
+  "name": "",
+  "props": {}
+ },
+ {
+  "depth": 3,
+  "role": "form",
+  "name": "创建账户",
+  "props": {}
+ },
+ {
+  "depth": 4,
+  "role": "heading",
+  "name": "创建账户",
+  "props": {
+   "level": 1
+  }
+ },
+ {
+  "depth": 4,
+  "role": "generic",
+  "name": "",
+  "props": {}
+ },
+ {
+  "depth": 5,
+  "role": "generic",
+  "name": "",
+  "props": {}
+ },
+ {
+  "depth": 6,
+  "role": "StaticText",
+  "name": "姓名",
+  "props": {}
+ },
+ {
+  "depth": 7,
+  "role": "InlineTextBox",
+  "name": "姓名",
+  "props": {}
+ },
+ {
+  "depth": 5,
+  "role": "textbox",
+  "name": "姓名",
+  "value": "你好",
+  "description": "请输入您的姓和名",
+  "props": {
+   "invalid": "false",
+   "focusable": true,
+   "focused": true,
+   "editable": "plaintext",
+   "settable": true,
+   "multiline": false,
+   "readonly": false,
+   "required": true,
+   "describedby": "pvc-n1592938092350952380"
+  }
+ },
+ {
+  "depth": 6,
+  "role": "generic",
+  "name": "",
+  "props": {
+   "editable": "plaintext"
+  }
+ },
+ {
+  "depth": 7,
+  "role": "StaticText",
+  "name": "你好",
+  "props": {
+   "editable": "plaintext"
+  }
+ },
+ {
+  "depth": 8,
+  "role": "InlineTextBox",
+  "name": "你好",
+  "props": {
+   "editable": "plaintext"
+  }
+ },
+ {
+  "depth": 5,
+  "role": "generic",
+  "name": "",
+  "props": {}
+ },
+ {
+  "depth": 6,
+  "role": "StaticText",
+  "name": "请输入您的姓和名",
+  "props": {}
+ },
+ {
+  "depth": 7,
+  "role": "InlineTextBox",
+  "name": "请输入您的姓和名",
+  "props": {}
+ },
+ {
+  "depth": 4,
+  "role": "generic",
+  "name": "",
+  "props": {}
+ },
+ {
+  "depth": 5,
+  "role": "generic",
+  "name": "",
+  "props": {}
+ },
+ {
+  "depth": 6,
+  "role": "StaticText",
+  "name": "电子邮箱",
+  "props": {}
+ },
+ {
+  "depth": 7,
+  "role": "InlineTextBox",
+  "name": "电子邮箱",
+  "props": {}
+ },
+ {
+  "depth": 5,
+  "role": "textbox",
+  "name": "电子邮箱",
+  "description": "用于登录",
+  "props": {
+   "invalid": "false",
+   "focusable": true,
+   "editable": "plaintext",
+   "settable": true,
+   "multiline": false,
+   "readonly": false,
+   "required": true,
+   "describedby": "pvc-n8917286103951514953"
+  }
+ },
+ {
+  "depth": 6,
+  "role": "generic",
+  "name": "",
+  "props": {
+   "editable": "plaintext"
+  }
+ },
+ {
+  "depth": 5,
+  "role": "generic",
+  "name": "",
+  "props": {}
+ },
+ {
+  "depth": 6,
+  "role": "StaticText",
+  "name": "用于登录",
+  "props": {}
+ },
+ {
+  "depth": 7,
+  "role": "InlineTextBox",
+  "name": "用于登录",
+  "props": {}
+ },
+ {
+  "depth": 5,
+  "role": "status",
+  "name": "",
+  "props": {
+   "live": "polite",
+   "atomic": true,
+   "relevant": "additions text"
+  }
+ },
+ {
+  "depth": 4,
+  "role": "generic",
+  "name": "",
+  "props": {}
+ },
+ {
+  "depth": 5,
+  "role": "generic",
+  "name": "",
+  "props": {}
+ },
+ {
+  "depth": 6,
+  "role": "StaticText",
+  "name": "密码",
+  "props": {}
+ },
+ {
+  "depth": 7,
+  "role": "InlineTextBox",
+  "name": "密码",
+  "props": {}
+ },
+ {
+  "depth": 5,
+  "role": "generic",
+  "name": "",
+  "props": {}
+ },
+ {
+  "depth": 6,
+  "role": "textbox",
+  "name": "密码",
+  "description": "至少 8 个字符",
+  "props": {
+   "invalid": "false",
+   "focusable": true,
+   "editable": "plaintext",
+   "settable": true,
+   "multiline": false,
+   "readonly": false,
+   "required": true,
+   "describedby": "pvc-n262028868338970432"
+  }
+ },
+ {
+  "depth": 7,
+  "role": "generic",
+  "name": "",
+  "props": {
+   "editable": "plaintext"
+  }
+ },
+ {
+  "depth": 6,
+  "role": "button",
+  "name": "显示密码",
+  "props": {
+   "focusable": true,
+   "pressed": "false"
+  }
+ },
+ {
+  "depth": 5,
+  "role": "generic",
+  "name": "",
+  "props": {}
+ },
+ {
+  "depth": 6,
+  "role": "StaticText",
+  "name": "至少 8 个字符",
+  "props": {}
+ },
+ {
+  "depth": 7,
+  "role": "InlineTextBox",
+  "name": "至少 8 个字符",
+  "props": {}
+ },
+ {
+  "depth": 5,
+  "role": "status",
+  "name": "",
+  "props": {
+   "live": "polite",
+   "atomic": true,
+   "relevant": "additions text"
+  }
+ },
+ {
+  "depth": 4,
+  "role": "checkbox",
+  "name": "我接受服务条款",
+  "props": {
+   "focusable": true,
+   "checked": "false"
+  }
+ },
+ {
+  "depth": 4,
+  "role": "button",
+  "name": "注册",
+  "props": {
+   "disabled": true,
+   "focusable": true
+  }
+ },
+ {
+  "depth": 4,
+  "role": "status",
+  "name": "",
+  "props": {
+   "live": "polite",
+   "atomic": true,
+   "relevant": "additions text"
+  }
+ }
+]

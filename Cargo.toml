@@ -1,0 +1,7 @@
+# Session 2 checkpoint workspace (Orchestrator integration).
+# Members build and test natively. Hosts are excluded: pvc-web is wasm32-only (see hosts/pvc-web-host/build.sh)
+# and pvc-native needs X11/GL at run time (see hosts/pvc-native-scripts/run_native.sh); each builds on its own.
+[workspace]
+resolver = "2"
+members = ["crates/pvc-ir", "crates/pvc-runtime"]
+exclude = ["hosts/pvc-native", "hosts/pvc-web-host/pvc-web", "docs/session2/dev", "pilot"]

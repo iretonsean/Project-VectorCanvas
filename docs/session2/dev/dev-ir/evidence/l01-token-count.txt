@@ -1,0 +1,6 @@
+# o200k_base, tiktoken 0.14.0
+G4 §15 / README terse card (no manifest; not a valid program by itself): 118
+specimens/L01.pvc as committed (comments stripped; valid, signed program): 150
+L01.pvc without `fonts std`: 147
+`fonts std` line alone: 3
+the 4 explicit font lines it replaces: 226

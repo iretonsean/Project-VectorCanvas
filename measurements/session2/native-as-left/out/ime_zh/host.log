@@ -1,0 +1,15 @@
+pvc-native: artifact verified, canonical sha256 81b12fdb25ac447f37dc96da8b2820eb5e81c702dbe5278a8af285b27e41cbd7
+libEGL warning: DRI3 error: Could not get DRI3 device
+libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+pvc-native: winit Ime::Disabled
+pvc-native: winit Ime::Enabled
+pvc-native: winit Ime::Preedit("",None)
+pvc-native: winit Ime::Preedit("n",Some((0, 0)))
+pvc-native: winit Ime::Preedit("ni",Some((0, 0)))
+pvc-native: winit Ime::Preedit("ni h",Some((0, 0)))
+pvc-native: winit Ime::Preedit("ni ha",Some((0, 0)))
+pvc-native: winit Ime::Preedit("ni hao",Some((0, 0)))
+pvc-native: winit Ime::Preedit("",None)
+pvc-native: winit Ime::Commit("你好")
+ICU4X data error: No segmentation model for complex script: Chinese/Japanese
+pvc-native: winit Ime::Preedit("",None)

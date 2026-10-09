@@ -1,0 +1,46 @@
+[package]
+name = "pvc-runtime"
+version = "0.0.1"
+edition = "2021"
+publish = false
+description = "PVC runtime core: layout, text, editing, behaviour, semantics, scene, renderers (Session 2, A2/A3)"
+
+[features]
+default = []
+test-unsigned = []
+# Tier 0 (c) renderer / golden reference.
+cpu = ["dep:vello_cpu"]
+# vello_gpu on wgpu with ONLY the GL backend compiled in (no vulkan/metal/dx12/webgpu).
+gl = ["dep:vello_gpu", "vello_gpu/wgpu", "dep:wgpu", "wgpu/gles"]
+# vello_gpu WebGL2 backend for wasm32 (no wgpu). The web host owns the canvas and the GL context.
+webgl = ["dep:vello_gpu", "vello_gpu/webgl"]
+
+[dependencies]
+# --- G7 pins, exact ---
+parley = { version = "=0.11.1", default-features = false, features = ["std"] }
+fontique = { version = "=0.11.1", default-features = false, features = ["std"] }
+harfrust = "~0.12.0"
+skrifa = "~0.44.0"
+accesskit = "=0.25.1"
+glifo = "=0.4.0"
+vello_cpu = { version = "=0.3.0", optional = true }
+vello_gpu = { version = "=0.3.0", optional = true, default-features = false, features = ["text"] }
+wgpu = { version = "=30.0.1", optional = true, default-features = false, features = ["std", "wgsl"] }
+
+pvc-ir = { path = "../pvc-ir" }  # integration: was ../../dev-ir/pvc-ir
+
+[dev-dependencies]
+sha2 = "0.10"
+
+[[example]]
+name = "golden_native"
+required-features = ["cpu", "gl", "test-unsigned"]
+[[example]]
+name = "text_probe"
+required-features = ["cpu"]
+[[example]]
+name = "rss_probe"
+required-features = ["cpu"]
+[[example]]
+name = "frame_bench"
+required-features = ["cpu"]

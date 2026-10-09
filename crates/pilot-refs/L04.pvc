@@ -1,0 +1,24 @@
+// L04 reference
+pvc 0.1 use std@0.1 theme light
+fonts std
+cap open-url.main urls=["https://example.com/"]
+surface pad=none gap=none {
+  box role=region name="Header" w=fill fill=surface pad=md { text "Acme" bold size=18 }
+  row w=fill h=fill gap=md pad=md md.dir=col {
+    box role=navigation name="Main navigation" w=200 gap=sm md.w=fill {
+      link "Home" href="https://example.com/"
+      link "Products" href="https://example.com/products"
+      link "Contact" href="https://example.com/contact"
+    }
+    box role=main w=fill gap=sm {
+      text "Welcome" bold size=24 heading=1
+      text "This is a short page. It shows five regions in the classic holy-grail arrangement. Resize the window to see the sidebars stack." body
+    }
+    box role=region name="Related links" w=200 gap=sm md.w=fill {
+      text "Related" bold
+      link "Docs" href="https://example.com/docs"
+      link "Blog" href="https://example.com/blog"
+    }
+  }
+  box role=region name="Footer" w=fill fill=surface pad=md { text "2026 Acme Inc." muted size=12 }
+}

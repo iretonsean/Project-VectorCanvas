@@ -1,0 +1,20 @@
+// L07 reference
+pvc 0.1 use std@0.1 theme light
+fonts std
+state { query: text }
+surface pad=md gap=md {
+  row gap=md align=center w=fill {
+    text-input variant=search name="Search" bind=query w=fill
+    avatar "JD" alt="Account menu"
+  }
+  grid cols=4 gap=md w=fill md.cols=2 {
+    card gap=xs { text "Visitors" muted size=12; text "1,284" bold size=24 }
+    card gap=xs { text "Conversion" muted size=12; text "92%" bold size=24 }
+    card gap=xs { text "Revenue" muted size=12; text "$4.2k" bold size=24 }
+    card gap=xs { text "Open tickets" muted size=12; text "37" bold size=24 }
+  }
+  grid cols=2 gap=md w=fill md.cols=1 {
+    card h=200 { text "Revenue by week" bold size=16 heading=2; text "Charts go here." muted }
+    card h=200 { text "Recent activity" bold size=16 heading=2; text "Nothing new today." muted }
+  }
+}

@@ -1,0 +1,16 @@
+// L03 reference
+pvc 0.1 use std@0.1 theme light
+fonts std
+surface {
+  row gap=xl w=fill align=center md.dir=col {
+    col gap=md w=fill {
+      text "Ship your ideas faster" bold size=32 heading=1
+      text "A calmer way to plan, build and launch small products." size=16 body
+      row gap=sm {
+        button "Get started" on.press={ }
+        button "Learn more" fill=none on.press={ }
+      }
+    }
+    shape rounded w=240 h=180 fill=blue decorative
+  }
+}

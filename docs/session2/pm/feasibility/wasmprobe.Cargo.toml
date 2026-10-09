@@ -1,0 +1,11 @@
+[package]
+name = "wasmprobe"
+version = "0.0.0"
+edition = "2021"
+publish = false
+[lib]
+crate-type = ["cdylib"]
+[dependencies]
+vello_gpu = { version = "=0.3.0", default-features = false, features = ["webgl", "text", "std"] }
+parley = "=0.11.1"
+accesskit = "=0.25.1"

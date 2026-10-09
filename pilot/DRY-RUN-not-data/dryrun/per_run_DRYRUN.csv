@@ -1,0 +1,2 @@
+file,run_id,label,arm,specimen,stack,outcome,turns,pass_turn,request,context_per_turn,context_total,output,tool,repair,T_primary,T_primary_cached0,T_history,T_history_cached0,output_only,S_primary,S_primary_cached0,S_history,usage_raw_prompt_plus_completion,framing_tokens_not_counted,mismatches
+dryrun/S4/D00__B1/transcript.jsonl,S4__D00__B1,DRY-RUN — not data,S4,D00,B1,pass,2,2,15,120,240,211,14,38,518,278,638,398,211,540,298,669,712,0,0

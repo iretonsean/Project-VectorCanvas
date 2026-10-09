@@ -1,0 +1,456 @@
+[
+ {
+  "depth": 0,
+  "role": "application",
+  "name": "pvc-native",
+  "description": "",
+  "states": [],
+  "interfaces": [
+   "Accessible"
+  ],
+  "attrs": {},
+  "relations": []
+ },
+ {
+  "depth": 1,
+  "role": "frame",
+  "name": "",
+  "description": "",
+  "states": [
+   "active",
+   "enabled",
+   "sensitive",
+   "showing",
+   "visible"
+  ],
+  "interfaces": [
+   "Accessible",
+   "Component"
+  ],
+  "attrs": {},
+  "extents": [
+   0,
+   0,
+   1366,
+   768
+  ],
+  "relations": []
+ },
+ {
+  "depth": 2,
+  "role": "form",
+  "name": "Create account",
+  "description": "",
+  "states": [
+   "enabled",
+   "sensitive",
+   "showing",
+   "visible"
+  ],
+  "interfaces": [
+   "Accessible",
+   "Component"
+  ],
+  "attrs": {},
+  "extents": [
+   503,
+   24,
+   360,
+   411
+  ],
+  "relations": []
+ },
+ {
+  "depth": 3,
+  "role": "heading",
+  "name": "Create account",
+  "description": "",
+  "states": [
+   "enabled",
+   "sensitive",
+   "showing",
+   "visible"
+  ],
+  "interfaces": [
+   "Accessible",
+   "Component"
+  ],
+  "attrs": {},
+  "extents": [
+   503,
+   24,
+   171,
+   28
+  ],
+  "relations": []
+ },
+ {
+  "depth": 3,
+  "role": "label",
+  "name": "Full name",
+  "description": "",
+  "states": [
+   "enabled",
+   "sensitive",
+   "showing",
+   "visible"
+  ],
+  "interfaces": [
+   "Accessible",
+   "Component"
+  ],
+  "attrs": {},
+  "extents": [
+   503,
+   68,
+   77,
+   19
+  ],
+  "relations": []
+ },
+ {
+  "depth": 3,
+  "role": "entry",
+  "name": "Full name",
+  "description": "",
+  "states": [
+   "editable",
+   "enabled",
+   "focusable",
+   "focused",
+   "required",
+   "selectable_text",
+   "sensitive",
+   "showing",
+   "single_line",
+   "visible"
+  ],
+  "interfaces": [
+   "Accessible",
+   "Component"
+  ],
+  "attrs": {},
+  "extents": [
+   503,
+   91,
+   360,
+   35
+  ],
+  "relations": []
+ },
+ {
+  "depth": 3,
+  "role": "label",
+  "name": "Your first and last name",
+  "description": "",
+  "states": [
+   "enabled",
+   "sensitive",
+   "showing",
+   "visible"
+  ],
+  "interfaces": [
+   "Accessible",
+   "Component"
+  ],
+  "attrs": {},
+  "extents": [
+   503,
+   131,
+   143,
+   16
+  ],
+  "relations": []
+ },
+ {
+  "depth": 3,
+  "role": "label",
+  "name": "Email",
+  "description": "",
+  "states": [
+   "enabled",
+   "sensitive",
+   "showing",
+   "visible"
+  ],
+  "interfaces": [
+   "Accessible",
+   "Component"
+  ],
+  "attrs": {},
+  "extents": [
+   503,
+   163,
+   44,
+   19
+  ],
+  "relations": []
+ },
+ {
+  "depth": 3,
+  "role": "entry",
+  "name": "Email",
+  "description": "",
+  "states": [
+   "editable",
+   "enabled",
+   "focusable",
+   "required",
+   "selectable_text",
+   "sensitive",
+   "showing",
+   "single_line",
+   "visible"
+  ],
+  "interfaces": [
+   "Accessible",
+   "Component"
+  ],
+  "attrs": {},
+  "extents": [
+   503,
+   187,
+   360,
+   35
+  ],
+  "relations": []
+ },
+ {
+  "depth": 3,
+  "role": "label",
+  "name": "Used to sign in",
+  "description": "",
+  "states": [
+   "enabled",
+   "sensitive",
+   "showing",
+   "visible"
+  ],
+  "interfaces": [
+   "Accessible",
+   "Component"
+  ],
+  "attrs": {},
+  "extents": [
+   503,
+   227,
+   90,
+   16
+  ],
+  "relations": []
+ },
+ {
+  "depth": 3,
+  "role": "status bar",
+  "name": "",
+  "description": "",
+  "states": [
+   "enabled",
+   "sensitive",
+   "showing",
+   "visible"
+  ],
+  "interfaces": [
+   "Accessible"
+  ],
+  "attrs": {},
+  "relations": []
+ },
+ {
+  "depth": 3,
+  "role": "label",
+  "name": "Password",
+  "description": "",
+  "states": [
+   "enabled",
+   "sensitive",
+   "showing",
+   "visible"
+  ],
+  "interfaces": [
+   "Accessible",
+   "Component"
+  ],
+  "attrs": {},
+  "extents": [
+   503,
+   259,
+   76,
+   19
+  ],
+  "relations": []
+ },
+ {
+  "depth": 3,
+  "role": "password text",
+  "name": "Password",
+  "description": "",
+  "states": [
+   "editable",
+   "enabled",
+   "focusable",
+   "required",
+   "selectable_text",
+   "sensitive",
+   "showing",
+   "single_line",
+   "visible"
+  ],
+  "interfaces": [
+   "Accessible",
+   "Component"
+  ],
+  "attrs": {},
+  "extents": [
+   503,
+   283,
+   234,
+   35
+  ],
+  "relations": []
+ },
+ {
+  "depth": 3,
+  "role": "toggle button",
+  "name": "Show password",
+  "description": "",
+  "states": [
+   "enabled",
+   "focusable",
+   "sensitive",
+   "showing",
+   "visible"
+  ],
+  "interfaces": [
+   "Accessible",
+   "Action",
+   "Component"
+  ],
+  "attrs": {},
+  "extents": [
+   745,
+   284,
+   118,
+   32
+  ],
+  "actions": [
+   "click"
+  ],
+  "relations": []
+ },
+ {
+  "depth": 3,
+  "role": "label",
+  "name": "At least 8 characters",
+  "description": "",
+  "states": [
+   "enabled",
+   "sensitive",
+   "showing",
+   "visible"
+  ],
+  "interfaces": [
+   "Accessible",
+   "Component"
+  ],
+  "attrs": {},
+  "extents": [
+   503,
+   323,
+   125,
+   16
+  ],
+  "relations": []
+ },
+ {
+  "depth": 3,
+  "role": "status bar",
+  "name": "",
+  "description": "",
+  "states": [
+   "enabled",
+   "sensitive",
+   "showing",
+   "visible"
+  ],
+  "interfaces": [
+   "Accessible"
+  ],
+  "attrs": {},
+  "relations": []
+ },
+ {
+  "depth": 3,
+  "role": "check box",
+  "name": "I accept the terms of service",
+  "description": "",
+  "states": [
+   "checkable",
+   "enabled",
+   "focusable",
+   "sensitive",
+   "showing",
+   "visible"
+  ],
+  "interfaces": [
+   "Accessible",
+   "Action",
+   "Component"
+  ],
+  "attrs": {},
+  "extents": [
+   503,
+   355,
+   229,
+   24
+  ],
+  "actions": [
+   "click"
+  ],
+  "relations": []
+ },
+ {
+  "depth": 3,
+  "role": "push button",
+  "name": "Sign up",
+  "description": "",
+  "states": [
+   "focusable",
+   "showing",
+   "visible"
+  ],
+  "interfaces": [
+   "Accessible",
+   "Action",
+   "Component"
+  ],
+  "attrs": {},
+  "extents": [
+   503,
+   395,
+   85,
+   39
+  ],
+  "actions": [
+   "click"
+  ],
+  "relations": []
+ },
+ {
+  "depth": 3,
+  "role": "status bar",
+  "name": "",
+  "description": "",
+  "states": [
+   "enabled",
+   "sensitive",
+   "showing",
+   "visible"
+  ],
+  "interfaces": [
+   "Accessible"
+  ],
+  "attrs": {},
+  "relations": []
+ }
+]

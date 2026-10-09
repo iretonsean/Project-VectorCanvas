@@ -1,0 +1,17 @@
+[package]
+name = "pvc-d3"
+version = "0.0.1"
+edition = "2021"
+publish = false
+# D3 evidence: dump solved geometry for L01/F01 at two viewports, natively and from a wasm32 build.
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[[bin]]
+name = "d3_native"
+path = "src/bin/d3_native.rs"
+
+[dependencies]
+pvc-runtime = { path = "../pvc-runtime", features = ["test-unsigned"] }
+pvc-ir = { path = "../../dev-ir/pvc-ir" }

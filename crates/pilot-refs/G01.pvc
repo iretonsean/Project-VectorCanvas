@@ -1,0 +1,25 @@
+// G01 reference
+pvc 0.1 use std@0.1 theme light
+fonts std
+state {
+  notes: list(n:int) max=20
+  next_n: int = 1
+  dismissed: bool
+}
+surface {
+  col w=420 gap=md {
+    text "Notes" bold size=24 heading=1
+    button "Add note" on.press={ append notes { n = next_n }; next_n = next_n + 1 }
+    col gap=sm show=(is-empty(notes) and not dismissed) {
+      text "No notes yet. Add your first note."
+      button "Dismiss" on.press={ dismissed = true }
+    }
+    view notes as=item gap=sm {
+      row gap=sm align=center {
+        text @note.title n=(item.n) w=fill
+        button "Remove" on.press={ remove item }
+      }
+    }
+  }
+}
+strings en { note.title "Note {n}" }

@@ -1,0 +1,25 @@
+{
+ "host_label": "host=container-xeon4 path=chromium141-webgl2-swiftshader",
+ "labels": [
+  "general constraint solve excluded (D-4): layout is the direct sugar solver",
+  "NOT a Tier 1 device result; no phone or Chromebook was measured",
+  "WebGL2 here is ANGLE->SwiftShader (CPU emulation), not a GPU"
+ ],
+ "scenario": "smoke",
+ "openOpts": {
+  "scenario": "smoke",
+  "variant": "raf",
+  "mirror": "on",
+  "dsf": 1,
+  "specimen": "F01",
+  "locale": "en"
+ },
+ "cmd": "/opt/node22/bin/node /workspace/dev_work/dev-web/tests/run.mjs smoke",
+ "date": "2026-10-08T23:46:29.902Z",
+ "loadavg": "12.91 14.46 10.57 8/281 16756",
+ "console": [
+  "warning: [GroupMarkerNotSet(crbug.com/242999)!:A0F01E00CC0C0000]Automatic fallback to software WebGL has been deprecated. Please use the --enable-unsafe-swiftshader (about:flags#enable-unsafe-swiftshader) flag to opt in to lower security guarantees for trusted content.",
+  "warning: [.WebGL-0x3d3400110e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels"
+ ],
+ "goto_to_ready_ms": 787
+}

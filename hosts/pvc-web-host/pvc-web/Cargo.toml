@@ -1,0 +1,34 @@
+[package]
+name = "pvc-web"
+version = "0.0.1"
+edition = "2021"
+publish = false
+description = "PVC web host: wasm32 + WebGL2 (vello_gpu), DOM/ARIA semantics mirror, <input> overlay (Session 2, A5)"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+default = []
+
+[dependencies]
+pvc-ir = { path = "../../../crates/pvc-ir" } # same crate pvc-runtime uses (one pvc-ir in the graph)
+pvc-runtime = { path = "../../../crates/pvc-runtime", features = ["webgl"] }
+# --- G7 pins, exact ---
+vello_gpu = { version = "=0.3.0", default-features = false, features = ["webgl", "text", "std"] }
+accesskit = "=0.25.1"
+# --- pre-approved by D-10 (RFC notes in ../rfc/) ---
+wasm-bindgen = "=0.2.129"
+js-sys = "=0.3.106"
+web-sys = { version = "=0.3.106", features = [
+  "Window", "Document", "Element", "HtmlElement", "HtmlInputElement", "HtmlCanvasElement",
+  "Node", "NodeList", "CssStyleDeclaration", "Event", "EventTarget", "KeyboardEvent",
+  "CompositionEvent", "InputEvent", "FocusEvent", "MouseEvent", "PointerEvent", "Performance",
+  "DomRect", "FocusOptions", "HtmlCollection", "WebGl2RenderingContext", "console",
+] }
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+debug = false

@@ -1,0 +1,1191 @@
+{
+ "meta": {
+  "chromium": {
+   "version": "141.0.7390.37",
+   "backend": null
+  },
+  "chromium-lcd": {
+   "version": "141.0.7390.37",
+   "backend": null
+  },
+  "firefox": {
+   "version": "142.0.1",
+   "backend": null
+  },
+  "pvc": {
+   "version": null,
+   "backend": "pvc_runtime::render::text_display_list + render_cpu_rgba (dev-render text API; Parley 0.11.1, vello_cpu 0.3.0)"
+  }
+ },
+ "ppd_note": "flip-evaluator 1.7 default viewing conditions",
+ "cells": {
+  "latin_s11_x1": {
+   "lcd_px": {
+    "chromium": 0,
+    "firefox": 0,
+    "pvc": 0,
+    "chromium-lcd": 17354
+   },
+   "ppd": 67.02064514160156,
+   "ink_pixels": 17204,
+   "pvc_vs_chromium": {
+    "flip_mean": 0.013457901775836945,
+    "flip_ink": 0.26757049560546875,
+    "aligned_flip_mean": 0.013457901775836945,
+    "aligned_flip_ink": 0.26757049560546875,
+    "shift": [
+     0,
+     0
+    ]
+   },
+   "firefox_vs_chromium": {
+    "flip_mean": 0.01297678891569376,
+    "flip_ink": 0.25515347719192505,
+    "aligned_flip_mean": 0.01297678891569376,
+    "aligned_flip_ink": 0.25515347719192505,
+    "shift": [
+     0,
+     0
+    ]
+   },
+   "pvc_vs_chromium_lcd": {
+    "flip_mean": 0.016242440789937973,
+    "flip_ink": 0.29760485887527466
+   },
+   "firefox_vs_chromium_lcd": {
+    "flip_mean": 0.016404245048761368,
+    "flip_ink": 0.29687926173210144
+   },
+   "pass_primary": false,
+   "pass_ink": false,
+   "pass_aligned": false,
+   "pass_lcd_secondary": true,
+   "ratio_pvc_over_firefox": 1.0370748775578325,
+   "linebreak": {
+    "items_compared": 15,
+    "pvc_mismatches": [
+     {
+      "id": "lat-f01-terms",
+      "chromium": [
+       0
+      ],
+      "pvc": [
+       0,
+       50
+      ]
+     },
+     {
+      "id": "lat-mixed-case",
+      "chromium": [
+       0,
+       62
+      ],
+      "pvc": [
+       0,
+       52
+      ]
+     }
+    ],
+    "firefox_mismatches": [
+     {
+      "id": "lat-f01-terms",
+      "chromium": [
+       0
+      ],
+      "firefox": [
+       0,
+       50
+      ]
+     },
+     {
+      "id": "lat-mixed-case",
+      "chromium": [
+       0,
+       62
+      ],
+      "firefox": [
+       0,
+       52
+      ]
+     }
+    ],
+    "pass": false
+   }
+  },
+  "latin_s11_x2": {
+   "lcd_px": {
+    "chromium": 0,
+    "firefox": 0,
+    "pvc": 0,
+    "chromium-lcd": 47828
+   },
+   "ppd": 67.02064514160156,
+   "ink_pixels": 58192,
+   "pvc_vs_chromium": {
+    "flip_mean": 0.017474964261054993,
+    "flip_ink": 0.44356000423431396,
+    "aligned_flip_mean": 0.017474964261054993,
+    "aligned_flip_ink": 0.44356000423431396,
+    "shift": [
+     0,
+     0
+    ]
+   },
+   "firefox_vs_chromium": {
+    "flip_mean": 0.01712871715426445,
+    "flip_ink": 0.4420289993286133,
+    "aligned_flip_mean": 0.01712871715426445,
+    "aligned_flip_ink": 0.4420289993286133,
+    "shift": [
+     0,
+     0
+    ]
+   },
+   "pvc_vs_chromium_lcd": {
+    "flip_mean": 0.020028244704008102,
+    "flip_ink": 0.4693581461906433
+   },
+   "firefox_vs_chromium_lcd": {
+    "flip_mean": 0.019769927486777306,
+    "flip_ink": 0.4695225656032562
+   },
+   "pass_primary": false,
+   "pass_ink": false,
+   "pass_aligned": false,
+   "pass_lcd_secondary": false,
+   "ratio_pvc_over_firefox": 1.0202144214112578,
+   "linebreak": {
+    "items_compared": 15,
+    "pvc_mismatches": [
+     {
+      "id": "lat-f01-terms",
+      "chromium": [
+       0
+      ],
+      "pvc": [
+       0,
+       50
+      ]
+     },
+     {
+      "id": "lat-mixed-case",
+      "chromium": [
+       0,
+       62
+      ],
+      "pvc": [
+       0,
+       52
+      ]
+     }
+    ],
+    "firefox_mismatches": [
+     {
+      "id": "lat-f01-terms",
+      "chromium": [
+       0
+      ],
+      "firefox": [
+       0,
+       50
+      ]
+     },
+     {
+      "id": "lat-mixed-case",
+      "chromium": [
+       0,
+       62
+      ],
+      "firefox": [
+       0,
+       52
+      ]
+     }
+    ],
+    "pass": false
+   }
+  },
+  "latin_s13_x1": {
+   "lcd_px": {
+    "chromium": 0,
+    "firefox": 0,
+    "pvc": 0,
+    "chromium-lcd": 22051
+   },
+   "ppd": 67.02064514160156,
+   "ink_pixels": 23272,
+   "pvc_vs_chromium": {
+    "flip_mean": 0.017024587839841843,
+    "flip_ink": 0.2942398488521576,
+    "aligned_flip_mean": 0.017024587839841843,
+    "aligned_flip_ink": 0.2942398488521576,
+    "shift": [
+     0,
+     0
+    ]
+   },
+   "firefox_vs_chromium": {
+    "flip_mean": 0.02523818425834179,
+    "flip_ink": 0.3703058362007141,
+    "aligned_flip_mean": 0.016718067228794098,
+    "aligned_flip_ink": 0.2849281430244446,
+    "shift": [
+     0,
+     -1
+    ]
+   },
+   "pvc_vs_chromium_lcd": {
+    "flip_mean": 0.020452743396162987,
+    "flip_ink": 0.3250619173049927
+   },
+   "firefox_vs_chromium_lcd": {
+    "flip_mean": 0.029133785516023636,
+    "flip_ink": 0.40548089146614075
+   },
+   "pass_primary": true,
+   "pass_ink": true,
+   "pass_aligned": false,
+   "pass_lcd_secondary": true,
+   "ratio_pvc_over_firefox": 0.6745567615156322,
+   "linebreak": {
+    "items_compared": 15,
+    "pvc_mismatches": [
+     {
+      "id": "lat-pangram",
+      "chromium": [
+       0,
+       45,
+       88,
+       128
+      ],
+      "pvc": [
+       0,
+       45,
+       91,
+       137
+      ]
+     }
+    ],
+    "firefox_mismatches": [
+     {
+      "id": "lat-pangram",
+      "chromium": [
+       0,
+       45,
+       88,
+       128
+      ],
+      "firefox": [
+       0,
+       45,
+       91,
+       137
+      ]
+     }
+    ],
+    "pass": false
+   }
+  },
+  "latin_s13_x2": {
+   "lcd_px": {
+    "chromium": 0,
+    "firefox": 0,
+    "pvc": 0,
+    "chromium-lcd": 55874
+   },
+   "ppd": 67.02064514160156,
+   "ink_pixels": 76658,
+   "pvc_vs_chromium": {
+    "flip_mean": 0.021611157804727554,
+    "flip_ink": 0.49323776364326477,
+    "aligned_flip_mean": 0.021611157804727554,
+    "aligned_flip_ink": 0.49323776364326477,
+    "shift": [
+     0,
+     0
+    ]
+   },
+   "firefox_vs_chromium": {
+    "flip_mean": 0.024731185287237167,
+    "flip_ink": 0.5373273491859436,
+    "aligned_flip_mean": 0.021123811602592468,
+    "aligned_flip_ink": 0.4912344813346863,
+    "shift": [
+     0,
+     -1
+    ]
+   },
+   "pvc_vs_chromium_lcd": {
+    "flip_mean": 0.024535855278372765,
+    "flip_ink": 0.5174700021743774
+   },
+   "firefox_vs_chromium_lcd": {
+    "flip_mean": 0.02765613980591297,
+    "flip_ink": 0.5576930046081543
+   },
+   "pass_primary": true,
+   "pass_ink": true,
+   "pass_aligned": false,
+   "pass_lcd_secondary": true,
+   "ratio_pvc_over_firefox": 0.873842379721293,
+   "linebreak": {
+    "items_compared": 15,
+    "pvc_mismatches": [
+     {
+      "id": "lat-pangram",
+      "chromium": [
+       0,
+       45,
+       88,
+       128
+      ],
+      "pvc": [
+       0,
+       45,
+       91,
+       137
+      ]
+     }
+    ],
+    "firefox_mismatches": [
+     {
+      "id": "lat-pangram",
+      "chromium": [
+       0,
+       45,
+       88,
+       128
+      ],
+      "firefox": [
+       0,
+       45,
+       91,
+       137
+      ]
+     }
+    ],
+    "pass": false
+   }
+  },
+  "latin_s16_x1": {
+   "lcd_px": {
+    "chromium": 0,
+    "firefox": 0,
+    "pvc": 0,
+    "chromium-lcd": 32421
+   },
+   "ppd": 67.02064514160156,
+   "ink_pixels": 30328,
+   "pvc_vs_chromium": {
+    "flip_mean": 0.01631447859108448,
+    "flip_ink": 0.25743842124938965,
+    "aligned_flip_mean": 0.01631447859108448,
+    "aligned_flip_ink": 0.25743842124938965,
+    "shift": [
+     0,
+     0
+    ]
+   },
+   "firefox_vs_chromium": {
+    "flip_mean": 0.026531508192420006,
+    "flip_ink": 0.3508588373661041,
+    "aligned_flip_mean": 0.01676451973617077,
+    "aligned_flip_ink": 0.2605436146259308,
+    "shift": [
+     0,
+     -1
+    ]
+   },
+   "pvc_vs_chromium_lcd": {
+    "flip_mean": 0.02103957161307335,
+    "flip_ink": 0.2933157682418823
+   },
+   "firefox_vs_chromium_lcd": {
+    "flip_mean": 0.03072580322623253,
+    "flip_ink": 0.37397509813308716
+   },
+   "pass_primary": true,
+   "pass_ink": true,
+   "pass_aligned": true,
+   "pass_lcd_secondary": true,
+   "ratio_pvc_over_firefox": 0.6149095811954441,
+   "linebreak": {
+    "items_compared": 15,
+    "pvc_mismatches": [
+     {
+      "id": "lat-f01-error",
+      "chromium": [
+       0,
+       40
+      ],
+      "pvc": [
+       0,
+       36
+      ]
+     }
+    ],
+    "firefox_mismatches": [
+     {
+      "id": "lat-f01-error",
+      "chromium": [
+       0,
+       40
+      ],
+      "firefox": [
+       0,
+       36
+      ]
+     }
+    ],
+    "pass": false
+   }
+  },
+  "latin_s16_x2": {
+   "lcd_px": {
+    "chromium": 0,
+    "firefox": 0,
+    "pvc": 0,
+    "chromium-lcd": 69170
+   },
+   "ppd": 67.02064514160156,
+   "ink_pixels": 103488,
+   "pvc_vs_chromium": {
+    "flip_mean": 0.02399076335132122,
+    "flip_ink": 0.4912518560886383,
+    "aligned_flip_mean": 0.02399076335132122,
+    "aligned_flip_ink": 0.4912518560886383,
+    "shift": [
+     0,
+     0
+    ]
+   },
+   "firefox_vs_chromium": {
+    "flip_mean": 0.02835722640156746,
+    "flip_ink": 0.559971034526825,
+    "aligned_flip_mean": 0.023230457678437233,
+    "aligned_flip_ink": 0.4910984933376312,
+    "shift": [
+     0,
+     -1
+    ]
+   },
+   "pvc_vs_chromium_lcd": {
+    "flip_mean": 0.027608230710029602,
+    "flip_ink": 0.5143681168556213
+   },
+   "firefox_vs_chromium_lcd": {
+    "flip_mean": 0.0319814495742321,
+    "flip_ink": 0.5757126212120056
+   },
+   "pass_primary": true,
+   "pass_ink": true,
+   "pass_aligned": false,
+   "pass_lcd_secondary": true,
+   "ratio_pvc_over_firefox": 0.8460193889059305,
+   "linebreak": {
+    "items_compared": 15,
+    "pvc_mismatches": [
+     {
+      "id": "lat-f01-error",
+      "chromium": [
+       0,
+       40
+      ],
+      "pvc": [
+       0,
+       36
+      ]
+     }
+    ],
+    "firefox_mismatches": [
+     {
+      "id": "lat-f01-error",
+      "chromium": [
+       0,
+       40
+      ],
+      "firefox": [
+       0,
+       36
+      ]
+     }
+    ],
+    "pass": false
+   }
+  },
+  "latin_s24_x1": {
+   "lcd_px": {
+    "chromium": 0,
+    "firefox": 0,
+    "pvc": 0,
+    "chromium-lcd": 54273
+   },
+   "ppd": 67.02064514160156,
+   "ink_pixels": 61547,
+   "pvc_vs_chromium": {
+    "flip_mean": 0.03457821533083916,
+    "flip_ink": 0.3978048861026764,
+    "aligned_flip_mean": 0.03122885711491108,
+    "aligned_flip_ink": 0.36438703536987305,
+    "shift": [
+     -1,
+     0
+    ]
+   },
+   "firefox_vs_chromium": {
+    "flip_mean": 0.0353446900844574,
+    "flip_ink": 0.40839797258377075,
+    "aligned_flip_mean": 0.03168662264943123,
+    "aligned_flip_ink": 0.3714146912097931,
+    "shift": [
+     -1,
+     0
+    ]
+   },
+   "pvc_vs_chromium_lcd": {
+    "flip_mean": 0.04036633297801018,
+    "flip_ink": 0.4210573732852936
+   },
+   "firefox_vs_chromium_lcd": {
+    "flip_mean": 0.04126153886318207,
+    "flip_ink": 0.43065810203552246
+   },
+   "pass_primary": true,
+   "pass_ink": true,
+   "pass_aligned": true,
+   "pass_lcd_secondary": true,
+   "ratio_pvc_over_firefox": 0.978314288460679,
+   "linebreak": {
+    "items_compared": 15,
+    "pvc_mismatches": [
+     {
+      "id": "lat-f01-error",
+      "chromium": [
+       0,
+       27,
+       48
+      ],
+      "pvc": [
+       0,
+       21,
+       40,
+       48
+      ]
+     }
+    ],
+    "firefox_mismatches": [
+     {
+      "id": "lat-f01-error",
+      "chromium": [
+       0,
+       27,
+       48
+      ],
+      "firefox": [
+       0,
+       21,
+       40,
+       48
+      ]
+     }
+    ],
+    "pass": false
+   }
+  },
+  "latin_s24_x2": {
+   "lcd_px": {
+    "chromium": 0,
+    "firefox": 0,
+    "pvc": 0,
+    "chromium-lcd": 107347
+   },
+   "ppd": 67.02064514160156,
+   "ink_pixels": 211873,
+   "pvc_vs_chromium": {
+    "flip_mean": 0.04400656372308731,
+    "flip_ink": 0.6307427287101746,
+    "aligned_flip_mean": 0.040600791573524475,
+    "aligned_flip_ink": 0.5999323725700378,
+    "shift": [
+     -2,
+     0
+    ]
+   },
+   "firefox_vs_chromium": {
+    "flip_mean": 0.045370642095804214,
+    "flip_ink": 0.6402251124382019,
+    "aligned_flip_mean": 0.04097395017743111,
+    "aligned_flip_ink": 0.5984645485877991,
+    "shift": [
+     -2,
+     0
+    ]
+   },
+   "pvc_vs_chromium_lcd": {
+    "flip_mean": 0.04910871013998985,
+    "flip_ink": 0.6455192565917969
+   },
+   "firefox_vs_chromium_lcd": {
+    "flip_mean": 0.050444379448890686,
+    "flip_ink": 0.6542084813117981
+   },
+   "pass_primary": true,
+   "pass_ink": true,
+   "pass_aligned": true,
+   "pass_lcd_secondary": true,
+   "ratio_pvc_over_firefox": 0.969934779194076,
+   "linebreak": {
+    "items_compared": 15,
+    "pvc_mismatches": [
+     {
+      "id": "lat-f01-error",
+      "chromium": [
+       0,
+       27,
+       48
+      ],
+      "pvc": [
+       0,
+       21,
+       40,
+       48
+      ]
+     }
+    ],
+    "firefox_mismatches": [
+     {
+      "id": "lat-f01-error",
+      "chromium": [
+       0,
+       27,
+       48
+      ],
+      "firefox": [
+       0,
+       21,
+       40,
+       48
+      ]
+     }
+    ],
+    "pass": false
+   }
+  },
+  "zh-CN_s11_x1": {
+   "lcd_px": {
+    "chromium": 0,
+    "firefox": 0,
+    "pvc": 0,
+    "chromium-lcd": 15360
+   },
+   "ppd": 67.02064514160156,
+   "ink_pixels": 17440,
+   "pvc_vs_chromium": {
+    "flip_mean": 0.015313316136598587,
+    "flip_ink": 0.2715700566768646,
+    "aligned_flip_mean": 0.005923939868807793,
+    "aligned_flip_ink": 0.1338595747947693,
+    "shift": [
+     0,
+     -1
+    ]
+   },
+   "firefox_vs_chromium": {
+    "flip_mean": 0.005549460183829069,
+    "flip_ink": 0.1249811127781868,
+    "aligned_flip_mean": 0.005549460183829069,
+    "aligned_flip_ink": 0.1249811127781868,
+    "shift": [
+     0,
+     0
+    ]
+   },
+   "pvc_vs_chromium_lcd": {
+    "flip_mean": 0.01845899038016796,
+    "flip_ink": 0.310700923204422
+   },
+   "firefox_vs_chromium_lcd": {
+    "flip_mean": 0.010444121435284615,
+    "flip_ink": 0.20292313396930695
+   },
+   "pass_primary": false,
+   "pass_ink": false,
+   "pass_aligned": false,
+   "pass_lcd_secondary": false,
+   "ratio_pvc_over_firefox": 2.7594244537912083,
+   "linebreak": {
+    "items_compared": 14,
+    "pvc_mismatches": [],
+    "firefox_mismatches": [],
+    "pass": true
+   }
+  },
+  "zh-CN_s11_x2": {
+   "lcd_px": {
+    "chromium": 0,
+    "firefox": 0,
+    "pvc": 0,
+    "chromium-lcd": 38448
+   },
+   "ppd": 67.02064514160156,
+   "ink_pixels": 56238,
+   "pvc_vs_chromium": {
+    "flip_mean": 0.017026374116539955,
+    "flip_ink": 0.4352947175502777,
+    "aligned_flip_mean": 0.009771468117833138,
+    "aligned_flip_ink": 0.2764185070991516,
+    "shift": [
+     0,
+     -2
+    ]
+   },
+   "firefox_vs_chromium": {
+    "flip_mean": 0.006453752983361483,
+    "flip_ink": 0.1994025558233261,
+    "aligned_flip_mean": 0.006453752983361483,
+    "aligned_flip_ink": 0.1994025558233261,
+    "shift": [
+     0,
+     0
+    ]
+   },
+   "pvc_vs_chromium_lcd": {
+    "flip_mean": 0.019374821335077286,
+    "flip_ink": 0.4563083052635193
+   },
+   "firefox_vs_chromium_lcd": {
+    "flip_mean": 0.009932691231369972,
+    "flip_ink": 0.2603634297847748
+   },
+   "pass_primary": false,
+   "pass_ink": false,
+   "pass_aligned": false,
+   "pass_lcd_secondary": false,
+   "ratio_pvc_over_firefox": 2.638212860088681,
+   "linebreak": {
+    "items_compared": 14,
+    "pvc_mismatches": [],
+    "firefox_mismatches": [],
+    "pass": true
+   }
+  },
+  "zh-CN_s13_x1": {
+   "lcd_px": {
+    "chromium": 0,
+    "firefox": 0,
+    "pvc": 0,
+    "chromium-lcd": 18854
+   },
+   "ppd": 67.02064514160156,
+   "ink_pixels": 22706,
+   "pvc_vs_chromium": {
+    "flip_mean": 0.019507944583892822,
+    "flip_ink": 0.31342339515686035,
+    "aligned_flip_mean": 0.011526096612215042,
+    "aligned_flip_ink": 0.2246929556131363,
+    "shift": [
+     0,
+     -1
+    ]
+   },
+   "firefox_vs_chromium": {
+    "flip_mean": 0.01975795067846775,
+    "flip_ink": 0.31672540307044983,
+    "aligned_flip_mean": 0.011461344547569752,
+    "aligned_flip_ink": 0.2227669358253479,
+    "shift": [
+     0,
+     -1
+    ]
+   },
+   "pvc_vs_chromium_lcd": {
+    "flip_mean": 0.0230021383613348,
+    "flip_ink": 0.35002198815345764
+   },
+   "firefox_vs_chromium_lcd": {
+    "flip_mean": 0.02328694425523281,
+    "flip_ink": 0.3535368740558624
+   },
+   "pass_primary": true,
+   "pass_ink": true,
+   "pass_aligned": false,
+   "pass_lcd_secondary": true,
+   "ratio_pvc_over_firefox": 0.9873465574115748,
+   "linebreak": {
+    "items_compared": 14,
+    "pvc_mismatches": [
+     {
+      "id": "zh-ui-para",
+      "chromium": [
+       0,
+       20,
+       42
+      ],
+      "pvc": [
+       0,
+       19,
+       41
+      ]
+     }
+    ],
+    "firefox_mismatches": [
+     {
+      "id": "zh-ui-para",
+      "chromium": [
+       0,
+       20,
+       42
+      ],
+      "firefox": [
+       0,
+       19,
+       41
+      ]
+     }
+    ],
+    "pass": false
+   }
+  },
+  "zh-CN_s13_x2": {
+   "lcd_px": {
+    "chromium": 0,
+    "firefox": 0,
+    "pvc": 0,
+    "chromium-lcd": 46534
+   },
+   "ppd": 67.02064514160156,
+   "ink_pixels": 77024,
+   "pvc_vs_chromium": {
+    "flip_mean": 0.024307414889335632,
+    "flip_ink": 0.5376165509223938,
+    "aligned_flip_mean": 0.01506296917796135,
+    "aligned_flip_ink": 0.37592464685440063,
+    "shift": [
+     0,
+     -2
+    ]
+   },
+   "firefox_vs_chromium": {
+    "flip_mean": 0.019241612404584885,
+    "flip_ink": 0.4472101926803589,
+    "aligned_flip_mean": 0.012859831564128399,
+    "aligned_flip_ink": 0.3383309245109558,
+    "shift": [
+     0,
+     -1
+    ]
+   },
+   "pvc_vs_chromium_lcd": {
+    "flip_mean": 0.026996061205863953,
+    "flip_ink": 0.5545495748519897
+   },
+   "firefox_vs_chromium_lcd": {
+    "flip_mean": 0.022126968950033188,
+    "flip_ink": 0.47240304946899414
+   },
+   "pass_primary": false,
+   "pass_ink": false,
+   "pass_aligned": false,
+   "pass_lcd_secondary": false,
+   "ratio_pvc_over_firefox": 1.2632732838721805,
+   "linebreak": {
+    "items_compared": 14,
+    "pvc_mismatches": [
+     {
+      "id": "zh-ui-para",
+      "chromium": [
+       0,
+       20,
+       42
+      ],
+      "pvc": [
+       0,
+       19,
+       41
+      ]
+     }
+    ],
+    "firefox_mismatches": [
+     {
+      "id": "zh-ui-para",
+      "chromium": [
+       0,
+       20,
+       42
+      ],
+      "firefox": [
+       0,
+       19,
+       41
+      ]
+     }
+    ],
+    "pass": false
+   }
+  },
+  "zh-CN_s16_x1": {
+   "lcd_px": {
+    "chromium": 0,
+    "firefox": 0,
+    "pvc": 0,
+    "chromium-lcd": 25157
+   },
+   "ppd": 67.02064514160156,
+   "ink_pixels": 34619,
+   "pvc_vs_chromium": {
+    "flip_mean": 0.029197797179222107,
+    "flip_ink": 0.3909353017807007,
+    "aligned_flip_mean": 0.009617850184440613,
+    "aligned_flip_ink": 0.16257748007774353,
+    "shift": [
+     0,
+     -2
+    ]
+   },
+   "firefox_vs_chromium": {
+    "flip_mean": 0.02040235511958599,
+    "flip_ink": 0.2879255414009094,
+    "aligned_flip_mean": 0.009401031769812107,
+    "aligned_flip_ink": 0.1591004729270935,
+    "shift": [
+     0,
+     -1
+    ]
+   },
+   "pvc_vs_chromium_lcd": {
+    "flip_mean": 0.03302702680230141,
+    "flip_ink": 0.41750824451446533
+   },
+   "firefox_vs_chromium_lcd": {
+    "flip_mean": 0.02442445047199726,
+    "flip_ink": 0.32245367765426636
+   },
+   "pass_primary": false,
+   "pass_ink": false,
+   "pass_aligned": false,
+   "pass_lcd_secondary": false,
+   "ratio_pvc_over_firefox": 1.4310993514269639,
+   "linebreak": {
+    "items_compared": 14,
+    "pvc_mismatches": [],
+    "firefox_mismatches": [],
+    "pass": true
+   }
+  },
+  "zh-CN_s16_x2": {
+   "lcd_px": {
+    "chromium": 0,
+    "firefox": 0,
+    "pvc": 0,
+    "chromium-lcd": 57570
+   },
+   "ppd": 67.02064514160156,
+   "ink_pixels": 115187,
+   "pvc_vs_chromium": {
+    "flip_mean": 0.03454875573515892,
+    "flip_ink": 0.6225388050079346,
+    "aligned_flip_mean": 0.0137390848249197,
+    "aligned_flip_ink": 0.3071707487106323,
+    "shift": [
+     0,
+     -4
+    ]
+   },
+   "firefox_vs_chromium": {
+    "flip_mean": 0.020649688318371773,
+    "flip_ink": 0.43304792046546936,
+    "aligned_flip_mean": 0.010317230597138405,
+    "aligned_flip_ink": 0.2441783994436264,
+    "shift": [
+     0,
+     -1
+    ]
+   },
+   "pvc_vs_chromium_lcd": {
+    "flip_mean": 0.03773023188114166,
+    "flip_ink": 0.6349623799324036
+   },
+   "firefox_vs_chromium_lcd": {
+    "flip_mean": 0.024125991389155388,
+    "flip_ink": 0.4576735198497772
+   },
+   "pass_primary": false,
+   "pass_ink": false,
+   "pass_aligned": false,
+   "pass_lcd_secondary": false,
+   "ratio_pvc_over_firefox": 1.6730884845569953,
+   "linebreak": {
+    "items_compared": 14,
+    "pvc_mismatches": [],
+    "firefox_mismatches": [],
+    "pass": true
+   }
+  },
+  "zh-CN_s24_x1": {
+   "lcd_px": {
+    "chromium": 0,
+    "firefox": 0,
+    "pvc": 0,
+    "chromium-lcd": 43073
+   },
+   "ppd": 67.02064514160156,
+   "ink_pixels": 65682,
+   "pvc_vs_chromium": {
+    "flip_mean": 0.045331910252571106,
+    "flip_ink": 0.4770427346229553,
+    "aligned_flip_mean": 0.022956298664212227,
+    "aligned_flip_ink": 0.2699645459651947,
+    "shift": [
+     0,
+     -2
+    ]
+   },
+   "firefox_vs_chromium": {
+    "flip_mean": 0.0159298088401556,
+    "flip_ink": 0.2019331306219101,
+    "aligned_flip_mean": 0.0159298088401556,
+    "aligned_flip_ink": 0.2019331306219101,
+    "shift": [
+     0,
+     0
+    ]
+   },
+   "pvc_vs_chromium_lcd": {
+    "flip_mean": 0.051291573792696,
+    "flip_ink": 0.49585166573524475
+   },
+   "firefox_vs_chromium_lcd": {
+    "flip_mean": 0.025379471480846405,
+    "flip_ink": 0.2712724804878235
+   },
+   "pass_primary": false,
+   "pass_ink": false,
+   "pass_aligned": false,
+   "pass_lcd_secondary": false,
+   "ratio_pvc_over_firefox": 2.845728452076535,
+   "linebreak": {
+    "items_compared": 14,
+    "pvc_mismatches": [
+     {
+      "id": "zh-ui-mixed",
+      "chromium": [
+       0,
+       17,
+       32,
+       43
+      ],
+      "pvc": [
+       0,
+       12,
+       30,
+       41,
+       54
+      ]
+     }
+    ],
+    "firefox_mismatches": [
+     {
+      "id": "zh-ui-mixed",
+      "chromium": [
+       0,
+       17,
+       32,
+       43
+      ],
+      "firefox": [
+       0,
+       12,
+       30,
+       41,
+       54
+      ]
+     }
+    ],
+    "pass": false
+   }
+  },
+  "zh-CN_s24_x2": {
+   "lcd_px": {
+    "chromium": 0,
+    "firefox": 0,
+    "pvc": 0,
+    "chromium-lcd": 85907
+   },
+   "ppd": 67.02064514160156,
+   "ink_pixels": 227155,
+   "pvc_vs_chromium": {
+    "flip_mean": 0.053729742765426636,
+    "flip_ink": 0.7052149176597595,
+    "aligned_flip_mean": 0.023251017555594444,
+    "aligned_flip_ink": 0.3681624233722687,
+    "shift": [
+     0,
+     -4
+    ]
+   },
+   "firefox_vs_chromium": {
+    "flip_mean": 0.01673118956387043,
+    "flip_ink": 0.2755310833454132,
+    "aligned_flip_mean": 0.01673118956387043,
+    "aligned_flip_ink": 0.2755310833454132,
+    "shift": [
+     0,
+     0
+    ]
+   },
+   "pvc_vs_chromium_lcd": {
+    "flip_mean": 0.05888611823320389,
+    "flip_ink": 0.7142966389656067
+   },
+   "firefox_vs_chromium_lcd": {
+    "flip_mean": 0.024231193587183952,
+    "flip_ink": 0.3408310115337372
+   },
+   "pass_primary": false,
+   "pass_ink": false,
+   "pass_aligned": false,
+   "pass_lcd_secondary": false,
+   "ratio_pvc_over_firefox": 3.21135222097127,
+   "linebreak": {
+    "items_compared": 14,
+    "pvc_mismatches": [
+     {
+      "id": "zh-ui-mixed",
+      "chromium": [
+       0,
+       17,
+       32,
+       43
+      ],
+      "pvc": [
+       0,
+       12,
+       30,
+       41,
+       54
+      ]
+     }
+    ],
+    "firefox_mismatches": [
+     {
+      "id": "zh-ui-mixed",
+      "chromium": [
+       0,
+       17,
+       32,
+       43
+      ],
+      "firefox": [
+       0,
+       12,
+       30,
+       41,
+       54
+      ]
+     }
+    ],
+    "pass": false
+   }
+  }
+ }
+}

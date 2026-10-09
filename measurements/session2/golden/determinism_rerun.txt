@@ -1,0 +1,8 @@
+same F01_empty.gl-llvmpipe.png
+same F01_empty.tier0c-vello_cpu.png
+same F01_error.gl-llvmpipe.png
+same F01_error.tier0c-vello_cpu.png
+same F01_zh_preedit.gl-llvmpipe.png
+same F01_zh_preedit.tier0c-vello_cpu.png
+same L01_idle.gl-llvmpipe.png
+same L01_idle.tier0c-vello_cpu.png

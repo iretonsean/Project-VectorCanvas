@@ -1,0 +1,15 @@
+// L01 — profile card (README / G2 §5 L01). Terse form, G4 §15 plus the manifest entry G4 §15 left out.
+pvc 0.1 use std@0.1 theme dark
+locales en
+fonts std
+cap net.main hosts=["connect.example.invalid"] methods=["POST"] max-request=1024 max-daily=65536
+
+card w=320 border=soft pad=lg gap=md {
+  row gap=sm align=center {
+    avatar "JD" size=40 fill=blue
+    col { text "Jane Doe" bold size=14; text "Product Designer" muted size=12 }
+  }
+  text "Building the future of spatial computing via GPU pipelines." body size=14
+  button "Connect" w=fill fill=teal on.press=connect_user
+}
+effect connect_user uses net.main

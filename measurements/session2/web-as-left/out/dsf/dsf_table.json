@@ -1,0 +1,337 @@
+{
+ "caretPaintCheck": {
+  "screenshots": 8,
+  "with_native_caret_pixels": 0,
+  "conclusion": "headless Chromium paints no native caret in screenshots; native caret x measured from DOM text metrics instead"
+ },
+ "rows": [
+  {
+   "dsf": 1,
+   "overlay_text_rendering": "geometricPrecision",
+   "id": "7071530666071012189",
+   "dpr": 1,
+   "canvas": [
+    1366,
+    768
+   ],
+   "domRect": [
+    515,
+    99.59375,
+    336,
+    19.59375
+   ],
+   "font": "14px / 19.5938px \"DejaVu Sans\", \"Noto Sans CJK SC\"",
+   "padding": "0px",
+   "value": "Ada Lovelace",
+   "caret": "{\"x0\":608.0439453125,\"y0\":99.59375,\"x1\":609.5439453125,\"y1\":119.59375}",
+   "native_caret_x_css": 608.046875,
+   "caret_engine_css": {
+    "x0": 608.0439453125,
+    "y0": 99.59375,
+    "x1": 609.5439453125,
+    "y1": 119.59375
+   },
+   "canvas_caret_x_dev": 608,
+   "canvas_ink_dev": [
+    516,
+    605
+   ],
+   "overlay_ink_dev": [
+    515,
+    606
+   ],
+   "ink_left_offset_dev_px": -1,
+   "ink_right_offset_dev_px": 1,
+   "native_caret_x_dev_exact": 608.046875,
+   "caret_offset_dev_px": -0.453125,
+   "engine_caret_vs_native_dev_px": 0.0029296875
+  },
+  {
+   "dsf": 1,
+   "overlay_text_rendering": "auto",
+   "id": "7071530666071012189",
+   "dpr": 1,
+   "canvas": [
+    1366,
+    768
+   ],
+   "domRect": [
+    515,
+    99.59375,
+    336,
+    19.59375
+   ],
+   "font": "14px / 19.5938px \"DejaVu Sans\", \"Noto Sans CJK SC\"",
+   "padding": "0px",
+   "value": "Ada Lovelace",
+   "caret": "{\"x0\":608.0439453125,\"y0\":99.59375,\"x1\":609.5439453125,\"y1\":119.59375}",
+   "native_caret_x_css": 611,
+   "caret_engine_css": {
+    "x0": 608.0439453125,
+    "y0": 99.59375,
+    "x1": 609.5439453125,
+    "y1": 119.59375
+   },
+   "canvas_caret_x_dev": 608,
+   "canvas_ink_dev": [
+    516,
+    605
+   ],
+   "overlay_ink_dev": [
+    515,
+    609
+   ],
+   "ink_left_offset_dev_px": -1,
+   "ink_right_offset_dev_px": 4,
+   "native_caret_x_dev_exact": 611,
+   "caret_offset_dev_px": 2.5,
+   "engine_caret_vs_native_dev_px": 2.9560546875
+  },
+  {
+   "dsf": 1.25,
+   "overlay_text_rendering": "geometricPrecision",
+   "id": "7071530666071012189",
+   "dpr": 1.25,
+   "canvas": [
+    1708,
+    960
+   ],
+   "domRect": [
+    515,
+    99.59375,
+    336,
+    19.59375
+   ],
+   "font": "14px / 19.5938px \"DejaVu Sans\", \"Noto Sans CJK SC\"",
+   "padding": "0px",
+   "value": "Ada Lovelace",
+   "caret": "{\"x0\":608.0439453125,\"y0\":99.59375,\"x1\":609.5439453125,\"y1\":119.59375}",
+   "native_caret_x_css": 608.046875,
+   "caret_engine_css": {
+    "x0": 608.0439453125,
+    "y0": 99.59375,
+    "x1": 609.5439453125,
+    "y1": 119.59375
+   },
+   "canvas_caret_x_dev": 760,
+   "canvas_ink_dev": [
+    644,
+    757
+   ],
+   "overlay_ink_dev": [
+    644,
+    758
+   ],
+   "ink_left_offset_dev_px": 0,
+   "ink_right_offset_dev_px": 1,
+   "native_caret_x_dev_exact": 760.05859375,
+   "caret_offset_dev_px": -0.44140625,
+   "engine_caret_vs_native_dev_px": 0.003662109375
+  },
+  {
+   "dsf": 1.25,
+   "overlay_text_rendering": "auto",
+   "id": "7071530666071012189",
+   "dpr": 1.25,
+   "canvas": [
+    1708,
+    960
+   ],
+   "domRect": [
+    515,
+    99.59375,
+    336,
+    19.59375
+   ],
+   "font": "14px / 19.5938px \"DejaVu Sans\", \"Noto Sans CJK SC\"",
+   "padding": "0px",
+   "value": "Ada Lovelace",
+   "caret": "{\"x0\":608.0439453125,\"y0\":99.59375,\"x1\":609.5439453125,\"y1\":119.59375}",
+   "native_caret_x_css": 611,
+   "caret_engine_css": {
+    "x0": 608.0439453125,
+    "y0": 99.59375,
+    "x1": 609.5439453125,
+    "y1": 119.59375
+   },
+   "canvas_caret_x_dev": 760,
+   "canvas_ink_dev": [
+    644,
+    757
+   ],
+   "overlay_ink_dev": [
+    644,
+    762
+   ],
+   "ink_left_offset_dev_px": 0,
+   "ink_right_offset_dev_px": 5,
+   "native_caret_x_dev_exact": 763.75,
+   "caret_offset_dev_px": 3.25,
+   "engine_caret_vs_native_dev_px": 3.695068359375
+  },
+  {
+   "dsf": 1.5,
+   "overlay_text_rendering": "geometricPrecision",
+   "id": "7071530666071012189",
+   "dpr": 1.5,
+   "canvas": [
+    2049,
+    1152
+   ],
+   "domRect": [
+    515,
+    99.59375,
+    336,
+    19.59375
+   ],
+   "font": "14px / 19.5938px \"DejaVu Sans\", \"Noto Sans CJK SC\"",
+   "padding": "0px",
+   "value": "Ada Lovelace",
+   "caret": "{\"x0\":608.0439453125,\"y0\":99.59375,\"x1\":609.5439453125,\"y1\":119.59375}",
+   "native_caret_x_css": 608.046875,
+   "caret_engine_css": {
+    "x0": 608.0439453125,
+    "y0": 99.59375,
+    "x1": 609.5439453125,
+    "y1": 119.59375
+   },
+   "canvas_caret_x_dev": 913,
+   "canvas_ink_dev": [
+    773,
+    909
+   ],
+   "overlay_ink_dev": [
+    773,
+    910
+   ],
+   "ink_left_offset_dev_px": 0,
+   "ink_right_offset_dev_px": 1,
+   "native_caret_x_dev_exact": 912.0703125,
+   "caret_offset_dev_px": -1.4296875,
+   "engine_caret_vs_native_dev_px": 0.00439453125
+  },
+  {
+   "dsf": 1.5,
+   "overlay_text_rendering": "auto",
+   "id": "7071530666071012189",
+   "dpr": 1.5,
+   "canvas": [
+    2049,
+    1152
+   ],
+   "domRect": [
+    515,
+    99.59375,
+    336,
+    19.59375
+   ],
+   "font": "14px / 19.5938px \"DejaVu Sans\", \"Noto Sans CJK SC\"",
+   "padding": "0px",
+   "value": "Ada Lovelace",
+   "caret": "{\"x0\":608.0439453125,\"y0\":99.59375,\"x1\":609.5439453125,\"y1\":119.59375}",
+   "native_caret_x_css": 611,
+   "caret_engine_css": {
+    "x0": 608.0439453125,
+    "y0": 99.59375,
+    "x1": 609.5439453125,
+    "y1": 119.59375
+   },
+   "canvas_caret_x_dev": 913,
+   "canvas_ink_dev": [
+    773,
+    909
+   ],
+   "overlay_ink_dev": [
+    773,
+    914
+   ],
+   "ink_left_offset_dev_px": 0,
+   "ink_right_offset_dev_px": 5,
+   "native_caret_x_dev_exact": 916.5,
+   "caret_offset_dev_px": 3,
+   "engine_caret_vs_native_dev_px": 4.43408203125
+  },
+  {
+   "dsf": 2,
+   "overlay_text_rendering": "geometricPrecision",
+   "id": "7071530666071012189",
+   "dpr": 2,
+   "canvas": [
+    2732,
+    1536
+   ],
+   "domRect": [
+    515,
+    99.59375,
+    336,
+    19.59375
+   ],
+   "font": "14px / 19.5938px \"DejaVu Sans\", \"Noto Sans CJK SC\"",
+   "padding": "0px",
+   "value": "Ada Lovelace",
+   "caret": "{\"x0\":608.0439453125,\"y0\":99.59375,\"x1\":609.5439453125,\"y1\":119.59375}",
+   "native_caret_x_css": 608.046875,
+   "caret_engine_css": {
+    "x0": 608.0439453125,
+    "y0": 99.59375,
+    "x1": 609.5439453125,
+    "y1": 119.59375
+   },
+   "canvas_caret_x_dev": 1218,
+   "canvas_ink_dev": [
+    1031,
+    1213
+   ],
+   "overlay_ink_dev": [
+    1030,
+    1213
+   ],
+   "ink_left_offset_dev_px": -1,
+   "ink_right_offset_dev_px": 0,
+   "native_caret_x_dev_exact": 1216.09375,
+   "caret_offset_dev_px": -2.40625,
+   "engine_caret_vs_native_dev_px": 0.005859375
+  },
+  {
+   "dsf": 2,
+   "overlay_text_rendering": "auto",
+   "id": "7071530666071012189",
+   "dpr": 2,
+   "canvas": [
+    2732,
+    1536
+   ],
+   "domRect": [
+    515,
+    99.59375,
+    336,
+    19.59375
+   ],
+   "font": "14px / 19.5938px \"DejaVu Sans\", \"Noto Sans CJK SC\"",
+   "padding": "0px",
+   "value": "Ada Lovelace",
+   "caret": "{\"x0\":608.0439453125,\"y0\":99.59375,\"x1\":609.5439453125,\"y1\":119.59375}",
+   "native_caret_x_css": 611,
+   "caret_engine_css": {
+    "x0": 608.0439453125,
+    "y0": 99.59375,
+    "x1": 609.5439453125,
+    "y1": 119.59375
+   },
+   "canvas_caret_x_dev": 1218,
+   "canvas_ink_dev": [
+    1031,
+    1213
+   ],
+   "overlay_ink_dev": [
+    1030,
+    1219
+   ],
+   "ink_left_offset_dev_px": -1,
+   "ink_right_offset_dev_px": 6,
+   "native_caret_x_dev_exact": 1222,
+   "caret_offset_dev_px": 3.5,
+   "engine_caret_vs_native_dev_px": 5.912109375
+  }
+ ]
+}

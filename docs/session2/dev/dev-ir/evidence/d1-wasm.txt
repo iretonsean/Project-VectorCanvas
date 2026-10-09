@@ -1,0 +1,54 @@
+# D1 native vs wasm32-unknown-unknown (node v22.22.0), 2026-10-09T01:01:54Z, host=container-xeon4
+# method: native = pvc-compile output; wasm32 = d1-wasm cdylib driven from node WebAssembly API (no wasm-bindgen)
+OK   L01 canonical: wasm32 sha256=51dfc0bdc142a1bd85300868c4464f033523f8e2691859ee890bdcab89dbb43a native sha256=51dfc0bdc142a1bd85300868c4464f033523f8e2691859ee890bdcab89dbb43a bytes=7821
+OK   L01 signed artifact: wasm32 sha256=b86a4f7414a26c821f0a821c4291533ae93ef25d9110510af5bb24d936347813 native sha256=b86a4f7414a26c821f0a821c4291533ae93ef25d9110510af5bb24d936347813
+OK   L01 wasm32 load_signed: native artifact accepted=1 tampered accepted=0
+OK   F01 canonical: wasm32 sha256=d151961570fe5e7cf8b6f69326d539ea95c28250e2e5bff2f558febd33e1b01c native sha256=d151961570fe5e7cf8b6f69326d539ea95c28250e2e5bff2f558febd33e1b01c bytes=18693
+OK   F01 signed artifact: wasm32 sha256=88dfb47cfa84a786eeff91149c9036a5e2990c0aafe7e7283707fdb164211139 native sha256=88dfb47cfa84a786eeff91149c9036a5e2990c0aafe7e7283707fdb164211139
+OK   F01 wasm32 load_signed: native artifact accepted=1 tampered accepted=0
+OK   ref-L01 canonical: wasm32 sha256=51dfc0bdc142a1bd85300868c4464f033523f8e2691859ee890bdcab89dbb43a native sha256=51dfc0bdc142a1bd85300868c4464f033523f8e2691859ee890bdcab89dbb43a bytes=7821
+OK   ref-L01 signed artifact: wasm32 sha256=b86a4f7414a26c821f0a821c4291533ae93ef25d9110510af5bb24d936347813 native sha256=b86a4f7414a26c821f0a821c4291533ae93ef25d9110510af5bb24d936347813
+OK   ref-L01 wasm32 load_signed: native artifact accepted=1 tampered accepted=0
+OK   ref-L02 canonical: wasm32 sha256=d5a0ef680c718220ea1c180fd7210fd4574123520778c29fea9da94c2441bead native sha256=d5a0ef680c718220ea1c180fd7210fd4574123520778c29fea9da94c2441bead bytes=27858
+OK   ref-L02 signed artifact: wasm32 sha256=a56ab73fd1f31e3d621ebafab0592741b317676a70a2fd181ee4b6dfcb2352b0 native sha256=a56ab73fd1f31e3d621ebafab0592741b317676a70a2fd181ee4b6dfcb2352b0
+OK   ref-L02 wasm32 load_signed: native artifact accepted=1 tampered accepted=0
+OK   ref-L03 canonical: wasm32 sha256=a24662c4121173fa4cb828580cccb09d5e3ef58647431b3f7af01b0369711d0a native sha256=a24662c4121173fa4cb828580cccb09d5e3ef58647431b3f7af01b0369711d0a bytes=7580
+OK   ref-L03 signed artifact: wasm32 sha256=caa4db4554c9dac29e82a94593f9ec3d45ad9ad49c1c84e43d27b92e0b105e40 native sha256=caa4db4554c9dac29e82a94593f9ec3d45ad9ad49c1c84e43d27b92e0b105e40
+OK   ref-L03 wasm32 load_signed: native artifact accepted=1 tampered accepted=0
+OK   ref-L04 canonical: wasm32 sha256=7b6a1766fab8c390d9aa43c1b236bdd9fc421911425eeb7bd26b512f896308bc native sha256=7b6a1766fab8c390d9aa43c1b236bdd9fc421911425eeb7bd26b512f896308bc bytes=14553
+OK   ref-L04 signed artifact: wasm32 sha256=20cdcda223bf93f8b1c110cd8b7e137a102946639a42f51af6100fe16cec7ec6 native sha256=20cdcda223bf93f8b1c110cd8b7e137a102946639a42f51af6100fe16cec7ec6
+OK   ref-L04 wasm32 load_signed: native artifact accepted=1 tampered accepted=0
+OK   ref-L05 canonical: wasm32 sha256=91f16b28a262402fc7dc681d149f4f4ab22543efc1ed262d406386de158d06e4 native sha256=91f16b28a262402fc7dc681d149f4f4ab22543efc1ed262d406386de158d06e4 bytes=9238
+OK   ref-L05 signed artifact: wasm32 sha256=fc7229ab71719e5ef5858f4128f14470f96a5aac7d698607e966f7b6c3716579 native sha256=fc7229ab71719e5ef5858f4128f14470f96a5aac7d698607e966f7b6c3716579
+OK   ref-L05 wasm32 load_signed: native artifact accepted=1 tampered accepted=0
+OK   ref-L06 canonical: wasm32 sha256=508d7195a8f3635d77496b4b5d6dc46e214a1c67e38418f8986c7cdd7dc86c5b native sha256=508d7195a8f3635d77496b4b5d6dc46e214a1c67e38418f8986c7cdd7dc86c5b bytes=26733
+OK   ref-L06 signed artifact: wasm32 sha256=242ccf4acf262fe83838c710dee5c48aadb1783f8cde0a9991290776539edbdf native sha256=242ccf4acf262fe83838c710dee5c48aadb1783f8cde0a9991290776539edbdf
+OK   ref-L06 wasm32 load_signed: native artifact accepted=1 tampered accepted=0
+OK   ref-L07 canonical: wasm32 sha256=4676bef8d61addb6525c4f6506cebcb61082b61b3fb3f7df43137b59e6a617b0 native sha256=4676bef8d61addb6525c4f6506cebcb61082b61b3fb3f7df43137b59e6a617b0 bytes=15875
+OK   ref-L07 signed artifact: wasm32 sha256=2051c14e0037b2c501ef630fe0bd8a326f20773efc212262ab5a006e7f3b95c8 native sha256=2051c14e0037b2c501ef630fe0bd8a326f20773efc212262ab5a006e7f3b95c8
+OK   ref-L07 wasm32 load_signed: native artifact accepted=1 tampered accepted=0
+OK   ref-L08 canonical: wasm32 sha256=a631bd6eb0a472854029d1acc0afb485d2f9b9cf0b8363b507869cd9d242601d native sha256=a631bd6eb0a472854029d1acc0afb485d2f9b9cf0b8363b507869cd9d242601d bytes=8734
+OK   ref-L08 signed artifact: wasm32 sha256=93531291a05e5c878a36e1961d19da3a894bde7eb9239b99b073ca08fe59e43c native sha256=93531291a05e5c878a36e1961d19da3a894bde7eb9239b99b073ca08fe59e43c
+OK   ref-L08 wasm32 load_signed: native artifact accepted=1 tampered accepted=0
+OK   ref-L09 canonical: wasm32 sha256=cd5e6ab028b250a92e7bfa4bafb0b7f8de880b1bca467082acc2d8dc913b7833 native sha256=cd5e6ab028b250a92e7bfa4bafb0b7f8de880b1bca467082acc2d8dc913b7833 bytes=29429
+OK   ref-L09 signed artifact: wasm32 sha256=531d07b6d7c0f9cef74634c25fccdaf8566336249e596189bbf086aab84771be native sha256=531d07b6d7c0f9cef74634c25fccdaf8566336249e596189bbf086aab84771be
+OK   ref-L09 wasm32 load_signed: native artifact accepted=1 tampered accepted=0
+OK   ref-L10 canonical: wasm32 sha256=af88a64064f02a6a5851ca2f78e13d097a451aea0c77392c88294cd3d9a90517 native sha256=af88a64064f02a6a5851ca2f78e13d097a451aea0c77392c88294cd3d9a90517 bytes=16307
+OK   ref-L10 signed artifact: wasm32 sha256=d8030d534b26722e59c6975dac92e96d776c00ce1679fad5c0afb3e94e7a2692 native sha256=d8030d534b26722e59c6975dac92e96d776c00ce1679fad5c0afb3e94e7a2692
+OK   ref-L10 wasm32 load_signed: native artifact accepted=1 tampered accepted=0
+OK   ref-G01 canonical: wasm32 sha256=968ba150eaeeff5a18322079e5749dd0f2663f6e72a840d7b7033208f839c264 native sha256=968ba150eaeeff5a18322079e5749dd0f2663f6e72a840d7b7033208f839c264 bytes=9641
+OK   ref-G01 signed artifact: wasm32 sha256=8a481ea364aab71effb0fbb698b344bcc528599813001946a8f10d30bd83ab27 native sha256=8a481ea364aab71effb0fbb698b344bcc528599813001946a8f10d30bd83ab27
+OK   ref-G01 wasm32 load_signed: native artifact accepted=1 tampered accepted=0
+OK   ref-G02 canonical: wasm32 sha256=dfcae410e7c91b6cb98252325ff25ef39db9d0c2efffa92ec2802eda71f4b32a native sha256=dfcae410e7c91b6cb98252325ff25ef39db9d0c2efffa92ec2802eda71f4b32a bytes=17005
+OK   ref-G02 signed artifact: wasm32 sha256=8b9f6bca8f34d6e659a7d4f2bdf1dcdeeb49e6b49b4ef33d5c21d20371b0a03b native sha256=8b9f6bca8f34d6e659a7d4f2bdf1dcdeeb49e6b49b4ef33d5c21d20371b0a03b
+OK   ref-G02 wasm32 load_signed: native artifact accepted=1 tampered accepted=0
+OK   ref-G03 canonical: wasm32 sha256=9e4d4da23df8dca94b85cdaf8457bc76f9e78ba18c006053a3eac4e5f2a3563a native sha256=9e4d4da23df8dca94b85cdaf8457bc76f9e78ba18c006053a3eac4e5f2a3563a bytes=13535
+OK   ref-G03 signed artifact: wasm32 sha256=32a318b1c52b08a7218d079b26b24648c7a1e5f90e938911e603de94786dbc64 native sha256=32a318b1c52b08a7218d079b26b24648c7a1e5f90e938911e603de94786dbc64
+OK   ref-G03 wasm32 load_signed: native artifact accepted=1 tampered accepted=0
+OK   ref-G04 canonical: wasm32 sha256=762a369ea6909aad5b268665cfc5bee1e56ce1f7374ac7c47179505c71c4ac1a native sha256=762a369ea6909aad5b268665cfc5bee1e56ce1f7374ac7c47179505c71c4ac1a bytes=23236
+OK   ref-G04 signed artifact: wasm32 sha256=8cd2bd0f8a252314926688d7e5781f3671da57d4470379f79740ebd00521b05d native sha256=8cd2bd0f8a252314926688d7e5781f3671da57d4470379f79740ebd00521b05d
+OK   ref-G04 wasm32 load_signed: native artifact accepted=1 tampered accepted=0
+OK   ref-G05 canonical: wasm32 sha256=07c71cdeef89679a777f5ab67e515b5ec759378643f686fb6439f4356a43b276 native sha256=07c71cdeef89679a777f5ab67e515b5ec759378643f686fb6439f4356a43b276 bytes=27889
+OK   ref-G05 signed artifact: wasm32 sha256=a4d62427d8175ccb01fa158b76c32aa72fe36748273f454ab6c50d1b4339716f native sha256=a4d62427d8175ccb01fa158b76c32aa72fe36748273f454ab6c50d1b4339716f
+OK   ref-G05 wasm32 load_signed: native artifact accepted=1 tampered accepted=0
+D1 CROSS-TARGET: PASS

@@ -1,0 +1,46 @@
+{
+ "requests": [
+  {
+   "method": "GET",
+   "url": "http://127.0.0.1:45417/index.html?scenario=golden&variant=raf&mirror=on&specimen=F01&locale=en",
+   "resourceType": "document"
+  },
+  {
+   "method": "GET",
+   "url": "http://127.0.0.1:45417/boot.js",
+   "resourceType": "script"
+  },
+  {
+   "method": "GET",
+   "url": "http://127.0.0.1:45417/pkg/pvc_web.js",
+   "resourceType": "script"
+  },
+  {
+   "method": "GET",
+   "url": "http://127.0.0.1:45417/pkg/pvc_web_bg.wasm",
+   "resourceType": "fetch"
+  },
+  {
+   "method": "GET",
+   "url": "http://127.0.0.1:45417/fonts/DejaVuSans.ttf",
+   "resourceType": "font"
+  },
+  {
+   "method": "GET",
+   "url": "http://127.0.0.1:45417/artifacts/F01.signed",
+   "resourceType": "fetch"
+  }
+ ],
+ "audit": {
+  "total": 6,
+  "origin": "http://127.0.0.1:45417",
+  "offOrigin": [],
+  "nonGet": [],
+  "fetchXhrUrls": [
+   "/pkg/pvc_web_bg.wasm",
+   "/artifacts/F01.signed"
+  ],
+  "fetchOutsideStaticAssets": [],
+  "pass": true
+ }
+}

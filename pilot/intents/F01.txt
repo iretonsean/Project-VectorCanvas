@@ -1,0 +1,1 @@
+Sign-up form: name, email, password with show/hide toggle, accept-terms checkbox, submit disabled until valid

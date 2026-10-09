@@ -1,0 +1,332 @@
+## L01 en 1366x768 initial
+surface0 0 0 87424 49152
+surface0/card0 33472 1536 20480 12722
+surface0/card0/row0 35008 3072 9728 2560
+surface0/card0/row0/avatar0 35008 3072 2560 2560
+surface0/card0/row0/avatar0/label 35648 3635 1280 1434 lines=1 1231
+surface0/card0/row0/col0 38080 3188 6656 2329
+surface0/card0/row0/col0/text0 38080 3188 4480 1254 lines=1 4463
+surface0/card0/row0/col0/text1 38080 4442 6656 1075 lines=1 6600
+surface0/card0/text0 35008 6656 13184 2508 lines=2 13078,13167
+surface0/card0/button0 35008 10188 17408 2534
+surface0/card0/button0/label 41856 10828 3712 1254 lines=1 3705
+## F01 en 1366x768 initial
+surface0 0 0 87424 49152
+surface0/form0 32192 1536 23040 26339
+surface0/form0/text0 32192 1536 10944 1792 lines=1 10923
+surface0/form0/field0 32192 4352 23040 5119
+surface0/form0/field0/label 32192 4352 4928 1254 lines=1 4915
+surface0/form0/field0/input 32192 5862 23040 2278
+surface0/form0/field0/help 32192 8396 9152 1075 lines=1 9125
+surface0/form0/field1 32192 10495 23040 5119
+surface0/form0/field1/label 32192 10495 2816 1254 lines=1 2765
+surface0/form0/field1/input 32192 12005 23040 2278
+surface0/form0/field1/help 32192 14539 5760 1075 lines=1 5714
+surface0/form0/password-field0 32192 16638 23040 5119
+surface0/form0/password-field0/label 32192 16638 4864 1254 lines=1 4830
+surface0/form0/password-field0/row 32192 18148 23040 2278
+surface0/form0/password-field0/input 32192 18148 14976 2278
+surface0/form0/password-field0/toggle 47680 18238 7552 2099
+surface0/form0/password-field0/toggle/label 48448 18750 6016 1075 lines=1 5963
+surface0/form0/password-field0/help 32192 20682 8000 1075 lines=1 7970
+surface0/form0/checkbox0 32192 22781 14656 1536
+surface0/form0/checkbox0/box 32192 22909 1280 1280
+surface0/form0/checkbox0/label 33984 22922 12864 1254 lines=1 12832
+surface0/form0/button0 32192 25341 5440 2534
+surface0/form0/button0/label 33216 25981 3392 1254 lines=1 3376
+## F01 en 1366x768 email+password errors shown
+surface0 0 0 87424 49152
+surface0/form0 32192 1536 23040 29001
+surface0/form0/text0 32192 1536 10944 1792 lines=1 10923
+surface0/form0/field0 32192 4352 23040 5119
+surface0/form0/field0/label 32192 4352 4928 1254 lines=1 4915
+surface0/form0/field0/input 32192 5862 23040 2278
+surface0/form0/field0/help 32192 8396 9152 1075 lines=1 9125
+surface0/form0/field1 32192 10495 23040 6450
+surface0/form0/field1/label 32192 10495 2816 1254 lines=1 2765
+surface0/form0/field1/input 32192 12005 23040 2278
+surface0/form0/field1/help 32192 14539 5760 1075 lines=1 5714
+surface0/form0/field1/error 32192 15870 20672 1075 lines=1 20668
+surface0/form0/password-field0 32192 17969 23040 6450
+surface0/form0/password-field0/label 32192 17969 4864 1254 lines=1 4830
+surface0/form0/password-field0/row 32192 19479 23040 2278
+surface0/form0/password-field0/input 32192 19479 14976 2278
+surface0/form0/password-field0/toggle 47680 19569 7552 2099
+surface0/form0/password-field0/toggle/label 48448 20081 6016 1075 lines=1 5963
+surface0/form0/password-field0/help 32192 22013 8000 1075 lines=1 7970
+surface0/form0/password-field0/error 32192 23344 15168 1075 lines=1 15144
+surface0/form0/checkbox0 32192 25443 14656 1536
+surface0/form0/checkbox0/box 32192 25571 1280 1280
+surface0/form0/checkbox0/label 33984 25584 12864 1254 lines=1 12832
+surface0/form0/button0 32192 28003 5440 2534
+surface0/form0/button0/label 33216 28643 3392 1254 lines=1 3376
+## F01 en 1366x768 after commit
+surface0 0 0 87424 49152
+surface0/form0 32192 1536 23040 29001
+surface0/form0/text0 32192 1536 10944 1792 lines=1 10923
+surface0/form0/field0 32192 4352 23040 5119
+surface0/form0/field0/label 32192 4352 4928 1254 lines=1 4915
+surface0/form0/field0/input 32192 5862 23040 2278
+surface0/form0/field0/help 32192 8396 9152 1075 lines=1 9125
+surface0/form0/field1 32192 10495 23040 6450
+surface0/form0/field1/label 32192 10495 2816 1254 lines=1 2765
+surface0/form0/field1/input 32192 12005 23040 2278
+surface0/form0/field1/help 32192 14539 5760 1075 lines=1 5714
+surface0/form0/field1/error 32192 15870 20672 1075 lines=1 20668
+surface0/form0/password-field0 32192 17969 23040 6450
+surface0/form0/password-field0/label 32192 17969 4864 1254 lines=1 4830
+surface0/form0/password-field0/row 32192 19479 23040 2278
+surface0/form0/password-field0/input 32192 19479 14976 2278
+surface0/form0/password-field0/toggle 47680 19569 7552 2099
+surface0/form0/password-field0/toggle/label 48448 20081 6016 1075 lines=1 5963
+surface0/form0/password-field0/help 32192 22013 8000 1075 lines=1 7970
+surface0/form0/password-field0/error 32192 23344 15168 1075 lines=1 15144
+surface0/form0/checkbox0 32192 25443 14656 1536
+surface0/form0/checkbox0/box 32192 25571 1280 1280
+surface0/form0/checkbox0/label 33984 25584 12864 1254 lines=1 12832
+surface0/form0/button0 32192 28003 5440 2534
+surface0/form0/button0/label 33216 28643 3392 1254 lines=1 3376
+caret 36544.0 1344.0 sel (4, 4)
+## F01 zh-CN 1366x768 initial
+surface0 0 0 87424 49152
+surface0/form0 32192 1536 23040 26339
+surface0/form0/text0 32192 1536 5120 1792 lines=1 5120
+surface0/form0/field0 32192 4352 23040 5119
+surface0/form0/field0/label 32192 4352 1792 1254 lines=1 1792
+surface0/form0/field0/input 32192 5862 23040 2278
+surface0/form0/field0/help 32192 8396 6144 1075 lines=1 6144
+surface0/form0/field1 32192 10495 23040 5119
+surface0/form0/field1/label 32192 10495 3584 1254 lines=1 3584
+surface0/form0/field1/input 32192 12005 23040 2278
+surface0/form0/field1/help 32192 14539 3072 1075 lines=1 3072
+surface0/form0/password-field0 32192 16638 23040 5119
+surface0/form0/password-field0/label 32192 16638 1792 1254 lines=1 1792
+surface0/form0/password-field0/row 32192 18148 23040 2278
+surface0/form0/password-field0/input 32192 18148 17920 2278
+surface0/form0/password-field0/toggle 50624 18238 4608 2099
+surface0/form0/password-field0/toggle/label 51392 18750 3072 1075 lines=1 3072
+surface0/form0/password-field0/help 32192 20682 4864 1075 lines=1 4817
+surface0/form0/checkbox0 32192 22781 8064 1536
+surface0/form0/checkbox0/box 32192 22909 1280 1280
+surface0/form0/checkbox0/label 33984 22922 6272 1254 lines=1 6272
+surface0/form0/button0 32192 25341 3840 2534
+surface0/form0/button0/label 33216 25981 1792 1254 lines=1 1792
+## F01 zh-CN 1366x768 email+password errors shown
+surface0 0 0 87424 49152
+surface0/form0 32192 1536 23040 29001
+surface0/form0/text0 32192 1536 5120 1792 lines=1 5120
+surface0/form0/field0 32192 4352 23040 5119
+surface0/form0/field0/label 32192 4352 1792 1254 lines=1 1792
+surface0/form0/field0/input 32192 5862 23040 2278
+surface0/form0/field0/help 32192 8396 6144 1075 lines=1 6144
+surface0/form0/field1 32192 10495 23040 6450
+surface0/form0/field1/label 32192 10495 3584 1254 lines=1 3584
+surface0/form0/field1/input 32192 12005 23040 2278
+surface0/form0/field1/help 32192 14539 3072 1075 lines=1 3072
+surface0/form0/field1/error 32192 15870 19904 1075 lines=1 19900
+surface0/form0/password-field0 32192 17969 23040 6450
+surface0/form0/password-field0/label 32192 17969 1792 1254 lines=1 1792
+surface0/form0/password-field0/row 32192 19479 23040 2278
+surface0/form0/password-field0/input 32192 19479 17920 2278
+surface0/form0/password-field0/toggle 50624 19569 4608 2099
+surface0/form0/password-field0/toggle/label 51392 20081 3072 1075 lines=1 3072
+surface0/form0/password-field0/help 32192 22013 4864 1075 lines=1 4817
+surface0/form0/password-field0/error 32192 23344 7936 1075 lines=1 7889
+surface0/form0/checkbox0 32192 25443 8064 1536
+surface0/form0/checkbox0/box 32192 25571 1280 1280
+surface0/form0/checkbox0/label 33984 25584 6272 1254 lines=1 6272
+surface0/form0/button0 32192 28003 3840 2534
+surface0/form0/button0/label 33216 28643 1792 1254 lines=1 1792
+## F01 zh-CN 1366x768 after commit
+surface0 0 0 87424 49152
+surface0/form0 32192 1536 23040 29001
+surface0/form0/text0 32192 1536 5120 1792 lines=1 5120
+surface0/form0/field0 32192 4352 23040 5119
+surface0/form0/field0/label 32192 4352 1792 1254 lines=1 1792
+surface0/form0/field0/input 32192 5862 23040 2278
+surface0/form0/field0/help 32192 8396 6144 1075 lines=1 6144
+surface0/form0/field1 32192 10495 23040 6450
+surface0/form0/field1/label 32192 10495 3584 1254 lines=1 3584
+surface0/form0/field1/input 32192 12005 23040 2278
+surface0/form0/field1/help 32192 14539 3072 1075 lines=1 3072
+surface0/form0/field1/error 32192 15870 19904 1075 lines=1 19900
+surface0/form0/password-field0 32192 17969 23040 6450
+surface0/form0/password-field0/label 32192 17969 1792 1254 lines=1 1792
+surface0/form0/password-field0/row 32192 19479 23040 2278
+surface0/form0/password-field0/input 32192 19479 17920 2278
+surface0/form0/password-field0/toggle 50624 19569 4608 2099
+surface0/form0/password-field0/toggle/label 51392 20081 3072 1075 lines=1 3072
+surface0/form0/password-field0/help 32192 22013 4864 1075 lines=1 4817
+surface0/form0/password-field0/error 32192 23344 7936 1075 lines=1 7889
+surface0/form0/checkbox0 32192 25443 8064 1536
+surface0/form0/checkbox0/box 32192 25571 1280 1280
+surface0/form0/checkbox0/label 33984 25584 6272 1254 lines=1 6272
+surface0/form0/button0 32192 28003 3840 2534
+surface0/form0/button0/label 33216 28643 1792 1254 lines=1 1792
+caret 36544.0 1344.0 sel (4, 4)
+## L01 en 360x640 initial
+surface0 0 0 23040 40960
+surface0/card0 1536 1536 19968 12722
+surface0/card0/row0 3072 3072 9728 2560
+surface0/card0/row0/avatar0 3072 3072 2560 2560
+surface0/card0/row0/avatar0/label 3712 3635 1280 1434 lines=1 1231
+surface0/card0/row0/col0 6144 3188 6656 2329
+surface0/card0/row0/col0/text0 6144 3188 4480 1254 lines=1 4463
+surface0/card0/row0/col0/text1 6144 4442 6656 1075 lines=1 6600
+surface0/card0/text0 3072 6656 13184 2508 lines=2 13078,13167
+surface0/card0/button0 3072 10188 16896 2534
+surface0/card0/button0/label 9664 10828 3712 1254 lines=1 3705
+## F01 en 360x640 initial
+surface0 0 0 23040 40960
+surface0/form0 1536 1536 19968 26339
+surface0/form0/text0 1536 1536 10944 1792 lines=1 10923
+surface0/form0/field0 1536 4352 19968 5119
+surface0/form0/field0/label 1536 4352 4928 1254 lines=1 4915
+surface0/form0/field0/input 1536 5862 19968 2278
+surface0/form0/field0/help 1536 8396 9152 1075 lines=1 9125
+surface0/form0/field1 1536 10495 19968 5119
+surface0/form0/field1/label 1536 10495 2816 1254 lines=1 2765
+surface0/form0/field1/input 1536 12005 19968 2278
+surface0/form0/field1/help 1536 14539 5760 1075 lines=1 5714
+surface0/form0/password-field0 1536 16638 19968 5119
+surface0/form0/password-field0/label 1536 16638 4864 1254 lines=1 4830
+surface0/form0/password-field0/row 1536 18148 19968 2278
+surface0/form0/password-field0/input 1536 18148 11904 2278
+surface0/form0/password-field0/toggle 13952 18238 7552 2099
+surface0/form0/password-field0/toggle/label 14720 18750 6016 1075 lines=1 5963
+surface0/form0/password-field0/help 1536 20682 8000 1075 lines=1 7970
+surface0/form0/checkbox0 1536 22781 14656 1536
+surface0/form0/checkbox0/box 1536 22909 1280 1280
+surface0/form0/checkbox0/label 3328 22922 12864 1254 lines=1 12832
+surface0/form0/button0 1536 25341 5440 2534
+surface0/form0/button0/label 2560 25981 3392 1254 lines=1 3376
+## F01 en 360x640 email+password errors shown
+surface0 0 0 23040 40960
+surface0/form0 1536 1536 19968 30076
+surface0/form0/text0 1536 1536 10944 1792 lines=1 10923
+surface0/form0/field0 1536 4352 19968 5119
+surface0/form0/field0/label 1536 4352 4928 1254 lines=1 4915
+surface0/form0/field0/input 1536 5862 19968 2278
+surface0/form0/field0/help 1536 8396 9152 1075 lines=1 9125
+surface0/form0/field1 1536 10495 19968 7525
+surface0/form0/field1/label 1536 10495 2816 1254 lines=1 2765
+surface0/form0/field1/input 1536 12005 19968 2278
+surface0/form0/field1/help 1536 14539 5760 1075 lines=1 5714
+surface0/form0/field1/error 1536 15870 12288 2150 lines=2 12532,8136
+surface0/form0/password-field0 1536 19044 19968 6450
+surface0/form0/password-field0/label 1536 19044 4864 1254 lines=1 4830
+surface0/form0/password-field0/row 1536 20554 19968 2278
+surface0/form0/password-field0/input 1536 20554 11904 2278
+surface0/form0/password-field0/toggle 13952 20644 7552 2099
+surface0/form0/password-field0/toggle/label 14720 21156 6016 1075 lines=1 5963
+surface0/form0/password-field0/help 1536 23088 8000 1075 lines=1 7970
+surface0/form0/password-field0/error 1536 24419 15168 1075 lines=1 15144
+surface0/form0/checkbox0 1536 26518 14656 1536
+surface0/form0/checkbox0/box 1536 26646 1280 1280
+surface0/form0/checkbox0/label 3328 26659 12864 1254 lines=1 12832
+surface0/form0/button0 1536 29078 5440 2534
+surface0/form0/button0/label 2560 29718 3392 1254 lines=1 3376
+## F01 en 360x640 after commit
+surface0 0 0 23040 40960
+surface0/form0 1536 1536 19968 30076
+surface0/form0/text0 1536 1536 10944 1792 lines=1 10923
+surface0/form0/field0 1536 4352 19968 5119
+surface0/form0/field0/label 1536 4352 4928 1254 lines=1 4915
+surface0/form0/field0/input 1536 5862 19968 2278
+surface0/form0/field0/help 1536 8396 9152 1075 lines=1 9125
+surface0/form0/field1 1536 10495 19968 7525
+surface0/form0/field1/label 1536 10495 2816 1254 lines=1 2765
+surface0/form0/field1/input 1536 12005 19968 2278
+surface0/form0/field1/help 1536 14539 5760 1075 lines=1 5714
+surface0/form0/field1/error 1536 15870 12288 2150 lines=2 12532,8136
+surface0/form0/password-field0 1536 19044 19968 6450
+surface0/form0/password-field0/label 1536 19044 4864 1254 lines=1 4830
+surface0/form0/password-field0/row 1536 20554 19968 2278
+surface0/form0/password-field0/input 1536 20554 11904 2278
+surface0/form0/password-field0/toggle 13952 20644 7552 2099
+surface0/form0/password-field0/toggle/label 14720 21156 6016 1075 lines=1 5963
+surface0/form0/password-field0/help 1536 23088 8000 1075 lines=1 7970
+surface0/form0/password-field0/error 1536 24419 15168 1075 lines=1 15144
+surface0/form0/checkbox0 1536 26518 14656 1536
+surface0/form0/checkbox0/box 1536 26646 1280 1280
+surface0/form0/checkbox0/label 3328 26659 12864 1254 lines=1 12832
+surface0/form0/button0 1536 29078 5440 2534
+surface0/form0/button0/label 2560 29718 3392 1254 lines=1 3376
+caret 5888.0 1344.0 sel (4, 4)
+## F01 zh-CN 360x640 initial
+surface0 0 0 23040 40960
+surface0/form0 1536 1536 19968 26339
+surface0/form0/text0 1536 1536 5120 1792 lines=1 5120
+surface0/form0/field0 1536 4352 19968 5119
+surface0/form0/field0/label 1536 4352 1792 1254 lines=1 1792
+surface0/form0/field0/input 1536 5862 19968 2278
+surface0/form0/field0/help 1536 8396 6144 1075 lines=1 6144
+surface0/form0/field1 1536 10495 19968 5119
+surface0/form0/field1/label 1536 10495 3584 1254 lines=1 3584
+surface0/form0/field1/input 1536 12005 19968 2278
+surface0/form0/field1/help 1536 14539 3072 1075 lines=1 3072
+surface0/form0/password-field0 1536 16638 19968 5119
+surface0/form0/password-field0/label 1536 16638 1792 1254 lines=1 1792
+surface0/form0/password-field0/row 1536 18148 19968 2278
+surface0/form0/password-field0/input 1536 18148 14848 2278
+surface0/form0/password-field0/toggle 16896 18238 4608 2099
+surface0/form0/password-field0/toggle/label 17664 18750 3072 1075 lines=1 3072
+surface0/form0/password-field0/help 1536 20682 4864 1075 lines=1 4817
+surface0/form0/checkbox0 1536 22781 8064 1536
+surface0/form0/checkbox0/box 1536 22909 1280 1280
+surface0/form0/checkbox0/label 3328 22922 6272 1254 lines=1 6272
+surface0/form0/button0 1536 25341 3840 2534
+surface0/form0/button0/label 2560 25981 1792 1254 lines=1 1792
+## F01 zh-CN 360x640 email+password errors shown
+surface0 0 0 23040 40960
+surface0/form0 1536 1536 19968 29001
+surface0/form0/text0 1536 1536 5120 1792 lines=1 5120
+surface0/form0/field0 1536 4352 19968 5119
+surface0/form0/field0/label 1536 4352 1792 1254 lines=1 1792
+surface0/form0/field0/input 1536 5862 19968 2278
+surface0/form0/field0/help 1536 8396 6144 1075 lines=1 6144
+surface0/form0/field1 1536 10495 19968 6450
+surface0/form0/field1/label 1536 10495 3584 1254 lines=1 3584
+surface0/form0/field1/input 1536 12005 19968 2278
+surface0/form0/field1/help 1536 14539 3072 1075 lines=1 3072
+surface0/form0/field1/error 1536 15870 19904 1075 lines=1 19900
+surface0/form0/password-field0 1536 17969 19968 6450
+surface0/form0/password-field0/label 1536 17969 1792 1254 lines=1 1792
+surface0/form0/password-field0/row 1536 19479 19968 2278
+surface0/form0/password-field0/input 1536 19479 14848 2278
+surface0/form0/password-field0/toggle 16896 19569 4608 2099
+surface0/form0/password-field0/toggle/label 17664 20081 3072 1075 lines=1 3072
+surface0/form0/password-field0/help 1536 22013 4864 1075 lines=1 4817
+surface0/form0/password-field0/error 1536 23344 7936 1075 lines=1 7889
+surface0/form0/checkbox0 1536 25443 8064 1536
+surface0/form0/checkbox0/box 1536 25571 1280 1280
+surface0/form0/checkbox0/label 3328 25584 6272 1254 lines=1 6272
+surface0/form0/button0 1536 28003 3840 2534
+surface0/form0/button0/label 2560 28643 1792 1254 lines=1 1792
+## F01 zh-CN 360x640 after commit
+surface0 0 0 23040 40960
+surface0/form0 1536 1536 19968 29001
+surface0/form0/text0 1536 1536 5120 1792 lines=1 5120
+surface0/form0/field0 1536 4352 19968 5119
+surface0/form0/field0/label 1536 4352 1792 1254 lines=1 1792
+surface0/form0/field0/input 1536 5862 19968 2278
+surface0/form0/field0/help 1536 8396 6144 1075 lines=1 6144
+surface0/form0/field1 1536 10495 19968 6450
+surface0/form0/field1/label 1536 10495 3584 1254 lines=1 3584
+surface0/form0/field1/input 1536 12005 19968 2278
+surface0/form0/field1/help 1536 14539 3072 1075 lines=1 3072
+surface0/form0/field1/error 1536 15870 19904 1075 lines=1 19900
+surface0/form0/password-field0 1536 17969 19968 6450
+surface0/form0/password-field0/label 1536 17969 1792 1254 lines=1 1792
+surface0/form0/password-field0/row 1536 19479 19968 2278
+surface0/form0/password-field0/input 1536 19479 14848 2278
+surface0/form0/password-field0/toggle 16896 19569 4608 2099
+surface0/form0/password-field0/toggle/label 17664 20081 3072 1075 lines=1 3072
+surface0/form0/password-field0/help 1536 22013 4864 1075 lines=1 4817
+surface0/form0/password-field0/error 1536 23344 7936 1075 lines=1 7889
+surface0/form0/checkbox0 1536 25443 8064 1536
+surface0/form0/checkbox0/box 1536 25571 1280 1280
+surface0/form0/checkbox0/label 3328 25584 6272 1254 lines=1 6272
+surface0/form0/button0 1536 28003 3840 2534
+surface0/form0/button0/label 2560 28643 1792 1254 lines=1 1792
+caret 5888.0 1344.0 sel (4, 4)

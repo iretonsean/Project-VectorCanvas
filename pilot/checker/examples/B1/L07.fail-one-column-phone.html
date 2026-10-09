@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="[overflow-wrap:anywhere] bg-slate-50 text-slate-900">
+<header class="bg-white border-b border-slate-300 p-3 flex items-center gap-3">
+  <span class="font-bold">Acme</span>
+  <input type="search" aria-label="Search" placeholder="Search" class="flex-1 min-w-0 border border-slate-500 rounded px-3 py-1">
+  <button aria-label="Account menu" class="rounded-full w-9 h-9 bg-blue-700 text-white text-sm shrink-0">JD</button>
+</header>
+<main class="p-4 max-w-6xl mx-auto">
+  <h1 class="text-xl font-bold mb-4">Overview</h1>
+  <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+    <div class="rounded-lg border border-slate-300 bg-white p-4 min-w-0"><p class="text-sm text-slate-600">Users</p><p class="text-2xl font-bold">1,284</p></div>
+    <div class="rounded-lg border border-slate-300 bg-white p-4 min-w-0"><p class="text-sm text-slate-600">Uptime</p><p class="text-2xl font-bold">92%</p></div>
+    <div class="rounded-lg border border-slate-300 bg-white p-4 min-w-0"><p class="text-sm text-slate-600">Revenue</p><p class="text-2xl font-bold">$4.2k</p></div>
+    <div class="rounded-lg border border-slate-300 bg-white p-4 min-w-0"><p class="text-sm text-slate-600">Tickets</p><p class="text-2xl font-bold">37</p></div>
+  </div>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
+    <section class="rounded-lg border border-slate-300 bg-white p-4 h-64"><h2 class="font-semibold">Traffic</h2><p class="text-slate-600">Recent visits by day.</p></section>
+    <section class="rounded-lg border border-slate-300 bg-white p-4 h-64"><h2 class="font-semibold">Activity</h2><p class="text-slate-600">Latest events across the team.</p></section>
+  </div>
+</main>
+</body>
+</html>

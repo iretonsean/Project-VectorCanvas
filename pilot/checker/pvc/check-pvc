@@ -1,0 +1,31 @@
+#!/usr/bin/env node
+// usage: check-pvc <ID> <file.pvc> [--verbose] [--json] [--only IDs]   env: PVC_PROBE_BIN (default: pvc-probe), PVC_PROBE_ARGS
+import { loadSpec, runSpec } from '../core/runner.mjs';
+import { formatVerdict } from '../baseline/check.mjs';
+import { pvcDriver } from './probe-pvc.mjs';
+const a = process.argv.slice(2);
+const flags = new Set(a.filter(x => x.startsWith('--')));
+const oi = a.indexOf('--only'); const only = oi >= 0 ? a[oi + 1].split(',') : null;
+const pos = a.filter((x, i) => !x.startsWith('--') && !(oi >= 0 && i === oi + 1));
+const [id, file] = pos;
+if (!id || !file) { console.error('usage: check-pvc <ID> <file.pvc> [--verbose] [--json] [--only IDs]'); process.exit(2); }
+const bin = process.env.PVC_PROBE_BIN || 'pvc-probe';
+const extra = (process.env.PVC_PROBE_ARGS || '').split(' ').filter(Boolean);
+const spec = await loadSpec(id);
+const driver = pvcDriver(bin, file, extra);
+const out = { stack: 'PVC', id, build: { ok: true, errors: [], tsc: [] }, results: [], blocked: [], log: [] };
+try {
+  try { const p = await driver.fresh(); p.kill(); }
+  catch (e) {
+    if (e.message === 'LOAD') {
+      out.build = { ok: false, errors: (e.diagnostics || []).map(d => `${d.severity ?? 'error'} ${d.code ?? ''} ${d.path ?? ''}: ${d.message ?? ''}${d.fix_hint ? ' [fix: ' + d.fix_hint + ']' : ''}`.trim()), tsc: [] };
+      if (e.detail) out.build.errors.unshift(String(e.detail));
+    } else throw e;
+  }
+  if (out.build.ok) { const r = await runSpec(spec, driver, { only }); out.results = r.results; out.log = r.log; }
+} catch (e) { console.error('CHECKER ERROR: ' + (e.stack || e)); process.exit(2); }
+finally { driver.killAll(); }
+const v = formatVerdict(out, { verbose: flags.has('--verbose') });
+const text = v.text.replace('FAIL BUILD: Not met: the program must build (type-check, bundle and Tailwind compile) without errors.', 'FAIL BUILD: Not met: the program must pass the PVC validator without errors.');
+if (flags.has('--json')) console.log(JSON.stringify({ ...out, pass: v.pass, failedIds: v.failedIds }, null, 1)); else console.log(text);
+process.exit(v.pass ? 0 : 1);

@@ -1,0 +1,10 @@
+{
+ "pass": true,
+ "summary": {
+  "rounds_with_exact_text": 5,
+  "of": 5,
+  "events_sent": 100,
+  "frames": 132,
+  "frame_per_event": 1.32
+ }
+}

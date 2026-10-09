@@ -1,0 +1,1 @@
+Event poster-style card: date block on the left, title, location with icon, "Add to calendar" link The date block shows a short month and a day number as separate lines (for example "OCT" and "12"). The card also has an event title (a heading), a location line with a small icon (an inline vector icon, no image files), and a link labelled "Add to calendar".

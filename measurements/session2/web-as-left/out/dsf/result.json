@@ -1,0 +1,82 @@
+{
+ "pass": true,
+ "caretPaintCheck": {
+  "screenshots": 8,
+  "with_native_caret_pixels": 0,
+  "conclusion": "headless Chromium paints no native caret in screenshots; native caret x measured from DOM text metrics instead"
+ },
+ "summary": [
+  {
+   "dsf": 1,
+   "overlay_text_rendering": "geometricPrecision",
+   "engine_caret_x_dev": 608.04,
+   "native_caret_x_dev": 608.05,
+   "native_minus_engine_caret_dev_px": 0,
+   "text_ink_left_offset_dev_px": -1,
+   "text_ink_right_offset_dev_px": 1
+  },
+  {
+   "dsf": 1,
+   "overlay_text_rendering": "auto",
+   "engine_caret_x_dev": 608.04,
+   "native_caret_x_dev": 611,
+   "native_minus_engine_caret_dev_px": 2.96,
+   "text_ink_left_offset_dev_px": -1,
+   "text_ink_right_offset_dev_px": 4
+  },
+  {
+   "dsf": 1.25,
+   "overlay_text_rendering": "geometricPrecision",
+   "engine_caret_x_dev": 760.05,
+   "native_caret_x_dev": 760.06,
+   "native_minus_engine_caret_dev_px": 0,
+   "text_ink_left_offset_dev_px": 0,
+   "text_ink_right_offset_dev_px": 1
+  },
+  {
+   "dsf": 1.25,
+   "overlay_text_rendering": "auto",
+   "engine_caret_x_dev": 760.05,
+   "native_caret_x_dev": 763.75,
+   "native_minus_engine_caret_dev_px": 3.7,
+   "text_ink_left_offset_dev_px": 0,
+   "text_ink_right_offset_dev_px": 5
+  },
+  {
+   "dsf": 1.5,
+   "overlay_text_rendering": "geometricPrecision",
+   "engine_caret_x_dev": 912.07,
+   "native_caret_x_dev": 912.07,
+   "native_minus_engine_caret_dev_px": 0,
+   "text_ink_left_offset_dev_px": 0,
+   "text_ink_right_offset_dev_px": 1
+  },
+  {
+   "dsf": 1.5,
+   "overlay_text_rendering": "auto",
+   "engine_caret_x_dev": 912.07,
+   "native_caret_x_dev": 916.5,
+   "native_minus_engine_caret_dev_px": 4.43,
+   "text_ink_left_offset_dev_px": 0,
+   "text_ink_right_offset_dev_px": 5
+  },
+  {
+   "dsf": 2,
+   "overlay_text_rendering": "geometricPrecision",
+   "engine_caret_x_dev": 1216.09,
+   "native_caret_x_dev": 1216.09,
+   "native_minus_engine_caret_dev_px": 0.01,
+   "text_ink_left_offset_dev_px": -1,
+   "text_ink_right_offset_dev_px": 0
+  },
+  {
+   "dsf": 2,
+   "overlay_text_rendering": "auto",
+   "engine_caret_x_dev": 1216.09,
+   "native_caret_x_dev": 1222,
+   "native_minus_engine_caret_dev_px": 5.91,
+   "text_ink_left_offset_dev_px": -1,
+   "text_ink_right_offset_dev_px": 6
+  }
+ ]
+}

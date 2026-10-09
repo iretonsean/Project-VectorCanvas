@@ -1,0 +1,1 @@
+Pricing page with three plans side by side; the middle one highlighted as "most popular"; stacks vertically on phones Each plan shows a price (for example "$0", "$12", "$29"), a list of exactly four features, and one call-to-action button. Plans are Free, Pro and Team in that order; no external images or fonts are available.

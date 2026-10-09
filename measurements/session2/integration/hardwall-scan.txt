@@ -1,0 +1,2 @@
+# cargo tree -e normal -p pvc-runtime (features cpu; cpu,gl), grep reqwest|hyper|ureq|openai|tokio|isahc|surf|curl => matches: 0
+# source grep over crates/*/src and hosts/*/src done

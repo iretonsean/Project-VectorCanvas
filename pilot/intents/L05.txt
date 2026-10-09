@@ -1,0 +1,1 @@
+Photo-free blog article page: title, author line, 6 paragraphs, a pull quote, comfortable reading width The article has one title (the page's top-level heading), an author line, six body paragraphs of two to four sentences each, and one pull quote that is not one of the six paragraphs. Section headings, if any, are exactly one level below the title.

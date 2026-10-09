@@ -1,0 +1,29 @@
+// G03 reference
+pvc 0.1 use std@0.1 theme light
+fonts std
+state {
+  tab: enum(profile, notes) = profile
+  pending: enum(none, profile, notes) = none
+  dirty: bool
+  profile_text: text
+  notes_text: text
+}
+surface {
+  col w=480 gap=md {
+    row role=tab-list gap=sm {
+      tab "Profile" selected=(tab == profile) on.press={ when tab != profile and not dirty; tab = profile } on.press={ when tab != profile and dirty; pending = profile }
+      tab "Notes" selected=(tab == notes) on.press={ when tab != notes and not dirty; tab = notes } on.press={ when tab != notes and dirty; pending = notes }
+    }
+    slot on=tab {
+      case profile role=tab-panel { text-input variant=multiline name="Profile text" bind=profile_text h=120 on.change={ dirty = true } }
+      case notes role=tab-panel { text-input variant=multiline name="Notes text" bind=notes_text h=120 on.change={ dirty = true } }
+    }
+  }
+  layer name="Discard changes?" role=alert-dialog show=(pending != none) {
+    text "Discard changes?" bold size=18
+    row gap=sm {
+      button "Discard" on.press={ when tab == profile; profile_text = "" } on.press={ when tab == notes; notes_text = "" } on.press={ tab = pending; pending = none; dirty = false }
+      button "Cancel" fill=none on.press={ pending = none }
+    }
+  }
+}

@@ -1,0 +1,1 @@
+Settings page with grouped sections, each with a title and rows of label + control on the right Three groups (for example Account, Notifications, Appearance), each with a heading and at least two rows. Each row has a visible text label on the left and a form control (switch, checkbox, select or text field) on the right whose accessible name is that label text.

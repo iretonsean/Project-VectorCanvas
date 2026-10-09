@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tabs</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="[overflow-wrap:anywhere] bg-white text-slate-900 p-4">
+<main class="max-w-lg mx-auto">
+  <div role="tablist" aria-label="Sections" class="flex gap-2 border-b border-slate-400">
+    <button role="tab" id="t1" aria-selected="true" aria-controls="p1" tabindex="0" class="px-3 py-2 border-b-4 border-blue-700 font-semibold">Profile</button>
+    <button role="tab" id="t2" aria-selected="false" aria-controls="p2" tabindex="-1" class="px-3 py-2 border-b-4 border-transparent">Notes</button>
+  </div>
+  <div role="tabpanel" id="p1" aria-labelledby="t1" class="py-4"><label for="a1" class="block mb-1">Profile text</label><textarea id="a1" rows="4" class="w-full border border-slate-500 rounded p-2"></textarea></div>
+  <div role="tabpanel" id="p2" aria-labelledby="t2" class="py-4" hidden><label for="a2" class="block mb-1">Notes text</label><textarea id="a2" rows="4" class="w-full border border-slate-500 rounded p-2"></textarea></div>
+</main>
+<script>
+  const tabs = [...document.querySelectorAll('[role=tab]')]; const dirty = { t1: false, t2: false };
+  document.getElementById('a1').oninput = () => dirty.t1 = true; document.getElementById('a2').oninput = () => dirty.t2 = true;
+  function select(t) {
+    const cur = tabs.find(x => x.getAttribute('aria-selected') === 'true'); if (cur === t) return;
+    if (!confirm('Discard changes?')) return;
+    if (dirty[cur.id]) { document.getElementById(cur.getAttribute('aria-controls')).querySelector('textarea').value = ''; dirty[cur.id] = false; }
+    tabs.forEach(x => { const on = x === t; x.setAttribute('aria-selected', String(on)); x.tabIndex = on ? 0 : -1; x.classList.toggle('border-blue-700', on); x.classList.toggle('border-transparent', !on); document.getElementById(x.getAttribute('aria-controls')).hidden = !on; });
+  }
+  tabs.forEach((t, i) => { t.onclick = () => select(t); t.onkeydown = e => { const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (d) { e.preventDefault(); tabs[(i + d + tabs.length) % tabs.length].focus(); } }; });
+</script>
+</body>
+</html>

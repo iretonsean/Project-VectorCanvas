@@ -1,0 +1,41 @@
+// G04 reference
+pvc 0.1 use std@0.1 theme light
+fonts std
+state {
+  lines: list(name:text, price:decimal, qty:int) max=10 = [{ name="Notebook" price=4.99 qty=1 }, { name="Pen" price=1.25 qty=1 }, { name="Backpack" price=19.90 qty=1 }]
+  promo: text
+  rate: decimal = 0.00
+  bad_code: bool
+}
+derive subtotal = sum(lines, it.qty * it.price)
+derive discount = percent(subtotal, rate)
+derive tax = percent(subtotal - discount, 8.25)
+derive total = subtotal - discount + tax
+surface {
+  col w=480 gap=md {
+    text "Cart" bold size=24 heading=1
+    view lines as=l gap=sm {
+      col gap=xs {
+        row gap=sm { text value=(l.name) w=fill; text @money v=(l.price) }
+        row gap=sm align=center {
+          button "-" name="Decrease quantity" on.press={ when l.qty > 1; l.qty = l.qty - 1 }
+          text value=(l.qty)
+          button "+" name="Increase quantity" on.press={ l.qty = l.qty + 1 }
+          button "x" name="Remove" fill=none on.press={ remove l }
+        }
+      }
+    }
+    col gap=sm {
+      field "Promo code" bind=promo
+      button "Apply" on.press={ when promo == "SAVE10"; rate = 10.00; bad_code = false } on.press={ when promo != "SAVE10"; bad_code = true }
+      text "Invalid promo code" role=alert show=bad_code color=error
+    }
+    col gap=xs {
+      row { text "Subtotal" w=fill; text @money v=(subtotal) }
+      row { text "Discount" w=fill; text @money v=(discount) }
+      row { text "Tax" w=fill; text @money v=(tax) }
+      row { text "Total" bold w=fill; text @money v=(total) bold }
+    }
+  }
+}
+strings en { money "${v}" }

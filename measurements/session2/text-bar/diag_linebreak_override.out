@@ -1,0 +1,2 @@
+zh-CN_s13_x1 zh-ui-para: plain [0, 19, 40] override [0, 19, 40] chromium-default [0, 20, 41] chromium-nohint [0, 20, 41]
+wrapped items x sizes (scale 1) = 48; mismatches vs Chromium-default: plain 7, override 7; vs Chromium-nohint: plain 1, override 1

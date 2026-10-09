@@ -1,0 +1,307 @@
+{
+ "pass": true,
+ "summary": {
+  "checks": [
+   "PASS present: textbox \"Full name\"",
+   "PASS present: textbox \"Email\"",
+   "PASS present: textbox \"Password\"",
+   "PASS present: button \"Show password\"",
+   "PASS present: checkbox \"I accept the terms of service\"",
+   "PASS present: button \"Sign up\"",
+   "PASS heading level 1 \"Create account\"",
+   "PASS required on the three fields",
+   "PASS checkbox unchecked initially",
+   "PASS checkbox checked after toggle",
+   "PASS submit disabled initially",
+   "PASS live regions exist from the first tree (status polite)",
+   "PASS no email error text initially",
+   "PASS email error text appears (live region) after invalid email",
+   "PASS email field invalid + describedby/errormessage",
+   "PASS email error gone when valid",
+   "PASS password error text after 3 chars",
+   "PASS submit enabled when valid",
+   "PASS password masked in AX value before show",
+   "PASS show/hide toggle pressed state flips",
+   "PASS submitted: \"Account created\" announced"
+  ],
+  "state": "email=Text(\"ada@example.com\")\nname=Text(\"Ada Lovelace\")\npassword=Text(\"abcdefghij\")\nshow_pw=Bool(true)\nstatus=Enum(\"done\")\nterms=Bool(true)\nderived valid=Bool(true)\nfocus=surface0/form0/button0\n"
+ },
+ "checks": [
+  {
+   "id": "present: textbox \"Full name\"",
+   "ok": true,
+   "detail": {
+    "depth": 5,
+    "role": "textbox",
+    "name": "Full name",
+    "description": "Your first and last name",
+    "props": {
+     "invalid": "false",
+     "focusable": true,
+     "editable": "plaintext",
+     "settable": true,
+     "multiline": false,
+     "readonly": false,
+     "required": true,
+     "describedby": "pvc-n1592938092350952380"
+    }
+   }
+  },
+  {
+   "id": "present: textbox \"Email\"",
+   "ok": true,
+   "detail": {
+    "depth": 5,
+    "role": "textbox",
+    "name": "Email",
+    "description": "Used to sign in",
+    "props": {
+     "invalid": "false",
+     "focusable": true,
+     "editable": "plaintext",
+     "settable": true,
+     "multiline": false,
+     "readonly": false,
+     "required": true,
+     "describedby": "pvc-n8917286103951514953"
+    }
+   }
+  },
+  {
+   "id": "present: textbox \"Password\"",
+   "ok": true,
+   "detail": {
+    "depth": 6,
+    "role": "textbox",
+    "name": "Password",
+    "description": "At least 8 characters",
+    "props": {
+     "invalid": "false",
+     "focusable": true,
+     "editable": "plaintext",
+     "settable": true,
+     "multiline": false,
+     "readonly": false,
+     "required": true,
+     "describedby": "pvc-n262028868338970432"
+    }
+   }
+  },
+  {
+   "id": "present: button \"Show password\"",
+   "ok": true,
+   "detail": {
+    "depth": 6,
+    "role": "button",
+    "name": "Show password",
+    "props": {
+     "focusable": true,
+     "pressed": "false"
+    }
+   }
+  },
+  {
+   "id": "present: checkbox \"I accept the terms of service\"",
+   "ok": true,
+   "detail": {
+    "depth": 4,
+    "role": "checkbox",
+    "name": "I accept the terms of service",
+    "props": {
+     "focusable": true,
+     "checked": "false"
+    }
+   }
+  },
+  {
+   "id": "present: button \"Sign up\"",
+   "ok": true,
+   "detail": {
+    "depth": 4,
+    "role": "button",
+    "name": "Sign up",
+    "props": {
+     "disabled": true,
+     "focusable": true
+    }
+   }
+  },
+  {
+   "id": "heading level 1 \"Create account\"",
+   "ok": true,
+   "detail": {
+    "depth": 4,
+    "role": "heading",
+    "name": "Create account",
+    "props": {
+     "level": 1
+    }
+   }
+  },
+  {
+   "id": "required on the three fields",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "id": "checkbox unchecked initially",
+   "ok": true,
+   "detail": {
+    "focusable": true,
+    "checked": "false"
+   }
+  },
+  {
+   "id": "checkbox checked after toggle",
+   "ok": true,
+   "detail": {
+    "focusable": true,
+    "focused": true,
+    "checked": "true"
+   }
+  },
+  {
+   "id": "submit disabled initially",
+   "ok": true,
+   "detail": {
+    "disabled": true,
+    "focusable": true
+   }
+  },
+  {
+   "id": "live regions exist from the first tree (status polite)",
+   "ok": true,
+   "detail": 3
+  },
+  {
+   "id": "no email error text initially",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "id": "email error text appears (live region) after invalid email",
+   "ok": true,
+   "detail": [
+    {
+     "depth": 5,
+     "role": "status",
+     "name": "Enter a valid email address, like name@example.com",
+     "props": {
+      "live": "polite",
+      "atomic": true,
+      "relevant": "additions text"
+     }
+    },
+    {
+     "depth": 5,
+     "role": "status",
+     "name": "",
+     "props": {
+      "live": "polite",
+      "atomic": true,
+      "relevant": "additions text"
+     }
+    },
+    {
+     "depth": 4,
+     "role": "status",
+     "name": "",
+     "props": {
+      "live": "polite",
+      "atomic": true,
+      "relevant": "additions text"
+     }
+    }
+   ]
+  },
+  {
+   "id": "email field invalid + describedby/errormessage",
+   "ok": true,
+   "detail": {
+    "invalid": "true",
+    "focusable": true,
+    "focused": true,
+    "editable": "plaintext",
+    "settable": true,
+    "multiline": false,
+    "readonly": false,
+    "required": true,
+    "describedby": "pvc-n8917286103951514953",
+    "errormessage": "pvc-n6486210758571014864"
+   }
+  },
+  {
+   "id": "email error gone when valid",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "id": "password error text after 3 chars",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "id": "submit enabled when valid",
+   "ok": true,
+   "detail": {
+    "focusable": true
+   }
+  },
+  {
+   "id": "password masked in AX value before show",
+   "ok": true,
+   "detail": "••••••••••"
+  },
+  {
+   "id": "show/hide toggle pressed state flips",
+   "ok": true,
+   "detail": [
+    {
+     "focusable": true,
+     "pressed": "false"
+    },
+    {
+     "focusable": true,
+     "focused": true,
+     "pressed": "true"
+    }
+   ]
+  },
+  {
+   "id": "submitted: \"Account created\" announced",
+   "ok": true,
+   "detail": [
+    {
+     "depth": 5,
+     "role": "status",
+     "name": "",
+     "props": {
+      "live": "polite",
+      "atomic": true,
+      "relevant": "additions text"
+     }
+    },
+    {
+     "depth": 5,
+     "role": "status",
+     "name": "",
+     "props": {
+      "live": "polite",
+      "atomic": true,
+      "relevant": "additions text"
+     }
+    },
+    {
+     "depth": 4,
+     "role": "status",
+     "name": "Account created",
+     "props": {
+      "live": "polite",
+      "atomic": true,
+      "relevant": "additions text"
+     }
+    }
+   ]
+  }
+ ]
+}

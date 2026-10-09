@@ -1,0 +1,11 @@
+wgpu ['30.0.1'] OK
+vello_cpu ['0.3.0'] OK
+vello_gpu ['0.3.0'] OK
+parley ['0.11.1'] OK
+fontique ['0.11.1'] OK
+harfrust ['0.12.0'] OK
+skrifa ['0.44.0'] OK
+accesskit ['0.25.1'] OK
+glifo ['0.4.0'] OK
+accesskit_winit None (not a dependency of pvc-runtime; native host)
+winit None (not a dependency of pvc-runtime; native host)

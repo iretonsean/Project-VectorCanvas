@@ -1,0 +1,252 @@
+pvc-web v0.0.1 (/workspace/dev_work/dev-web/pvc-web)
+├── accesskit v0.25.1
+│   └── uuid v1.27.0
+├── js-sys v0.3.106
+│   ├── cfg-if v1.0.5
+│   ├── futures-util v0.3.34
+│   │   ├── futures-core v0.3.34
+│   │   ├── futures-task v0.3.34
+│   │   ├── pin-project-lite v0.2.17
+│   │   └── slab v0.4.12
+│   └── wasm-bindgen v0.2.129
+│       ├── cfg-if v1.0.5
+│       ├── once_cell v1.21.4
+│       ├── wasm-bindgen-macro v0.2.129 (proc-macro)
+│       │   ├── quote v1.0.47
+│       │   │   └── proc-macro2 v1.0.107
+│       │   │       └── unicode-ident v1.0.26
+│       │   └── wasm-bindgen-macro-support v0.2.129
+│       │       ├── bumpalo v3.20.3
+│       │       ├── proc-macro2 v1.0.107 (*)
+│       │       ├── quote v1.0.47 (*)
+│       │       ├── syn v3.0.6
+│       │       │   ├── proc-macro2 v1.0.107 (*)
+│       │       │   ├── quote v1.0.47 (*)
+│       │       │   └── unicode-ident v1.0.26
+│       │       └── wasm-bindgen-shared v0.2.129
+│       │           └── unicode-ident v1.0.26
+│       └── wasm-bindgen-shared v0.2.129
+│           └── unicode-ident v1.0.26
+├── pvc-ir v0.1.0 (/workspace/dev_work/dev-ir/pvc-ir)
+│   ├── ed25519-dalek v2.2.0
+│   │   ├── curve25519-dalek v4.1.3
+│   │   │   ├── cfg-if v1.0.5
+│   │   │   ├── digest v0.10.7
+│   │   │   │   ├── block-buffer v0.10.4
+│   │   │   │   │   └── generic-array v0.14.7
+│   │   │   │   │       └── typenum v1.20.1
+│   │   │   │   └── crypto-common v0.1.7
+│   │   │   │       ├── generic-array v0.14.7 (*)
+│   │   │   │       └── typenum v1.20.1
+│   │   │   ├── subtle v2.6.1
+│   │   │   └── zeroize v1.9.1
+│   │   ├── ed25519 v2.2.3
+│   │   │   └── signature v2.2.0
+│   │   ├── sha2 v0.10.9
+│   │   │   ├── cfg-if v1.0.5
+│   │   │   └── digest v0.10.7 (*)
+│   │   ├── subtle v2.6.1
+│   │   └── zeroize v1.9.1
+│   ├── icu_normalizer v2.3.0
+│   │   ├── icu_collections v2.3.0
+│   │   │   ├── displaydoc v0.2.7 (proc-macro)
+│   │   │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   ├── quote v1.0.47 (*)
+│   │   │   │   └── syn v3.0.6 (*)
+│   │   │   ├── potential_utf v0.1.6
+│   │   │   │   ├── writeable v0.6.4
+│   │   │   │   └── zerovec v0.11.8
+│   │   │   │       ├── yoke v0.8.3
+│   │   │   │       │   ├── stable_deref_trait v1.2.1
+│   │   │   │       │   ├── yoke-derive v0.8.4 (proc-macro)
+│   │   │   │       │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   │       │   │   ├── quote v1.0.47 (*)
+│   │   │   │       │   │   ├── syn v3.0.6 (*)
+│   │   │   │       │   │   └── synstructure v0.14.0
+│   │   │   │       │   │       ├── proc-macro2 v1.0.107 (*)
+│   │   │   │       │   │       ├── quote v1.0.47 (*)
+│   │   │   │       │   │       └── syn v3.0.6 (*)
+│   │   │   │       │   └── zerofrom v0.1.8
+│   │   │   │       │       └── zerofrom-derive v0.1.8 (proc-macro)
+│   │   │   │       │           ├── proc-macro2 v1.0.107 (*)
+│   │   │   │       │           ├── quote v1.0.47 (*)
+│   │   │   │       │           ├── syn v3.0.6 (*)
+│   │   │   │       │           └── synstructure v0.14.0 (*)
+│   │   │   │       ├── zerofrom v0.1.8 (*)
+│   │   │   │       └── zerovec-derive v0.11.6 (proc-macro)
+│   │   │   │           ├── proc-macro2 v1.0.107 (*)
+│   │   │   │           ├── quote v1.0.47 (*)
+│   │   │   │           └── syn v3.0.6 (*)
+│   │   │   ├── utf8_iter v1.0.4
+│   │   │   ├── yoke v0.8.3 (*)
+│   │   │   ├── zerofrom v0.1.8 (*)
+│   │   │   └── zerovec v0.11.8 (*)
+│   │   ├── icu_normalizer_data v2.3.0
+│   │   ├── icu_provider v2.3.1
+│   │   │   ├── displaydoc v0.2.7 (proc-macro) (*)
+│   │   │   ├── icu_locale_core v2.3.0
+│   │   │   │   ├── displaydoc v0.2.7 (proc-macro) (*)
+│   │   │   │   ├── litemap v0.8.3
+│   │   │   │   ├── tinystr v0.8.4
+│   │   │   │   │   ├── displaydoc v0.2.7 (proc-macro) (*)
+│   │   │   │   │   └── zerovec v0.11.8 (*)
+│   │   │   │   ├── writeable v0.6.4
+│   │   │   │   └── zerovec v0.11.8 (*)
+│   │   │   ├── stable_deref_trait v1.2.1
+│   │   │   ├── writeable v0.6.4
+│   │   │   ├── yoke v0.8.3 (*)
+│   │   │   ├── zerofrom v0.1.8 (*)
+│   │   │   ├── zerotrie v0.2.5
+│   │   │   │   ├── displaydoc v0.2.7 (proc-macro) (*)
+│   │   │   │   ├── yoke v0.8.3 (*)
+│   │   │   │   └── zerofrom v0.1.8 (*)
+│   │   │   └── zerovec v0.11.8 (*)
+│   │   ├── smallvec v1.16.2
+│   │   ├── utf16_iter v1.0.5
+│   │   ├── utf8_iter v1.0.4
+│   │   ├── write16 v1.0.0
+│   │   └── zerovec v0.11.8 (*)
+│   └── sha2 v0.10.9 (*)
+├── pvc-runtime v0.0.1 (/workspace/dev_work/dev-render/pvc-runtime)
+│   ├── accesskit v0.25.1 (*)
+│   ├── fontique v0.11.1
+│   │   ├── hashbrown v0.17.1
+│   │   │   └── foldhash v0.2.0
+│   │   ├── linebender_resource_handle v0.1.1
+│   │   ├── memmap2 v0.9.11
+│   │   ├── parlance v0.1.0
+│   │   ├── read-fonts v0.41.0
+│   │   │   ├── bytemuck v1.25.2
+│   │   │   │   └── bytemuck_derive v1.12.1 (proc-macro)
+│   │   │   │       ├── proc-macro2 v1.0.107 (*)
+│   │   │   │       ├── quote v1.0.47 (*)
+│   │   │   │       └── syn v3.0.6 (*)
+│   │   │   ├── font-types v0.12.6
+│   │   │   │   └── bytemuck v1.25.2 (*)
+│   │   │   └── once_cell v1.21.4
+│   │   └── smallvec v1.16.2
+│   ├── glifo v0.4.0
+│   │   ├── bytemuck v1.25.2 (*)
+│   │   ├── foldhash v0.2.0
+│   │   ├── hashbrown v0.17.1 (*)
+│   │   ├── log v0.4.34
+│   │   ├── peniko v0.6.1
+│   │   │   ├── bytemuck v1.25.2 (*)
+│   │   │   ├── color v0.3.3
+│   │   │   │   └── bytemuck v1.25.2 (*)
+│   │   │   ├── kurbo v0.13.1
+│   │   │   │   ├── arrayvec v0.7.8
+│   │   │   │   ├── polycool v0.4.0
+│   │   │   │   │   └── arrayvec v0.7.8
+│   │   │   │   └── smallvec v1.16.2
+│   │   │   ├── linebender_resource_handle v0.1.1
+│   │   │   └── smallvec v1.16.2
+│   │   ├── skrifa v0.44.0
+│   │   │   ├── bytemuck v1.25.2 (*)
+│   │   │   └── read-fonts v0.41.0 (*)
+│   │   ├── smallvec v1.16.2
+│   │   └── vello_common v0.3.0
+│   │       ├── bytemuck v1.25.2 (*)
+│   │       ├── fearless_simd v0.7.0
+│   │       ├── guillotiere v0.7.0
+│   │       │   └── euclid v0.22.14
+│   │       │       └── num-traits v0.2.19
+│   │       │           └── libm v0.2.16
+│   │       ├── log v0.4.34
+│   │       ├── peniko v0.6.1 (*)
+│   │       ├── smallvec v1.16.2
+│   │       └── thiserror v2.0.21
+│   │           └── thiserror-impl v2.0.21 (proc-macro)
+│   │               ├── proc-macro2 v1.0.107 (*)
+│   │               ├── quote v1.0.47 (*)
+│   │               └── syn v3.0.6 (*)
+│   ├── harfrust v0.12.0
+│   │   ├── bitflags v2.13.2
+│   │   ├── bytemuck v1.25.2 (*)
+│   │   ├── read-fonts v0.41.0 (*)
+│   │   └── smallvec v1.16.2
+│   ├── parley v0.11.1
+│   │   ├── fontique v0.11.1 (*)
+│   │   ├── harfrust v0.12.0 (*)
+│   │   ├── hashbrown v0.17.1 (*)
+│   │   ├── icu_normalizer v2.3.0 (*)
+│   │   ├── icu_properties v2.3.0
+│   │   │   ├── displaydoc v0.2.7 (proc-macro) (*)
+│   │   │   ├── icu_collections v2.3.0 (*)
+│   │   │   ├── icu_locale_core v2.3.0 (*)
+│   │   │   ├── icu_properties_data v2.3.0
+│   │   │   ├── icu_provider v2.3.1 (*)
+│   │   │   ├── zerotrie v0.2.5 (*)
+│   │   │   └── zerovec v0.11.8 (*)
+│   │   ├── icu_segmenter v2.3.0
+│   │   │   ├── icu_collections v2.3.0 (*)
+│   │   │   ├── icu_locale_fallback v2.3.0
+│   │   │   │   ├── icu_locale_core v2.3.0 (*)
+│   │   │   │   ├── icu_locale_fallback_data v2.3.0
+│   │   │   │   ├── icu_provider v2.3.1 (*)
+│   │   │   │   ├── potential_utf v0.1.6 (*)
+│   │   │   │   ├── tinystr v0.8.4 (*)
+│   │   │   │   └── zerovec v0.11.8 (*)
+│   │   │   ├── icu_provider v2.3.1 (*)
+│   │   │   ├── icu_segmenter_data v2.3.0
+│   │   │   ├── potential_utf v0.1.6 (*)
+│   │   │   ├── smallvec v1.16.2
+│   │   │   ├── utf8_iter v1.0.4
+│   │   │   └── zerovec v0.11.8 (*)
+│   │   ├── linebender_resource_handle v0.1.1
+│   │   ├── parlance v0.1.0
+│   │   ├── parley_data v0.11.1
+│   │   │   └── icu_properties v2.3.0 (*)
+│   │   └── skrifa v0.44.0 (*)
+│   ├── pvc-ir v0.1.0 (/workspace/dev_work/dev-ir/pvc-ir) (*)
+│   ├── skrifa v0.44.0 (*)
+│   └── vello_gpu v0.3.0
+│       ├── bytemuck v1.25.2 (*)
+│       ├── glifo v0.4.0 (*)
+│       ├── hashbrown v0.17.1 (*)
+│       ├── js-sys v0.3.106 (*)
+│       ├── log v0.4.34
+│       ├── thiserror v2.0.21 (*)
+│       ├── vello_common v0.3.0 (*)
+│       ├── vello_gpu_shaders v0.3.0
+│       │   └── naga v30.0.1
+│       │       ├── arrayvec v0.7.8
+│       │       ├── bit-set v0.10.0
+│       │       │   └── bit-vec v0.9.1
+│       │       ├── bitflags v2.13.2
+│       │       ├── cfg-if v1.0.5
+│       │       ├── codespan-reporting v0.13.1
+│       │       │   └── unicode-width v0.2.2
+│       │       ├── half v2.7.1
+│       │       │   ├── cfg-if v1.0.5
+│       │       │   ├── num-traits v0.2.19 (*)
+│       │       │   └── zerocopy v0.8.62
+│       │       │       └── zerocopy-derive v0.8.62 (proc-macro)
+│       │       │           ├── proc-macro2 v1.0.107 (*)
+│       │       │           ├── quote v1.0.47 (*)
+│       │       │           └── syn v2.0.119
+│       │       │               ├── proc-macro2 v1.0.107 (*)
+│       │       │               ├── quote v1.0.47 (*)
+│       │       │               └── unicode-ident v1.0.26
+│       │       ├── hashbrown v0.17.1 (*)
+│       │       ├── indexmap v2.14.2
+│       │       │   ├── equivalent v1.0.2
+│       │       │   └── hashbrown v0.17.1 (*)
+│       │       ├── libm v0.2.16
+│       │       ├── log v0.4.34
+│       │       ├── naga-types v30.0.1
+│       │       │   ├── hashbrown v0.17.1 (*)
+│       │       │   ├── indexmap v2.14.2 (*)
+│       │       │   ├── rustc-hash v1.1.0
+│       │       │   └── thiserror v2.0.21 (*)
+│       │       ├── num-traits v0.2.19 (*)
+│       │       ├── once_cell v1.21.4
+│       │       ├── rustc-hash v1.1.0
+│       │       ├── thiserror v2.0.21 (*)
+│       │       └── unicode-ident v1.0.26
+│       └── web-sys v0.3.106
+│           ├── js-sys v0.3.106 (*)
+│           └── wasm-bindgen v0.2.129 (*)
+├── vello_gpu v0.3.0 (*)
+├── wasm-bindgen v0.2.129 (*)
+└── web-sys v0.3.106 (*)

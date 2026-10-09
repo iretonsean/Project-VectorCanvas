@@ -1,0 +1,11 @@
+# A7 golden parity results
+- Bound: `/workspace/dev_work/dev-render/TOLERANCE.md` (sha256 0e6f1c8aaae1ba07df9c83a39c82d7ae3234c276bed87ef0534b00578356f6f7, committed by the Orchestrator as d2f4f24 before this run).
+- `results.md` / `results.json`: verdict table (mean, p99.9, max FLIP; px not identical; max channel diff), produced by `tools/golden_compare.py`.
+- `<state>.<path>.png`: renders (paths: `tier0c-vello_cpu` = reference, `gl-llvmpipe`, `web-webgl2`). `<state>.<path>.flip.png`: FLIP error map (black→pale-yellow ramp, not NVIDIA's magma LUT). `<state>.<path>.absdiff_x8.png`: |difference|×8.
+- `inputs/` native renders + `fingerprints.native.txt` + display-list dumps; `inputs_web/` web renders + `fingerprints.web.json` (browser 141.0.7390.37, `navigator.gpu` undefined, renderer ANGLE/Vulkan/SwiftShader).
+- `DIAGNOSIS_posthoc.md`: post-hoc analysis; does not change verdicts.
+- Host labels: Tier 0 = `host=container-xeon4 / tier0c-vello_cpu`; `host=container-xeon4 / gl-llvmpipe` (Mesa 25.2.8 llvmpipe, wgpu 30.0.1 GL, downlevel_webgl2_defaults); `host=container-xeon4 / chromium141-webgl2-swiftshader`. loadavg at render start: `loadavg_native_render.txt`, `loadavg_web_render.txt`.
+- Specimens: L01.pvca sha256 b86a4f7414a26c821f0a821c4291533ae93ef25d9110510af5bb24d936347813, F01.pvca 88dfb47cfa84a786eeff91149c9036a5e2990c0aafe7e7283707fdb164211139 (live dev-ir, re-signed with bundle font hashes).
+- Not run: Firefox, DSF≠1, any real GPU. Web states are produced by the same runtime API calls compiled to wasm32 (not through dev-web's overlay/CDP IME page).
+- Disclosure: before TOLERANCE.md existed I eyeballed one L01 render from vello_cpu and one from GL (no metric).
+- `hostpage/`: supplementary rows — the same states captured from dev-web's real host page (`window.__pvcGoldenCapture`, gl.readPixels, mirror + overlays present) as `web-webgl2-hostpage`, input in `inputs_devweb/`. Only the three states whose display-list fingerprint equals the native one are compared (L01_idle, F01_empty, F01_error). `F01_zhCN_preedit` there uses a different input script (fingerprint c73f5169… ≠ native c8e53320…), so per TOLERANCE §6.3 that comparison is void and not reported.

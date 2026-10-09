@@ -1,0 +1,46 @@
+{
+ "requests": [
+  {
+   "method": "GET",
+   "url": "http://127.0.0.1:40487/index.html?scenario=ptr-move&variant=raf&mirror=on&specimen=L01&locale=en",
+   "resourceType": "document"
+  },
+  {
+   "method": "GET",
+   "url": "http://127.0.0.1:40487/boot.js",
+   "resourceType": "script"
+  },
+  {
+   "method": "GET",
+   "url": "http://127.0.0.1:40487/pkg/pvc_web.js",
+   "resourceType": "script"
+  },
+  {
+   "method": "GET",
+   "url": "http://127.0.0.1:40487/pkg/pvc_web_bg.wasm",
+   "resourceType": "fetch"
+  },
+  {
+   "method": "GET",
+   "url": "http://127.0.0.1:40487/fonts/DejaVuSans.ttf",
+   "resourceType": "font"
+  },
+  {
+   "method": "GET",
+   "url": "http://127.0.0.1:40487/artifacts/L01.signed",
+   "resourceType": "fetch"
+  }
+ ],
+ "audit": {
+  "total": 6,
+  "origin": "http://127.0.0.1:40487",
+  "offOrigin": [],
+  "nonGet": [],
+  "fetchXhrUrls": [
+   "/pkg/pvc_web_bg.wasm",
+   "/artifacts/L01.signed"
+  ],
+  "fetchOutsideStaticAssets": [],
+  "pass": true
+ }
+}

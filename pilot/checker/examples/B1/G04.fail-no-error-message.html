@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cart</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="[overflow-wrap:anywhere] bg-white text-slate-900 p-4">
+<main class="max-w-lg mx-auto">
+  <h1 class="text-2xl font-bold mb-4">Cart</h1>
+  <ul id="lines" class="flex flex-col gap-2 mb-4"></ul>
+  <form id="promo" class="flex gap-2 mb-4">
+    <label for="code" class="sr-only">Promo code</label>
+    <input id="code" class="flex-1 min-w-0 border border-slate-500 rounded px-2 py-1" placeholder="Promo code">
+    <button class="border border-slate-700 rounded px-3 py-1">Apply</button>
+  </form>
+  <p id="err" role="alert" class="text-red-800 mb-2"></p>
+  <dl class="grid grid-cols-2 gap-1">
+    <dt>Subtotal</dt><dd id="sub" class="text-right"></dd>
+    <dt>Discount</dt><dd id="disc" class="text-right"></dd>
+    <dt>Tax</dt><dd id="tax" class="text-right"></dd>
+    <dt class="font-bold">Total</dt><dd id="total" class="text-right font-bold"></dd>
+  </dl>
+</main>
+<script>
+  let items = [{ n: 'Notebook', c: 499, q: 1 }, { n: 'Pen', c: 125, q: 1 }, { n: 'Backpack', c: 1990, q: 1 }], promo = false;
+  const $ = id => document.getElementById(id), money = c => '$' + Math.floor(c / 100) + '.' + String(c % 100).padStart(2, '0');
+  function render() {
+    const ul = $('lines'); ul.innerHTML = '';
+    for (const it of items) {
+      const li = document.createElement('li'); li.className = 'flex items-center gap-2 flex-wrap';
+      li.innerHTML = '<span class="flex-1 min-w-[6rem]"></span><span></span>';
+      li.children[0].textContent = it.n; li.children[1].textContent = money(it.c);
+      const mk = (t, label, fn) => { const b = document.createElement('button'); b.textContent = t; b.setAttribute('aria-label', label); b.className = 'border border-slate-700 rounded px-2'; b.onclick = fn; return b; };
+      const q = document.createElement('span'); q.textContent = it.q; q.setAttribute('aria-label', 'Quantity');
+      li.append(mk('−', 'Decrease quantity', () => { if (it.q > 1) it.q--; render(); }), q, mk('+', 'Increase quantity', () => { it.q++; render(); }), mk('Remove', 'Remove', () => { items = items.filter(x => x !== it); render(); }));
+      ul.append(li);
+    }
+    const sub = items.reduce((a, i) => a + i.c * i.q, 0), disc = promo ? Math.floor((sub * 10 + 50) / 100) : 0, base = sub - disc, tax = Math.floor((base * 825 + 5000) / 10000);
+    $('sub').textContent = money(sub); $('disc').textContent = money(disc); $('tax').textContent = money(tax); $('total').textContent = money(base + tax);
+  }
+  $('promo').onsubmit = e => { e.preventDefault(); const v = $('code').value.trim(); if (v === 'SAVE10') { promo = true; $('err').textContent = ''; } else $('err').textContent = ''; render(); };
+  render();
+</script>
+</body>
+</html>

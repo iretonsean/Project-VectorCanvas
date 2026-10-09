@@ -1,0 +1,17 @@
+{"listening": true, "t": 1791506366.109}
+{"t": 1791506367.745, "type": "object:state-changed:focusable", "detail1": 0, "detail2": 0, "any_data": 0, "source_role": "frame", "source_name": ""}
+{"t": 1791506367.746, "type": "object:state-changed:focused", "detail1": 1, "detail2": 0, "any_data": 0, "source_role": "entry", "source_name": "Full name"}
+{"t": 1791506367.747, "type": "object:state-changed:focused", "detail1": 0, "detail2": 0, "any_data": 0, "source_role": "frame", "source_name": ""}
+{"t": 1791506367.954, "type": "object:state-changed:focused", "detail1": 1, "detail2": 0, "any_data": 0, "source_role": "entry", "source_name": "Email"}
+{"t": 1791506367.954, "type": "object:state-changed:focused", "detail1": 0, "detail2": 0, "any_data": 0, "source_role": "entry", "source_name": "Full name"}
+{"t": 1791506368.096, "type": "object:state-changed:focused", "detail1": 1, "detail2": 0, "any_data": 0, "source_role": "password text", "source_name": "Password"}
+{"t": 1791506368.096, "type": "object:state-changed:focused", "detail1": 0, "detail2": 0, "any_data": 0, "source_role": "entry", "source_name": "Email"}
+{"t": 1791506368.268, "type": "object:state-changed:focused", "detail1": 1, "detail2": 0, "any_data": 0, "source_role": "toggle button", "source_name": "Show password"}
+{"t": 1791506368.268, "type": "object:state-changed:focused", "detail1": 0, "detail2": 0, "any_data": 0, "source_role": "password text", "source_name": "Password"}
+{"t": 1791506368.44, "type": "object:state-changed:focused", "detail1": 1, "detail2": 0, "any_data": 0, "source_role": "check box", "source_name": "I accept the terms of service"}
+{"t": 1791506368.44, "type": "object:state-changed:focused", "detail1": 0, "detail2": 0, "any_data": 0, "source_role": "toggle button", "source_name": "Show password"}
+{"t": 1791506368.644, "type": "object:state-changed:checked", "detail1": 1, "detail2": 0, "any_data": 0, "source_role": "check box", "source_name": "I accept the terms of service"}
+{"t": 1791506369.47, "type": "object:state-changed:focused", "detail1": 1, "detail2": 0, "any_data": 0, "source_role": "entry", "source_name": "Email"}
+{"t": 1791506369.47, "type": "object:state-changed:focused", "detail1": 0, "detail2": 0, "any_data": 0, "source_role": "check box", "source_name": "I accept the terms of service"}
+{"t": 1791506369.78, "type": "object:property-change:accessible-name", "detail1": 0, "detail2": 0, "any_data": "Enter a valid email address, like name@example.com", "source_role": "status bar", "source_name": "Enter a valid email address, like name@example.com"}
+{"t": 1791506369.78, "type": "object:announcement", "detail1": 1, "detail2": 0, "any_data": "Enter a valid email address, like name@example.com", "source_role": "status bar", "source_name": "Enter a valid email address, like name@example.com"}

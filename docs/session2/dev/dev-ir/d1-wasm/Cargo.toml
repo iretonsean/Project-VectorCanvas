@@ -1,0 +1,14 @@
+[package]
+name = "pvc-ir-d1-wasm"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+pvc-ir = { path = "../pvc-ir" }
+
+[profile.release]
+opt-level = "s"

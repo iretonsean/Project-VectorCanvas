@@ -1,0 +1,8 @@
+{
+ "pass": true,
+ "summary": {
+  "error": "Runtime::from_signed: Ir(\"signature verification failed: refusing to load\")",
+  "frames_presented": 0,
+  "artifact": "artifacts/F01.tampered (18897 bytes)"
+ }
+}

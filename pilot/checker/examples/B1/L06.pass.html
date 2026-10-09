@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Settings</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="[overflow-wrap:anywhere] bg-white text-slate-900 p-4">
+<main class="max-w-xl mx-auto">
+  <h1 class="text-2xl font-bold mb-6">Settings</h1>
+  <section class="mb-8">
+    <h2 class="text-lg font-semibold mb-2">Account</h2>
+    <div class="flex items-center justify-between py-2"><label for="s-name">Display name</label><input id="s-name" type="text" class="border border-slate-500 rounded px-2 py-1 w-40 max-w-[45%]"></div>
+    <div class="flex items-center justify-between py-2"><label for="s-mail">Email</label><input id="s-mail" type="text" class="border border-slate-500 rounded px-2 py-1 w-40 max-w-[45%]"></div>
+  </section>
+  <section class="mb-8">
+    <h2 class="text-lg font-semibold mb-2">Notifications</h2>
+    <div class="flex items-center justify-between py-2"><label for="s-n1">Email notifications</label><input id="s-n1" type="checkbox" class="h-5 w-5"></div>
+    <div class="flex items-center justify-between py-2"><label for="s-n2">Push notifications</label><input id="s-n2" type="checkbox" class="h-5 w-5"></div>
+  </section>
+  <section>
+    <h2 class="text-lg font-semibold mb-2">Appearance</h2>
+    <div class="flex items-center justify-between py-2"><label for="s-theme">Theme</label>
+      <select id="s-theme" class="border border-slate-500 rounded px-2 py-1 w-40 max-w-[45%]"><option>Light</option><option>Dark</option></select></div>
+    <div class="flex items-center justify-between py-2"><label for="s-dense">Compact layout</label><input id="s-dense" type="checkbox" class="h-5 w-5"></div>
+  </section>
+</main>
+</body>
+</html>

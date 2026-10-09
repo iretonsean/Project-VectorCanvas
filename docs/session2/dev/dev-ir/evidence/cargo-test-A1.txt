@@ -1,0 +1,95 @@
+# cargo test (pvc-ir), 2026-10-08T23:44:46Z, host=container-xeon4, cargo 1.97.0 (c980f4866 2026-06-30)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.13s
+     Running unittests src/lib.rs (target/debug/deps/pvc_ir-192811f43f56668a)
+
+running 2 tests
+test pred::tests::nfc_composes ... ok
+test pred::tests::email_rule ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/bin/pvc-compile.rs (target/debug/deps/pvc_compile-adac06c8e11e35c9)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/bin/pvc-validate.rs (target/debug/deps/pvc_validate-221b1386e26c6b83)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/d1_and_tamper.rs (target/debug/deps/d1_and_tamper-23e0ede8b865399b)
+
+running 11 tests
+test garbage_frames_are_refused ... ok
+test canonical_roundtrip_is_exact ... ok
+test committed_artifacts_match_a_fresh_compile ... ok
+test nfc_strings_in_canonical_form ... ok
+test non_canonical_but_signed_body_is_refused ... ok
+test d1_same_input_same_bytes_across_runs ... ok
+test load_signed_accepts_good_artifact ... ok
+test whitespace_and_layout_of_terse_input_does_not_change_canonical_bytes ... ok
+test single_flipped_byte_is_refused ... ok
+test wrong_signer_is_refused ... ok
+test x24_tampered_manifest_is_refused ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.33s
+
+     Running tests/diagnostics.rs (target/debug/deps/diagnostics-52705382714c7adc)
+
+running 14 tests
+test a11y_name_missing_or_empty ... ok
+test cap_undeclared_has_declare_fix ... ok
+test diagnostics_are_keys_not_prose_and_render_is_stable ... ok
+test good_minimal_input_is_clean ... ok
+test hard_wall_validator_has_no_io ... ok
+test inline_string_in_multi_locale_module_is_string_missing ... ok
+test parse_error_unterminated_block ... ok
+test ref_errors_state_effect_string ... ok
+test schema_error_missing_required_field_and_bad_type ... ok
+test schema_error_unknown_field_has_field_list_fix ... ok
+test string_missing_for_declared_locale ... ok
+test unknown_kind_suggests_nearest_std_component ... ok
+test unknown_token_type_id_action_and_system_font ... ok
+test parse_error_missing_header_and_bad_string ... ok
+
+test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/grammar.rs (target/debug/deps/grammar-76b96c660dcb697a)
+
+running 8 tests
+test net_capability_needs_hosts_and_methods ... ok
+test lexer_rules ... ok
+test row_col_column_and_implicit_surface ... ok
+test text_styles_and_headings ... ok
+test text_input_core_kind_and_change_handler ... ok
+test submit_button_outside_form_is_schema_error ... ok
+test lengths_tokens_and_rounding ... ok
+test versions_and_theme_are_checked ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/specimens.rs (target/debug/deps/specimens-cdacf404c9e38bba)
+
+running 9 tests
+test f01_email_validated_and_errors_announced ... ok
+test f01_submit_disabled_until_all_valid ... ok
+test f01_show_hide_toggles_masking_and_is_named ... ok
+test f01_u1_every_interactive_element_is_named_in_every_locale ... ok
+test f01_every_string_key_exists_in_both_locales_and_zh_is_actually_chinese ... ok
+test f01_submit_handler_is_guarded_and_sets_done ... ok
+test l01_checklist ... ok
+test p5_every_node_with_a_role_that_needs_a_name_has_one_after_expansion ... ok
+test u3_text_contrast_meets_aa_for_specimen_colour_pairs ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.21s
+
+   Doc-tests pvc_ir
+
+running 1 test
+test src/lib.rs - (line 5) ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.33s
+

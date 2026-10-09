@@ -1,0 +1,23 @@
+<!doctype html><meta charset="utf-8"><title>pvc golden web</title>
+<canvas id="c" width="1366" height="768"></canvas>
+<script type="module">
+import init, { golden } from './pkg/pvc_golden_web.js';
+window.__ready = false;
+(async () => {
+  try {
+    await init();
+    const l01 = new Uint8Array(await (await fetch('L01.pvca')).arrayBuffer());
+    const f01 = new Uint8Array(await (await fetch('F01.pvca')).arrayBuffer());
+    window.__golden = (state) => {
+      const meta = JSON.parse(golden('c', state, l01, f01));
+      const c = document.getElementById('c');
+      const gl = c.getContext('webgl2');
+      const ext = gl && gl.getExtension('WEBGL_debug_renderer_info');
+      meta.renderer = ext ? gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) : (gl ? gl.getParameter(gl.RENDERER) : 'none');
+      meta.png = c.toDataURL('image/png');
+      return meta;
+    };
+    window.__ready = true;
+  } catch (e) { window.__error = String(e); }
+})();
+</script>

@@ -1,0 +1,46 @@
+{
+ "requests": [
+  {
+   "method": "GET",
+   "url": "http://127.0.0.1:36081/index.html?scenario=tamper&variant=raf&mirror=on&specimen=F01&locale=en&artifact=F01.tampered",
+   "resourceType": "document"
+  },
+  {
+   "method": "GET",
+   "url": "http://127.0.0.1:36081/boot.js",
+   "resourceType": "script"
+  },
+  {
+   "method": "GET",
+   "url": "http://127.0.0.1:36081/pkg/pvc_web.js",
+   "resourceType": "script"
+  },
+  {
+   "method": "GET",
+   "url": "http://127.0.0.1:36081/pkg/pvc_web_bg.wasm",
+   "resourceType": "fetch"
+  },
+  {
+   "method": "GET",
+   "url": "http://127.0.0.1:36081/fonts/DejaVuSans.ttf",
+   "resourceType": "font"
+  },
+  {
+   "method": "GET",
+   "url": "http://127.0.0.1:36081/artifacts/F01.tampered",
+   "resourceType": "fetch"
+  }
+ ],
+ "audit": {
+  "total": 6,
+  "origin": "http://127.0.0.1:36081",
+  "offOrigin": [],
+  "nonGet": [],
+  "fetchXhrUrls": [
+   "/pkg/pvc_web_bg.wasm",
+   "/artifacts/F01.tampered"
+  ],
+  "fetchOutsideStaticAssets": [],
+  "pass": true
+ }
+}

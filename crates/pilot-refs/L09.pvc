@@ -1,0 +1,24 @@
+// L09 reference
+pvc 0.1 use std@0.1 theme light
+fonts std
+cap open-url.main urls=["https://example.com/"]
+state { email: text }
+surface pad=none align=stretch {
+  col w=fill gap=lg pad=lg fill=surface {
+    grid cols=4 gap=lg w=fill md.cols=1 {
+      col gap=xs { text "Product" bold heading=2; link "Features" href="https://example.com/features"; link "Pricing" href="https://example.com/pricing"; link "Changelog" href="https://example.com/changelog" }
+      col gap=xs { text "Company" bold heading=2; link "About" href="https://example.com/about"; link "Careers" href="https://example.com/careers"; link "Press" href="https://example.com/press" }
+      col gap=xs { text "Resources" bold heading=2; link "Docs" href="https://example.com/docs"; link "Guides" href="https://example.com/guides"; link "Support" href="https://example.com/support" }
+      col gap=xs { text "Legal" bold heading=2; link "Privacy" href="https://example.com/privacy"; link "Terms" href="https://example.com/terms"; link "Security" href="https://example.com/security" }
+    }
+    col gap=sm w=fill {
+      field "Email" bind=email kind=email
+      button "Subscribe" on.press={ }
+    }
+    row gap=md {
+      link name="Follow us on Twitter" href="https://example.com/twitter" { shape circle w=24 h=24 fill=fg decorative }
+      link name="Follow us on GitHub" href="https://example.com/github" { shape rounded w=24 h=24 fill=fg decorative }
+    }
+    text "2026 Acme Inc. All rights reserved." muted size=12
+  }
+}
