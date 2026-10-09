@@ -1,0 +1,13 @@
+# dev-native hook-sanity summary (computed from evidence/sanity_shared_lock/*/{trace.csv,meta.json}); SHARED CPU lock only, other Developers' jobs were running; NOT measurements. host=container-xeon4; path per dir (gl=gl-llvmpipe, cpu=tier0c-vello_cpu mode=windowed+GL blit). release binary (sha not recorded at run time). Percentiles of completion_ms over rows with event != init/idle_redraw after dropping first 10 (if >20 rows).
+cpu/checkbox | frames 101 events 204 | n 90 p50 10.0 p95 13.26 max 20.2 | VmHWM kB 137660 | first_frame_ms(main entry) 87 | loadavg: 0.98 1.67 2.79 1/206 16597
+cpu/idle | frames 1 events 3 | n 0 p50 None p95 None max None | VmHWM kB 137232 | first_frame_ms(main entry) 98 | loadavg: 1.06 1.71 2.81 1/205 15461
+cpu/ptr-move-L01 | frames 1 events 404 | n 0 p50 None p95 None max None | VmHWM kB 137356 | first_frame_ms(main entry) 102 | loadavg: 0.53 1.42 2.63 1/207 23218
+cpu/tab | frames 62 events 87 | n 51 p50 11.13 p95 21.67 max 23.08 | VmHWM kB 137356 | first_frame_ms(main entry) 94 | loadavg: 0.65 1.50 2.68 1/205 20957
+cpu/toggle-show | frames 101 events 204 | n 90 p50 10.49 p95 15.96 max 25.01 | VmHWM kB 137716 | first_frame_ms(main entry) 104 | loadavg: 0.91 1.61 2.74 1/207 18812
+cpu/type-latin | frames 112 events 117 | n 101 p50 8.11 p95 10.58 max 12.59 | VmHWM kB 137532 | first_frame_ms(main entry) 104 | loadavg: 0.62 1.47 2.66 1/206 22144
+gl/checkbox | frames 102 events 204 | n 91 p50 6.95 p95 9.48 max 10.81 | VmHWM kB 139264 | first_frame_ms(main entry) 108 | loadavg: 0.61 1.93 3.00 1/211 31610
+gl/idle | frames 1 events 3 | n 0 p50 None p95 None max None | VmHWM kB 139388 | first_frame_ms(main entry) 120 | loadavg: 0.73 2.00 3.03 1/212 29411
+gl/ptr-move-L01 | frames 1 events 404 | n 0 p50 None p95 None max None | VmHWM kB 138472 | first_frame_ms(main entry) 120 | loadavg: 0.89 1.75 2.86 2/216 10560
+gl/tab | frames 62 events 87 | n 51 p50 6.86 p95 13.41 max 16.46 | VmHWM kB 139860 | first_frame_ms(main entry) 137 | loadavg: 0.46 1.73 2.88 1/210 6698
+gl/toggle-show | frames 102 events 204 | n 91 p50 7.2 p95 11.91 max 17.31 | VmHWM kB 140208 | first_frame_ms(main entry) 149 | loadavg: 0.64 1.85 2.95 3/167 2785
+gl/type-latin | frames 112 events 117 | n 101 p50 6.08 p95 11.93 max 13.83 | VmHWM kB 139368 | first_frame_ms(main entry) 117 | loadavg: 0.53 1.71 2.86 2/214 8702

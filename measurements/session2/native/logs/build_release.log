@@ -1,0 +1,13 @@
+   Compiling pvc-ir v0.1.0 (/workspace/dev_work/dev-ir/pvc-ir)
+   Compiling pvc-runtime v0.0.1 (/workspace/dev_work/dev-render/pvc-runtime)
+warning: unused import: `snap`
+ --> /workspace/dev_work/dev-render/pvc-runtime/src/runtime.rs:7:19
+  |
+7 | use crate::geom::{snap, Rect, Rgba};
+  |                   ^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+   Compiling pvc-native v0.0.0 (/workspace/dev_work/dev-native/pvc-native)
+warning: `pvc-runtime` (lib) generated 1 warning (run `cargo fix --lib -p pvc-runtime` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 49.43s

@@ -1,0 +1,11 @@
+application    'pvc-native'                 []
+  frame          'Sign up'                    [active,enabled,sensitive,showing,visible]
+    form           'Sign-up form'               [enabled,sensitive,showing,visible]
+      heading        'Create account'             [enabled,sensitive,showing,visible]
+      entry          'Name'                       [editable,enabled,focusable,required,selectable_text,sensitive,showing,single_line,visible]  text=''
+      entry          'Email'                      [editable,enabled,focusable,focused,required,selectable_text,sensitive,showing,single_line,visible]  text='bad'
+      password text  'Password'                   [editable,enabled,focusable,required,selectable_text,sensitive,showing,single_line,visible]  text=''
+      push button    'Show password'              [enabled,focusable,sensitive,showing,visible]
+      check box      'I accept the terms'         [checkable,checked,enabled,focusable,sensitive,showing,visible]
+      push button    'Create account'             [focusable,showing,visible]
+      status bar     'Enter a valid email address' [enabled,sensitive,showing,visible]

@@ -1,0 +1,7 @@
+2026-10-09T01:00:16Z
+cmd: /workspace/cargo-target/debug/pvc-native /workspace/dev_work/dev-ir/specimens/F01.pvca --locale en --renderer cpu
+scenario: checkbox
+loadavg: 6.58 2.97 1.14 6/151 2761
+DISPLAY=:77 XMODIFIERS=@im=fcitx DBUS=unix:path=/tmp/dbus-xvxr44QBwK,guid=e72f629e04f9ac9225180a786ac83c9d
+VmHWM_before_term: VmHWM: 162792 kB;VmRSS: 159304 kB;
+host_exit=0

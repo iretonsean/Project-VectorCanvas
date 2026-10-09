@@ -1,0 +1,13 @@
+gl idle rc=0
+gl checkbox rc=0
+gl toggle-show rc=0
+gl tab rc=0
+gl type-latin rc=0
+gl ptr-move-L01 rc=0
+cpu idle rc=0
+cpu checkbox rc=0
+cpu toggle-show rc=0
+cpu tab rc=0
+cpu type-latin rc=0
+cpu ptr-move-L01 rc=0
+ALLDONE

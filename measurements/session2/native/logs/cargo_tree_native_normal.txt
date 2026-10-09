@@ -1,0 +1,630 @@
+pvc-native v0.0.0 (/workspace/dev_work/dev-native/pvc-native)
+├── accesskit v0.25.1
+│   └── uuid v1.27.0
+│       └── serde_core v1.0.229
+├── accesskit_winit v0.34.1
+│   ├── accesskit v0.25.1 (*)
+│   ├── accesskit_unix v0.24.0
+│   │   ├── accesskit v0.25.1 (*)
+│   │   ├── accesskit_atspi_common v0.21.0
+│   │   │   ├── accesskit v0.25.1 (*)
+│   │   │   ├── accesskit_consumer v0.39.1
+│   │   │   │   ├── accesskit v0.25.1 (*)
+│   │   │   │   └── hashbrown v0.17.1
+│   │   │   │       └── foldhash v0.2.0
+│   │   │   ├── atspi-common v0.13.0
+│   │   │   │   ├── enumflags2 v0.7.12
+│   │   │   │   │   ├── enumflags2_derive v0.7.12 (proc-macro)
+│   │   │   │   │   │   ├── proc-macro2 v1.0.107
+│   │   │   │   │   │   │   └── unicode-ident v1.0.26
+│   │   │   │   │   │   ├── quote v1.0.47
+│   │   │   │   │   │   │   └── proc-macro2 v1.0.107 (*)
+│   │   │   │   │   │   └── syn v2.0.119
+│   │   │   │   │   │       ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   │   │       ├── quote v1.0.47 (*)
+│   │   │   │   │   │       └── unicode-ident v1.0.26
+│   │   │   │   │   └── serde v1.0.229
+│   │   │   │   │       ├── serde_core v1.0.229
+│   │   │   │   │       └── serde_derive v1.0.229 (proc-macro)
+│   │   │   │   │           ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   │           ├── quote v1.0.47 (*)
+│   │   │   │   │           └── syn v3.0.6
+│   │   │   │   │               ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   │               ├── quote v1.0.47 (*)
+│   │   │   │   │               └── unicode-ident v1.0.26
+│   │   │   │   ├── serde v1.0.229 (*)
+│   │   │   │   ├── static_assertions v1.1.0
+│   │   │   │   ├── zbus v5.19.0
+│   │   │   │   │   ├── async-broadcast v0.7.2
+│   │   │   │   │   │   ├── event-listener v5.4.2
+│   │   │   │   │   │   │   ├── parking v2.2.1
+│   │   │   │   │   │   │   └── pin-project-lite v0.2.17
+│   │   │   │   │   │   ├── event-listener-strategy v0.5.4
+│   │   │   │   │   │   │   ├── event-listener v5.4.2 (*)
+│   │   │   │   │   │   │   └── pin-project-lite v0.2.17
+│   │   │   │   │   │   ├── futures-core v0.3.34
+│   │   │   │   │   │   └── pin-project-lite v0.2.17
+│   │   │   │   │   ├── async-executor v1.14.0
+│   │   │   │   │   │   ├── async-task v4.7.1
+│   │   │   │   │   │   ├── concurrent-queue v2.5.0
+│   │   │   │   │   │   │   └── crossbeam-utils v0.8.23
+│   │   │   │   │   │   ├── fastrand v2.5.0
+│   │   │   │   │   │   ├── futures-lite v2.6.1
+│   │   │   │   │   │   │   ├── fastrand v2.5.0
+│   │   │   │   │   │   │   ├── futures-core v0.3.34
+│   │   │   │   │   │   │   ├── futures-io v0.3.34
+│   │   │   │   │   │   │   ├── parking v2.2.1
+│   │   │   │   │   │   │   └── pin-project-lite v0.2.17
+│   │   │   │   │   │   ├── pin-project-lite v0.2.17
+│   │   │   │   │   │   └── slab v0.4.12
+│   │   │   │   │   ├── async-io v2.6.0
+│   │   │   │   │   │   ├── cfg-if v1.0.5
+│   │   │   │   │   │   ├── concurrent-queue v2.5.0 (*)
+│   │   │   │   │   │   ├── futures-io v0.3.34
+│   │   │   │   │   │   ├── futures-lite v2.6.1 (*)
+│   │   │   │   │   │   ├── parking v2.2.1
+│   │   │   │   │   │   ├── polling v3.11.0
+│   │   │   │   │   │   │   ├── cfg-if v1.0.5
+│   │   │   │   │   │   │   └── rustix v1.1.5
+│   │   │   │   │   │   │       ├── bitflags v2.13.2
+│   │   │   │   │   │   │       └── linux-raw-sys v0.12.1
+│   │   │   │   │   │   ├── rustix v1.1.5 (*)
+│   │   │   │   │   │   └── slab v0.4.12
+│   │   │   │   │   ├── async-lock v3.4.2
+│   │   │   │   │   │   ├── event-listener v5.4.2 (*)
+│   │   │   │   │   │   ├── event-listener-strategy v0.5.4 (*)
+│   │   │   │   │   │   └── pin-project-lite v0.2.17
+│   │   │   │   │   ├── async-process v2.5.0
+│   │   │   │   │   │   ├── async-channel v2.5.0
+│   │   │   │   │   │   │   ├── concurrent-queue v2.5.0 (*)
+│   │   │   │   │   │   │   ├── event-listener-strategy v0.5.4 (*)
+│   │   │   │   │   │   │   ├── futures-core v0.3.34
+│   │   │   │   │   │   │   └── pin-project-lite v0.2.17
+│   │   │   │   │   │   ├── async-io v2.6.0 (*)
+│   │   │   │   │   │   ├── async-lock v3.4.2 (*)
+│   │   │   │   │   │   ├── async-signal v0.2.14
+│   │   │   │   │   │   │   ├── async-io v2.6.0 (*)
+│   │   │   │   │   │   │   ├── cfg-if v1.0.5
+│   │   │   │   │   │   │   ├── futures-core v0.3.34
+│   │   │   │   │   │   │   ├── futures-io v0.3.34
+│   │   │   │   │   │   │   ├── rustix v1.1.5 (*)
+│   │   │   │   │   │   │   └── signal-hook-registry v1.4.8
+│   │   │   │   │   │   │       ├── errno v0.3.14
+│   │   │   │   │   │   │       │   └── libc v0.2.190
+│   │   │   │   │   │   │       └── libc v0.2.190
+│   │   │   │   │   │   ├── async-task v4.7.1
+│   │   │   │   │   │   ├── cfg-if v1.0.5
+│   │   │   │   │   │   ├── event-listener v5.4.2 (*)
+│   │   │   │   │   │   ├── futures-lite v2.6.1 (*)
+│   │   │   │   │   │   └── rustix v1.1.5 (*)
+│   │   │   │   │   ├── async-recursion v1.2.0 (proc-macro)
+│   │   │   │   │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   │   │   ├── quote v1.0.47 (*)
+│   │   │   │   │   │   └── syn v3.0.6 (*)
+│   │   │   │   │   ├── async-task v4.7.1
+│   │   │   │   │   ├── async-trait v0.1.92 (proc-macro)
+│   │   │   │   │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   │   │   ├── quote v1.0.47 (*)
+│   │   │   │   │   │   └── syn v3.0.6 (*)
+│   │   │   │   │   ├── blocking v1.7.0
+│   │   │   │   │   │   ├── async-channel v2.5.0 (*)
+│   │   │   │   │   │   ├── async-task v4.7.1
+│   │   │   │   │   │   ├── futures-io v0.3.34
+│   │   │   │   │   │   ├── futures-lite v2.6.1 (*)
+│   │   │   │   │   │   └── piper v0.2.5
+│   │   │   │   │   │       ├── atomic-waker v1.1.2
+│   │   │   │   │   │       ├── fastrand v2.5.0
+│   │   │   │   │   │       └── futures-io v0.3.34
+│   │   │   │   │   ├── enumflags2 v0.7.12 (*)
+│   │   │   │   │   ├── event-listener v5.4.2 (*)
+│   │   │   │   │   ├── futures-core v0.3.34
+│   │   │   │   │   ├── futures-lite v2.6.1 (*)
+│   │   │   │   │   ├── hex v0.4.3
+│   │   │   │   │   ├── libc v0.2.190
+│   │   │   │   │   ├── ordered-stream v0.2.0
+│   │   │   │   │   │   ├── futures-core v0.3.34
+│   │   │   │   │   │   └── pin-project-lite v0.2.17
+│   │   │   │   │   ├── rustix v1.1.5 (*)
+│   │   │   │   │   ├── serde v1.0.229 (*)
+│   │   │   │   │   ├── serde_repr v0.1.21 (proc-macro)
+│   │   │   │   │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   │   │   ├── quote v1.0.47 (*)
+│   │   │   │   │   │   └── syn v3.0.6 (*)
+│   │   │   │   │   ├── tracing v0.1.44
+│   │   │   │   │   │   ├── pin-project-lite v0.2.17
+│   │   │   │   │   │   ├── tracing-attributes v0.1.31 (proc-macro)
+│   │   │   │   │   │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   │   │   │   ├── quote v1.0.47 (*)
+│   │   │   │   │   │   │   └── syn v2.0.119 (*)
+│   │   │   │   │   │   └── tracing-core v0.1.36
+│   │   │   │   │   │       └── once_cell v1.21.4
+│   │   │   │   │   ├── uuid v1.27.0 (*)
+│   │   │   │   │   ├── winnow v1.0.4
+│   │   │   │   │   ├── zbus_macros v5.19.0 (proc-macro)
+│   │   │   │   │   │   ├── proc-macro-crate v3.5.0
+│   │   │   │   │   │   │   └── toml_edit v0.25.16+spec-1.1.0
+│   │   │   │   │   │   │       ├── indexmap v2.14.2
+│   │   │   │   │   │   │       │   ├── equivalent v1.0.2
+│   │   │   │   │   │   │       │   └── hashbrown v0.17.1
+│   │   │   │   │   │   │       │       └── foldhash v0.2.0
+│   │   │   │   │   │   │       ├── toml_datetime v1.1.2+spec-1.1.0
+│   │   │   │   │   │   │       ├── toml_parser v1.1.4+spec-1.1.0
+│   │   │   │   │   │   │       │   └── winnow v1.0.4
+│   │   │   │   │   │   │       └── winnow v1.0.4
+│   │   │   │   │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   │   │   ├── quote v1.0.47 (*)
+│   │   │   │   │   │   ├── syn v3.0.6 (*)
+│   │   │   │   │   │   ├── zbus_names v4.3.4
+│   │   │   │   │   │   │   ├── serde v1.0.229
+│   │   │   │   │   │   │   │   ├── serde_core v1.0.229
+│   │   │   │   │   │   │   │   └── serde_derive v1.0.229 (proc-macro) (*)
+│   │   │   │   │   │   │   ├── winnow v1.0.4
+│   │   │   │   │   │   │   └── zvariant v5.15.0
+│   │   │   │   │   │   │       ├── endi v1.1.1
+│   │   │   │   │   │   │       ├── enumflags2 v0.7.12
+│   │   │   │   │   │   │       │   ├── enumflags2_derive v0.7.12 (proc-macro) (*)
+│   │   │   │   │   │   │       │   └── serde v1.0.229 (*)
+│   │   │   │   │   │   │       ├── serde v1.0.229 (*)
+│   │   │   │   │   │   │       ├── winnow v1.0.4
+│   │   │   │   │   │   │       ├── zcheapstr v1.1.0
+│   │   │   │   │   │   │       │   └── serde v1.0.229 (*)
+│   │   │   │   │   │   │       ├── zvariant_derive v5.15.0 (proc-macro)
+│   │   │   │   │   │   │       │   ├── proc-macro-crate v3.5.0 (*)
+│   │   │   │   │   │   │       │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   │   │   │       │   ├── quote v1.0.47 (*)
+│   │   │   │   │   │   │       │   ├── syn v3.0.6 (*)
+│   │   │   │   │   │   │       │   └── zvariant_utils v4.2.0
+│   │   │   │   │   │   │       │       ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   │   │   │       │       ├── quote v1.0.47 (*)
+│   │   │   │   │   │   │       │       ├── serde v1.0.229 (*)
+│   │   │   │   │   │   │       │       ├── syn v3.0.6 (*)
+│   │   │   │   │   │   │       │       └── winnow v1.0.4
+│   │   │   │   │   │   │       └── zvariant_utils v4.2.0 (*)
+│   │   │   │   │   │   ├── zvariant v5.15.0 (*)
+│   │   │   │   │   │   └── zvariant_utils v4.2.0 (*)
+│   │   │   │   │   ├── zbus_names v4.3.4
+│   │   │   │   │   │   ├── serde v1.0.229 (*)
+│   │   │   │   │   │   ├── winnow v1.0.4
+│   │   │   │   │   │   └── zvariant v5.15.0
+│   │   │   │   │   │       ├── endi v1.1.1
+│   │   │   │   │   │       ├── enumflags2 v0.7.12 (*)
+│   │   │   │   │   │       ├── serde v1.0.229 (*)
+│   │   │   │   │   │       ├── winnow v1.0.4
+│   │   │   │   │   │       ├── zcheapstr v1.1.0
+│   │   │   │   │   │       │   └── serde v1.0.229 (*)
+│   │   │   │   │   │       ├── zvariant_derive v5.15.0 (proc-macro) (*)
+│   │   │   │   │   │       └── zvariant_utils v4.2.0
+│   │   │   │   │   │           ├── proc-macro2 v1.0.107
+│   │   │   │   │   │           │   └── unicode-ident v1.0.26
+│   │   │   │   │   │           ├── quote v1.0.47
+│   │   │   │   │   │           │   └── proc-macro2 v1.0.107 (*)
+│   │   │   │   │   │           ├── serde v1.0.229 (*)
+│   │   │   │   │   │           ├── syn v3.0.6
+│   │   │   │   │   │           │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   │   │           │   ├── quote v1.0.47 (*)
+│   │   │   │   │   │           │   └── unicode-ident v1.0.26
+│   │   │   │   │   │           └── winnow v1.0.4
+│   │   │   │   │   └── zvariant v5.15.0 (*)
+│   │   │   │   ├── zbus-lockstep v0.5.2
+│   │   │   │   │   ├── zbus_xml v5.2.1
+│   │   │   │   │   │   ├── serde v1.0.229 (*)
+│   │   │   │   │   │   ├── winnow v1.0.4
+│   │   │   │   │   │   ├── zbus_names v4.3.4 (*)
+│   │   │   │   │   │   └── zvariant v5.15.0 (*)
+│   │   │   │   │   └── zvariant v5.15.0 (*)
+│   │   │   │   ├── zbus-lockstep-macros v0.5.2 (proc-macro)
+│   │   │   │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   │   ├── quote v1.0.47 (*)
+│   │   │   │   │   ├── syn v2.0.119 (*)
+│   │   │   │   │   ├── zbus-lockstep v0.5.2
+│   │   │   │   │   │   ├── zbus_xml v5.2.1
+│   │   │   │   │   │   │   ├── serde v1.0.229 (*)
+│   │   │   │   │   │   │   ├── winnow v1.0.4
+│   │   │   │   │   │   │   ├── zbus_names v4.3.4 (*)
+│   │   │   │   │   │   │   └── zvariant v5.15.0 (*)
+│   │   │   │   │   │   └── zvariant v5.15.0 (*)
+│   │   │   │   │   ├── zbus_xml v5.2.1 (*)
+│   │   │   │   │   └── zvariant v5.15.0 (*)
+│   │   │   │   ├── zbus_names v4.3.4 (*)
+│   │   │   │   └── zvariant v5.15.0 (*)
+│   │   │   ├── phf v0.14.0
+│   │   │   │   ├── phf_macros v0.14.0 (proc-macro)
+│   │   │   │   │   ├── phf_generator v0.14.0
+│   │   │   │   │   │   ├── fastrand v2.5.0
+│   │   │   │   │   │   └── phf_shared v0.14.0
+│   │   │   │   │   │       └── siphasher v1.0.4
+│   │   │   │   │   ├── phf_shared v0.14.0 (*)
+│   │   │   │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   │   ├── quote v1.0.47 (*)
+│   │   │   │   │   └── syn v2.0.119 (*)
+│   │   │   │   └── phf_shared v0.14.0
+│   │   │   │       └── siphasher v1.0.4
+│   │   │   ├── serde v1.0.229 (*)
+│   │   │   └── zvariant v5.15.0 (*)
+│   │   ├── async-channel v2.5.0 (*)
+│   │   ├── async-executor v1.14.0 (*)
+│   │   ├── async-task v4.7.1
+│   │   ├── atspi v0.29.0
+│   │   │   ├── atspi-common v0.13.0 (*)
+│   │   │   └── atspi-proxies v0.13.0
+│   │   │       ├── atspi-common v0.13.0 (*)
+│   │   │       ├── serde v1.0.229 (*)
+│   │   │       └── zbus v5.19.0 (*)
+│   │   ├── futures-lite v2.6.1 (*)
+│   │   ├── futures-util v0.3.34
+│   │   │   ├── futures-core v0.3.34
+│   │   │   ├── futures-macro v0.3.34 (proc-macro)
+│   │   │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   ├── quote v1.0.47 (*)
+│   │   │   │   └── syn v3.0.6 (*)
+│   │   │   ├── futures-task v0.3.34
+│   │   │   ├── pin-project-lite v0.2.17
+│   │   │   └── slab v0.4.12
+│   │   ├── serde v1.0.229 (*)
+│   │   └── zbus v5.19.0 (*)
+│   ├── raw-window-handle v0.6.2
+│   └── winit v0.30.13
+│       ├── bitflags v2.13.2
+│       ├── bytemuck v1.25.2
+│       │   └── bytemuck_derive v1.12.1 (proc-macro)
+│       │       ├── proc-macro2 v1.0.107 (*)
+│       │       ├── quote v1.0.47 (*)
+│       │       └── syn v3.0.6 (*)
+│       ├── calloop v0.13.0
+│       │   ├── bitflags v2.13.2
+│       │   ├── log v0.4.34
+│       │   ├── polling v3.11.0 (*)
+│       │   ├── rustix v0.38.44
+│       │   │   ├── bitflags v2.13.2
+│       │   │   └── linux-raw-sys v0.4.15
+│       │   ├── slab v0.4.12
+│       │   └── thiserror v1.0.69
+│       │       └── thiserror-impl v1.0.69 (proc-macro)
+│       │           ├── proc-macro2 v1.0.107 (*)
+│       │           ├── quote v1.0.47 (*)
+│       │           └── syn v2.0.119 (*)
+│       ├── cursor-icon v1.2.0
+│       ├── dpi v0.1.2
+│       ├── libc v0.2.190
+│       ├── percent-encoding v2.3.2
+│       ├── raw-window-handle v0.6.2
+│       ├── rustix v0.38.44 (*)
+│       ├── smol_str v0.2.2
+│       ├── tracing v0.1.44 (*)
+│       ├── x11-dl v2.21.0
+│       │   ├── libc v0.2.190
+│       │   └── once_cell v1.21.4
+│       ├── x11rb v0.13.2
+│       │   ├── as-raw-xcb-connection v1.0.1
+│       │   ├── gethostname v1.1.0
+│       │   │   └── rustix v1.1.5 (*)
+│       │   ├── libc v0.2.190
+│       │   ├── libloading v0.8.9
+│       │   │   └── cfg-if v1.0.5
+│       │   ├── once_cell v1.21.4
+│       │   ├── rustix v1.1.5 (*)
+│       │   └── x11rb-protocol v0.13.2
+│       └── xkbcommon-dl v0.4.2
+│           ├── bitflags v2.13.2
+│           ├── dlib v0.5.3
+│           │   └── libloading v0.8.9 (*)
+│           ├── log v0.4.34
+│           ├── once_cell v1.21.4
+│           └── xkeysym v0.2.1
+├── pvc-ir v0.1.0 (/workspace/dev_work/dev-ir/pvc-ir)
+│   ├── ed25519-dalek v2.2.0
+│   │   ├── curve25519-dalek v4.1.3
+│   │   │   ├── cfg-if v1.0.5
+│   │   │   ├── cpufeatures v0.2.17
+│   │   │   ├── curve25519-dalek-derive v0.1.1 (proc-macro)
+│   │   │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   ├── quote v1.0.47 (*)
+│   │   │   │   └── syn v2.0.119 (*)
+│   │   │   ├── digest v0.10.7
+│   │   │   │   ├── block-buffer v0.10.4
+│   │   │   │   │   └── generic-array v0.14.7
+│   │   │   │   │       └── typenum v1.20.1
+│   │   │   │   └── crypto-common v0.1.7
+│   │   │   │       ├── generic-array v0.14.7 (*)
+│   │   │   │       └── typenum v1.20.1
+│   │   │   ├── subtle v2.6.1
+│   │   │   └── zeroize v1.9.1
+│   │   ├── ed25519 v2.2.3
+│   │   │   └── signature v2.2.0
+│   │   ├── sha2 v0.10.9
+│   │   │   ├── cfg-if v1.0.5
+│   │   │   ├── cpufeatures v0.2.17
+│   │   │   └── digest v0.10.7 (*)
+│   │   ├── subtle v2.6.1
+│   │   └── zeroize v1.9.1
+│   ├── icu_normalizer v2.3.0
+│   │   ├── icu_collections v2.3.0
+│   │   │   ├── displaydoc v0.2.7 (proc-macro)
+│   │   │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   │   ├── quote v1.0.47 (*)
+│   │   │   │   └── syn v3.0.6 (*)
+│   │   │   ├── potential_utf v0.1.6
+│   │   │   │   ├── writeable v0.6.4
+│   │   │   │   └── zerovec v0.11.8
+│   │   │   │       ├── yoke v0.8.3
+│   │   │   │       │   ├── stable_deref_trait v1.2.1
+│   │   │   │       │   ├── yoke-derive v0.8.4 (proc-macro)
+│   │   │   │       │   │   ├── proc-macro2 v1.0.107 (*)
+│   │   │   │       │   │   ├── quote v1.0.47 (*)
+│   │   │   │       │   │   ├── syn v3.0.6 (*)
+│   │   │   │       │   │   └── synstructure v0.14.0
+│   │   │   │       │   │       ├── proc-macro2 v1.0.107 (*)
+│   │   │   │       │   │       ├── quote v1.0.47 (*)
+│   │   │   │       │   │       └── syn v3.0.6 (*)
+│   │   │   │       │   └── zerofrom v0.1.8
+│   │   │   │       │       └── zerofrom-derive v0.1.8 (proc-macro)
+│   │   │   │       │           ├── proc-macro2 v1.0.107 (*)
+│   │   │   │       │           ├── quote v1.0.47 (*)
+│   │   │   │       │           ├── syn v3.0.6 (*)
+│   │   │   │       │           └── synstructure v0.14.0 (*)
+│   │   │   │       ├── zerofrom v0.1.8 (*)
+│   │   │   │       └── zerovec-derive v0.11.6 (proc-macro)
+│   │   │   │           ├── proc-macro2 v1.0.107 (*)
+│   │   │   │           ├── quote v1.0.47 (*)
+│   │   │   │           └── syn v3.0.6 (*)
+│   │   │   ├── utf8_iter v1.0.4
+│   │   │   ├── yoke v0.8.3 (*)
+│   │   │   ├── zerofrom v0.1.8 (*)
+│   │   │   └── zerovec v0.11.8 (*)
+│   │   ├── icu_normalizer_data v2.3.0
+│   │   ├── icu_provider v2.3.1
+│   │   │   ├── displaydoc v0.2.7 (proc-macro) (*)
+│   │   │   ├── icu_locale_core v2.3.0
+│   │   │   │   ├── displaydoc v0.2.7 (proc-macro) (*)
+│   │   │   │   ├── litemap v0.8.3
+│   │   │   │   ├── tinystr v0.8.4
+│   │   │   │   │   ├── displaydoc v0.2.7 (proc-macro) (*)
+│   │   │   │   │   └── zerovec v0.11.8 (*)
+│   │   │   │   ├── writeable v0.6.4
+│   │   │   │   └── zerovec v0.11.8 (*)
+│   │   │   ├── stable_deref_trait v1.2.1
+│   │   │   ├── writeable v0.6.4
+│   │   │   ├── yoke v0.8.3 (*)
+│   │   │   ├── zerofrom v0.1.8 (*)
+│   │   │   ├── zerotrie v0.2.5
+│   │   │   │   ├── displaydoc v0.2.7 (proc-macro) (*)
+│   │   │   │   ├── yoke v0.8.3 (*)
+│   │   │   │   └── zerofrom v0.1.8 (*)
+│   │   │   └── zerovec v0.11.8 (*)
+│   │   ├── smallvec v1.16.2
+│   │   ├── utf16_iter v1.0.5
+│   │   ├── utf8_iter v1.0.4
+│   │   ├── write16 v1.0.0
+│   │   └── zerovec v0.11.8 (*)
+│   └── sha2 v0.10.9 (*)
+├── pvc-runtime v0.0.1 (/workspace/dev_work/dev-render/pvc-runtime)
+│   ├── accesskit v0.25.1 (*)
+│   ├── fontique v0.11.1
+│   │   ├── hashbrown v0.17.1 (*)
+│   │   ├── linebender_resource_handle v0.1.1
+│   │   ├── memmap2 v0.9.11
+│   │   │   └── libc v0.2.190
+│   │   ├── parlance v0.1.0
+│   │   ├── read-fonts v0.41.0
+│   │   │   ├── bytemuck v1.25.2 (*)
+│   │   │   ├── font-types v0.12.6
+│   │   │   │   └── bytemuck v1.25.2 (*)
+│   │   │   └── once_cell v1.21.4
+│   │   └── smallvec v1.16.2
+│   ├── glifo v0.4.0
+│   │   ├── bytemuck v1.25.2 (*)
+│   │   ├── foldhash v0.2.0
+│   │   ├── hashbrown v0.17.1 (*)
+│   │   ├── log v0.4.34
+│   │   ├── peniko v0.6.1
+│   │   │   ├── bytemuck v1.25.2 (*)
+│   │   │   ├── color v0.3.3
+│   │   │   │   └── bytemuck v1.25.2 (*)
+│   │   │   ├── kurbo v0.13.1
+│   │   │   │   ├── arrayvec v0.7.8
+│   │   │   │   ├── polycool v0.4.0
+│   │   │   │   │   └── arrayvec v0.7.8
+│   │   │   │   └── smallvec v1.16.2
+│   │   │   ├── linebender_resource_handle v0.1.1
+│   │   │   └── smallvec v1.16.2
+│   │   ├── png v0.18.1
+│   │   │   ├── bitflags v2.13.2
+│   │   │   ├── crc32fast v1.5.2
+│   │   │   │   └── cfg-if v1.0.5
+│   │   │   ├── fdeflate v0.3.7
+│   │   │   │   └── simd-adler32 v0.3.10
+│   │   │   ├── flate2 v1.1.10
+│   │   │   │   ├── crc32fast v1.5.2 (*)
+│   │   │   │   └── miniz_oxide v0.9.1
+│   │   │   │       ├── adler2 v2.0.1
+│   │   │   │       └── simd-adler32 v0.3.10
+│   │   │   └── miniz_oxide v0.8.9
+│   │   │       ├── adler2 v2.0.1
+│   │   │       └── simd-adler32 v0.3.10
+│   │   ├── skrifa v0.44.0
+│   │   │   ├── bytemuck v1.25.2 (*)
+│   │   │   └── read-fonts v0.41.0 (*)
+│   │   ├── smallvec v1.16.2
+│   │   └── vello_common v0.3.0
+│   │       ├── bytemuck v1.25.2 (*)
+│   │       ├── fearless_simd v0.7.0
+│   │       ├── guillotiere v0.7.0
+│   │       │   └── euclid v0.22.14
+│   │       │       └── num-traits v0.2.19
+│   │       │           └── libm v0.2.16
+│   │       ├── log v0.4.34
+│   │       ├── peniko v0.6.1 (*)
+│   │       ├── png v0.18.1 (*)
+│   │       ├── smallvec v1.16.2
+│   │       └── thiserror v2.0.21
+│   │           └── thiserror-impl v2.0.21 (proc-macro)
+│   │               ├── proc-macro2 v1.0.107 (*)
+│   │               ├── quote v1.0.47 (*)
+│   │               └── syn v3.0.6 (*)
+│   ├── harfrust v0.12.0
+│   │   ├── bitflags v2.13.2
+│   │   ├── bytemuck v1.25.2 (*)
+│   │   ├── read-fonts v0.41.0 (*)
+│   │   └── smallvec v1.16.2
+│   ├── parley v0.11.1
+│   │   ├── fontique v0.11.1 (*)
+│   │   ├── harfrust v0.12.0 (*)
+│   │   ├── hashbrown v0.17.1 (*)
+│   │   ├── icu_normalizer v2.3.0 (*)
+│   │   ├── icu_properties v2.3.0
+│   │   │   ├── displaydoc v0.2.7 (proc-macro) (*)
+│   │   │   ├── icu_collections v2.3.0 (*)
+│   │   │   ├── icu_locale_core v2.3.0 (*)
+│   │   │   ├── icu_properties_data v2.3.0
+│   │   │   ├── icu_provider v2.3.1 (*)
+│   │   │   ├── zerotrie v0.2.5 (*)
+│   │   │   └── zerovec v0.11.8 (*)
+│   │   ├── icu_segmenter v2.3.0
+│   │   │   ├── icu_collections v2.3.0 (*)
+│   │   │   ├── icu_locale_fallback v2.3.0
+│   │   │   │   ├── icu_locale_core v2.3.0 (*)
+│   │   │   │   ├── icu_locale_fallback_data v2.3.0
+│   │   │   │   ├── icu_provider v2.3.1 (*)
+│   │   │   │   ├── potential_utf v0.1.6 (*)
+│   │   │   │   ├── tinystr v0.8.4 (*)
+│   │   │   │   └── zerovec v0.11.8 (*)
+│   │   │   ├── icu_provider v2.3.1 (*)
+│   │   │   ├── icu_segmenter_data v2.3.0
+│   │   │   ├── potential_utf v0.1.6 (*)
+│   │   │   ├── smallvec v1.16.2
+│   │   │   ├── utf8_iter v1.0.4
+│   │   │   └── zerovec v0.11.8 (*)
+│   │   ├── linebender_resource_handle v0.1.1
+│   │   ├── parlance v0.1.0
+│   │   ├── parley_data v0.11.1
+│   │   │   └── icu_properties v2.3.0 (*)
+│   │   └── skrifa v0.44.0 (*)
+│   ├── pvc-ir v0.1.0 (/workspace/dev_work/dev-ir/pvc-ir) (*)
+│   ├── skrifa v0.44.0 (*)
+│   ├── vello_cpu v0.3.0
+│   │   ├── bytemuck v1.25.2 (*)
+│   │   ├── glifo v0.4.0 (*)
+│   │   ├── hashbrown v0.17.1 (*)
+│   │   ├── png v0.18.1 (*)
+│   │   └── vello_common v0.3.0 (*)
+│   ├── vello_gpu v0.3.0
+│   │   ├── bytemuck v1.25.2 (*)
+│   │   ├── glifo v0.4.0 (*)
+│   │   ├── hashbrown v0.17.1 (*)
+│   │   ├── log v0.4.34
+│   │   ├── thiserror v2.0.21 (*)
+│   │   ├── vello_common v0.3.0 (*)
+│   │   ├── vello_gpu_shaders v0.3.0
+│   │   └── wgpu v30.0.1
+│   │       ├── arrayvec v0.7.8
+│   │       ├── bitflags v2.13.2
+│   │       ├── bytemuck v1.25.2 (*)
+│   │       ├── cfg-if v1.0.5
+│   │       ├── document-features v0.2.12 (proc-macro)
+│   │       │   └── litrs v1.0.0
+│   │       ├── hashbrown v0.17.1 (*)
+│   │       ├── log v0.4.34
+│   │       ├── profiling v1.0.18
+│   │       ├── raw-window-handle v0.6.2
+│   │       ├── smallvec v1.16.2
+│   │       ├── static_assertions v1.1.0
+│   │       ├── wgpu-core v30.0.1
+│   │       │   ├── arrayvec v0.7.8
+│   │       │   ├── bit-set v0.10.0
+│   │       │   │   └── bit-vec v0.9.1
+│   │       │   ├── bit-vec v0.9.1
+│   │       │   ├── bitflags v2.13.2
+│   │       │   ├── bytemuck v1.25.2 (*)
+│   │       │   ├── document-features v0.2.12 (proc-macro) (*)
+│   │       │   ├── hashbrown v0.17.1 (*)
+│   │       │   ├── indexmap v2.14.2
+│   │       │   │   ├── equivalent v1.0.2
+│   │       │   │   └── hashbrown v0.17.1 (*)
+│   │       │   ├── log v0.4.34
+│   │       │   ├── naga v30.0.1
+│   │       │   │   ├── arrayvec v0.7.8
+│   │       │   │   ├── bit-set v0.10.0 (*)
+│   │       │   │   ├── bitflags v2.13.2
+│   │       │   │   ├── cfg-if v1.0.5
+│   │       │   │   ├── codespan-reporting v0.13.1
+│   │       │   │   │   └── unicode-width v0.2.2
+│   │       │   │   ├── half v2.7.1
+│   │       │   │   │   ├── cfg-if v1.0.5
+│   │       │   │   │   ├── num-traits v0.2.19 (*)
+│   │       │   │   │   └── zerocopy v0.8.62
+│   │       │   │   │       └── zerocopy-derive v0.8.62 (proc-macro)
+│   │       │   │   │           ├── proc-macro2 v1.0.107 (*)
+│   │       │   │   │           ├── quote v1.0.47 (*)
+│   │       │   │   │           └── syn v2.0.119 (*)
+│   │       │   │   ├── hashbrown v0.17.1 (*)
+│   │       │   │   ├── indexmap v2.14.2 (*)
+│   │       │   │   ├── libm v0.2.16
+│   │       │   │   ├── log v0.4.34
+│   │       │   │   ├── naga-types v30.0.1
+│   │       │   │   │   ├── hashbrown v0.17.1 (*)
+│   │       │   │   │   ├── indexmap v2.14.2 (*)
+│   │       │   │   │   ├── rustc-hash v1.1.0
+│   │       │   │   │   └── thiserror v2.0.21 (*)
+│   │       │   │   ├── num-traits v0.2.19 (*)
+│   │       │   │   ├── once_cell v1.21.4
+│   │       │   │   ├── rustc-hash v1.1.0
+│   │       │   │   ├── thiserror v2.0.21 (*)
+│   │       │   │   └── unicode-ident v1.0.26
+│   │       │   ├── naga-types v30.0.1 (*)
+│   │       │   ├── once_cell v1.21.4
+│   │       │   ├── parking_lot v0.12.5
+│   │       │   │   ├── lock_api v0.4.14
+│   │       │   │   │   └── scopeguard v1.2.0
+│   │       │   │   └── parking_lot_core v0.9.12
+│   │       │   │       ├── cfg-if v1.0.5
+│   │       │   │       ├── libc v0.2.190
+│   │       │   │       └── smallvec v1.16.2
+│   │       │   ├── profiling v1.0.18
+│   │       │   ├── raw-window-handle v0.6.2
+│   │       │   ├── rustc-hash v1.1.0
+│   │       │   ├── smallvec v1.16.2
+│   │       │   ├── thiserror v2.0.21 (*)
+│   │       │   ├── wgpu-core-deps-windows-linux-android v30.0.1
+│   │       │   │   └── wgpu-hal v30.0.1
+│   │       │   │       ├── arrayvec v0.7.8
+│   │       │   │       ├── bitflags v2.13.2
+│   │       │   │       ├── bytemuck v1.25.2 (*)
+│   │       │   │       ├── cfg-if v1.0.5
+│   │       │   │       ├── glow v0.17.0
+│   │       │   │       ├── hashbrown v0.17.1 (*)
+│   │       │   │       ├── khronos-egl v6.0.0
+│   │       │   │       │   ├── libc v0.2.190
+│   │       │   │       │   └── libloading v0.8.9 (*)
+│   │       │   │       ├── libloading v0.8.9 (*)
+│   │       │   │       ├── log v0.4.34
+│   │       │   │       ├── naga v30.0.1 (*)
+│   │       │   │       ├── naga-types v30.0.1 (*)
+│   │       │   │       ├── parking_lot v0.12.5 (*)
+│   │       │   │       ├── profiling v1.0.18
+│   │       │   │       ├── raw-window-handle v0.6.2
+│   │       │   │       ├── renderdoc-sys v1.1.0
+│   │       │   │       ├── static_assertions v1.1.0
+│   │       │   │       ├── thiserror v2.0.21 (*)
+│   │       │   │       ├── wayland-sys v0.31.11
+│   │       │   │       │   ├── dlib v0.5.3 (*)
+│   │       │   │       │   ├── log v0.4.34
+│   │       │   │       │   └── once_cell v1.21.4
+│   │       │   │       ├── wgpu-naga-bridge v30.0.1
+│   │       │   │       │   ├── naga v30.0.1 (*)
+│   │       │   │       │   └── wgpu-types v30.0.1
+│   │       │   │       │       ├── bitflags v2.13.2
+│   │       │   │       │       ├── bytemuck v1.25.2 (*)
+│   │       │   │       │       ├── log v0.4.34
+│   │       │   │       │       ├── naga-types v30.0.1 (*)
+│   │       │   │       │       ├── raw-window-handle v0.6.2
+│   │       │   │       │       └── static_assertions v1.1.0
+│   │       │   │       └── wgpu-types v30.0.1 (*)
+│   │       │   ├── wgpu-hal v30.0.1 (*)
+│   │       │   ├── wgpu-naga-bridge v30.0.1 (*)
+│   │       │   └── wgpu-types v30.0.1 (*)
+│   │       ├── wgpu-hal v30.0.1 (*)
+│   │       └── wgpu-types v30.0.1 (*)
+│   └── wgpu v30.0.1 (*)
+├── vello_cpu v0.3.0 (*)
+├── wgpu v30.0.1 (*)
+└── winit v0.30.13 (*)

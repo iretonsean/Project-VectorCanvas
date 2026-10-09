@@ -1,0 +1,4 @@
+pvc-native: artifact verified, canonical sha256 51dfc0bdc142a1bd85300868c4464f033523f8e2691859ee890bdcab89dbb43a
+libEGL warning: DRI3 error: Could not get DRI3 device
+libEGL warning: Ensure your X server supports DRI3 to get accelerated rendering
+pvc-native: winit Ime::Disabled

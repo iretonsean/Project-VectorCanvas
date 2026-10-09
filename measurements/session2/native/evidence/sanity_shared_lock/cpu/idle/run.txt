@@ -1,0 +1,7 @@
+2026-10-09T01:24:18Z
+cmd: /workspace/cargo-target/release/pvc-native /workspace/dev_work/dev-ir/specimens/F01.pvca --locale en --renderer cpu
+scenario: idle
+loadavg: 1.06 1.71 2.81 1/205 15461
+DISPLAY=:77 XMODIFIERS=@im=fcitx DBUS=unix:path=/tmp/dbus-DiBq0xkVqx,guid=d9c8280d343db1a557417a286ac84240
+VmHWM_before_term: VmHWM: 137232 kB;VmRSS: 133828 kB;
+host_exit=0

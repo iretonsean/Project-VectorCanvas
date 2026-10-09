@@ -1,0 +1,8 @@
+email=Text("bad")
+name=Text("")
+password=Text("")
+show_pw=Bool(false)
+status=Enum("editing")
+terms=Bool(true)
+derived valid=Bool(false)
+focus=surface0/form0/field1/input

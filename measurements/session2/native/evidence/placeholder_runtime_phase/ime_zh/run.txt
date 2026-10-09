@@ -1,0 +1,7 @@
+2026-10-08T23:41:40Z
+cmd: /workspace/dev_work/dev-native/pvc-native/target/release/pvc-native /workspace/dev_work/dev-native/run/dummy.pvc --locale en
+scenario: ime_zh
+loadavg: 19.35 15.24 9.27 11/194 26811
+DISPLAY=:77 XMODIFIERS=@im=fcitx DBUS=unix:path=/tmp/dbus-tDYyLjp3bb,guid=249c50aa973fd1d23a7d999c6ac82a32
+VmHWM_before_term: VmHWM: 134988 kB;VmRSS: 134988 kB;
+host_exit=0

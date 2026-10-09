@@ -1,0 +1,16 @@
+EV window-created ime_allowed=true
+EV Ime Disabled
+EV Ime Enabled
+EV Focused false
+EV Focused true
+EV Ime Preedit("", None)
+EV Ime Preedit("n", Some((0, 0)))
+EV Ime Preedit("ni", Some((0, 0)))
+EV Ime Preedit("ni h", Some((0, 0)))
+EV Ime Preedit("ni ha", Some((0, 0)))
+EV Ime Preedit("ni hao", Some((0, 0)))
+EV Ime Preedit("", None)
+EV Ime Commit("你好")
+EV Ime Preedit("", None)
+XIO:  fatal IO error 2 (No such file or directory) on X server ":77"
+      after 326 requests (326 known processed) with 0 events remaining.

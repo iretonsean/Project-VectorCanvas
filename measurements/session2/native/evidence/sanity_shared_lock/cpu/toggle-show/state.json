@@ -1,0 +1,8 @@
+email=Text("")
+name=Text("")
+password=Text("")
+show_pw=Bool(false)
+status=Enum("editing")
+terms=Bool(false)
+derived valid=Bool(false)
+focus=surface0/form0/password-field0/toggle

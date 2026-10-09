@@ -1,0 +1,2 @@
+frames_at_start=2
+frames_at_end=2

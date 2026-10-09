@@ -1,0 +1,7 @@
+EV window-created ime_allowed=true
+EV Ime Disabled
+EV Ime Enabled
+EV Focused false
+EV Focused true
+EV Ime Preedit("", None)
+EV Ime Commit("你好")
