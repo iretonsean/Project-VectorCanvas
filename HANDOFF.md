@@ -15,7 +15,7 @@
 3. A6 runs **on the container only**. The physical Tier 1 device requirement is removed. Device results are a community contribution (`CONTRIBUTING.md`).
 4. Session 3 also fixed the absolute specimen paths in `crates/pvc-runtime` tests and examples and in `hosts/pvc-native/tests/tamper.rs`. The workspace tests pass in a fresh container: 89 passed, 0 failed. `hosts/pvc-web-host/build.sh` and `run_web.sh` still use `/workspace/...` paths for the Cargo target and the CPU lock.
 
-**Next work (Session 3):** [`docs/session3/PLAN.md`](docs/session3/PLAN.md): cut PVC's fixed cost per session. Draft, waiting for owner approval. Later phases: runtime gaps, developer toolchain, language reference.
+**Next work (Session 3):** [`docs/session3/PLAN.md`](docs/session3/PLAN.md): cut PVC's fixed cost per session. Approved by the owner 2026-10-09; work has not started. Later phases: runtime gaps, developer toolchain, language reference.
 
 **Read first:**
 - `docs/session2/pm/PLAN.md`: the task breakdown, deviations V1–V10, and Supervisor decisions D-1…D-10 (ruled; listed in `docs/session2/pm/briefs/COMMON.md` §6).

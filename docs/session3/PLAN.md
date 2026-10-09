@@ -1,6 +1,6 @@
 # Session 3 plan: cut PVC's fixed cost per session
 
-**Status:** draft for owner approval, 2026-10-09. No code is written until the owner approves.
+**Status:** approved by the owner, 2026-10-09. Work has not started.
 **Executed by:** one focused agent, step by step, with a commit and a measurement after each step.
 
 ## 1. Goal
