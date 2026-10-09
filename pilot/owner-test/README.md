@@ -22,15 +22,26 @@ Token counts come from Claude Code's own usage report for each agent session, no
    /pvc-test              all six tests
    /pvc-test T1 T3        only these tests
    /pvc-test --model opus all tests with one model
+   /pvc-test T2 --effort high   set the effort level of every agent
    /pvc-test results      open the results pane again
    ```
-The PVC test pane shows progress and results. The full report goes to `pilot/owner-test/runs/<time>/REPORT.md`.
+The PVC test pane shows progress and results.
+
+## Where the results go
+
+Every test run is written to [`tests-run/`](../../tests-run/) at the repository root:
+
+- `tests-run/<UTC time>_<test id>_<name>.md`: one file per test, with the verdict, scope, agents, models and effort, tokens and cost side by side, code size, the checklist item by item, screenshots, fix attempts, each agent's final message, errors, all code produced, the exact prompts, versions and machine, the repo commit, SHA-256 hashes of the inputs, and the blind labels.
+- `tests-run/<same name>/`: the screenshots, every file each agent left, and the raw Claude Code transcripts.
+- `tests-run/INDEX.md`: one row per test run.
+
+Commit `tests-run/` to keep the results in the repository.
 
 ## Run it without the mod
 
 ```sh
 python3 pilot/owner-test/run.py              # all tests
-python3 pilot/owner-test/run.py T1 T2 --model sonnet
+python3 pilot/owner-test/run.py T1 T2 --model sonnet --effort medium
 ```
 
 ## Requirements
@@ -39,6 +50,7 @@ python3 pilot/owner-test/run.py T1 T2 --model sonnet
 - Python 3.9 or later.
 - A Rust toolchain (`cargo`, 1.89 or later). The script builds the PVC validator, compiler and screenshot tool first.
 - Optional: Chrome, Chromium or Edge, for screenshots of the control app. Without one, the evaluator judges the control app from its code.
+- Optional: `tiktoken` (`pip install tiktoken`), to count the final code size in tokens.
 
 ## The tests
 

@@ -8,9 +8,10 @@ const SCRIPT = 'pilot/owner-test/run.py'
 const run = atom({ plugin: 'pvc-test', key: 'run' } as const, { phase: 'idle', rows: [], log: [] } as RunState)
 
 const USAGE = [
-  'Usage: /pvc-test [all | T1 T2 ...] [--model <model>] [--eval-model <model>] [--budget <usd>]',
+  'Usage: /pvc-test [all | T1 T2 ...] [--model <model>] [--eval-model <model>] [--effort low|medium|high|xhigh|max] [--budget <usd>]',
   '       /pvc-test results    (open the results pane)',
   'Tests: T1 Hello + Save, T2 Profile card, T3 Counter, T4 Sign-up form, T5 Wizard, T6 Dashboard.',
+  'Each test result is written to tests-run/ as its own file; tests-run/INDEX.md lists them all.',
   'Start Claude Code in the Project-VectorCanvas folder first. Needs python3, cargo and the claude command.',
 ].join('\n')
 
@@ -22,6 +23,7 @@ type Event = {
   ok?: boolean
   run_dir?: string
   report?: string
+  file?: string
   error?: string
   tests?: { id: string; title: string; level: number }[]
   result?: {
@@ -67,6 +69,7 @@ function apply(state: RunState, e: Event): RunState {
             of: r.of,
             controlLanguage: r.control_language,
             pvcRendered: r.pvc_rendered,
+            file: e.file,
           })
         : s
     }
@@ -85,7 +88,7 @@ function parseArgs(args: string): { argv: string[] } | { error: string } {
   for (let i = 0; i < words.length; i++) {
     const w = words[i] ?? ''
     if (w === 'all') continue
-    if (w === '--model' || w === '--eval-model' || w === '--budget') {
+    if (w === '--model' || w === '--eval-model' || w === '--budget' || w === '--effort') {
       const v = words[++i]
       if (!v) return { error: `${w} needs a value.` }
       out.push(w, v)
@@ -161,7 +164,7 @@ export const register: Register = on => {
     await $.command.register({
       name: 'pvc-test',
       description: 'Run the PVC A/B test (PVC agent vs control agent, judged by an evaluator agent)',
-      argumentHint: '[all | T1..T6 | results] [--model <model>]',
+      argumentHint: '[all | T1..T6 | results] [--model <model>] [--effort <level>]',
     })
     return next(e)
   })
@@ -222,7 +225,12 @@ export const register: Register = on => {
           </Text>
         ))}
         {s.error && <Text color="red">{s.error}</Text>}
-        {s.report && <Text>Full report: {s.report}</Text>}
+        {s.rows.filter(r => r.file).map(r => (
+          <Text key={`${r.id}-file`} dimColor>
+            {r.id}: {r.file}
+          </Text>
+        ))}
+        {s.report && <Text>All runs: {s.report}</Text>}
         {s.log.length > 0 && <Text dimColor>{s.log.slice(-3).join('\n')}</Text>}
       </Box>
     )

@@ -14,6 +14,7 @@ export type TestRow = {
   of?: number
   controlLanguage?: string
   pvcRendered?: boolean
+  file?: string
   error?: string
 }
 
