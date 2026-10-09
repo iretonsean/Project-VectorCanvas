@@ -58,8 +58,8 @@ python3 pilot/owner-test/run.py T1 T2 --model sonnet --effort medium
 |---|---|---|---|
 | T1 | Hello + Save button | 1 static | yes |
 | T2 | Profile card | 1 static | yes |
-| T3 | Counter | 2 state | yes |
-| T4 | Sign-up form | 2 state | yes |
+| T3 | Counter | 2 state | no: the runtime cannot draw arithmetic (`n + 1`) yet; judged from code |
+| T4 | Sign-up form | 2 state | usually: the runtime draws the F01 reference form; an agent's version can use something it does not support |
 | T5 | Wizard with skip | 3 logic | no: the runtime cannot draw this yet; judged from code |
 | T6 | Dashboard shell | 4 layout | no: the runtime cannot draw this yet; judged from code |
 

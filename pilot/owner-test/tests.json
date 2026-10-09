@@ -31,7 +31,7 @@
       "id": "T3",
       "title": "Counter",
       "level": 2,
-      "pvc_renders": true,
+      "pvc_renders": false,
       "description": "A counter: a number that starts at 0, a button \"+\" that adds 1 and a button \"-\" that subtracts 1. The number never goes below 0. Each button has an accessible name: \"Increase\" for \"+\" and \"Decrease\" for \"-\".",
       "checklist": [
         {"id": "T3.1", "text": "The number shows 0 when the app starts."},
