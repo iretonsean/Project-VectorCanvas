@@ -40,8 +40,8 @@ state { songs: list(title:text) max=30; draft: text }
 surface {
   col w=400 gap=md {
     text "Queue" bold size=20 heading=1
-    row gap=sm align=end { field "Song" bind=draft; button "Add" on.press={ when not is-empty(draft); append songs { title = draft }; draft = "" } }
-    view songs as=s gap=xs { row gap=sm align=center { text value=(s.title) w=fill; button "x" name="Remove" fill=none on.press={ remove s } } }
+    row gap=sm align=end { field "Song" bind=draft; button "Queue it" on.press={ when not is-empty(draft); append songs { title = draft }; draft = "" } }
+    view songs as=s gap=xs { row gap=sm align=center { text value=(s.title) w=fill; button "x" name="Drop song" fill=none on.press={ remove s } } }
     text @count n=(count(songs)) muted
   }
 }

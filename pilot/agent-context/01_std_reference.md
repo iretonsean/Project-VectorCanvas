@@ -6,10 +6,10 @@ Colours: bg surface input-bg fg body muted border border-soft border-strong acce
 
 CONTENT
 - `text "Hi" [bold] [muted] [body] size=14 color=tok heading=1..6 role=paragraph|label|status|alert w=fill`. Dynamic: `text value=(expr)`; string with holes: `text @k n=(expr)` where `strings en { k "{n} left" }` (`{{` `}}` literal braces). Decimals print with 2 digits.
-- `card` (padded filled box), `avatar "JD" size=40 fill=blue alt="Jane"` (needs `alt=` or a text after it in the same parent, else `decorative`), `shape circle|rect|rounded w=16 h=16 fill=… alt="…"|decorative`.
+- `card` (padded filled box), `avatar "AK" size=40 fill=blue alt="Ana"` (needs `alt=` or a text after it in the same parent, else `decorative`), `shape circle|rect|rounded w=16 h=16 fill=… alt="…"|decorative`.
 - `button "Save" fill=none name="Accessible name" disabled=(expr) on.press={ … }`; `fill=none` = outlined. `on.press=effectname` fires an effect.
-- `link "Docs" href="https://example.com/x"` (needs `cap open-url.main urls=["https://example.com/"]`) or `link "More" on.press={ … }`; icon-only: `link name="Home" href="…" { shape circle decorative }`.
-- Inputs: `field "Label" bind=var [kind=email|search|multiline] [required] help="…" error="…" error-when=(expr)`, `password-field "Label" bind=var toggle=boolvar toggle-name="Show"`, `text-input name="…" bind=var [variant=search|multiline|email]`, `checkbox "Label" bind=boolvar`, `switch "Label" bind=boolvar` (bare form: `switch name="…" bind=…`), `radio "Yes" bind=enumvar value=variant` inside `col role=radio-group name="…"`. They update the bound state themselves.
+- `link "Help" href="https://example.com/x"` (needs `cap open-url.main urls=["https://example.com/"]`) or `link "More" on.press={ … }`; icon-only: `link name="Home" href="…" { shape circle decorative }`.
+- Inputs: `field "Label" bind=var [kind=email|search|multiline] [required] help="…" error="…" error-when=(expr)`, `password-field "Label" bind=var toggle=boolvar toggle-name="Show"`, `text-input name="…" bind=var [variant=search|multiline|email]`, `checkbox "Label" bind=boolvar`, `switch "Label" bind=boolvar` (bare form: `switch name="…" bind=…`), `radio "Small" bind=enumvar value=variant` inside `col role=radio-group name="…"`. They update the bound state themselves.
 - `form "Name" on.submit={ when valid; … } { … }`; a `button … submit` inside raises it.
 - `list { item { … } }` (list / list-item roles); headings: `text … heading=N`.
 - `tab "Name" selected=(expr) on.press={ … }` inside `row role=tab-list`; panels are `case` nodes with `role=tab-panel`.
