@@ -11,7 +11,7 @@ fn pct(v: &mut Vec<f64>, p: f64) -> f64 {
 
 fn main() {
     let out = std::env::args().nth(1).unwrap();
-    let spec = "/workspace/dev_work/dev-ir/specimens";
+    let spec = concat!(env!("CARGO_MANIFEST_DIR"), "/../specimens");
     let mut csv = std::fs::File::create(&out).unwrap();
     writeln!(csv, "scenario,frame_idx,update_ms,layout_ms,scene_ms,a11y_ms,render_ms,total_ms").unwrap();
     let mut summary = String::new();

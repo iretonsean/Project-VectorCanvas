@@ -7,7 +7,15 @@
 1. “The finished apps should be up to the developer writing them. I do not want the language to dictate the types of devices this language builds for. That's up to the developers.”
 2. “A developer using this language should be able to write apps using the language locally or in the cloud.”
 
-**Instruction to the next session:** before any further build work, rescope the analysis §4.4 (hardware tiers become developer-selectable capability targets, not language requirements or release gates), §4.7 (the "release-blocking" Tier 0 wording), §8.1 (open questions 2–4 are no longer vision requirements and must be re-weighed), and the Deliverable A criteria below. Authoring must work with a local or a hosted agent, and neither may be mandatory. The token thesis (§2.6, G2) and Deliverable B are unaffected.
+**Applied in Session 3 (2026-10-09).** The rescope is done: README, analysis §0, §3, §4.3, §4.4, §4.4.1, §4.7, §5, §6, §7, §8, §8.1, §10, G6 §5 gate rule, and `CONTRIBUTING.md`. Summary: "virtually any machine" applies to the authoring machine (any machine that can reach a local or a cloud AI model). Target devices are the developer's choice. Tiers are selectable capabilities, not release gates. Accessibility stays release-blocking on every selected target. The token thesis (§2.6, G2) and Deliverable B are unaffected.
+
+**Owner decisions, 2026-10-09 (Session 3):**
+1. Tier material stays as optional, developer-selectable targets (done, see above).
+2. The G2 pilot runs with **hosted (cloud) models only**. Local-model testing is a community contribution (`CONTRIBUTING.md`, "Help wanted"). `pilot/PREREG.md` carries an amendment note; the arms are not yet named.
+3. A6 runs **on the container only**. The physical Tier 1 device requirement is removed. Device results are a community contribution (`CONTRIBUTING.md`).
+4. Session 3 also fixed the absolute specimen paths in `crates/pvc-runtime` tests and examples and in `hosts/pvc-native/tests/tamper.rs`. The workspace tests pass in a fresh container: 89 passed, 0 failed. `hosts/pvc-web-host/build.sh` and `run_web.sh` still use `/workspace/...` paths for the Cargo target and the CPU lock.
+
+**Next work (Session 3):** [`docs/session3/PLAN.md`](docs/session3/PLAN.md): cut PVC's fixed cost per session. Approved by the owner 2026-10-09; work has not started. Later phases: runtime gaps, developer toolchain, language reference.
 
 **Read first:**
 - `docs/session2/pm/PLAN.md`: the task breakdown, deviations V1–V10, and Supervisor decisions D-1…D-10 (ruled; listed in `docs/session2/pm/briefs/COMMON.md` §6).
@@ -17,7 +25,7 @@
 
 **Labels that apply to every number on this branch:**
 - Host `container-xeon4` (4 vCPU Xeon @ 2.1 GHz, no GPU).
-- **No physical Tier 1 device was used** (Ruling 1). Deliverable A is *partial* by construction. **Reassess under the owner clarification.**
+- No physical Tier 1 device was used (Ruling 1). Under the owner decisions above this is no longer a gap: device results are community contributions.
 - "WebGL2" here means ANGLE→SwiftShader (CPU) in Chromium 141 headless. "GL" means wgpu GL on Mesa llvmpipe with WebGL2 downlevel limits imposed.
 - General constraint solve excluded (D-4).
 - Chromebook Crostini GPU acceleration and ChromeVox bridging remain **unverified**.
@@ -61,18 +69,18 @@ Builds and tests:
 | **A6** measurement matrix (frame/RSS/idle/first-frame/mirror cost) | **not run** | Method only: `docs/session2/dev/dev-measure/METHOD.md`, harness `tools/measure/`. Indicative only: `measurements/session2/spotcheck/SUPERVISOR_frame_bench_tier0c.md` (Tier 0 c headless F01 type_en p50 12.26 / p95 15.26 ms; zh-CN IME p50 12.98 / p95 16.57 ms; idle no frame; relayed, not a raw file) | After A4/A5 re-runs: post binary shas, run the matrix inside the quiet window (`docs/session2/pm/QUIET_WINDOW.md`, exclusive `flock -x` on a CPU lock file), write `measurements/session2/SUMMARY.md` with host labels, then REPORT. **Q3 (mirror cost) and Q4 (Tier 1 budget with text + a11y) have no measurement until this runs** |
 | **A7** golden parity | **done — 2/8 PASS, 6/8 FAIL** (**reassess under the owner clarification**) | `measurements/session2/golden/TOLERANCE.md` (committed d2f4f24 before any comparison), `golden/results.md`, diff images, `DIAGNOSIS_posthoc.md` (post-hoc) | Nothing. The bound stays as committed. Any new bound is a separate, dated post-hoc note |
 | **A8** reduced G6 text bar | **done — bar NOT passed** | `measurements/session2/text-bar/RESULT.md` (+ METHOD_TEXTBAR, corpus, raw, work/ PNGs), `docs/session2/dev/dev-measure/` | Optional: Arabic/Devanagari/emoji and a human legibility study (not attempted) |
-| **B1** pre-registration | **interim** (v4) | `pilot/PREREG.md` (sha256 `d6b7dffa…e678`; history a7ef25f → 18cac7e → 29ae5a7) | Fill the 8 PENDING markers (check-pvc command, baseline wrappers + B2 library name/version, validator binary sha, checker validation, harness hash). Re-hash and commit **before any run** |
+| **B1** pre-registration | **interim** (v4 + owner amendment note, 2026-10-09) | `pilot/PREREG.md` (v4 sha256 `d6b7dffa…e678`; the amendment note changes the hash; history a7ef25f → 18cac7e → 29ae5a7) | Fill the 8 PENDING markers (check-pvc command, baseline wrappers + B2 library name/version, validator binary sha, checker validation, harness hash). Re-hash and commit **before any run** |
 | **B2** PVC agent context | **done** (frozen v2) | `pilot/agent-context/FROZEN.md`: **2,511** o200k tokens, sha256 `d3050304…20d9` (v1 2,509 superseded after the specimen-string leak) | Nothing. Any change needs a new hash and a commit |
 | **B3** harness | **done (prep)** | `pilot/harness/`, `recount.py`, `docs/session2/dev/dev-pilot/REPORT.md`, `pilot/DRY-RUN-not-data/` | — |
 | **B4** checklists + checkers | **partial** | `pilot/checklists/` (frozen, commit 70b5d73, 37 hashes verified), `pilot/checker/`, `docs/session2/dev/dev-baseline/PVC_CHECKER_NEEDS.md` (v1.1). No dev-baseline REPORT.md | dev-baseline: name the B2 component library + version, publish the adapter command lines and exit codes (`pilot/harness/adapters/ADAPTERS.md`), and do the final clean validation run. Then run the PVC checker validation once pvc-probe exists |
 | **B4-rt** `pvc-probe` | **not started** | brief `docs/session2/pm/briefs/dev-render-2.md` | Build the headless `pvc-probe` per `PVC_CHECKER_NEEDS.md` v1.1, in `crates/pvc-runtime`. Landmarks use `region` + name (no new roles) |
-| **B5** pilot run + analysis | **not run** | — | Gate list below, then run per PREREG: S4 = Qwen3-4B, then S7 = Qwen2.5-Coder-7B, under an exclusive CPU lock. Models are in `/workspace/tools/models/`, which is outside the repo; their sha256s are in PREREG |
+| **B5** pilot run + analysis | **not run** | — | **Changed 2026-10-09:** hosted (cloud) arms only. Name the arms, add a hosted-API adapter to the harness, amend PREREG (see its amendment note), then run. Needs an API key in the environment. The local S4/S7 models are gone with the old container; local arms are community work |
 | **C1** confidence update | **not started** | findings to use are in `docs/session2/pm/STATUS.md` ("Findings flagged for Deliverable C") | After B5: revise §0/§8.1 with build-readiness and token claim as separate rows, every point traced. **§0/§8.1 were deliberately not revised at this checkpoint** |
 | **C2** integration | checkpoint only | this commit | Final integration after A–C |
 | **C3** mechanical cleanup | not started | — | — |
 
 ## Pilot gate list (all must hold before the first real run)
-1. A6 measurements finished (the pilot needs the CPU exclusively, and the S4 server RSS is about 9.7 GB).
+1. ~~A6 measurements finished~~ No longer a gate: hosted arms do not load a model on the container, so the pilot and A6 can run in any order.
 2. `pvc-probe` built and dev-baseline's PVC checker validated against it.
 3. B2 library name/version and adapter command lines published.
 4. Final PREREG with every §12 hash filled, committed.

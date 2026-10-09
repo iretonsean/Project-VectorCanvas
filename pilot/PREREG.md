@@ -5,6 +5,8 @@
 **What this is:** the written-down test, fixed before any result exists, so the outcome cannot be rationalised afterwards (G2 §1).
 **What this is not:** evidence. Nothing in this file is a measured result, apart from the one dry-run line in §14, which is labelled *not data*.
 
+> **Owner decision, 2026-10-09 (Session 3), not yet worked into this file.** The pilot arms change from the two local models in §3 (S4, S7) to **hosted (cloud) models only**. Local-model arms move to community contributions (`CONTRIBUTING.md`). Before the final freeze, the next session must: (1) name the hosted arms (model ID, provider, date) in §3; (2) add a hosted-API adapter to `pilot/harness/` (the harness now drives llama-server only); (3) replace the secondary count in §5.1 with the provider's reported usage; (4) remove the exclusive-CPU-lock and llama.cpp text that applies only to local arms (§3, §10, §11); (5) update the mandatory label below. This is a change of design before any real run, so it is allowed. The model files in §3 were outside the repository and are not present in the new container.
+
 **Mandatory label (repeat it wherever a result from this pilot is quoted):**
 > Both arms are small local models; no hosted/frontier arm was run; the result speaks only for that class.
 

@@ -25,7 +25,7 @@ fn main() {
     rec("2_first_latin_layout", &mut out);
     let _l = ts.layout("创建账户 你好，世界", &st, Some(300.0));
     rec("3_first_cjk_layout", &mut out);
-    let bytes = std::fs::read("/workspace/dev_work/dev-ir/specimens/F01.pvca").unwrap();
+    let bytes = std::fs::read(concat!(env!("CARGO_MANIFEST_DIR"), "/../specimens/F01.pvca")).unwrap();
     let mut rt = Runtime::from_signed(&bytes, |b| pvc_ir::load_signed(b, &pvc_ir::sign::testkey::verifying_key()), Options { locale: "zh-CN".into(), width: 1366.0, height: 768.0, scale: 1.0 }).unwrap();
     rt.frame();
     rec("4_f01_loaded_first_frame", &mut out);

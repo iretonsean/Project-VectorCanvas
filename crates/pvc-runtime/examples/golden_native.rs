@@ -2,7 +2,7 @@
 //! the display-list fingerprints. Usage: golden_native <out_dir>
 use pvc_runtime::*;
 
-const SPEC: &str = "/workspace/dev_work/dev-ir/specimens";
+const SPEC: &str = concat!(env!("CARGO_MANIFEST_DIR"), "/../specimens");
 
 fn load(name: &str, locale: &str) -> Runtime {
     let bytes = std::fs::read(format!("{SPEC}/{name}.pvca")).unwrap();

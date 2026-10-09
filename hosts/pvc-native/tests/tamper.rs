@@ -4,7 +4,7 @@
 use std::path::{Path, PathBuf};
 use std::process::Command;
 
-const SPEC: &str = "/workspace/dev_work/dev-ir/specimens";
+const SPEC: &str = concat!(env!("CARGO_MANIFEST_DIR"), "/../../crates/specimens");
 
 fn tmp(name: &str, bytes: &[u8]) -> PathBuf {
     let dir = std::env::temp_dir().join("pvc-native-tamper-test");

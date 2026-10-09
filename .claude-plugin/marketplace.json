@@ -1,0 +1,5 @@
+{
+  "name": "project-vectorcanvas",
+  "owner": { "name": "Sean Ireton" },
+  "plugins": [{ "name": "pvc-test", "source": "./mods/pvc-test" }]
+}

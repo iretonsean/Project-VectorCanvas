@@ -1,7 +1,7 @@
 #![allow(dead_code)]
 use pvc_runtime::*;
 
-pub const SPECIMENS: &str = "/workspace/dev_work/dev-ir/specimens";
+pub const SPECIMENS: &str = concat!(env!("CARGO_MANIFEST_DIR"), "/../specimens");
 
 pub fn load(name: &str, locale: &str, w: f32, h: f32) -> Runtime {
     let bytes = std::fs::read(format!("{SPECIMENS}/{name}.pvca")).expect("specimen");
