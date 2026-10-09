@@ -14,6 +14,7 @@
 | Is the underlying ambition achievable? | **Yes, if reframed.** "Compile conversational intent to pixels" is achievable *only* if the LLM is moved out of the runtime hot path and the system is built around a small, deterministic, hardware-tiered intermediate representation (§4). |
 | Ready to begin building? | **Ready for a Tier 1 prototype, not for a full build.** All seven gates (§8) are closed on paper as of 2026-10-08, pending supervisor red-team. Confidence in the *reframed* concept: **~93%** (up from ~85%). The accounting is in §8.1. Three points are deliberately *not* claimed. Paper cannot remove them; one Tier 1 prototype and a G2 pilot run can (§8.1). The original README (`a19d690`) scored <20%. It has been rewritten (G1) to match this analysis. |
 | Does the token claim hold? | **Unknown, and now testable.** It is not folded into the 93%. Measured on the README's own example, the claimed ~600 → ~65 tokens is actually 185 → 107 [G7 S.4]. The fair comparison, agent-written HTML against agent-written PVC-IR, is 185 → 118 on that one card, *before* the context overhead PVC adds (§2.6). G2 defines the test and the falsification trigger. |
+| What does "on virtually any machine" require? | **Owner clarification, 2026-10-09 (Session 2 close):** devices are chosen by the developer, not dictated by the language, and authoring may use a local or a hosted agent. The reading of this document that made Tier 0/1 an end-user release requirement is superseded pending rescoping. See §4.4 (clarification note) and §8.1. The token claim (row above) is unaffected. |
 
 ---
 
@@ -129,6 +130,13 @@ The mathematical core should be two well-understood models, not a new one:
 - **Frame budget contract:** 16.6 ms on the Tier 1 reference devices and 33 ms on Tier 0 (§4.4.1), measured in CI.
 
 ### 4.4 Hardware tiering (acceptance criteria, not nice-to-haves)
+
+> **Owner clarification, 2026-10-09 (Session 2 close).** The owner stated:
+> 1. “The finished apps should be up to the developer writing them. I do not want the language to dictate the types of devices this language builds for. That's up to the developers.”
+> 2. “A developer using this language should be able to write apps using the language locally or in the cloud.”
+>
+> **Consequence (recorded, not yet worked through):** this document read the vision sentence "on virtually any machine" as an end-user runtime requirement. That reading is superseded. Hardware tiers become **developer-selectable capability targets**, not language requirements or release gates. Authoring must be possible with a local agent or a hosted agent; neither is mandatory. Pending rescoping by the next session, the following are **superseded**: §4.4.1 rule 1 ("'Done' means rendered on the floor") and rule 4 (the 150 MB memory ceiling as a universal rule), and the "release-blocking" wording for Tier 0 software rendering in §4.7 item 4. The tables in §4.4 and §4.4.1 are left unchanged as a description of possible targets until they are rescoped. The token thesis (§2.6, G2) is unaffected.
+
 | Tier | Backend | Target devices | Must support |
 |---|---|---|---|
 | 0 | CPU software rasterizer (SIMD, tiled) | No/broken GPU drivers, VMs, old netbooks, e-ink/embedded | Full IR, reduced effects, ≥30 FPS at 1366×768 |
@@ -259,6 +267,8 @@ The project owner's mandate is that the language must let *anyone with access to
 **What would earn the remaining points:**
 - *First:* one Tier 1 prototype (the budget-Android or Chromebook reference, §4.4.1) that renders G2 specimens **L01** and **F01**. That means text input with system IME in one CJK locale and the accessibility tree live, on one native host and in the browser on the WebGL2 path, with budgets measured. *Estimate:* this removes items 2–4 and takes confidence to about 95–96%.
 - *Then:* a G2 pilot run, ≥10 specimens across categories 1 and 4, with two agent arms including the small local model. This turns item 1 from a hypothesis into a measurement, in either direction. A negative result could *lower* confidence in the vision's token claim even as build-readiness rises. The two are reported separately (§0).
+
+**Owner clarification, 2026-10-09 (Session 2 close):** open questions 2–4 above (text and IME on Tier 1 hosts, web-mirror cost within the Tier 1 budget, Tier 1 frame budget) are **no longer vision requirements**, because target devices are the developer's choice (§4.4 clarification note). The next session must re-weigh them, and the confidence accounting that depends on them. The numbers in this section are left unchanged until then. Question 1 (the token thesis) is unaffected.
 
 **Confidence that the token claim holds** is deliberately not folded into this number (§0, second row). It is a hypothesis with a pre-registered test (G2 §1), not something a document can raise.
 
