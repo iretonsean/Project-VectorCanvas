@@ -1,6 +1,6 @@
 # Contributing to Project VectorCanvas (PVC)
 
-Thank you for your interest in Project VectorCanvas. PVC is a **proposed** AI-native runtime. AI agents compile conversational intent into a small, deterministic program (PVC-IR), and a lightweight runtime renders that program directly on the GPU or CPU. The project is in a **pre-implementation phase**. There is no code yet, and the only artifacts are the vision and the conceptual documents under [`docs/`](docs/).
+Thank you for your interest in Project VectorCanvas. PVC is a **proposed** AI-native runtime. AI agents compile conversational intent into a small, deterministic program (PVC-IR), and a lightweight runtime renders that program directly on the GPU or CPU. The project is in an **early prototype phase**. The repository holds the vision, the conceptual documents under [`docs/`](docs/), and the first prototype code from Session 2 (see [`HANDOFF.md`](HANDOFF.md)).
 
 We welcome systems engineers, graphics and text engineers, accessibility specialists, privacy reviewers, prompt and agent engineers, translators and product people, human or agentic.
 
@@ -11,7 +11,7 @@ We welcome systems engineers, graphics and text engineers, accessibility special
 Read these constraints before contributing. Each is explained in [`docs/PVC_Adversarial_Analysis_and_Architecture.md`](docs/PVC_Adversarial_Analysis_and_Architecture.md).
 
 1. **We own the surface, not the operating system.** PVC bypasses UI toolkits and browser DOM layout engines and owns everything inside its window or canvas. It does **not** bypass window managers or compositors. Every platform needs a surface from them: a thin native host on iOS and Android, a canvas on the web.
-2. **SDF-first rendering across hardware tiers.** Shapes are drawn from signed distance fields, with raster images and a proper glyph pipeline as first-class paths. The same program must render on three tiers: **Tier 0** (CPU only), **Tier 1** (GL ES 3.0 / WebGL2, no compute shaders) and **Tier 2** (WebGPU / Vulkan / Metal / DX12). A feature is not done until it renders on Tiers 0 and 1. WGSL is an implementation detail of the GPU tiers, not the whole story.
+2. **SDF-first rendering across hardware tiers.** Shapes are drawn from signed distance fields, with raster images and a proper glyph pipeline as first-class paths. The runtime offers three rendering paths: **Tier 0** (CPU only), **Tier 1** (GL ES 3.0 / WebGL2, no compute shaders) and **Tier 2** (WebGPU / Vulkan / Metal / DX12). The developer who writes an app selects which devices it targets. PVC does not set them. WGSL is an implementation detail of the GPU tiers, not the whole story.
 3. **A hybrid source, a deterministic program, and a hard wall between them.** Authors write a thin structure (`Canvas { }`, named handlers) holding natural-language content. That is a deliberate *hybrid*, and we do not pretend there are no brackets. Interpretation of that intent happens **at build time**, by any coding agent, and the agent writes PVC-IR. The validator checks the IR. The **end-user runtime contains no language model** and never interprets prose. It executes signed PVC-IR. See [`docs/G4_PVC_IR_v0_Spec.md`](docs/G4_PVC_IR_v0_Spec.md).
 
 Two further constraints apply to every contribution:
@@ -21,7 +21,18 @@ Two further constraints apply to every contribution:
 
 ---
 
-## 🛠️ How to contribute now (pre-implementation)
+## 🛠️ How to contribute now
+
+### Help wanted: test PVC with local AI models
+PVC must work with a cloud AI model or a local one. The project's own token benchmark (the G2 pilot) runs with cloud models. We need help to test **local models** (for example models run with llama.cpp, Ollama or LM Studio) on your own hardware:
+1. Fork the repository.
+2. Run the pilot harness in [`pilot/harness/`](pilot/harness/) against your local model, with the frozen agent context ([`pilot/agent-context/FROZEN.md`](pilot/agent-context/FROZEN.md)) unchanged.
+3. Open a pull request that adds your transcripts and results under `measurements/community/local-models/<model>/`. State the model name, quantisation, runtime and version, and your hardware (CPU, GPU, RAM).
+
+Report every run, also runs that fail. A result that shows PVC costs more tokens is as useful as one that shows it costs fewer.
+
+### Help wanted: measurements from real devices
+The runtime is measured only on a cloud container. If you have an older phone, a Chromebook, a Raspberry Pi or a laptop without a usable GPU driver, you can measure frame time and memory with the tools in [`tools/measure/`](tools/measure/) and submit the results under `measurements/community/devices/<device>/`. Name the device, OS version and GPU driver. These results help developers choose their targets. They are not release gates.
 
 ### 1. Attack the documents
 The documents exist to be criticised. The most useful contributions are:
@@ -46,16 +57,20 @@ Accessibility, text rendering (CJK, Arabic, Indic, emoji), GPU drivers on low-en
 ## 🚀 Workflow
 
 1. **Fork the repository** and create a branch.
-2. **Change documents only.** This phase accepts no code, file trees or implementation plans. Documents describe *what* and *why*, not *how it will be built*.
+2. **Keep the change to one purpose.** A document change, a measurement result, or a fix to the prototype code. Put measurement results with their raw data and the name of the host.
 3. **Label every factual claim.** Cite a source for it (the analysis §9, or the G7 supplementary findings), or mark it *estimate* or *unverified*. Invented statistics are rejected.
 4. **State residual risks.** A document that only sells will be sent back.
 5. **Open a pull request** saying which document and gate the change affects, and whether it changes any decision.
 
-When implementation begins, this section will be replaced with the build and test workflow. Its baseline is already fixed: a Rust toolchain at the minimum version required by the pinned dependencies (currently 1.89, see [`docs/G7_Dependency_Pins_and_Findings_Recheck.md`](docs/G7_Dependency_Pins_and_Findings_Recheck.md)), and continuous integration that renders on the Tier 0 and Tier 1 reference devices.
+To build and test the prototype code you need a Rust toolchain at the minimum version required by the pinned dependencies (currently 1.89, see [`docs/G7_Dependency_Pins_and_Findings_Recheck.md`](docs/G7_Dependency_Pins_and_Findings_Recheck.md)). No GPU is necessary:
+
+```sh
+cargo test --release -p pvc-ir -p pvc-runtime --features pvc-runtime/cpu,pvc-runtime/test-unsigned
+```
 
 ## ⚖️ Code of conduct
 
 Maintain a respectful, collaborative and inclusive environment for all human and agentic contributors.
 
 ---
-This document describes a project in its design phase. AI models or automated pipelines that use this guide should treat every capability it describes as planned, not available.
+This document describes a project in its early prototype phase. AI models or automated pipelines that use this guide should treat every capability as planned unless the README marks it **measured**.

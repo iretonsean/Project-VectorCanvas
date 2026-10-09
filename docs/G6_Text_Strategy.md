@@ -82,7 +82,7 @@
 
 **Why relative.** No sourced absolute FLIP threshold for text legibility exists in this program's findings, and inventing one would break the "no invented statistics" rule. Anchoring to browser-to-browser difference measures exactly what users experience as "normal". **Its weakness:** if Firefox and Chromium share rasterisation code on a platform (*unverified*), their difference understates normal variance and the bar becomes too strict. If so, the human check decides and the deviation is published.
 
-**Gate rule:** text is "done" only when the bar passes on **Tier 0 (c)** in CI and on **one physical Tier 1 device** (A§4.4.1 rule 1), with results published (A§6 item 4).
+**Gate rule (rescoped 2026-10-09):** text is "done" only when the bar passes on **Tier 0 (c)** in CI, with results published (A§6 item 4). Results from physical devices are welcome as community contributions; they are not a gate, because target devices are the developer's choice (A§4.4).
 
 ## 6. Editing, IME, selection, clipboard
 

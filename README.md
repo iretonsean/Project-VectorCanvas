@@ -2,16 +2,16 @@
 
 > **Status: vision, pre-implementation.** No PVC code existed before Session 2. This branch adds Session 2's incomplete prototype code (see the Session 2 status note below). This repository holds the project's vision and the conceptual documents that must hold up under criticism before any building starts. Everything below is **planned** unless it is explicitly marked **measured**.
 
-> **Session 2 status (checkpoint, incomplete).** Session 2 was the first session allowed to write code. It stopped early. The first prototype code is on the `session2-evidence` branch (an IR crate, a runtime, native and web hosts), and [`HANDOFF.md`](HANDOFF.md) lists exactly what is done and what is not. This note states only what has been **measured**. Every result comes from one container (4-vCPU Xeon, no GPU). **No physical Tier 1 device (phone or Chromebook) was used.**
+> **Session 2 status (checkpoint, incomplete).** Session 2 was the first session allowed to write code. It stopped early. The first prototype code is in this repository (an IR crate, a runtime, native and web hosts), and [`HANDOFF.md`](HANDOFF.md) lists exactly what is done and what is not. This note states only what has been **measured**. Every result comes from one container (4-vCPU Xeon, no GPU). No physical phone or Chromebook was used.
 > - **Golden-image parity vs the CPU reference** (LDR-FLIP, bound committed before comparing): L01 **passes** on both the GL (llvmpipe) and WebGL2 (SwiftShader, CPU-emulated) paths. The three F01 states **fail** on both paths, on the 99.9th-percentile statistic (0.0526–0.0533 against a 0.05 bound; mean ≤ 0.0005). [`measurements/session2/golden/results.md`](measurements/session2/golden/results.md)
 > - **Text quality vs Chromium** (reduced G6 bar, Latin + Simplified Chinese): **not passed**. Latin raster cells 8/8, Chinese 2/8, exact line breaks 4/8 per script. [`measurements/session2/text-bar/RESULT.md`](measurements/session2/text-bar/RESULT.md)
-> - **Frame time, Tier 0 software path only:** an *indicative spot-check*, headless, not the planned measurement matrix. Typing frames p50 ≈ 12–13 ms, p95 ≈ 15–17 ms, and no frame is drawn when idle. [`measurements/session2/spotcheck/SUPERVISOR_frame_bench_tier0c.md`](measurements/session2/spotcheck/SUPERVISOR_frame_bench_tier0c.md). Tier 1 frame budgets, memory and web accessibility-mirror cost were **not measured**.
+> - **Frame time, Tier 0 software path only:** an *indicative spot-check*, headless, not the planned measurement matrix. Typing frames p50 ≈ 12–13 ms, p95 ≈ 15–17 ms, and no frame is drawn when idle. [`measurements/session2/spotcheck/SUPERVISOR_frame_bench_tier0c.md`](measurements/session2/spotcheck/SUPERVISOR_frame_bench_tier0c.md). Frame time on GPU paths, memory and web accessibility-mirror cost were **not measured**.
 > - **Token benchmark (G2 pilot): not run.** The protocol is pre-registered and the PVC agent context is frozen at 2,511 tokens of fixed overhead per turn ([`pilot/agent-context/FROZEN.md`](pilot/agent-context/FROZEN.md)), but no agent has been run. **Whether G2's falsification trigger fires is therefore undetermined.** Two corrections to the example below were measured: the HTML block is 184 tokens, not 185 ([`measurements/session2/tokens/readme_recount.txt`](measurements/session2/tokens/readme_recount.txt)). A *complete, valid* PVC-IR card (with its manifest) is 150 tokens, not the 118 of the illustrative snippet ([`docs/session2/dev/dev-ir/evidence/l01-token-count.txt`](docs/session2/dev/dev-ir/evidence/l01-token-count.txt)).
-> - **Owner clarification, 2026-10-09 (Session 2 close):** “The finished apps should be up to the developer writing them. I do not want the language to dictate the types of devices this language builds for. That's up to the developers.” “A developer using this language should be able to write apps using the language locally or in the cloud.” The "runs on virtually any machine" framing is therefore being rescoped. Target devices are the developer's choice, not a language requirement, and authoring works with a local or a hosted agent. See the analysis §4.4 note.
+> - **Owner clarification, 2026-10-09 (Session 2 close):** “The finished apps should be up to the developer writing them. I do not want the language to dictate the types of devices this language builds for. That's up to the developers.” “A developer using this language should be able to write apps using the language locally or in the cloud.” This README and the analysis were rescoped on 2026-10-09 to match. "Virtually any machine" means the machine the developer *writes* on: any machine that can reach a local or cloud AI model. The devices a finished app runs on are the developer's choice. PVC does not set them. See the analysis §4.4.
 > - The confidence figures in the analysis (§0, §8.1) have **not** been revised. No measurement yet supports a change.
 > - Scope note: beyond the two prototype specimens (L01, F01), the only code built is headless validator coverage for the 15 pilot specimens, with no rendering (Supervisor decision D-2). The matching headless runtime probe was not built.
 
-**What PVC is meant to be:** a way for AI agents to build digital products with fewer tokens, which then run on virtually any machine. You describe what you want in conversation with any coding agent, local or cloud. The agent compiles that intent into a small, checkable program called **PVC-IR**. A lightweight runtime draws that program directly on the GPU, or on the CPU when there is no usable GPU, with no browser engine or UI toolkit in between.
+**What PVC is meant to be:** a way for AI agents to build digital products with fewer tokens, from virtually any machine that can use a local or cloud AI model. You describe what you want in conversation with any coding agent, local or cloud. Where the finished app runs is the developer's decision, not PVC's. The agent compiles that intent into a small, checkable program called **PVC-IR**. A lightweight runtime draws that program directly on the GPU, or on the CPU when there is no usable GPU, with no browser engine or UI toolkit in between.
 
 The owner's vision, in plain language:
 
@@ -24,16 +24,16 @@ The first release targets **products with a user interface**, because that is wh
 ## How it is meant to work
 
 ```
- Your intent (conversation, any language)   ← you + any coding agent, on any device
+ Your intent (conversation, any language)   ← you + any coding agent, local or cloud
         │  Stage A — interpretation: the agent writes PVC-IR, the validator checks it
         ▼
  PVC-IR (deterministic, typed, versioned, signed)   ← this is the program
         │  Stage B — resolution: layout solve, hardware-tier selection
         ▼
- Pixels on the end user's device                     ← offline, no AI model involved
+ Pixels on the devices the developer chose          ← offline, no AI model involved
 ```
 
-The key rule is a **hard wall** between Stage A and Stage B. AI interpretation happens only while the app is being *built*. The app your users run contains **no language model**. It renders the same way every time, works offline, and runs on weak hardware. Details: [`docs/PVC_Adversarial_Analysis_and_Architecture.md`](docs/PVC_Adversarial_Analysis_and_Architecture.md) §4.1.
+The key rule is a **hard wall** between Stage A and Stage B. AI interpretation happens only while the app is being *built*. The app your users run contains **no language model**. It renders the same way every time and works offline. Details: [`docs/PVC_Adversarial_Analysis_and_Architecture.md`](docs/PVC_Adversarial_Analysis_and_Architecture.md) §4.1.
 
 ## Core ideas (planned)
 
@@ -47,23 +47,25 @@ The key rule is a **hard wall** between Stage A and Stage B. AI interpretation h
   1. **Any agent.** It works with any general-purpose coding agent. No special PVC model is required.
   2. **Any authoring device.** You can author from a phone, a Chromebook or a library PC through a browser. No local GPU, Rust toolchain or local model is needed.
   3. **Any language.** You can describe your app in any human language your agent understands. Diagnostics are localisable codes, not English-only messages.
-  4. **Any end user.** Accessibility (screen readers, keyboard, text scaling) and a software-rendering fallback for machines without a usable GPU are release-blocking, not optional.
+  4. **Any end user.** Accessibility (screen readers, keyboard, text scaling) is release-blocking, not optional, on every target the developer selects.
 - **Permissions you set, that no AI can talk its way past.** An app must declare what it may touch (network hosts, files, camera, clipboard...). The user grants or narrows those permissions, and the runtime enforces them mechanically.
 
-## Where it is meant to run (planned)
+## Where apps run: the developer's choice
 
-| Hardware tier | What it uses | Examples of reference devices |
+PVC does not decide which devices an app must support. The developer selects the targets for each app. The runtime is designed to offer these rendering paths, so that a developer can select any of them:
+
+| Rendering path | What it uses | Examples of devices it can serve |
 |---|---|---|
-| Tier 0 | CPU-only software rendering | Raspberry Pi 4; 2012–2014 laptops with no usable GPU driver |
-| Tier 1 | GL ES 3.0 / WebGL2-class GPUs, no compute shaders | Budget Android phones from 2018–2020 (Android 9–11); older laptops; Chromebooks; browsers without WebGPU |
+| Tier 0 | CPU-only software rendering | Machines with no usable GPU driver, virtual machines, single-board computers |
+| Tier 1 | GL ES 3.0 / WebGL2-class GPUs, no compute shaders | Older phones and laptops, Chromebooks, browsers without WebGPU |
 | Tier 2 | WebGPU / Vulkan / Metal / DirectX 12 | Current phones, laptops and desktops |
 
-- **Web:** WebGPU where the browser has it, otherwise WebGL2. WebGPU is not yet available everywhere: by industry estimates about 30% of users still need the WebGL2 path (analysis §9.1).
-- **iOS:** distributed through the App Store like any other app, using a minimal native host that presents PVC's GPU surface.
-- **Android:** a thin native host. Vulkan is **not** assumed.
-- **Desktop:** Windows, macOS and Linux, including machines without Vulkan or DirectX 12.
+- **Web:** WebGPU where the browser has it, otherwise WebGL2 (analysis §9.1).
+- **iOS:** a minimal native host that presents PVC's GPU surface.
+- **Android:** a thin native host. Vulkan is not assumed.
+- **Desktop:** Windows, macOS and Linux.
 
-Full device list and frame budgets: analysis §4.4.1.
+A tier is a capability, not a promise about speed on a given device. Session 2 measured frame time only on one cloud container. Results from real devices are welcome: see [`CONTRIBUTING.md`](CONTRIBUTING.md). Tier details: analysis §4.4.
 
 ## Example: one profile card, three ways
 
@@ -149,7 +151,7 @@ effect connect_user uses net.main
 There is nothing to install or run yet. When there is, there will be two separate paths:
 
 - **Author with PVC (planned).** For people building apps. You will need any coding agent, local or cloud, and a web browser. The validator and preview are planned to run in a browser tab or as a small standalone tool. No GPU, Rust toolchain or local model will be required.
-- **Build PVC itself (planned).** For people developing the runtime. You will need a Rust toolchain at or above the minimum version set by PVC's pinned dependencies (currently 1.89, per [G7](docs/G7_Dependency_Pins_and_Findings_Recheck.md)). A modern GPU is **not** required, because the CPU-only tier is a first-class target.
+- **Build PVC itself (planned).** For people developing the runtime. You will need a Rust toolchain at or above the minimum version set by PVC's pinned dependencies (currently 1.89, per [G7](docs/G7_Dependency_Pins_and_Findings_Recheck.md)). A GPU is **not** required: the CPU renderer is enough to build and test the runtime.
 
 ## Contributing
 
